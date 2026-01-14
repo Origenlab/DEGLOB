@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <!-- Página Principal -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/</loc>
+        <lastmod>2025-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp</image:loc>
+            <image:title>Decoración con globos para eventos en CDMX - DEGLOB</image:title>
+        </image:image>
+    </url>
+
+    <!-- Página de Servicios -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/servicios.html</loc>
+        <lastmod>2025-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Arcos de Globos -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/arcos-de-globos.html</loc>
+        <lastmod>2025-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp</image:loc>
+            <image:title>Arcos de globos orgánicos para bodas en CDMX</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-xv-anos-rosa-plata-pista-baile.webp</image:loc>
+            <image:title>Arcos de globos para XV años en CDMX</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-baby-shower-nina-rosa-mesa-dulces.webp</image:loc>
+            <image:title>Arcos de globos para baby shower</image:title>
+        </image:image>
+    </url>
+
+    <!-- Columnas Decorativas -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/columnas-decorativas.html</loc>
+        <lastmod>2025-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/columnas-decorativas/columnas-globos-blanco-dorado-entrada-boda-elegante.webp</image:loc>
+            <image:title>Columnas de globos para bodas en CDMX</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/columnas-decorativas/columnas-globos-xv-anos-rosa-plata-pista-baile.webp</image:loc>
+            <image:title>Columnas de globos para XV años</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/columnas-decorativas/columnas-globos-corporativo-blanco-plata-conferencia.webp</image:loc>
+            <image:title>Columnas de globos para eventos corporativos</image:title>
+        </image:image>
+    </url>
+
+    <!-- Backdrops y Paneles -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/backdrops-paneles.html</loc>
+        <lastmod>2025-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Globos con Helio -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/globos-helio.html</loc>
+        <lastmod>2025-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Figuras Personalizadas -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/figuras-personalizadas.html</loc>
+        <lastmod>2025-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Centros de Mesa -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/centros-mesa.html</loc>
+        <lastmod>2025-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Guirnaldas de Globos -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/guirnaldas-globos.html</loc>
+        <lastmod>2025-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Globos Gigantes -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/globos-gigantes.html</loc>
+        <lastmod>2025-01-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+</urlset>

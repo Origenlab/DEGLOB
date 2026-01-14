@@ -1,5 +1,60 @@
-# https://www.robotstxt.org/
+# robots.txt para DEGLOB - Decoración con Globos CDMX
+# https://fantasyglobos.com.mx
 
-# Allow crawling of all content
+# Permitir todos los robots
 User-agent: *
-Disallow:
+
+# Permitir acceso a todo el sitio
+Allow: /
+
+# Bloquear acceso a archivos de desarrollo y sistema
+Disallow: /*.md$
+Disallow: /DOCUMENTO-PAGINAS.md
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /*.log$
+
+# Bloquear página 404
+Disallow: /404.html
+
+# Directivas específicas para Googlebot
+User-agent: Googlebot
+Allow: /
+Allow: /*.css
+Allow: /*.js
+Allow: /*.webp
+Allow: /*.avif
+Allow: /*.jpg
+Allow: /*.png
+
+# Directivas específicas para Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /img/
+
+# Directivas para otros bots importantes
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Sitemap
+Sitemap: https://fantasyglobos.com.mx/sitemap.xml
+
+# Host preferido
+Host: https://fantasyglobos.com.mx
