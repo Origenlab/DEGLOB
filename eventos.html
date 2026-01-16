@@ -293,7 +293,10 @@
         }
 
         .section-header .badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(201, 0, 212, 0.1) 100%);
             color: var(--primary);
             padding: 8px 20px;
@@ -355,6 +358,9 @@
         }
 
         .btn-whatsapp {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
             background: #25D366;
             color: var(--white);
         }
@@ -1249,7 +1255,10 @@
             color: var(--primary-light);
         }
         .google-maps-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             background: var(--gradient);
             color: var(--white) !important;
             padding: 8px 16px;
@@ -1309,6 +1318,29 @@
             font-size: 28px;
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
             transition: var(--transition);
+        }
+
+        .whatsapp-float .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background: #FF3B30;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(255, 59, 48, 0.5);
+            animation: pulse-badge 2s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .whatsapp-float a:hover {
@@ -1402,6 +1434,9 @@
             }
 
             .header-cta .btn-whatsapp {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
                 display: none;
             }
 
@@ -1524,7 +1559,7 @@
         <div class="header-main">
             <div class="container">
                 <div class="header-main-content">
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         <img src="img/decoracion-con-globos.avif" alt="DEGLOB - Decoracion con Globos CDMX">
                     </a>
 
@@ -1536,7 +1571,7 @@
                         </button>
 
                         <ul class="nav-menu" id="navMenu">
-                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="/">Inicio</a></li>
                             <li>
                                 <a href="servicios.html">Servicios <i class="fas fa-chevron-down"></i></a>
                                 <div class="dropdown">
@@ -1563,8 +1598,8 @@
                                     <a href="graduaciones.html">Graduaciones</a>
                                 </div>
                             </li>
-                            <li><a href="index.html#nosotros">Nosotros</a></li>
-                            <li><a href="index.html#contacto">Contacto</a></li>
+                            <li><a href="nosotros.html">Nosotros</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
                         </ul>
                     </nav>
 
@@ -1573,10 +1608,7 @@
                             <i class="fas fa-phone"></i>
                             <span>55 3929 8346</span>
                         </a>
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20mi%20evento" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Ahora
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20mi%20evento" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
             </div>
@@ -1587,7 +1619,7 @@
     <div class="breadcrumb-bar">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="index.html">Inicio</a>
+                <a href="/">Inicio</a>
                 <i class="fas fa-chevron-right"></i>
                 <span>Eventos</span>
             </nav>
@@ -1617,10 +1649,7 @@
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20mi%20evento" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Mi Evento
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20mi%20evento" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                         <a href="#eventos" class="btn btn-outline">
                             Ver Tipos de Eventos
                         </a>
@@ -1854,10 +1883,7 @@
                     </div>
 
                     <div class="event-detail-cta">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20mi%20boda" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Mi Boda
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20mi%20boda" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
                 <div class="event-detail-image">
@@ -1899,10 +1925,7 @@
                     </div>
 
                     <div class="event-detail-cta">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20XV%20anos" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar XV Anos
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20XV%20anos" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
                 <div class="event-detail-image">
@@ -1944,10 +1967,7 @@
                     </div>
 
                     <div class="event-detail-cta">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20baby%20shower" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Baby Shower
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20baby%20shower" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
                 <div class="event-detail-image">
@@ -1989,10 +2009,7 @@
                     </div>
 
                     <div class="event-detail-cta">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20cumpleanos" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Cumpleanos
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20cumpleanos" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
                 <div class="event-detail-image">
@@ -2034,10 +2051,7 @@
                     </div>
 
                     <div class="event-detail-cta">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20evento%20corporativo" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Evento Corporativo
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20evento%20corporativo" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
                 <div class="event-detail-image">
@@ -2079,10 +2093,7 @@
                     </div>
 
                     <div class="event-detail-cta">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20inauguracion" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Inauguracion
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20inauguracion" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
                 <div class="event-detail-image">
@@ -2124,10 +2135,7 @@
                     </div>
 
                     <div class="event-detail-cta">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20gender%20reveal" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Gender Reveal
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20gender%20reveal" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
                 <div class="event-detail-image">
@@ -2169,10 +2177,7 @@
                     </div>
 
                     <div class="event-detail-cta">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20graduacion" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Graduacion
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20graduacion" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
                 <div class="event-detail-image">
@@ -2334,10 +2339,7 @@
                             <textarea id="mensaje" name="mensaje" placeholder="Describe tu evento: tematica, colores, cantidad de invitados, elementos que te gustaria incluir, presupuesto aproximado..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-whatsapp" style="width: 100%;">
-                            <i class="fab fa-whatsapp"></i>
-                            Enviar Cotizacion por WhatsApp
-                        </button>
+                        <button type="submit" class="btn btn-whatsapp" style="width: 100%;">WHATSAPP</button>
                     </form>
                 </div>
             </div>
@@ -2351,11 +2353,8 @@
                 <h2>¿Listo para Hacer tu Evento Inolvidable?</h2>
                 <p>Cuentanos sobre tu celebracion y recibe una propuesta personalizada sin compromiso en menos de 24 horas</p>
                 <div class="cta-buttons">
-                    <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20mi%20evento" class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        Cotizar por WhatsApp
-                    </a>
-                    <a href="index.html#contacto" class="btn btn-white">
+                    <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20mi%20evento" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
+                    <a href="contacto.html" class="btn btn-white">
                         <i class="fas fa-envelope"></i>
                         Enviar Mensaje
                     </a>
@@ -2423,6 +2422,7 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 DEGLOB - Decoracion con Globos. Todos los derechos reservados.</p>
                 <div class="footer-legal">
+                    <a href="nosotros.html">Nosotros</a>
                     <a href="politica-privacidad.html">Politica de Privacidad</a>
                     <a href="terminos-condiciones.html">Terminos y Condiciones</a>
                 </div>
@@ -2432,6 +2432,7 @@
 
     <!-- WhatsApp Float -->
     <div class="whatsapp-float">
+        <span class="notification-badge">1</span>
         <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20informacion%20sobre%20decoracion%20con%20globos%20para%20mi%20evento" target="_blank" aria-label="Contactar por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>

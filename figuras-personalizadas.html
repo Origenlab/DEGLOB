@@ -432,7 +432,10 @@
         }
 
         .section-header .badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(201, 0, 212, 0.1) 100%);
             color: var(--primary);
             padding: 8px 20px;
@@ -488,6 +491,9 @@
         }
 
         .btn-whatsapp {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
             background: #25D366;
             color: var(--white);
         }
@@ -1623,7 +1629,10 @@
             color: var(--primary-light);
         }
         .google-maps-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             background: var(--gradient);
             color: var(--white) !important;
             padding: 8px 16px;
@@ -1662,6 +1671,29 @@
             font-size: 28px;
             box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
             
+        }
+
+        .whatsapp-float .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background: #FF3B30;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(255, 59, 48, 0.5);
+            animation: pulse-badge 2s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .whatsapp-float a:hover {
@@ -2041,7 +2073,7 @@
         <div class="header-main">
             <div class="container">
                 <div class="header-main-content">
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         <img src="img/decoracion-con-globos.avif" alt="DEGLOB - Decoración con Globos CDMX">
                     </a>
 
@@ -2053,7 +2085,7 @@
                         </button>
 
                         <ul class="nav-menu" id="navMenu">
-                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="/">Inicio</a></li>
                             <li>
                                 <a href="servicios.html" class="active">Servicios <i class="fas fa-chevron-down"></i></a>
                                 <div class="dropdown">
@@ -2080,8 +2112,8 @@
                                     <a href="graduaciones.html">Graduaciones</a>
                                 </div>
                             </li>
-                            <li><a href="index.html#nosotros">Nosotros</a></li>
-                            <li><a href="index.html#contacto">Contacto</a></li>
+                            <li><a href="nosotros.html">Nosotros</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
                         </ul>
                     </nav>
 
@@ -2090,10 +2122,7 @@
                             <i class="fas fa-phone"></i>
                             <span>55 3929 8346</span>
                         </a>
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20figuras%20de%20globos" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Ahora
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20figuras%20de%20globos" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
             </div>
@@ -2104,7 +2133,7 @@
     <div class="breadcrumb-bar">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="index.html">Inicio</a>
+                <a href="/">Inicio</a>
                 <i class="fas fa-chevron-right"></i>
                 <a href="servicios.html">Servicios</a>
                 <i class="fas fa-chevron-right"></i>
@@ -2134,10 +2163,7 @@
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20figuras%20de%20globos%20personalizadas" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar por WhatsApp
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20figuras%20de%20globos%20personalizadas" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                         <a href="#tipos-figura" class="btn btn-outline">
                             Ver Figuras
                         </a>
@@ -2201,10 +2227,7 @@
                             <li><i class="fas fa-check"></i> Ideal para cumpleaños, XV años, aniversarios</li>
                         </ul>
                         <div class="tipo-figura-cta">
-                            <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20números%20gigantes%20de%20globos" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                                Cotizar Números/Letras
-                            </a>
+                            <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20números%20gigantes%20de%20globos" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                         </div>
                     </div>
                 </article>
@@ -2227,10 +2250,7 @@
                             <li><i class="fas fa-check"></i> Construcción artesanal profesional</li>
                         </ul>
                         <div class="tipo-figura-cta">
-                            <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20una%20figura%20personalizada%20de%20globos" class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                                Cotizar Figura Personalizada
-                            </a>
+                            <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20una%20figura%20personalizada%20de%20globos" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                         </div>
                     </div>
                 </article>
@@ -2697,10 +2717,7 @@
                             </div>
                         </div>
                         <div class="form-submit">
-                            <button type="submit" class="btn btn-whatsapp">
-                                <i class="fab fa-whatsapp"></i>
-                                Enviar y Cotizar por WhatsApp
-                            </button>
+                            <button type="submit" class="btn btn-whatsapp">WHATSAPP</button>
                         </div>
                     </form>
                 </div>
@@ -2896,6 +2913,7 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 DEGLOB - Decoracion con Globos. Todos los derechos reservados.</p>
                 <div class="footer-legal">
+                    <a href="nosotros.html">Nosotros</a>
                     <a href="politica-privacidad.html">Politica de Privacidad</a>
                     <a href="terminos-condiciones.html">Terminos y Condiciones</a>
                 </div>
@@ -2905,6 +2923,7 @@
 
     <!-- WhatsApp Float Button -->
     <div class="whatsapp-float">
+        <span class="notification-badge">1</span>
         <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20información%20sobre%20figuras%20de%20globos" target="_blank" aria-label="Contactar por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>

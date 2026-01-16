@@ -410,7 +410,10 @@
         }
 
         .section-header .badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             background: var(--gradient-soft);
             color: var(--primary);
             padding: 0.5rem 1rem;
@@ -465,6 +468,9 @@
         }
 
         .btn-whatsapp {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
             background: var(--whatsapp);
             color: var(--white);
         }
@@ -1585,7 +1591,10 @@
             color: var(--primary-light);
         }
         .google-maps-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             background: var(--gradient);
             color: var(--white) !important;
             padding: 8px 16px;
@@ -1629,6 +1638,29 @@
             font-size: 1.75rem;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
             transition: var(--transition);
+        }
+
+        .whatsapp-float .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background: #FF3B30;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(255, 59, 48, 0.5);
+            animation: pulse-badge 2s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .whatsapp-float a:hover {
@@ -1991,13 +2023,13 @@
          ============================================ -->
     <header class="header">
         <div class="header-container">
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
                 <img src="img/decoracion-con-globos.avif" alt="DEGLOB Logo">
                 <span>DEGLOB</span>
             </a>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="/" class="nav-link">Inicio</a>
 
                 <div class="dropdown">
                     <span class="nav-link dropdown-toggle">
@@ -2064,8 +2096,9 @@
                 </div>
 
                 <a href="servicios.html" class="nav-link">Galeria</a>
-                <a href="#contacto" class="nav-cta">
-                    <i class="fab fa-whatsapp"></i> Cotizar
+                <a href="nosotros.html" class="nav-link">Nosotros</a>
+                <a href="contacto.html" class="nav-cta">
+                    WHATSAPP
                 </a>
             </nav>
 
@@ -2083,7 +2116,7 @@
     <div class="breadcrumb-bar">
         <div class="container">
             <nav class="breadcrumb">
-                <a href="index.html">Inicio</a>
+                <a href="/">Inicio</a>
                 <span class="separator">/</span>
                 <a href="eventos.html">Eventos</a>
                 <span class="separator">/</span>
@@ -2114,10 +2147,7 @@
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20para%20evento%20corporativo" class="btn btn-whatsapp btn-lg">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar por WhatsApp
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20para%20evento%20corporativo" class="btn btn-whatsapp btn-lg">WHATSAPP</a>
                         <a href="#tipos" class="btn btn-outline">
                             <i class="fas fa-arrow-down"></i>
                             Ver Servicios
@@ -2181,10 +2211,7 @@
                             <li><i class="fas fa-check"></i> Coordinacion con tu equipo BTL</li>
                         </ul>
                         <div class="tipo-cta">
-                            <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20para%20activacion%20de%20marca" class="btn btn-whatsapp">
-                                <i class="fab fa-whatsapp"></i>
-                                Cotizar Activacion
-                            </a>
+                            <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20para%20activacion%20de%20marca" class="btn btn-whatsapp">WHATSAPP</a>
                         </div>
                     </div>
                 </article>
@@ -2209,10 +2236,7 @@
                             <li><i class="fas fa-check"></i> Paletas sobrias y profesionales</li>
                         </ul>
                         <div class="tipo-cta">
-                            <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20para%20evento%20empresarial" class="btn btn-whatsapp">
-                                <i class="fab fa-whatsapp"></i>
-                                Cotizar Evento
-                            </a>
+                            <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20para%20evento%20empresarial" class="btn btn-whatsapp">WHATSAPP</a>
                         </div>
                     </div>
                 </article>
@@ -2769,10 +2793,7 @@
                             </div>
 
                             <div class="form-submit">
-                                <button type="submit" class="btn btn-whatsapp btn-lg">
-                                    <i class="fab fa-whatsapp"></i>
-                                    Enviar Solicitud por WhatsApp
-                                </button>
+                                <button type="submit" class="btn btn-whatsapp btn-lg">WHATSAPP</button>
                             </div>
                         </div>
                     </form>
@@ -2932,6 +2953,8 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 DEGLOB - Decoracion con Globos. Todos los derechos reservados.</p>
                 <div class="footer-legal">
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="contacto.html">Contacto</a>
                     <a href="politica-privacidad.html">Politica de Privacidad</a>
                     <a href="terminos-condiciones.html">Terminos y Condiciones</a>
                 </div>
@@ -2943,6 +2966,7 @@
          WHATSAPP FLOTANTE
          ============================================ -->
     <div class="whatsapp-float">
+        <span class="notification-badge">1</span>
         <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20para%20evento%20corporativo" target="_blank" aria-label="Contactar por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>

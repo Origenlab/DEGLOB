@@ -389,7 +389,10 @@
         }
 
         .section-header .badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(201, 0, 212, 0.1) 100%);
             color: var(--primary);
             padding: 8px 20px;
@@ -451,6 +454,9 @@
         }
 
         .btn-whatsapp {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
             background: #25D366;
             color: var(--white);
         }
@@ -1655,7 +1661,10 @@
         }
 
         .google-maps-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             background: var(--gradient);
             color: var(--white) !important;
             padding: 8px 16px;
@@ -1692,6 +1701,29 @@
             font-size: 28px;
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
             transition: var(--transition);
+        }
+
+        .whatsapp-float .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background: #FF3B30;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(255, 59, 48, 0.5);
+            animation: pulse-badge 2s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .whatsapp-float a:hover {
@@ -1790,6 +1822,9 @@
             }
 
             .header-cta .btn-whatsapp {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
                 display: none;
             }
 
@@ -1948,7 +1983,7 @@
                         </button>
 
                         <ul class="nav-menu" id="navMenu">
-                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="/">Inicio</a></li>
                             <li>
                                 <a href="servicios.html">Servicios <i class="fas fa-chevron-down"></i></a>
                                 <div class="dropdown">
@@ -1975,8 +2010,8 @@
                                     <a href="graduaciones.html">Graduaciones</a>
                                 </div>
                             </li>
-                            <li><a href="#nosotros">Nosotros</a></li>
-                            <li><a href="#contacto">Contacto</a></li>
+                            <li><a href="nosotros.html">Nosotros</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
                         </ul>
                     </nav>
 
@@ -1985,10 +2020,7 @@
                             <i class="fas fa-phone"></i>
                             <span>55 3929 8346</span>
                         </a>
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoración%20con%20globos" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar Ahora
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoración%20con%20globos" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                     </div>
                 </div>
             </div>
@@ -2018,10 +2050,7 @@
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoración%20con%20globos" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Cotizar por WhatsApp
-                        </a>
+                        <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoración%20con%20globos" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
                         <a href="#servicios" class="btn btn-outline">
                             Ver Servicios
                         </a>
@@ -2188,7 +2217,7 @@
                     <div class="event-card-content">
                         <h3><a href="bodas.html">Bodas</a></h3>
                         <p>Arcos románticos y elegantes que enmarcan el altar y la mesa de honor. Creamos ambientes sofisticados con paletas de colores personalizadas para el día más especial de tu vida.</p>
-                        <a href="#contacto" href="bodas.html" class="event-card-btn">
+                        <a href="contacto.html" href="bodas.html" class="event-card-btn">
                             Bodas <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -2201,7 +2230,7 @@
                     <div class="event-card-content">
                         <h3><a href="xv-anos.html">XV Anos</a></h3>
                         <p>Celebra con estilo quinceañero con decoraciones en tendencia. Arcos monumentales, columnas elegantes y backdrops espectaculares en colores pastel, metalizados y diseños únicos.</p>
-                        <a href="#contacto" href="xv-anos.html" class="event-card-btn">
+                        <a href="contacto.html" href="xv-anos.html" class="event-card-btn">
                             XV Anos <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -2214,7 +2243,7 @@
                     <div class="event-card-content">
                         <h3><a href="baby-shower.html">Baby Shower</a></h3>
                         <p>Dale la bienvenida al nuevo integrante con decoraciones tiernas y encantadoras. Arcos orgánicos, letras personalizadas y temáticas adorables que capturan la dulzura del momento.</p>
-                        <a href="#contacto" href="baby-shower.html" class="event-card-btn">
+                        <a href="contacto.html" href="baby-shower.html" class="event-card-btn">
                             Baby Shower <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -2227,7 +2256,7 @@
                     <div class="event-card-content">
                         <h3><a href="cumpleanos.html">Cumpleanos</a></h3>
                         <p>Fiestas temáticas para todas las edades con decoraciones personalizadas. Desde personajes infantiles hasta celebraciones elegantes de adultos con números gigantes y backdrops únicos.</p>
-                        <a href="#contacto" href="cumpleanos.html" class="event-card-btn">
+                        <a href="contacto.html" href="cumpleanos.html" class="event-card-btn">
                             Cumpleanos <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -2240,7 +2269,7 @@
                     <div class="event-card-content">
                         <h3><a href="corporativos.html">Corporativos</a></h3>
                         <p>Decoración profesional con colores institucionales e integración de logotipos. Activaciones de marca, lanzamientos de productos y eventos empresariales que generan impacto visual.</p>
-                        <a href="#contacto" href="corporativos.html" class="event-card-btn">
+                        <a href="contacto.html" href="corporativos.html" class="event-card-btn">
                             Corporativos <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -2266,7 +2295,7 @@
                     <div class="event-card-content">
                         <h3><a href="gender-reveal.html">Gender Reveal</a></h3>
                         <p>Revela el género de tu bebé de forma mágica e inolvidable. Globos sorpresa con confeti, cajas decoradas y ambientación en tonos neutros que hacen del momento algo especial.</p>
-                        <a href="#contacto" href="gender-reveal.html" class="event-card-btn">
+                        <a href="contacto.html" href="gender-reveal.html" class="event-card-btn">
                             Gender Reveal <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -2279,7 +2308,7 @@
                     <div class="event-card-content">
                         <h3><a href="graduaciones.html">Graduaciones</a></h3>
                         <p>Celebra los logros académicos con decoraciones festivas y personalizadas. Arcos en colores institucionales, números del año y backdrops perfectos para las fotos del recuerdo.</p>
-                        <a href="#contacto" href="graduaciones.html" class="event-card-btn">
+                        <a href="contacto.html" href="graduaciones.html" class="event-card-btn">
                             Graduaciones <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -2305,7 +2334,7 @@
                     <div class="feature-card-content">
                         <h3>Diseño Personalizado</h3>
                         <p>Adaptamos cada decoración a tu temática, colores y visión. Hacemos realidad lo que imaginas.</p>
-                        <a href="#contacto" class="feature-card-btn">Solicitar Diseño</a>
+                        <a href="contacto.html" class="feature-card-btn">Solicitar Diseño</a>
                     </div>
                 </div>
 
@@ -2338,7 +2367,7 @@
                     <div class="feature-card-content">
                         <h3>Cero Estrés</h3>
                         <p>Llegamos puntual, nos encargamos de todo. Tú solo disfruta de tu evento sin preocupaciones.</p>
-                        <a href="#contacto" class="feature-card-btn">Cotizar Ahora</a>
+                        <a href="contacto.html" class="feature-card-btn">Cotizar Ahora</a>
                     </div>
                 </div>
             </div>
@@ -2352,11 +2381,8 @@
                 <h2>¿Listo para Transformar tu Evento?</h2>
                 <p>Cotiza sin compromiso y recibe una propuesta personalizada en menos de 24 horas</p>
                 <div class="cta-buttons">
-                    <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoración%20con%20globos" class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        Cotizar por WhatsApp
-                    </a>
-                    <a href="#contacto" class="btn btn-white">
+                    <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoración%20con%20globos" class="btn btn-whatsapp" target="_blank">WHATSAPP</a>
+                    <a href="contacto.html" class="btn btn-white">
                         <i class="fas fa-envelope"></i>
                         Enviar Mensaje
                     </a>
@@ -2660,10 +2686,7 @@
                             <textarea id="mensaje" name="mensaje" placeholder="Describe tu evento, temática, colores, cantidad de invitados, ubicación..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-whatsapp" style="width: 100%;">
-                            <i class="fab fa-whatsapp"></i>
-                            Enviar Cotización por WhatsApp
-                        </button>
+                        <button type="submit" class="btn btn-whatsapp" style="width: 100%;">WHATSAPP</button>
                     </form>
                 </div>
             </div>
@@ -2729,6 +2752,7 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 DEGLOB - Decoracion con Globos. Todos los derechos reservados.</p>
                 <div class="footer-legal">
+                    <a href="nosotros.html">Nosotros</a>
                     <a href="politica-privacidad.html">Politica de Privacidad</a>
                     <a href="terminos-condiciones.html">Terminos y Condiciones</a>
                 </div>
@@ -2738,6 +2762,7 @@
 
     <!-- WhatsApp Float -->
     <div class="whatsapp-float">
+        <span class="notification-badge">1</span>
         <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20información%20sobre%20decoración%20con%20globos" target="_blank" aria-label="Contactar por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
