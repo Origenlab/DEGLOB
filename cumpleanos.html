@@ -1569,12 +1569,12 @@
 
         .footer-links a {
             color: rgba(255,255,255,0.7);
-            transition: var(--transition);
+            
         }
 
         .footer-links a:hover {
             color: var(--white);
-            padding-left: 5px;
+            
         }
 
         .footer-contact li {
@@ -1621,6 +1621,37 @@
             flex-wrap: wrap;
             gap: 1rem;
         }
+        .footer-legal {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-legal a {
+            color: var(--gray-light);
+            text-decoration: none;
+            
+        }
+
+        .footer-legal a:hover {
+            color: var(--primary-light);
+        }
+        .google-maps-link {
+            display: inline-block;
+            background: var(--gradient);
+            color: var(--white) !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .google-maps-link:hover {
+            background: var(--primary-dark);
+        }
+
+
 
         .footer-bottom p {
             color: rgba(255,255,255,0.5);
@@ -2976,77 +3007,63 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="img/decoracion-con-globos.avif" alt="DEGLOB Logo" style="height: 40px;">
-                        <span style="color: var(--white);">DEGLOB</span>
-                    </a>
-                    <p>Transformamos espacios en experiencias inolvidables con decoraciones de globos profesionales en CDMX y Area Metropolitana.</p>
-                    <div class="footer-social">
-                        <a href="https://instagram.com/deglob" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://facebook.com/deglob" target="_blank" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://wa.me/525539298346" target="_blank" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://tiktok.com/@deglob" target="_blank" aria-label="TikTok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
+                    <div class="footer-logo">DE<span>GLOB</span></div>
+                    <div class="footer-tagline">Decoracion con Globos</div>
+                    <p>Transformamos tus eventos en experiencias inolvidables con decoraciones de globos profesionales en toda la Ciudad de Mexico.</p>
+                    <div class="contact-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                     </div>
                 </div>
 
-                <div class="footer-column">
-                    <h4 class="footer-title">Servicios</h4>
-                    <ul class="footer-links">
-                        <li><a href="arcos-de-globos.html">Arcos de Globos</a></li>
-                        <li><a href="columnas-decorativas.html">Columnas Decorativas</a></li>
-                        <li><a href="backdrops-paneles.html">Backdrops y Paneles</a></li>
-                        <li><a href="globos-helio.html">Globos de Helio</a></li>
-                        <li><a href="figuras-personalizadas.html">Figuras Personalizadas</a></li>
-                        <li><a href="centros-mesa.html">Centros de Mesa</a></li>
-                    </ul>
+                <div>
+                    <h4>Servicios</h4>
+                    <nav class="footer-links">
+                        <a href="arcos-de-globos.html">Arcos de Globos</a>
+                        <a href="columnas-decorativas.html">Columnas Decorativas</a>
+                        <a href="backdrops-paneles.html">Backdrops y Paneles</a>
+                        <a href="globos-helio.html">Globos con Helio</a>
+                        <a href="figuras-personalizadas.html">Figuras Personalizadas</a>
+                        <a href="centros-mesa.html">Centros de Mesa</a>
+                        <a href="guirnaldas-globos.html">Guirnaldas de Globos</a>
+                        <a href="globos-gigantes.html">Globos Gigantes</a>
+                    </nav>
                 </div>
 
-                <div class="footer-column">
-                    <h4 class="footer-title">Eventos</h4>
-                    <ul class="footer-links">
-                        <li><a href="bodas.html">Bodas</a></li>
-                        <li><a href="xv-anos.html">XV Anos</a></li>
-                        <li><a href="baby-shower.html">Baby Shower</a></li>
-                        <li><a href="cumpleanos.html">Cumpleanos</a></li>
-                        <li><a href="corporativos.html">Corporativos</a></li>
-                        <li><a href="graduaciones.html">Graduaciones</a></li>
-                    </ul>
+                <div>
+                    <h4>Eventos</h4>
+                    <nav class="footer-links">
+                        <a href="bodas.html">Bodas</a>
+                        <a href="xv-anos.html">XV Anos</a>
+                        <a href="baby-shower.html">Baby Shower</a>
+                        <a href="cumpleanos.html">Cumpleanos</a>
+                        <a href="corporativos.html">Corporativos</a>
+                        <a href="inauguraciones.html">Inauguraciones</a>
+                        <a href="gender-reveal.html">Gender Reveal</a>
+                        <a href="graduaciones.html">Graduaciones</a>
+                    </nav>
                 </div>
 
-                <div class="footer-column">
-                    <h4 class="footer-title">Contacto</h4>
-                    <ul class="footer-contact">
-                        <li>
-                            <i class="fab fa-whatsapp"></i>
-                            <a href="https://wa.me/525539298346">55 3929 8346</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:info@fantasyglobos.com.mx">info@fantasyglobos.com.mx</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>CDMX y Area Metropolitana</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>Lun-Vie 9-19h, Sab 10-16h</span>
-                        </li>
-                    </ul>
+                <div>
+                    <h4>Contacto</h4>
+                    <nav class="footer-links">
+                        <a href="tel:+525539298346"><i class="fas fa-phone" style="margin-right: 8px;"></i>55 3929 8346</a>
+                        <a href="mailto:info@fantasyglobos.com.mx"><i class="fas fa-envelope" style="margin-right: 8px;"></i>info@fantasyglobos.com.mx</a>
+                        <span style="display: block; padding: 6px 0;"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>Calz. Gral. Mariano Escobedo 555, Rincon del Bosque, Polanco V Secc, Miguel Hidalgo, 11560 CDMX</span>
+                        <span style="display: block; padding: 6px 0;"><i class="fas fa-clock" style="margin-right: 8px;"></i>Abierto 24 horas</span>
+                        <a href="https://maps.app.goo.gl/2WMnoKHier52Xy7s5" target="_blank" rel="noopener" class="google-maps-link">GOOGLE MAPS</a>
+                    </nav>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <p>&copy; 2025 DEGLOB - Decoracion con Globos. Todos los derechos reservados.</p>
-                <p>Decoracion profesional de globos en CDMX</p>
+                <div class="footer-legal">
+                    <a href="politica-privacidad.html">Politica de Privacidad</a>
+                    <a href="terminos-condiciones.html">Terminos y Condiciones</a>
+                </div>
             </div>
         </div>
     </footer>

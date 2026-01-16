@@ -58,7 +58,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/branding/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/branding/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/branding/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#8B30EE">
     <meta name="msapplication-TileColor" content="#8B30EE">
 
@@ -1598,7 +1597,7 @@
 
         .footer-links a:hover {
             color: var(--primary-light);
-            padding-left: 5px;
+            
         }
 
         .footer-bottom {
@@ -1609,6 +1608,37 @@
             font-size: 13px;
             color: var(--gray-light);
         }
+        .footer-legal {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-legal a {
+            color: var(--gray-light);
+            text-decoration: none;
+            
+        }
+
+        .footer-legal a:hover {
+            color: var(--primary-light);
+        }
+        .google-maps-link {
+            display: inline-block;
+            background: var(--gradient);
+            color: var(--white) !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .google-maps-link:hover {
+            background: var(--primary-dark);
+        }
+
+
 
         /* ============================================
            WhatsApp Float Button
@@ -2856,15 +2886,19 @@
                     <nav class="footer-links">
                         <a href="tel:+525539298346"><i class="fas fa-phone" style="margin-right: 8px;"></i>55 3929 8346</a>
                         <a href="mailto:info@fantasyglobos.com.mx"><i class="fas fa-envelope" style="margin-right: 8px;"></i>info@fantasyglobos.com.mx</a>
-                        <a href="#"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>CDMX y Área Metropolitana</a>
-                        <a href="#"><i class="fas fa-clock" style="margin-right: 8px;"></i>Lun-Vie 9-19h | Sáb 10-16h</a>
+                        <span style="display: block; padding: 6px 0;"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>Calz. Gral. Mariano Escobedo 555, Rincon del Bosque, Polanco V Secc, Miguel Hidalgo, 11560 CDMX</span>
+                        <span style="display: block; padding: 6px 0;"><i class="fas fa-clock" style="margin-right: 8px;"></i>Abierto 24 horas</span>
+                        <a href="https://maps.app.goo.gl/2WMnoKHier52Xy7s5" target="_blank" rel="noopener" class="google-maps-link">GOOGLE MAPS</a>
                     </nav>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 DEGLOB - Decoración con Globos. Todos los derechos reservados.</p>
-                <p>Diseñado con <i class="fas fa-heart" style="color: #e74c3c;"></i> en Ciudad de México</p>
+                <p>&copy; 2025 DEGLOB - Decoracion con Globos. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="politica-privacidad.html">Politica de Privacidad</a>
+                    <a href="terminos-condiciones.html">Terminos y Condiciones</a>
+                </div>
             </div>
         </div>
     </footer>

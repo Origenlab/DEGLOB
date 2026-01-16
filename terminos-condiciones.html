@@ -232,26 +232,48 @@
         }
 
         .footer-brand .footer-logo {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 800;
             color: var(--white);
+            letter-spacing: -1px;
+            margin-bottom: 5px;
         }
 
         .footer-brand .footer-logo span {
-            color: var(--primary-light);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .footer-tagline {
-            font-size: 14px;
-            color: var(--gray-light);
+            font-size: 13px;
+            color: var(--primary-light);
+            font-weight: 500;
             margin-bottom: 15px;
         }
 
         .footer-brand p {
             color: var(--gray-light);
-            font-size: 14px;
+            margin: 20px 0;
             line-height: 1.7;
-            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .google-maps-link {
+            display: inline-block;
+            background: var(--gradient);
+            color: var(--white) !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .google-maps-link:hover {
+            background: var(--primary-dark);
         }
 
         .contact-social {
@@ -269,7 +291,7 @@
             border-radius: 50%;
             color: var(--white);
             font-size: 16px;
-            transition: all 0.3s ease;
+            
         }
 
         .contact-social a:hover {
@@ -288,12 +310,12 @@
             color: var(--gray-light);
             font-size: 14px;
             text-decoration: none;
-            transition: all 0.3s ease;
+            
         }
 
         .footer-links a:hover {
             color: var(--primary-light);
-            padding-left: 5px;
+            
         }
 
         .footer-bottom {
@@ -588,8 +610,9 @@
                     <nav class="footer-links">
                         <a href="tel:+525539298346"><i class="fas fa-phone" style="margin-right: 8px;"></i>55 3929 8346</a>
                         <a href="mailto:info@fantasyglobos.com.mx"><i class="fas fa-envelope" style="margin-right: 8px;"></i>info@fantasyglobos.com.mx</a>
-                        <a href="#"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>CDMX y Area Metropolitana</a>
-                        <a href="#"><i class="fas fa-clock" style="margin-right: 8px;"></i>Lun-Vie 9-19h | Sab 10-16h</a>
+                        <span style="display: block; padding: 6px 0;"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>Calz. Gral. Mariano Escobedo 555, Rincon del Bosque, Polanco V Secc, Miguel Hidalgo, 11560 CDMX</span>
+                        <span style="display: block; padding: 6px 0;"><i class="fas fa-clock" style="margin-right: 8px;"></i>Abierto 24 horas</span>
+                        <a href="https://maps.app.goo.gl/2WMnoKHier52Xy7s5" target="_blank" rel="noopener" class="google-maps-link">GOOGLE MAPS</a>
                     </nav>
                 </div>
             </div>
