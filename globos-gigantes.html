@@ -82,9 +82,9 @@
         "description": "Servicio profesional de globos gigantes de 3 pies o más para gender reveals, bodas, XV años y eventos especiales en Ciudad de México. Máximo impacto visual para entradas, sesiones fotográficas y momentos especiales. Globos premium Qualatex y Sempertex.",
         "url": "https://fantasyglobos.com.mx/globos-gigantes.html",
         "image": [
-            "https://fantasyglobos.com.mx/img/seo/globos-gigantes-cdmx.jpg",
-            "https://fantasyglobos.com.mx/img/servicios/globo-gigante-confeti.webp",
-            "https://fantasyglobos.com.mx/img/servicios/globo-gigante-gender-reveal.webp"
+            "https://fantasyglobos.com.mx/img/globos-gigantes/globos-gigantes-confeti-dorado-plata-boda-hacienda-elegante.webp",
+            "https://fantasyglobos.com.mx/img/globos-gigantes/globo-gigante-confeti-multicolor-fiesta-tassel-celebracion.webp",
+            "https://fantasyglobos.com.mx/img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer.webp"
         ],
         "provider": {
             "@type": "LocalBusiness",
@@ -1896,6 +1896,124 @@
                 padding: 0 20px 20px;
             }
         }
+    
+        
+
+    
+        /* ============================================
+           Interlinking Cards - SEO
+        ============================================ */
+        .interlink-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .interlink-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .interlink-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .interlink-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .interlink-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .interlink-card:hover .interlink-card-image img {
+            transform: scale(1.08);
+        }
+
+        .interlink-card-content {
+            padding: 25px;
+            border-top: 3px solid var(--primary);
+        }
+
+        .interlink-card-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .interlink-card-content h4 a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .interlink-card-content h4 a:hover {
+            color: var(--primary);
+        }
+
+        .interlink-card-content p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .interlink-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .interlink-card-btn:hover {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+
+        .interlink-card-btn i {
+            font-size: 12px;
+        }
+
+        .section-cta-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .section-cta-link .btn {
+            min-width: 250px;
+        }
+
+        @media (max-width: 1024px) {
+            .interlink-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .interlink-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .interlink-card-image {
+                height: 180px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1951,19 +2069,21 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="#">Eventos <i class="fas fa-chevron-down"></i></a>
+                                <a href="eventos.html">Eventos <i class="fas fa-chevron-down"></i></a>
                                 <div class="dropdown">
                                     <a href="bodas.html">Bodas</a>
                                     <a href="xv-anos.html">XV Años</a>
-                                    <a href="cumpleanos.html">Cumpleaños</a>
                                     <a href="baby-shower.html">Baby Shower</a>
-                                    <a href="eventos-corporativos.html">Corporativos</a>
+                                    <a href="cumpleanos.html">Cumpleaños</a>
+                                    <a href="corporativos.html">Corporativos</a>
+                                    <a href="inauguraciones.html">Inauguraciones</a>
+                                    <a href="gender-reveal.html">Gender Reveal</a>
                                     <a href="graduaciones.html">Graduaciones</a>
                                 </div>
                             </li>
-                            <li><a href="galeria.html">Galería</a></li>
-                            <li><a href="nosotros.html">Nosotros</a></li>
-                            <li><a href="contacto.html">Contacto</a></li>
+                            <li><a href="servicios.html">Galería</a></li>
+                            <li><a href="index.html#nosotros">Nosotros</a></li>
+                            <li><a href="index.html#contacto">Contacto</a></li>
                         </ul>
                     </nav>
                     <div class="header-cta">
@@ -2052,7 +2172,7 @@
                 <!-- Globo Gigante con Confeti -->
                 <div class="tipo-globo-card">
                     <div class="tipo-globo-image">
-                        <img src="img/servicios/globo-gigante-confeti.webp" alt="Globo gigante transparente con confeti metálico colorido" loading="lazy">
+                        <img src="img/globos-gigantes/globo-gigante-confeti-multicolor-fiesta-tassel-celebracion.webp" width="1195" height="896" srcset="img/globos-gigantes/globo-gigante-confeti-multicolor-fiesta-tassel-celebracion-sm.webp 400w, img/globos-gigantes/globo-gigante-confeti-multicolor-fiesta-tassel-celebracion-md.webp 800w, img/globos-gigantes/globo-gigante-confeti-multicolor-fiesta-tassel-celebracion.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globo gigante transparente con confeti metálico colorido" loading="lazy">
                         <span class="tipo-globo-label">Más Popular</span>
                     </div>
                     <div class="tipo-globo-content">
@@ -2077,7 +2197,7 @@
                 <!-- Globo Gigante Gender Reveal -->
                 <div class="tipo-globo-card">
                     <div class="tipo-globo-image">
-                        <img src="img/servicios/globo-gigante-gender-reveal.webp" alt="Globo gigante negro para gender reveal con confeti rosa o azul" loading="lazy">
+                        <img src="img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer.webp" width="1195" height="896" srcset="img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer-sm.webp 400w, img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer-md.webp 800w, img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globo gigante negro para gender reveal con confeti rosa o azul" loading="lazy">
                         <span class="tipo-globo-label">Gender Reveal</span>
                     </div>
                     <div class="tipo-globo-content">
@@ -2155,7 +2275,7 @@
                 <!-- Globo 3 Pies -->
                 <div class="size-card featured">
                     <div class="size-image">
-                        <img src="img/servicios/globo-3-pies.webp" alt="Globo gigante de 3 pies (36 pulgadas)" loading="lazy">
+                        <img src="img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer.webp" width="1195" height="896" srcset="img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer-sm.webp 400w, img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer-md.webp 800w, img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globo gigante de 3 pies (36 pulgadas)" loading="lazy">
                     </div>
                     <div class="size-content">
                         <h3>Globo 3 Pies</h3>
@@ -2173,7 +2293,7 @@
                 <!-- Globo 4-5 Pies -->
                 <div class="size-card">
                     <div class="size-image">
-                        <img src="img/servicios/globo-5-pies.webp" alt="Globo gigante de 4-5 pies" loading="lazy">
+                        <img src="img/globos-gigantes/globo-gigante-cobre-metalico-xv-anos-quinceañera-salon.webp" width="1195" height="896" srcset="img/globos-gigantes/globo-gigante-cobre-metalico-xv-anos-quinceañera-salon-sm.webp 400w, img/globos-gigantes/globo-gigante-cobre-metalico-xv-anos-quinceañera-salon-md.webp 800w, img/globos-gigantes/globo-gigante-cobre-metalico-xv-anos-quinceañera-salon.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globo gigante de 4-5 pies" loading="lazy">
                     </div>
                     <div class="size-content">
                         <h3>Globo 4-5 Pies</h3>
@@ -2191,7 +2311,7 @@
                 <!-- Globo 6-8 Pies -->
                 <div class="size-card">
                     <div class="size-image">
-                        <img src="img/servicios/globo-8-pies.webp" alt="Globo gigante de 6-8 pies" loading="lazy">
+                        <img src="img/globos-gigantes/globo-gigante-negro-metalico-sesion-fotos-moda-estudio.webp" width="1195" height="896" srcset="img/globos-gigantes/globo-gigante-negro-metalico-sesion-fotos-moda-estudio-sm.webp 400w, img/globos-gigantes/globo-gigante-negro-metalico-sesion-fotos-moda-estudio-md.webp 800w, img/globos-gigantes/globo-gigante-negro-metalico-sesion-fotos-moda-estudio.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globo gigante de 6-8 pies" loading="lazy">
                     </div>
                     <div class="size-content">
                         <h3>Globo 6-8 Pies</h3>
@@ -2260,45 +2380,45 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item large">
-                    <img src="img/galeria/globo-gigante-gender-reveal-evento.jpg" alt="Globo gigante para gender reveal en evento" loading="lazy">
+                    <img src="img/globos-gigantes/globo-gigante-gender-reveal-azul-pareja-confeti-exterior.webp" width="1195" height="896" srcset="img/globos-gigantes/globo-gigante-gender-reveal-azul-pareja-confeti-exterior-sm.webp 400w, img/globos-gigantes/globo-gigante-gender-reveal-azul-pareja-confeti-exterior-md.webp 800w, img/globos-gigantes/globo-gigante-gender-reveal-azul-pareja-confeti-exterior.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globo gigante para gender reveal en evento" loading="lazy">
                     <div class="gallery-overlay">
-                        <span>Gender Reveal - Baby Shower</span>
+                        <span>Gender Reveal</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/globo-gigante-confeti-boda.jpg" alt="Globo gigante con confeti para boda" loading="lazy">
+                    <img src="img/globos-gigantes/globos-gigantes-confeti-dorado-plata-boda-hacienda-elegante.webp" width="1195" height="896" srcset="img/globos-gigantes/globos-gigantes-confeti-dorado-plata-boda-hacienda-elegante-sm.webp 400w, img/globos-gigantes/globos-gigantes-confeti-dorado-plata-boda-hacienda-elegante-md.webp 800w, img/globos-gigantes/globos-gigantes-confeti-dorado-plata-boda-hacienda-elegante.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globo gigante con confeti para boda" loading="lazy">
                     <div class="gallery-overlay">
-                        <span>Boda en Polanco</span>
+                        <span>Boda Elegante</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/globo-gigante-chrome-dorado.jpg" alt="Globo gigante chrome dorado" loading="lazy">
+                    <img src="img/globos-gigantes/globos-gigantes-corporativos-logo-marca-evento-empresarial.webp" width="1195" height="896" srcset="img/globos-gigantes/globos-gigantes-corporativos-logo-marca-evento-empresarial-sm.webp 400w, img/globos-gigantes/globos-gigantes-corporativos-logo-marca-evento-empresarial-md.webp 800w, img/globos-gigantes/globos-gigantes-corporativos-logo-marca-evento-empresarial.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globos gigantes corporativos" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Evento Corporativo</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/globo-gigante-cola-borlas.jpg" alt="Globo gigante con cola de borlas" loading="lazy">
+                    <img src="img/globos-gigantes/globo-gigante-confeti-colores-fiesta-tassel-pista-baile.webp" width="1195" height="896" srcset="img/globos-gigantes/globo-gigante-confeti-colores-fiesta-tassel-pista-baile-sm.webp 400w, img/globos-gigantes/globo-gigante-confeti-colores-fiesta-tassel-pista-baile-md.webp 800w, img/globos-gigantes/globo-gigante-confeti-colores-fiesta-tassel-pista-baile.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globo gigante con cola de borlas" loading="lazy">
                     <div class="gallery-overlay">
-                        <span>Cumpleaños Especial</span>
+                        <span>Fiesta con Tassel</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/globo-gigante-entrada.jpg" alt="Globos gigantes en entrada de evento" loading="lazy">
+                    <img src="img/globos-gigantes/globo-gigante-rose-gold-xv-anos-quinceañera-hacienda.webp" width="1195" height="896" srcset="img/globos-gigantes/globo-gigante-rose-gold-xv-anos-quinceañera-hacienda-sm.webp 400w, img/globos-gigantes/globo-gigante-rose-gold-xv-anos-quinceañera-hacienda-md.webp 800w, img/globos-gigantes/globo-gigante-rose-gold-xv-anos-quinceañera-hacienda.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globos gigantes en XV años" loading="lazy">
                     <div class="gallery-overlay">
-                        <span>Entrada de XV Años</span>
+                        <span>XV Años</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/globo-gigante-sesion-fotos.jpg" alt="Globo gigante para sesión de fotos" loading="lazy">
+                    <img src="img/globos-gigantes/globo-gigante-confeti-rose-gold-sesion-fotos-estudio.webp" width="1195" height="896" srcset="img/globos-gigantes/globo-gigante-confeti-rose-gold-sesion-fotos-estudio-sm.webp 400w, img/globos-gigantes/globo-gigante-confeti-rose-gold-sesion-fotos-estudio-md.webp 800w, img/globos-gigantes/globo-gigante-confeti-rose-gold-sesion-fotos-estudio.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globo gigante para sesión de fotos" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Sesión Fotográfica</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/globo-gigante-pastel.jpg" alt="Globo gigante color pastel" loading="lazy">
+                    <img src="img/globos-gigantes/globo-gigante-rosa-maternidad-embarazada-jardin-atardecer.webp" width="1195" height="896" srcset="img/globos-gigantes/globo-gigante-rosa-maternidad-embarazada-jardin-atardecer-sm.webp 400w, img/globos-gigantes/globo-gigante-rosa-maternidad-embarazada-jardin-atardecer-md.webp 800w, img/globos-gigantes/globo-gigante-rosa-maternidad-embarazada-jardin-atardecer.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Globo gigante sesión maternidad" loading="lazy">
                     <div class="gallery-overlay">
-                        <span>Baby Shower</span>
+                        <span>Sesión Maternidad</span>
                     </div>
                 </div>
             </div>
@@ -2543,6 +2663,76 @@
     </section>
 
     <!-- Footer -->
+
+    
+    <!-- Eventos Relacionados -->
+    <section class="section section-light" id="eventos-relacionados">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Ideal Para</span>
+                <h2>Eventos Perfectos para Globos Gigantes</h2>
+                <p>Este tipo de decoracion es muy solicitada en estas celebraciones</p>
+            </div>
+
+            <div class="interlink-grid">
+                <article class="interlink-card">
+                    <a href="gender-reveal.html" class="interlink-card-image">
+                        <img src="img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer.webp" alt="Globos Gigantes para Gender Reveal en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="gender-reveal.html">Gender Reveal</a></h4>
+                        <p>Revelacion magica del genero con globos sorpresa.</p>
+                        <a href="gender-reveal.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="corporativos.html" class="interlink-card-image">
+                        <img src="img/columnas-decorativas/columnas-globos-corporativo-negro-dorado-coctel-bar.webp" alt="Globos Gigantes para Corporativos en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="corporativos.html">Corporativos</a></h4>
+                        <p>Decoracion profesional para eventos empresariales.</p>
+                        <a href="corporativos.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="inauguraciones.html" class="interlink-card-image">
+                        <img src="img/columnas-decorativas/columnas-globos-inauguracion-azul-dorado-corte-liston.webp" alt="Globos Gigantes para Inauguraciones en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="inauguraciones.html">Inauguraciones</a></h4>
+                        <p>Aperturas con impacto visual que atraen miradas.</p>
+                        <a href="inauguraciones.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="bodas.html" class="interlink-card-image">
+                        <img src="img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp" alt="Globos Gigantes para Bodas en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="bodas.html">Bodas</a></h4>
+                        <p>Decoracion romantica y elegante para el dia mas especial.</p>
+                        <a href="bodas.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="section-cta-link">
+                <a href="eventos.html" class="btn btn-outline">
+                    <i class="fas fa-calendar-alt"></i> Ver Todos los Eventos
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -2575,9 +2765,11 @@
                     <nav class="footer-links">
                         <a href="bodas.html">Bodas</a>
                         <a href="xv-anos.html">XV Años</a>
-                        <a href="cumpleanos.html">Cumpleaños</a>
                         <a href="baby-shower.html">Baby Shower</a>
-                        <a href="eventos-corporativos.html">Corporativos</a>
+                        <a href="cumpleanos.html">Cumpleaños</a>
+                        <a href="corporativos.html">Corporativos</a>
+                        <a href="inauguraciones.html">Inauguraciones</a>
+                        <a href="gender-reveal.html">Gender Reveal</a>
                         <a href="graduaciones.html">Graduaciones</a>
                     </nav>
                 </div>

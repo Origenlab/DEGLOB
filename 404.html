@@ -1,62 +1,427 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="es-MX">
 <head>
-  <meta charset="utf-8">
-  <title>Page Not Found</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    * {
-      line-height: 1.2;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    html {
-      color: #888;
-      display: table;
-      font-family: sans-serif;
-      height: 100%;
-      text-align: center;
-      width: 100%;
-    }
+    <title>Pagina No Encontrada | DEGLOB - Decoracion con Globos CDMX</title>
+    <meta name="description" content="La pagina que buscas no existe. Visita nuestra pagina principal para conocer nuestros servicios de decoracion con globos.">
+    <meta name="robots" content="noindex, follow">
 
-    body {
-      display: table-cell;
-      vertical-align: middle;
-      margin: 2em auto;
-    }
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/branding/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/branding/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/branding/apple-touch-icon.png">
+    <meta name="theme-color" content="#8B30EE">
 
-    h1 {
-      color: #555;
-      font-size: 2em;
-      font-weight: 400;
-    }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
 
-    p {
-      margin: 0 auto;
-      width: 280px;
-    }
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    @media only screen and (max-width: 280px) {
+    <style>
+        :root {
+            --primary: #8B30EE;
+            --primary-dark: #6F02D6;
+            --primary-light: #A855F7;
+            --primary-rgb: 139, 48, 238;
+            --secondary: #C900D4;
+            --dark: #1a1a2e;
+            --gray: #636E72;
+            --gray-light: #B2BEC3;
+            --light: #F8F9FA;
+            --white: #FFFFFF;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
 
-      body,
-      p {
-        width: 95%;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      h1 {
-        font-size: 1.5em;
-        margin: 0 0 0.3em;
-      }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    }
-  </style>
+        /* Header Simple */
+        .header {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        /* Error Content */
+        .error-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .error-content {
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-size: 150px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .error-title {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .error-text {
+            font-size: 17px;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .error-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.4);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+        }
+
+        /* Links populares */
+        .popular-links {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .popular-links h3 {
+            font-size: 18px;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .links-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .link-item {
+            padding: 10px 20px;
+            background: var(--white);
+            border-radius: 8px;
+            color: var(--gray);
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .link-item:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 70px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .footer-logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .footer-brand .footer-logo span {
+            color: var(--primary-light);
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            color: var(--gray-light);
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-light);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .contact-social a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-social a:hover {
+            background: var(--primary);
+        }
+
+        .footer h4 {
+            font-size: 17px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links a {
+            display: block;
+            padding: 6px 0;
+            color: var(--gray-light);
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 0;
+            font-size: 13px;
+            color: var(--gray-light);
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 100px;
+            }
+
+            .error-title {
+                font-size: 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-social {
+                justify-content: center;
+            }
+
+            .error-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <h1>Page Not Found</h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
-</body>
 
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">DE<span>GLOB</span></a>
+        </div>
+    </header>
+
+    <!-- Error Content -->
+    <section class="error-section">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Pagina No Encontrada</h1>
+            <p class="error-text">Lo sentimos, la pagina que buscas no existe o ha sido movida. Pero no te preocupes, tenemos muchas opciones para decorar tu evento.</p>
+
+            <div class="error-buttons">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i>
+                    Ir al Inicio
+                </a>
+                <a href="https://wa.me/525539298346?text=Hola,%20necesito%20ayuda%20para%20encontrar%20informacion" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Contactar
+                </a>
+            </div>
+
+            <div class="popular-links">
+                <h3>Paginas Populares</h3>
+                <div class="links-grid">
+                    <a href="eventos.html" class="link-item">Eventos</a>
+                    <a href="servicios.html" class="link-item">Servicios</a>
+                    <a href="bodas.html" class="link-item">Bodas</a>
+                    <a href="xv-anos.html" class="link-item">XV Anos</a>
+                    <a href="baby-shower.html" class="link-item">Baby Shower</a>
+                    <a href="cumpleanos.html" class="link-item">Cumpleanos</a>
+                    <a href="arcos-de-globos.html" class="link-item">Arcos de Globos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">DE<span>GLOB</span></div>
+                    <div class="footer-tagline">Decoracion con Globos</div>
+                    <p>Transformamos tus eventos en experiencias inolvidables con decoraciones de globos profesionales en toda la Ciudad de Mexico.</p>
+                    <div class="contact-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Servicios</h4>
+                    <nav class="footer-links">
+                        <a href="arcos-de-globos.html">Arcos de Globos</a>
+                        <a href="columnas-decorativas.html">Columnas Decorativas</a>
+                        <a href="backdrops-paneles.html">Backdrops y Paneles</a>
+                        <a href="globos-helio.html">Globos con Helio</a>
+                        <a href="figuras-personalizadas.html">Figuras Personalizadas</a>
+                        <a href="centros-mesa.html">Centros de Mesa</a>
+                        <a href="guirnaldas-globos.html">Guirnaldas de Globos</a>
+                        <a href="globos-gigantes.html">Globos Gigantes</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <h4>Eventos</h4>
+                    <nav class="footer-links">
+                        <a href="bodas.html">Bodas</a>
+                        <a href="xv-anos.html">XV Anos</a>
+                        <a href="baby-shower.html">Baby Shower</a>
+                        <a href="cumpleanos.html">Cumpleanos</a>
+                        <a href="corporativos.html">Corporativos</a>
+                        <a href="inauguraciones.html">Inauguraciones</a>
+                        <a href="gender-reveal.html">Gender Reveal</a>
+                        <a href="graduaciones.html">Graduaciones</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <h4>Contacto</h4>
+                    <nav class="footer-links">
+                        <a href="tel:+525539298346"><i class="fas fa-phone" style="margin-right: 8px;"></i>55 3929 8346</a>
+                        <a href="mailto:info@fantasyglobos.com.mx"><i class="fas fa-envelope" style="margin-right: 8px;"></i>info@fantasyglobos.com.mx</a>
+                        <a href="#"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>CDMX y Area Metropolitana</a>
+                        <a href="#"><i class="fas fa-clock" style="margin-right: 8px;"></i>Lun-Vie 9-19h | Sab 10-16h</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 DEGLOB - Decoracion con Globos. Todos los derechos reservados.</p>
+                <p>Disenado con <i class="fas fa-heart" style="color: #e74c3c;"></i> en Ciudad de Mexico</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
 </html>
-<!-- IE needs 512+ bytes: https://docs.microsoft.com/archive/blogs/ieinternals/friendly-http-error-pages -->

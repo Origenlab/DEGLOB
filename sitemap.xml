@@ -2,112 +2,209 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-    <!-- Página Principal -->
+    <!-- Pagina Principal -->
     <url>
         <loc>https://fantasyglobos.com.mx/</loc>
-        <lastmod>2025-01-13</lastmod>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
             <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp</image:loc>
-            <image:title>Decoración con globos para eventos en CDMX - DEGLOB</image:title>
+            <image:title>Decoracion con globos para eventos en CDMX</image:title>
         </image:image>
     </url>
 
-    <!-- Página de Servicios -->
+    <!-- Paginas de Categorias Principales -->
     <url>
         <loc>https://fantasyglobos.com.mx/servicios.html</loc>
-        <lastmod>2025-01-13</lastmod>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- Arcos de Globos -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/eventos.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Paginas de Servicios -->
     <url>
         <loc>https://fantasyglobos.com.mx/arcos-de-globos.html</loc>
-        <lastmod>2025-01-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
         <image:image>
             <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp</image:loc>
-            <image:title>Arcos de globos orgánicos para bodas en CDMX</image:title>
-        </image:image>
-        <image:image>
-            <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-xv-anos-rosa-plata-pista-baile.webp</image:loc>
-            <image:title>Arcos de globos para XV años en CDMX</image:title>
-        </image:image>
-        <image:image>
-            <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-baby-shower-nina-rosa-mesa-dulces.webp</image:loc>
-            <image:title>Arcos de globos para baby shower</image:title>
+            <image:title>Arcos de globos organicos para eventos en CDMX</image:title>
         </image:image>
     </url>
 
-    <!-- Columnas Decorativas -->
     <url>
         <loc>https://fantasyglobos.com.mx/columnas-decorativas.html</loc>
-        <lastmod>2025-01-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
         <image:image>
             <image:loc>https://fantasyglobos.com.mx/img/columnas-decorativas/columnas-globos-blanco-dorado-entrada-boda-elegante.webp</image:loc>
-            <image:title>Columnas de globos para bodas en CDMX</image:title>
-        </image:image>
-        <image:image>
-            <image:loc>https://fantasyglobos.com.mx/img/columnas-decorativas/columnas-globos-xv-anos-rosa-plata-pista-baile.webp</image:loc>
-            <image:title>Columnas de globos para XV años</image:title>
-        </image:image>
-        <image:image>
-            <image:loc>https://fantasyglobos.com.mx/img/columnas-decorativas/columnas-globos-corporativo-blanco-plata-conferencia.webp</image:loc>
-            <image:title>Columnas de globos para eventos corporativos</image:title>
+            <image:title>Columnas decorativas de globos para eventos</image:title>
         </image:image>
     </url>
 
-    <!-- Backdrops y Paneles -->
     <url>
         <loc>https://fantasyglobos.com.mx/backdrops-paneles.html</loc>
-        <lastmod>2025-01-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/servicios/backdrop-globos.webp</image:loc>
+            <image:title>Backdrops y paneles de globos para fotos</image:title>
+        </image:image>
     </url>
 
-    <!-- Globos con Helio -->
     <url>
         <loc>https://fantasyglobos.com.mx/globos-helio.html</loc>
-        <lastmod>2025-01-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/globos-helio/techo-globos-helio-boda-salon-rustico-romantico.webp</image:loc>
+            <image:title>Globos con helio para eventos elegantes</image:title>
+        </image:image>
     </url>
 
-    <!-- Figuras Personalizadas -->
     <url>
         <loc>https://fantasyglobos.com.mx/figuras-personalizadas.html</loc>
-        <lastmod>2025-01-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/figuras-de-globos/figura-unicornio-globos-pastel-fiesta-nina-jardin.webp</image:loc>
+            <image:title>Figuras personalizadas de globos</image:title>
+        </image:image>
     </url>
 
-    <!-- Centros de Mesa -->
     <url>
         <loc>https://fantasyglobos.com.mx/centros-mesa.html</loc>
-        <lastmod>2025-01-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/globos-centro-de-mesas/centro-mesa-globos-plata-blanco-orquideas-hotel.webp</image:loc>
+            <image:title>Centros de mesa con globos elegantes</image:title>
+        </image:image>
     </url>
 
-    <!-- Guirnaldas de Globos -->
     <url>
         <loc>https://fantasyglobos.com.mx/guirnaldas-globos.html</loc>
-        <lastmod>2025-01-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/guirnaldas-de-globos/arco-globos-organico-tonos-pastel-pampas-salon-elegante.webp</image:loc>
+            <image:title>Guirnaldas de globos para decoracion</image:title>
+        </image:image>
     </url>
 
-    <!-- Globos Gigantes -->
     <url>
         <loc>https://fantasyglobos.com.mx/globos-gigantes.html</loc>
-        <lastmod>2025-01-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/globos-gigantes/globos-gigantes-confeti-dorado-plata-boda-hacienda-elegante.webp</image:loc>
+            <image:title>Globos gigantes de 3 pies para eventos</image:title>
+        </image:image>
+    </url>
+
+    <!-- Paginas de Eventos -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/bodas.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp</image:loc>
+            <image:title>Decoracion con globos para bodas en CDMX</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://fantasyglobos.com.mx/xv-anos.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-xv-anos-rose-gold-flores-photobooth.webp</image:loc>
+            <image:title>Decoracion con globos para XV anos</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://fantasyglobos.com.mx/baby-shower.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/arcos-de-globos/arco-globos-baby-shower-rosa-durazno-its-a-girl.webp</image:loc>
+            <image:title>Decoracion con globos para baby shower</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://fantasyglobos.com.mx/cumpleanos.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/figuras-de-globos/figura-unicornio-globos-pastel-fiesta-nina-jardin.webp</image:loc>
+            <image:title>Decoracion con globos para cumpleanos</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://fantasyglobos.com.mx/corporativos.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/columnas-decorativas/columnas-globos-corporativo-negro-dorado-coctel-bar.webp</image:loc>
+            <image:title>Decoracion con globos para eventos corporativos</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://fantasyglobos.com.mx/inauguraciones.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/columnas-decorativas/columnas-globos-inauguracion-azul-dorado-corte-liston.webp</image:loc>
+            <image:title>Decoracion con globos para inauguraciones</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://fantasyglobos.com.mx/gender-reveal.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer.webp</image:loc>
+            <image:title>Decoracion con globos para gender reveal</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://fantasyglobos.com.mx/graduaciones.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://fantasyglobos.com.mx/img/columnas-decorativas/columnas-globos-graduacion-dorado-azul-ceremonia.webp</image:loc>
+            <image:title>Decoracion con globos para graduaciones</image:title>
+        </image:image>
     </url>
 
 </urlset>

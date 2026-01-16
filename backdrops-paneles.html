@@ -1848,6 +1848,124 @@
                 padding: 25px;
             }
         }
+    
+        
+
+    
+        /* ============================================
+           Interlinking Cards - SEO
+        ============================================ */
+        .interlink-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .interlink-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .interlink-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .interlink-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .interlink-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .interlink-card:hover .interlink-card-image img {
+            transform: scale(1.08);
+        }
+
+        .interlink-card-content {
+            padding: 25px;
+            border-top: 3px solid var(--primary);
+        }
+
+        .interlink-card-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .interlink-card-content h4 a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .interlink-card-content h4 a:hover {
+            color: var(--primary);
+        }
+
+        .interlink-card-content p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .interlink-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .interlink-card-btn:hover {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+
+        .interlink-card-btn i {
+            font-size: 12px;
+        }
+
+        .section-cta-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .section-cta-link .btn {
+            min-width: 250px;
+        }
+
+        @media (max-width: 1024px) {
+            .interlink-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .interlink-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .interlink-card-image {
+                height: 180px;
+            }
+        }
+
     </style>
 </head>
 
@@ -1913,14 +2031,16 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="index.html#eventos">Eventos <i class="fas fa-chevron-down"></i></a>
+                                <a href="eventos.html">Eventos <i class="fas fa-chevron-down"></i></a>
                                 <div class="dropdown">
-                                    <a href="index.html#eventos">Bodas</a>
-                                    <a href="index.html#eventos">XV Años</a>
-                                    <a href="index.html#eventos">Baby Shower</a>
-                                    <a href="index.html#eventos">Cumpleaños</a>
-                                    <a href="index.html#eventos">Corporativos</a>
-                                    <a href="index.html#eventos">Inauguraciones</a>
+                                    <a href="bodas.html">Bodas</a>
+                                    <a href="xv-anos.html">XV Años</a>
+                                    <a href="baby-shower.html">Baby Shower</a>
+                                    <a href="cumpleanos.html">Cumpleaños</a>
+                                    <a href="corporativos.html">Corporativos</a>
+                                    <a href="inauguraciones.html">Inauguraciones</a>
+                                    <a href="gender-reveal.html">Gender Reveal</a>
+                                    <a href="graduaciones.html">Graduaciones</a>
                                 </div>
                             </li>
                             <li><a href="index.html#nosotros">Nosotros</a></li>
@@ -2222,37 +2342,37 @@
 
             <div class="gallery-grid">
                 <div class="gallery-item large">
-                    <img src="img/galeria/backdrop-boda-santa-fe.jpg" alt="Backdrop orgánico de globos para boda en Santa Fe CDMX" loading="lazy">
+                    <img src="img/servicios/backdrop-globos.webp" alt="Backdrop orgánico de globos para boda en Santa Fe CDMX" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Boda - Santa Fe</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/backdrop-xv-polanco.jpg" alt="Panel de globos para XV años en Polanco" loading="lazy">
+                    <img src="img/servicios/backdrop-organico.webp" alt="Panel de globos para XV años en Polanco" loading="lazy">
                     <div class="gallery-overlay">
                         <span>XV Años - Polanco</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/backdrop-baby-coyoacan.jpg" alt="Backdrop de globos para baby shower en Coyoacán" loading="lazy">
+                    <img src="img/servicios/backdrop-detalle.webp" alt="Backdrop de globos para baby shower en Coyoacán" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Baby Shower - Coyoacán</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/backdrop-corporativo-reforma.jpg" alt="Panel mosaico de globos para evento corporativo en Reforma" loading="lazy">
+                    <img src="img/servicios/backdrops-paneles.webp" alt="Panel mosaico de globos para evento corporativo en Reforma" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Corporativo - Reforma</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/backdrop-cumple-condesa.jpg" alt="Backdrop de globos para cumpleaños en Condesa" loading="lazy">
+                    <img src="img/guirnaldas-de-globos/arco-globos-tonos-neutros-pampas-backdrop-elegante.webp" alt="Backdrop de globos para cumpleaños en Condesa" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Cumpleaños - Condesa</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/backdrop-inauguracion-naucalpan.jpg" alt="Muro de globos para inauguración en Naucalpan" loading="lazy">
+                    <img src="img/servicios/backdrop-globos.webp" alt="Muro de globos para inauguración en Naucalpan" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Inauguración - Naucalpan</span>
                     </div>
@@ -2545,7 +2665,7 @@
                 </a>
                 <a href="guirnaldas-globos.html" class="related-service-card">
                     <div class="related-service-image">
-                        <img src="img/servicios/guirnaldas-globos.webp" alt="Guirnaldas orgánicas de globos" loading="lazy">
+                        <img src="img/guirnaldas-de-globos/decoracion-globos-carpa-boda-verde-salvia-crema-eucalipto.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/decoracion-globos-carpa-boda-verde-salvia-crema-eucalipto-sm.webp 400w, img/guirnaldas-de-globos/decoracion-globos-carpa-boda-verde-salvia-crema-eucalipto-md.webp 800w, img/guirnaldas-de-globos/decoracion-globos-carpa-boda-verde-salvia-crema-eucalipto.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnaldas orgánicas de globos" loading="lazy">
                     </div>
                     <h3>Guirnaldas de Globos</h3>
                     <p>Extiende tu decoración con guirnaldas que conecten el backdrop con otras áreas del venue.</p>
@@ -2586,6 +2706,76 @@
     </section>
 
     <!-- Footer -->
+
+    
+    <!-- Eventos Relacionados -->
+    <section class="section section-light" id="eventos-relacionados">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Ideal Para</span>
+                <h2>Eventos Perfectos para Backdrops y Paneles</h2>
+                <p>Este tipo de decoracion es muy solicitada en estas celebraciones</p>
+            </div>
+
+            <div class="interlink-grid">
+                <article class="interlink-card">
+                    <a href="xv-anos.html" class="interlink-card-image">
+                        <img src="img/arcos-de-globos/arco-globos-xv-anos-rose-gold-flores-photobooth.webp" alt="Backdrops y Paneles para XV Anos en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="xv-anos.html">XV Anos</a></h4>
+                        <p>Celebraciones espectaculares con tendencias actuales.</p>
+                        <a href="xv-anos.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="cumpleanos.html" class="interlink-card-image">
+                        <img src="img/figuras-de-globos/figura-unicornio-globos-pastel-fiesta-nina-jardin.webp" alt="Backdrops y Paneles para Cumpleanos en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="cumpleanos.html">Cumpleanos</a></h4>
+                        <p>Fiestas tematicas divertidas para todas las edades.</p>
+                        <a href="cumpleanos.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="corporativos.html" class="interlink-card-image">
+                        <img src="img/columnas-decorativas/columnas-globos-corporativo-negro-dorado-coctel-bar.webp" alt="Backdrops y Paneles para Corporativos en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="corporativos.html">Corporativos</a></h4>
+                        <p>Decoracion profesional para eventos empresariales.</p>
+                        <a href="corporativos.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="graduaciones.html" class="interlink-card-image">
+                        <img src="img/columnas-decorativas/columnas-globos-graduacion-dorado-azul-ceremonia.webp" alt="Backdrops y Paneles para Graduaciones en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="graduaciones.html">Graduaciones</a></h4>
+                        <p>Celebracion de logros con colores institucionales.</p>
+                        <a href="graduaciones.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="section-cta-link">
+                <a href="eventos.html" class="btn btn-outline">
+                    <i class="fas fa-calendar-alt"></i> Ver Todos los Eventos
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -2618,11 +2808,14 @@
                 <div>
                     <h4>Eventos</h4>
                     <nav class="footer-links">
-                        <a href="index.html#eventos">Bodas</a>
-                        <a href="index.html#eventos">XV Años</a>
-                        <a href="index.html#eventos">Baby Shower</a>
-                        <a href="index.html#eventos">Cumpleaños</a>
-                        <a href="index.html#eventos">Corporativos</a>
+                        <a href="bodas.html">Bodas</a>
+                        <a href="xv-anos.html">XV Años</a>
+                        <a href="baby-shower.html">Baby Shower</a>
+                        <a href="cumpleanos.html">Cumpleaños</a>
+                        <a href="corporativos.html">Corporativos</a>
+                        <a href="inauguraciones.html">Inauguraciones</a>
+                        <a href="gender-reveal.html">Gender Reveal</a>
+                        <a href="graduaciones.html">Graduaciones</a>
                     </nav>
                 </div>
 

@@ -1896,6 +1896,124 @@
                 padding: 0 20px 20px;
             }
         }
+    
+        
+
+    
+        /* ============================================
+           Interlinking Cards - SEO
+        ============================================ */
+        .interlink-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .interlink-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .interlink-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .interlink-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .interlink-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .interlink-card:hover .interlink-card-image img {
+            transform: scale(1.08);
+        }
+
+        .interlink-card-content {
+            padding: 25px;
+            border-top: 3px solid var(--primary);
+        }
+
+        .interlink-card-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .interlink-card-content h4 a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .interlink-card-content h4 a:hover {
+            color: var(--primary);
+        }
+
+        .interlink-card-content p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .interlink-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .interlink-card-btn:hover {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+
+        .interlink-card-btn i {
+            font-size: 12px;
+        }
+
+        .section-cta-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .section-cta-link .btn {
+            min-width: 250px;
+        }
+
+        @media (max-width: 1024px) {
+            .interlink-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .interlink-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .interlink-card-image {
+                height: 180px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1951,19 +2069,21 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="#">Eventos <i class="fas fa-chevron-down"></i></a>
+                                <a href="eventos.html">Eventos <i class="fas fa-chevron-down"></i></a>
                                 <div class="dropdown">
                                     <a href="bodas.html">Bodas</a>
                                     <a href="xv-anos.html">XV Años</a>
-                                    <a href="cumpleanos.html">Cumpleaños</a>
                                     <a href="baby-shower.html">Baby Shower</a>
-                                    <a href="eventos-corporativos.html">Corporativos</a>
+                                    <a href="cumpleanos.html">Cumpleaños</a>
+                                    <a href="corporativos.html">Corporativos</a>
+                                    <a href="inauguraciones.html">Inauguraciones</a>
+                                    <a href="gender-reveal.html">Gender Reveal</a>
                                     <a href="graduaciones.html">Graduaciones</a>
                                 </div>
                             </li>
-                            <li><a href="galeria.html">Galería</a></li>
-                            <li><a href="nosotros.html">Nosotros</a></li>
-                            <li><a href="contacto.html">Contacto</a></li>
+                            <li><a href="servicios.html">Galería</a></li>
+                            <li><a href="index.html#nosotros">Nosotros</a></li>
+                            <li><a href="index.html#contacto">Contacto</a></li>
                         </ul>
                     </nav>
                     <div class="header-cta">
@@ -2052,7 +2172,7 @@
                 <!-- Guirnalda Orgánica -->
                 <div class="tipo-guirnalda-card">
                     <div class="tipo-guirnalda-image">
-                        <img src="img/servicios/guirnalda-organica.webp" alt="Guirnalda orgánica de globos con diseño natural y fluido" loading="lazy">
+                        <img src="img/guirnaldas-de-globos/arco-globos-tonos-neutros-pampas-backdrop-elegante.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/arco-globos-tonos-neutros-pampas-backdrop-elegante-sm.webp 400w, img/guirnaldas-de-globos/arco-globos-tonos-neutros-pampas-backdrop-elegante-md.webp 800w, img/guirnaldas-de-globos/arco-globos-tonos-neutros-pampas-backdrop-elegante.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda orgánica de globos con diseño natural y fluido" loading="lazy">
                         <span class="tipo-guirnalda-label">Más Popular</span>
                     </div>
                     <div class="tipo-guirnalda-content">
@@ -2077,7 +2197,7 @@
                 <!-- Guirnalda con Follaje -->
                 <div class="tipo-guirnalda-card">
                     <div class="tipo-guirnalda-image">
-                        <img src="img/servicios/guirnalda-follaje.webp" alt="Guirnalda de globos con flores y follaje decorativo" loading="lazy">
+                        <img src="img/guirnaldas-de-globos/guirnalda-globos-mauve-verde-eucalipto-pampas-boho.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/guirnalda-globos-mauve-verde-eucalipto-pampas-boho-sm.webp 400w, img/guirnaldas-de-globos/guirnalda-globos-mauve-verde-eucalipto-pampas-boho-md.webp 800w, img/guirnaldas-de-globos/guirnalda-globos-mauve-verde-eucalipto-pampas-boho.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos con flores y follaje decorativo" loading="lazy">
                         <span class="tipo-guirnalda-label">Premium</span>
                     </div>
                     <div class="tipo-guirnalda-content">
@@ -2155,7 +2275,7 @@
                 <!-- Guirnalda Pequeña -->
                 <div class="size-card">
                     <div class="size-image">
-                        <img src="img/servicios/guirnalda-pequena.webp" alt="Guirnalda de globos pequeña de 1-3 metros" loading="lazy">
+                        <img src="img/guirnaldas-de-globos/guirnalda-globos-blanco-dorado-elegante-moderno.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/guirnalda-globos-blanco-dorado-elegante-moderno-sm.webp 400w, img/guirnaldas-de-globos/guirnalda-globos-blanco-dorado-elegante-moderno-md.webp 800w, img/guirnaldas-de-globos/guirnalda-globos-blanco-dorado-elegante-moderno.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos pequeña de 1-3 metros" loading="lazy">
                     </div>
                     <div class="size-content">
                         <h3>Guirnalda Pequeña</h3>
@@ -2173,7 +2293,7 @@
                 <!-- Guirnalda Mediana -->
                 <div class="size-card featured">
                     <div class="size-image">
-                        <img src="img/servicios/guirnalda-mediana.webp" alt="Guirnalda de globos mediana de 4-6 metros" loading="lazy">
+                        <img src="img/guirnaldas-de-globos/guirnalda-globos-barandal-tonos-terracota-verde-evento.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/guirnalda-globos-barandal-tonos-terracota-verde-evento-sm.webp 400w, img/guirnaldas-de-globos/guirnalda-globos-barandal-tonos-terracota-verde-evento-md.webp 800w, img/guirnaldas-de-globos/guirnalda-globos-barandal-tonos-terracota-verde-evento.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos mediana de 4-6 metros" loading="lazy">
                     </div>
                     <div class="size-content">
                         <h3>Guirnalda Mediana</h3>
@@ -2191,7 +2311,7 @@
                 <!-- Guirnalda Grande -->
                 <div class="size-card">
                     <div class="size-image">
-                        <img src="img/servicios/guirnalda-grande.webp" alt="Guirnalda de globos grande de 7+ metros" loading="lazy">
+                        <img src="img/guirnaldas-de-globos/guirnalda-globos-techo-carpa-boda-verde-salvia-follaje-vista-lago.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/guirnalda-globos-techo-carpa-boda-verde-salvia-follaje-vista-lago-sm.webp 400w, img/guirnaldas-de-globos/guirnalda-globos-techo-carpa-boda-verde-salvia-follaje-vista-lago-md.webp 800w, img/guirnaldas-de-globos/guirnalda-globos-techo-carpa-boda-verde-salvia-follaje-vista-lago.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos grande de 7+ metros" loading="lazy">
                     </div>
                     <div class="size-content">
                         <h3>Guirnalda Grande</h3>
@@ -2260,43 +2380,43 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item large">
-                    <img src="img/galeria/guirnalda-boda-pared.jpg" alt="Guirnalda de globos en pared para boda" loading="lazy">
+                    <img src="img/guirnaldas-de-globos/arco-globos-organico-tonos-pastel-pampas-salon-elegante.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/arco-globos-organico-tonos-pastel-pampas-salon-elegante-sm.webp 400w, img/guirnaldas-de-globos/arco-globos-organico-tonos-pastel-pampas-salon-elegante-md.webp 800w, img/guirnaldas-de-globos/arco-globos-organico-tonos-pastel-pampas-salon-elegante.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos en pared para boda" loading="lazy">
                     <div class="gallery-overlay">
-                        <span>Boda en Santa Fe</span>
+                        <span>Boda Elegante</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/guirnalda-barandal.jpg" alt="Guirnalda de globos en barandal de escalera" loading="lazy">
+                    <img src="img/guirnaldas-de-globos/guirnalda-globos-escalera-tonos-terracota-verde-salvia-boda.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/guirnalda-globos-escalera-tonos-terracota-verde-salvia-boda-sm.webp 400w, img/guirnaldas-de-globos/guirnalda-globos-escalera-tonos-terracota-verde-salvia-boda-md.webp 800w, img/guirnaldas-de-globos/guirnalda-globos-escalera-tonos-terracota-verde-salvia-boda.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos en barandal de escalera" loading="lazy">
                     <div class="gallery-overlay">
-                        <span>XV Años - Barandal</span>
+                        <span>Escalera Boda</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/guirnalda-baby-shower.jpg" alt="Guirnalda de globos para baby shower" loading="lazy">
+                    <img src="img/guirnaldas-de-globos/instalacion-guirnalda-globos-escalera-rosa-vino-rose-gold.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/instalacion-guirnalda-globos-escalera-rosa-vino-rose-gold-sm.webp 400w, img/guirnaldas-de-globos/instalacion-guirnalda-globos-escalera-rosa-vino-rose-gold-md.webp 800w, img/guirnaldas-de-globos/instalacion-guirnalda-globos-escalera-rosa-vino-rose-gold.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos para XV años" loading="lazy">
                     <div class="gallery-overlay">
-                        <span>Baby Shower</span>
+                        <span>XV Años Rose Gold</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/guirnalda-techo.jpg" alt="Guirnalda de globos en techo de salón" loading="lazy">
+                    <img src="img/guirnaldas-de-globos/guirnalda-globos-techo-industrial-gris-blanco-evento-loft.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/guirnalda-globos-techo-industrial-gris-blanco-evento-loft-sm.webp 400w, img/guirnaldas-de-globos/guirnalda-globos-techo-industrial-gris-blanco-evento-loft-md.webp 800w, img/guirnaldas-de-globos/guirnalda-globos-techo-industrial-gris-blanco-evento-loft.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos en techo de salón" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Decoración Techo</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/guirnalda-puerta.jpg" alt="Guirnalda de globos en marco de puerta" loading="lazy">
+                    <img src="img/guirnaldas-de-globos/arco-globos-entrada-evento-gala-terracota-verde-dorado.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/arco-globos-entrada-evento-gala-terracota-verde-dorado-sm.webp 400w, img/guirnaldas-de-globos/arco-globos-entrada-evento-gala-terracota-verde-dorado-md.webp 800w, img/guirnaldas-de-globos/arco-globos-entrada-evento-gala-terracota-verde-dorado.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos en marco de puerta" loading="lazy">
                     <div class="gallery-overlay">
-                        <span>Marco de Entrada</span>
+                        <span>Entrada Gala</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/guirnalda-corporativo.jpg" alt="Guirnalda de globos para evento corporativo" loading="lazy">
+                    <img src="img/guirnaldas-de-globos/arco-globos-escenario-corporativo-blanco-plateado-evento-empresarial.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/arco-globos-escenario-corporativo-blanco-plateado-evento-empresarial-sm.webp 400w, img/guirnaldas-de-globos/arco-globos-escenario-corporativo-blanco-plateado-evento-empresarial-md.webp 800w, img/guirnaldas-de-globos/arco-globos-escenario-corporativo-blanco-plateado-evento-empresarial.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos para evento corporativo" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Evento Corporativo</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeria/guirnalda-cumpleanos.jpg" alt="Guirnalda de globos para cumpleaños" loading="lazy">
+                    <img src="img/guirnaldas-de-globos/guirnalda-globos-tropical-fucsia-naranja-amarillo-evento-verano.webp" width="1195" height="896" srcset="img/guirnaldas-de-globos/guirnalda-globos-tropical-fucsia-naranja-amarillo-evento-verano-sm.webp 400w, img/guirnaldas-de-globos/guirnalda-globos-tropical-fucsia-naranja-amarillo-evento-verano-md.webp 800w, img/guirnaldas-de-globos/guirnalda-globos-tropical-fucsia-naranja-amarillo-evento-verano.webp 1195w" sizes="(max-width: 480px) 400px, (max-width: 1024px) 800px, 1195px" alt="Guirnalda de globos para cumpleaños" loading="lazy">
                     <div class="gallery-overlay">
                         <span>Cumpleaños Infantil</span>
                     </div>
@@ -2543,6 +2663,76 @@
     </section>
 
     <!-- Footer -->
+
+    
+    <!-- Eventos Relacionados -->
+    <section class="section section-light" id="eventos-relacionados">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Ideal Para</span>
+                <h2>Eventos Perfectos para Guirnaldas de Globos</h2>
+                <p>Este tipo de decoracion es muy solicitada en estas celebraciones</p>
+            </div>
+
+            <div class="interlink-grid">
+                <article class="interlink-card">
+                    <a href="baby-shower.html" class="interlink-card-image">
+                        <img src="img/arcos-de-globos/arco-globos-baby-shower-rosa-durazno-its-a-girl.webp" alt="Guirnaldas de Globos para Baby Shower en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="baby-shower.html">Baby Shower</a></h4>
+                        <p>Ambientes tiernos para dar la bienvenida al bebe.</p>
+                        <a href="baby-shower.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="gender-reveal.html" class="interlink-card-image">
+                        <img src="img/globos-gigantes/globo-gigante-gender-reveal-nino-confeti-azul-atardecer.webp" alt="Guirnaldas de Globos para Gender Reveal en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="gender-reveal.html">Gender Reveal</a></h4>
+                        <p>Revelacion magica del genero con globos sorpresa.</p>
+                        <a href="gender-reveal.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="inauguraciones.html" class="interlink-card-image">
+                        <img src="img/columnas-decorativas/columnas-globos-inauguracion-azul-dorado-corte-liston.webp" alt="Guirnaldas de Globos para Inauguraciones en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="inauguraciones.html">Inauguraciones</a></h4>
+                        <p>Aperturas con impacto visual que atraen miradas.</p>
+                        <a href="inauguraciones.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="cumpleanos.html" class="interlink-card-image">
+                        <img src="img/figuras-de-globos/figura-unicornio-globos-pastel-fiesta-nina-jardin.webp" alt="Guirnaldas de Globos para Cumpleanos en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="cumpleanos.html">Cumpleanos</a></h4>
+                        <p>Fiestas tematicas divertidas para todas las edades.</p>
+                        <a href="cumpleanos.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="section-cta-link">
+                <a href="eventos.html" class="btn btn-outline">
+                    <i class="fas fa-calendar-alt"></i> Ver Todos los Eventos
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -2575,9 +2765,11 @@
                     <nav class="footer-links">
                         <a href="bodas.html">Bodas</a>
                         <a href="xv-anos.html">XV Años</a>
-                        <a href="cumpleanos.html">Cumpleaños</a>
                         <a href="baby-shower.html">Baby Shower</a>
-                        <a href="eventos-corporativos.html">Corporativos</a>
+                        <a href="cumpleanos.html">Cumpleaños</a>
+                        <a href="corporativos.html">Corporativos</a>
+                        <a href="inauguraciones.html">Inauguraciones</a>
+                        <a href="gender-reveal.html">Gender Reveal</a>
                         <a href="graduaciones.html">Graduaciones</a>
                     </nav>
                 </div>

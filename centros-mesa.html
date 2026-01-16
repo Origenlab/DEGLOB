@@ -1922,6 +1922,124 @@
                 flex-direction: column;
             }
         }
+    
+        
+
+    
+        /* ============================================
+           Interlinking Cards - SEO
+        ============================================ */
+        .interlink-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .interlink-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .interlink-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .interlink-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .interlink-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .interlink-card:hover .interlink-card-image img {
+            transform: scale(1.08);
+        }
+
+        .interlink-card-content {
+            padding: 25px;
+            border-top: 3px solid var(--primary);
+        }
+
+        .interlink-card-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .interlink-card-content h4 a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .interlink-card-content h4 a:hover {
+            color: var(--primary);
+        }
+
+        .interlink-card-content p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .interlink-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .interlink-card-btn:hover {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+
+        .interlink-card-btn i {
+            font-size: 12px;
+        }
+
+        .section-cta-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .section-cta-link .btn {
+            min-width: 250px;
+        }
+
+        @media (max-width: 1024px) {
+            .interlink-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .interlink-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .interlink-card-image {
+                height: 180px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1987,14 +2105,16 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="index.html#eventos">Eventos <i class="fas fa-chevron-down"></i></a>
+                                <a href="eventos.html">Eventos <i class="fas fa-chevron-down"></i></a>
                                 <div class="dropdown">
-                                    <a href="index.html#eventos">Bodas</a>
-                                    <a href="index.html#eventos">XV Años</a>
-                                    <a href="index.html#eventos">Baby Shower</a>
-                                    <a href="index.html#eventos">Cumpleaños</a>
-                                    <a href="index.html#eventos">Corporativos</a>
-                                    <a href="index.html#eventos">Inauguraciones</a>
+                                    <a href="bodas.html">Bodas</a>
+                                    <a href="xv-anos.html">XV Años</a>
+                                    <a href="baby-shower.html">Baby Shower</a>
+                                    <a href="cumpleanos.html">Cumpleaños</a>
+                                    <a href="corporativos.html">Corporativos</a>
+                                    <a href="inauguraciones.html">Inauguraciones</a>
+                                    <a href="gender-reveal.html">Gender Reveal</a>
+                                    <a href="graduaciones.html">Graduaciones</a>
                                 </div>
                             </li>
                             <li><a href="index.html#nosotros">Nosotros</a></li>
@@ -2709,6 +2829,76 @@
     </section>
 
     <!-- CTA Final -->
+
+    
+    <!-- Eventos Relacionados -->
+    <section class="section section-light" id="eventos-relacionados">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Ideal Para</span>
+                <h2>Eventos Perfectos para Centros de Mesa</h2>
+                <p>Este tipo de decoracion es muy solicitada en estas celebraciones</p>
+            </div>
+
+            <div class="interlink-grid">
+                <article class="interlink-card">
+                    <a href="bodas.html" class="interlink-card-image">
+                        <img src="img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp" alt="Centros de Mesa para Bodas en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="bodas.html">Bodas</a></h4>
+                        <p>Decoracion romantica y elegante para el dia mas especial.</p>
+                        <a href="bodas.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="xv-anos.html" class="interlink-card-image">
+                        <img src="img/arcos-de-globos/arco-globos-xv-anos-rose-gold-flores-photobooth.webp" alt="Centros de Mesa para XV Anos en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="xv-anos.html">XV Anos</a></h4>
+                        <p>Celebraciones espectaculares con tendencias actuales.</p>
+                        <a href="xv-anos.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="baby-shower.html" class="interlink-card-image">
+                        <img src="img/arcos-de-globos/arco-globos-baby-shower-rosa-durazno-its-a-girl.webp" alt="Centros de Mesa para Baby Shower en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="baby-shower.html">Baby Shower</a></h4>
+                        <p>Ambientes tiernos para dar la bienvenida al bebe.</p>
+                        <a href="baby-shower.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="interlink-card">
+                    <a href="corporativos.html" class="interlink-card-image">
+                        <img src="img/columnas-decorativas/columnas-globos-corporativo-negro-dorado-coctel-bar.webp" alt="Centros de Mesa para Corporativos en CDMX" loading="lazy">
+                    </a>
+                    <div class="interlink-card-content">
+                        <h4><a href="corporativos.html">Corporativos</a></h4>
+                        <p>Decoracion profesional para eventos empresariales.</p>
+                        <a href="corporativos.html" class="interlink-card-btn">
+                            Ver evento <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="section-cta-link">
+                <a href="eventos.html" class="btn btn-outline">
+                    <i class="fas fa-calendar-alt"></i> Ver Todos los Eventos
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="cta">
         <div class="container">
             <div class="cta-content">
@@ -2761,11 +2951,14 @@
                 <div>
                     <h4>Eventos</h4>
                     <nav class="footer-links">
-                        <a href="index.html#eventos">Bodas</a>
-                        <a href="index.html#eventos">XV Años</a>
-                        <a href="index.html#eventos">Baby Shower</a>
-                        <a href="index.html#eventos">Cumpleaños</a>
-                        <a href="index.html#eventos">Corporativos</a>
+                        <a href="bodas.html">Bodas</a>
+                        <a href="xv-anos.html">XV Años</a>
+                        <a href="baby-shower.html">Baby Shower</a>
+                        <a href="cumpleanos.html">Cumpleaños</a>
+                        <a href="corporativos.html">Corporativos</a>
+                        <a href="inauguraciones.html">Inauguraciones</a>
+                        <a href="gender-reveal.html">Gender Reveal</a>
+                        <a href="graduaciones.html">Graduaciones</a>
                     </nav>
                 </div>
 
