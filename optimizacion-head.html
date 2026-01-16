@@ -1,0 +1,146 @@
+<!--
+=====================================================
+OPTIMIZACIONES DE PERFORMANCE PARA EL <HEAD>
+Fantasy Globos - fantasyglobos.com.mx
+=====================================================
+
+Agrega estos elementos al inicio del <head> de cada pagina,
+justo despues de las meta tags basicas.
+-->
+
+<!-- DNS Prefetch para recursos externos -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+
+<!-- Preconnect para recursos criticos -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+<!-- Preload de fuentes criticas (opcional - reduce CLS) -->
+<link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+
+<!--
+=====================================================
+CSS CRITICO INLINE
+=====================================================
+Este CSS se carga primero para evitar el flash de contenido sin estilo.
+Incluye solo los estilos necesarios para el "above the fold" (visible sin scroll).
+-->
+
+<style>
+/* CSS Critico - Variables y Reset */
+:root{--primary:#8B30EE;--primary-dark:#6F02D6;--primary-light:#A855F7;--secondary:#C900D4;--dark:#1a1a2e;--gray:#636E72;--gray-light:#B2BEC3;--light:#F8F9FA;--white:#FFFFFF;--gradient:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',system-ui,-apple-system,sans-serif;background:var(--light);color:var(--dark);line-height:1.6}
+
+/* Header Critico */
+.header{background:var(--white);position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
+.header .container{max-width:1400px;margin:0 auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:28px;font-weight:800;color:var(--dark);text-decoration:none}
+.logo span{color:var(--primary)}
+
+/* Hero Critico */
+.hero{min-height:80vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* Skeleton Loading (para imagenes) */
+.skeleton{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:200% 100%;animation:skeleton 1.5s infinite}
+@keyframes skeleton{0%{background-position:200% 0}100%{background-position:-200% 0}}
+</style>
+
+<!--
+=====================================================
+CARGA DIFERIDA DE FUENTES (MEJOR PERFORMANCE)
+=====================================================
+Reemplaza la carga actual de Google Fonts con esta version optimizada:
+-->
+
+<!-- Google Fonts - Carga optimizada -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"></noscript>
+
+<!-- Font Awesome - Carga diferida -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+<!--
+=====================================================
+LAZY LOADING NATIVO PARA IMAGENES
+=====================================================
+Ya lo tienes implementado con loading="lazy" en las imagenes.
+Asegurate de que TODAS las imagenes debajo del fold tengan este atributo.
+
+Ejemplo correcto:
+<img src="imagen.webp" alt="Descripcion" loading="lazy" width="400" height="300">
+
+IMPORTANTE: Siempre incluir width y height para evitar CLS (Cumulative Layout Shift).
+-->
+
+<!--
+=====================================================
+SCRIPT DE LAZY LOADING PARA VIDEOS Y IFRAMES (OPCIONAL)
+=====================================================
+-->
+
+<script>
+// Lazy loading para iframes (videos de YouTube, mapas, etc.)
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyIframes = [].slice.call(document.querySelectorAll("iframe[data-src]"));
+
+    if ("IntersectionObserver" in window) {
+        var lazyIframeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var lazyIframe = entry.target;
+                    lazyIframe.src = lazyIframe.dataset.src;
+                    lazyIframeObserver.unobserve(lazyIframe);
+                }
+            });
+        });
+
+        lazyIframes.forEach(function(lazyIframe) {
+            lazyIframeObserver.observe(lazyIframe);
+        });
+    }
+});
+</script>
+
+<!--
+=====================================================
+METRICAS WEB VITALES (Core Web Vitals)
+=====================================================
+
+LCP (Largest Contentful Paint) - Meta: < 2.5s
+- Optimiza la imagen hero (usa WebP/AVIF)
+- Preload la imagen principal del hero
+- Ejemplo: <link rel="preload" href="img/hero.webp" as="image">
+
+FID (First Input Delay) - Meta: < 100ms
+- Minimiza JavaScript de terceros
+- Usa defer/async en scripts
+
+CLS (Cumulative Layout Shift) - Meta: < 0.1
+- Siempre incluye width/height en imagenes
+- Reserva espacio para contenido dinamico
+- Usa font-display: swap en fuentes
+
+=====================================================
+CHECKLIST DE PERFORMANCE
+=====================================================
+
+[ ] Comprimir todas las imagenes (usar WebP)
+[ ] Agregar width/height a todas las imagenes
+[ ] Minificar CSS y JavaScript
+[ ] Habilitar compresion GZIP (ya configurado en .htaccess)
+[ ] Configurar cache del navegador (ya configurado en .htaccess)
+[ ] Lazy load en imagenes debajo del fold
+[ ] Preload de recursos criticos
+[ ] Reducir redirecciones
+[ ] Usar CDN para recursos estaticos (opcional)
+
+=====================================================
+-->

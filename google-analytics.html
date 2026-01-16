@@ -1,0 +1,137 @@
+<!--
+=====================================================
+INSTRUCCIONES PARA GOOGLE ANALYTICS Y SEARCH CONSOLE
+Fantasy Globos - fantasyglobos.com.mx
+=====================================================
+
+PASO 1: CREAR CUENTA DE GOOGLE ANALYTICS 4
+------------------------------------------
+1. Ve a https://analytics.google.com
+2. Inicia sesion con tu cuenta de Google
+3. Clic en "Empezar a medir"
+4. Nombre de la cuenta: Fantasy Globos
+5. Nombre de la propiedad: fantasyglobos.com.mx
+6. Zona horaria: Mexico (GMT-6)
+7. Moneda: Peso mexicano (MXN)
+8. Selecciona "Web" como plataforma
+9. URL del sitio: https://fantasyglobos.com.mx
+10. Copia tu ID de medicion (formato: G-XXXXXXXXXX)
+
+PASO 2: AGREGAR CODIGO A TODAS LAS PAGINAS
+-------------------------------------------
+Copia el siguiente codigo y pegalo ANTES de </head> en TODAS las paginas HTML:
+-->
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!--
+IMPORTANTE: Reemplaza "G-XXXXXXXXXX" con tu ID de medicion real de Google Analytics.
+
+=====================================================
+PASO 3: GOOGLE SEARCH CONSOLE
+=====================================================
+
+1. Ve a https://search.google.com/search-console
+2. Inicia sesion con tu cuenta de Google
+3. Clic en "Agregar propiedad"
+4. Selecciona "Dominio" e ingresa: fantasyglobos.com.mx
+5. Verifica mediante DNS (tu proveedor de hosting te ayudara)
+
+ALTERNATIVA - Verificacion por meta tag:
+-----------------------------------------
+Si prefieres verificar por meta tag, agrega esto en el <head> de index.html:
+-->
+
+<meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION_AQUI">
+
+<!--
+PASO 4: ENVIAR SITEMAP A GOOGLE
+-------------------------------
+1. En Search Console, ve a "Sitemaps"
+2. Ingresa la URL: https://fantasyglobos.com.mx/sitemap.xml
+3. Clic en "Enviar"
+
+=====================================================
+EVENTOS PERSONALIZADOS RECOMENDADOS (OPCIONAL)
+=====================================================
+Agrega estos eventos para rastrear acciones importantes:
+-->
+
+<script>
+// Evento: Clic en boton de WhatsApp
+document.querySelectorAll('a[href*="wa.me"]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        gtag('event', 'whatsapp_click', {
+            'event_category': 'Contacto',
+            'event_label': window.location.pathname
+        });
+    });
+});
+
+// Evento: Clic en telefono
+document.querySelectorAll('a[href^="tel:"]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        gtag('event', 'phone_click', {
+            'event_category': 'Contacto',
+            'event_label': this.href.replace('tel:', '')
+        });
+    });
+});
+
+// Evento: Envio de formulario
+document.querySelectorAll('form').forEach(function(form) {
+    form.addEventListener('submit', function() {
+        gtag('event', 'form_submit', {
+            'event_category': 'Lead',
+            'event_label': window.location.pathname
+        });
+    });
+});
+</script>
+
+<!--
+=====================================================
+VERIFICACION DE BING WEBMASTER TOOLS (OPCIONAL)
+=====================================================
+1. Ve a https://www.bing.com/webmasters
+2. Agrega tu sitio
+3. Agrega este meta tag en el <head>:
+-->
+
+<meta name="msvalidate.01" content="TU_CODIGO_BING_AQUI">
+
+<!--
+=====================================================
+RESUMEN DE ARCHIVOS SEO CREADOS
+=====================================================
+
+1. sitemap.xml - Mapa del sitio para buscadores
+2. robots.txt - Instrucciones para crawlers
+3. site.webmanifest - Configuracion PWA
+4. browserconfig.xml - Configuracion Microsoft
+5. .htaccess - Redirecciones y cache
+6. politica-privacidad.html - Politica de privacidad
+7. terminos-condiciones.html - Terminos legales
+8. security.txt - Contacto de seguridad
+9. img/branding/ - Iconos y favicons
+
+=====================================================
+CHECKLIST FINAL
+=====================================================
+
+[ ] Reemplazar G-XXXXXXXXXX con tu ID de Google Analytics
+[ ] Verificar sitio en Google Search Console
+[ ] Enviar sitemap.xml a Google Search Console
+[ ] Verificar sitio en Bing Webmaster Tools (opcional)
+[ ] Configurar objetivos en Google Analytics
+[ ] Conectar Google Analytics con Search Console
+
+=====================================================
+-->
