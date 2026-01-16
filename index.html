@@ -1597,6 +1597,21 @@
             color: var(--gray-light);
         }
 
+        .footer-legal {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-legal a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--primary-light);
+        }
+
         /* ============================================
            WhatsApp Float
         ============================================ */
@@ -2652,8 +2667,11 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 DEGLOB - Decoración con Globos. Todos los derechos reservados.</p>
-                <p>Servicio en CDMX: Polanco, Santa Fe, Coyoacán, Condesa, Roma, Del Valle, Naucalpan, Tlalnepantla</p>
+                <p>&copy; 2025 DEGLOB - Decoracion con Globos. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="politica-privacidad.html">Politica de Privacidad</a>
+                    <a href="terminos-condiciones.html">Terminos y Condiciones</a>
+                </div>
             </div>
         </div>
     </footer>
