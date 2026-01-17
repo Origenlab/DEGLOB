@@ -720,12 +720,12 @@
             border-radius: var(--radius-lg);
             padding: 30px;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: none;
         }
 
         .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: none;
+            box-shadow: var(--shadow);
         }
 
         .contact-card-header {
@@ -772,6 +772,26 @@
             text-decoration: underline;
         }
 
+        .contact-cta {
+            width: 100%;
+            margin-top: 16px;
+            justify-content: center;
+        }
+
+        .contact-number {
+            display: inline-flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-number:hover {
+            text-decoration: none;
+        }
+
         .contact-whatsapp-card {
             background: #25D366;
             color: var(--white);
@@ -790,6 +810,20 @@
         .contact-whatsapp-card .contact-card-content a {
             color: var(--white);
             text-decoration: underline;
+        }
+
+        .contact-whatsapp-card .contact-card-content a.btn-white {
+            background: var(--white);
+            color: #128C7E;
+            border: 2px solid rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact-whatsapp-card .contact-card-content a.btn-white:hover {
+            background: #f1fff6;
+            color: #128C7E;
+            transform: none;
         }
 
         /* Contact Form */
@@ -1466,8 +1500,7 @@
                         </div>
                         <div class="contact-card-content">
                             <p>Escribenos directamente y recibe respuesta en minutos. Envianos fotos de inspiracion, cuentanos sobre tu evento y te cotizamos al momento.</p>
-                            <br>
-                            <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20mi%20evento" target="_blank" class="btn btn-white" style="width: 100%;">
+                            <a href="https://wa.me/525539298346?text=Hola,%20me%20interesa%20cotizar%20decoracion%20con%20globos%20para%20mi%20evento" target="_blank" class="btn btn-white contact-cta">
                                 <i class="fab fa-whatsapp"></i> 55 3929 8346
                             </a>
                         </div>
@@ -1486,8 +1519,7 @@
                         </div>
                         <div class="contact-card-content">
                             <p>Si prefieres hablar por telefono, estamos disponibles para atenderte y resolver todas tus dudas sobre nuestros servicios.</p>
-                            <br>
-                            <p><a href="tel:+525539298346"><strong>55 3929 8346</strong></a></p>
+                            <a href="tel:+525539298346" class="contact-number">55 3929 8346</a>
                         </div>
                     </div>
 
