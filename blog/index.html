@@ -22,7 +22,7 @@
 <meta property="og:url" content="https://fantasyglobos.com.mx/blog/">
 <meta property="og:title" content="Blog de Decoracion con Globos | DEGLOB CDMX">
 <meta property="og:description" content="Descubre ideas, tendencias y guias de decoracion con globos para eventos en CDMX.">
-<meta property="og:image" content="https://fantasyglobos.com.mx/img/seo/decoracion-globos-cdmx-16x9.jpg">
+<meta property="og:image" content="https://fantasyglobos.com.mx/img/decoracion-con-globos.avif">
 <meta property="og:locale" content="es_MX">
 <meta property="og:site_name" content="DEGLOB">
 
@@ -63,7 +63,7 @@
 
 <style>
 /* ============================================
-   CSS Variables - DEGLOB
+   CSS Variables - DEGLOB BLOG PRO
 ============================================ */
 :root {
     --primary: #8B30EE;
@@ -81,8 +81,11 @@
     --white: #FFFFFF;
     --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     --shadow: 0 10px 40px rgba(var(--primary-rgb), 0.15);
+    --shadow-sm: 0 4px 15px rgba(0,0,0,0.08);
+    --shadow-lg: 0 20px 60px rgba(var(--primary-rgb), 0.2);
     --radius: 12px;
     --radius-lg: 20px;
+    --radius-xl: 24px;
     --transition: all 0.3s ease;
 }
 
@@ -153,6 +156,17 @@ ul, ol {
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: var(--white);
 }
 
 /* Header */
@@ -368,12 +382,13 @@ ul, ol {
     font-weight: 500;
 }
 
-/* Blog Hero */
+/* Blog Hero - MEJORADO */
 .blog-hero {
     background: linear-gradient(135deg, #f8f0ff 0%, #fff0f5 50%, #f0f8ff 100%);
-    padding: 60px 0;
+    padding: 60px 0 50px;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 .blog-hero::before {
@@ -387,15 +402,45 @@ ul, ol {
     border-radius: 50%;
 }
 
+.blog-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(201, 0, 212, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
 .blog-hero-content {
     position: relative;
     z-index: 2;
 }
 
+.blog-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+}
+
+.blog-hero-badge i {
+    color: var(--gold);
+}
+
 .blog-hero h1 {
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: clamp(32px, 5vw, 52px);
     font-weight: 800;
     margin-bottom: 15px;
+    line-height: 1.2;
 }
 
 .blog-hero h1 span {
@@ -408,11 +453,40 @@ ul, ol {
 .blog-hero p {
     font-size: 18px;
     color: var(--gray);
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
+    line-height: 1.7;
 }
 
-/* Categories Filter */
+/* Stats Bar */
+.blog-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 5px;
+}
+
+/* Categories Filter - MEJORADO */
 .blog-categories {
     background: var(--white);
     padding: 20px 0;
@@ -420,20 +494,52 @@ ul, ol {
     position: sticky;
     top: 138px;
     z-index: 50;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.categories-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.categories-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.categories-title i {
+    color: var(--primary);
+}
+
+.articles-count {
+    font-size: 13px;
+    color: var(--gray);
+    background: var(--light);
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+.articles-count strong {
+    color: var(--primary);
 }
 
 .categories-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
 }
 
 .category-tag {
-    padding: 10px 20px;
+    padding: 10px 22px;
     background: var(--light);
-    border: none;
+    border: 2px solid transparent;
     border-radius: 25px;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
@@ -443,154 +549,256 @@ ul, ol {
     transition: var(--transition);
 }
 
-.category-tag:hover,
+.category-tag:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(var(--primary-rgb), 0.05);
+}
+
 .category-tag.active {
     background: var(--gradient);
     color: var(--white);
+    border-color: transparent;
 }
 
-/* Blog Grid Section */
+.category-tag .count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 8px;
+}
+
+.category-tag:not(.active) .count {
+    background: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary);
+}
+
+/* Blog Grid Section - MEJORADO */
 .blog-section {
-    padding: 60px 0 80px;
+    padding: 50px 0 80px;
     background: var(--light);
+    min-height: 600px;
 }
 
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
 }
 
-/* Post Card - IDENTICO A MESAS-DE-DULCES */
+/* Post Card - MEJORADO */
 .post-card {
     background: var(--white);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
 .post-card:hover {
     box-shadow: var(--shadow);
+    transform: translateY(-5px);
 }
 
-.post-card > a:first-child {
-    display: block;
+.post-card-image {
+    position: relative;
     aspect-ratio: 16/10;
     overflow: hidden;
 }
 
-.post-card > a:first-child img {
+.post-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-.post-meta {
+.post-card:hover .post-card-image img {
+    transform: scale(1.05);
+}
+
+.post-card-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
     display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 25px 0;
+    gap: 8px;
 }
 
-.read-time {
-    font-size: 13px;
-    color: var(--gray);
+.badge-category {
+    background: var(--gradient);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-time {
+    background: rgba(0,0,0,0.7);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.read-time i {
-    color: var(--primary);
+.post-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.category {
-    background: rgba(var(--primary-rgb), 0.1);
-    color: var(--primary);
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.post-card h3 {
-    padding: 12px 25px 0;
-    font-size: 18px;
+.post-card-title {
+    font-size: 16px;
     font-weight: 700;
     line-height: 1.4;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.post-card h3 a {
+.post-card-title a {
     color: var(--dark);
 }
 
-.post-card h3 a:hover {
+.post-card-title a:hover {
     color: var(--primary);
 }
 
-.post-card > p {
-    padding: 10px 25px 0;
+.post-card-excerpt {
     font-size: 14px;
     color: var(--gray);
     line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.post-card > a.btn {
-    margin: 20px 25px 25px;
-    padding: 12px 24px;
-    font-size: 14px;
+.post-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0,0,0,0.06);
 }
 
-/* Pagination */
+.post-card-author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.author-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.author-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.post-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.post-card-link:hover {
+    gap: 8px;
+}
+
+/* Pagination - MEJORADO PRO */
+.pagination-container {
+    margin-top: 50px;
+}
+
 .pagination {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 50px;
+    gap: 8px;
 }
 
 .pagination-btn,
 .pagination-arrow {
-    width: 45px;
+    min-width: 45px;
     height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--white);
-    border: none;
-    border-radius: 50%;
+    border: 2px solid transparent;
+    border-radius: var(--radius);
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
     font-weight: 600;
     color: var(--gray);
     cursor: pointer;
     transition: var(--transition);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-sm);
 }
 
 .pagination-btn:hover,
-.pagination-btn.active,
-.pagination-arrow:hover {
-    background: var(--gradient);
-    color: var(--white);
-}
-
-.pagination-btn:disabled,
-.pagination-arrow:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+.pagination-arrow:hover:not(:disabled) {
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .pagination-btn.active {
     background: var(--gradient);
     color: var(--white);
+    border-color: transparent;
+}
+
+.pagination-arrow {
+    padding: 0 20px;
+    gap: 8px;
+}
+
+.pagination-arrow:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pagination-arrow span {
+    font-size: 14px;
 }
 
 .pagination-ellipsis {
-    padding: 0 8px;
+    padding: 0 10px;
     color: var(--gray);
     font-weight: 600;
 }
@@ -598,11 +806,56 @@ ul, ol {
 .pagination-info {
     text-align: center;
     margin-top: 20px;
+    padding: 15px 25px;
+    background: var(--white);
+    border-radius: var(--radius);
     font-size: 14px;
     color: var(--gray);
+    display: inline-block;
+    box-shadow: var(--shadow-sm);
+}
+
+.pagination-info strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.pagination-info-wrapper {
+    text-align: center;
+}
+
+/* Progress Bar */
+.pagination-progress {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 4px;
+    background: rgba(var(--primary-rgb), 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 2px;
+    transition: width 0.3s ease;
 }
 
 /* Loading & Empty States */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    grid-column: 1 / -1;
+}
+
 .loading-spinner {
     width: 50px;
     height: 50px;
@@ -610,7 +863,12 @@ ul, ol {
     border-top-color: var(--primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    margin: 80px auto;
+}
+
+.loading-text {
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--gray);
 }
 
 @keyframes spin {
@@ -621,57 +879,87 @@ ul, ol {
     text-align: center;
     padding: 80px 20px;
     grid-column: 1 / -1;
+    background: var(--white);
+    border-radius: var(--radius-xl);
 }
 
-.empty-state i {
-    font-size: 60px;
-    color: var(--gray-light);
-    margin-bottom: 20px;
+.empty-state-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: rgba(var(--primary-rgb), 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-state-icon i {
+    font-size: 32px;
+    color: var(--primary);
 }
 
 .empty-state h3 {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 10px;
+    color: var(--dark);
 }
 
 .empty-state p {
     color: var(--gray);
+    margin-bottom: 20px;
 }
 
-.error-container {
-    text-align: center;
-    padding: 60px 20px;
-    grid-column: 1 / -1;
-}
-
-.error-container i {
-    font-size: 48px;
-    color: #e74c3c;
-    margin-bottom: 15px;
-}
-
-/* CTA Section */
+/* CTA Section - MEJORADO */
 .blog-cta {
     padding: 80px 0;
     background: var(--gradient);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.blog-cta-content {
+    position: relative;
+    z-index: 2;
 }
 
 .blog-cta h2 {
-    font-size: 32px;
+    font-size: 36px;
     color: var(--white);
     margin-bottom: 15px;
 }
 
 .blog-cta p {
-    font-size: 17px;
+    font-size: 18px;
     color: rgba(255,255,255,0.9);
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .blog-cta .btn {
     background: var(--white);
     color: var(--primary);
+    font-size: 16px;
+    padding: 16px 40px;
+}
+
+.blog-cta .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
 /* Footer */
@@ -836,12 +1124,21 @@ ul, ol {
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+    .posts-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 1024px) {
     .posts-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .blog-stats {
+        gap: 30px;
     }
 }
 
@@ -876,9 +1173,43 @@ ul, ol {
     .dropdown a { color: var(--white); }
     .menu-toggle { display: flex; }
     .header-cta { display: none; }
-    .blog-hero { padding: 40px 0; }
-    .blog-categories { top: 100px; }
-    .posts-grid { grid-template-columns: 1fr; }
+    .blog-hero { padding: 40px 0 30px; }
+    .blog-categories {
+        top: 70px;
+        padding: 15px 0;
+    }
+    .categories-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    .categories-wrapper {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .category-tag {
+        flex-shrink: 0;
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .blog-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .stat-item {
+        flex: 1;
+        min-width: 80px;
+    }
+    .pagination-arrow span {
+        display: none;
+    }
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -887,6 +1218,20 @@ ul, ol {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-hero h1 {
+        font-size: 28px;
+    }
+    .post-card-content {
+        padding: 15px;
+    }
+    .pagination-btn {
+        min-width: 40px;
+        height: 40px;
+        font-size: 14px;
     }
 }
 </style>
@@ -914,12 +1259,12 @@ ul, ol {
     <div class="header-main">
         <div class="container">
             <div class="header-main-content">
-                <a href="/" class="logo">
-                    <img src="../img/decoracion-con-globos.avif" alt="DEGLOB - Decoración con Globos CDMX">
+                <a href="../index.html" class="logo">
+                    <img src="../img/decoracion-con-globos.avif" alt="DEGLOB - Decoracion con Globos CDMX">
                 </a>
 
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="/">Inicio</a></li>
+                    <li><a href="../index.html">Inicio</a></li>
                     <li>
                         <a href="../servicios.html">Servicios <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown">
@@ -942,7 +1287,7 @@ ul, ol {
                         </div>
                     </li>
                     <li><a href="../nosotros.html">Nosotros</a></li>
-                    <li><a href="/blog/" class="active">Blog</a></li>
+                    <li><a href="./" class="active">Blog</a></li>
                     <li><a href="../contacto.html">Contacto</a></li>
                 </ul>
 
@@ -963,26 +1308,45 @@ ul, ol {
     </div>
 </header>
 
-    <!-- Header Spacer -->
-    <div class="header-spacer"></div>
+<!-- Header Spacer -->
+<div class="header-spacer"></div>
 
-    <!-- Breadcrumb Section -->
-    <section class="breadcrumb-section">
-        <div class="container">
-            <nav class="breadcrumb" aria-label="Breadcrumb">
-                <a href="/">Inicio</a>
-                <i class="fas fa-chevron-right separator"></i>
-                <span class="current">Blog</span>
-            </nav>
-        </div>
-    </section>
+<!-- Breadcrumb Section -->
+<section class="breadcrumb-section">
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Inicio</a>
+            <i class="fas fa-chevron-right separator"></i>
+            <span class="current">Blog</span>
+        </nav>
+    </div>
+</section>
 
 <!-- Blog Hero -->
 <section class="blog-hero">
     <div class="container">
         <div class="blog-hero-content">
+            <div class="blog-hero-badge">
+                <i class="fas fa-sparkles"></i>
+                Ideas, Tendencias y Guias Profesionales
+            </div>
             <h1>Blog de <span>Decoracion con Globos</span></h1>
-            <p>Ideas, tendencias y guias para hacer de tu evento una experiencia inolvidable</p>
+            <p>Descubre las mejores ideas, tendencias actuales y guias profesionales para transformar tu evento en una experiencia inolvidable</p>
+
+            <div class="blog-stats" id="blogStats">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalArticles">0</div>
+                    <div class="stat-label">Articulos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="totalCategories">9</div>
+                    <div class="stat-label">Categorias</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Contenido Original</div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -990,6 +1354,15 @@ ul, ol {
 <!-- Categories Filter -->
 <div class="blog-categories">
     <div class="container">
+        <div class="categories-header">
+            <div class="categories-title">
+                <i class="fas fa-filter"></i>
+                Filtrar por categoria
+            </div>
+            <div class="articles-count" id="articlesCount">
+                Mostrando <strong>0</strong> articulos
+            </div>
+        </div>
         <div class="categories-wrapper" id="categoriesContainer">
             <!-- Categories are loaded dynamically -->
         </div>
@@ -1001,24 +1374,38 @@ ul, ol {
     <div class="container">
         <div class="posts-grid" id="postsGrid">
             <!-- Posts are loaded dynamically -->
-            <div class="loading-spinner"></div>
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Cargando articulos...</div>
+            </div>
         </div>
 
-        <div class="pagination" id="pagination">
-            <!-- Pagination is generated dynamically -->
+        <div class="pagination-container">
+            <div class="pagination" id="pagination">
+                <!-- Pagination is generated dynamically -->
+            </div>
+            <div class="pagination-info-wrapper">
+                <div class="pagination-info" id="paginationInfo"></div>
+            </div>
+            <div class="pagination-progress" id="paginationProgress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
         </div>
-        <div class="pagination-info" id="paginationInfo"></div>
     </div>
 </section>
 
 <!-- CTA -->
 <section class="blog-cta">
     <div class="container">
-        <h2>¿Listo para Transformar tu Evento?</h2>
-        <p>Cotiza sin compromiso y recibe una propuesta personalizada</p>
-        <a href="https://wa.me/5215639565117?text=Hola,%20vi%20el%20blog%20y%20me%20interesa%20cotizar%20decoracion%20con%20globos" class="btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Cotizar Ahora
-        </a>
+        <div class="blog-cta-content">
+            <h2>¿Listo para Transformar tu Evento?</h2>
+            <p>Cotiza sin compromiso y recibe una propuesta personalizada para tu celebracion</p>
+            <a href="https://wa.me/5215639565117?text=Hola,%20vi%20el%20blog%20y%20me%20interesa%20cotizar%20decoracion%20con%20globos" class="btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Cotizar Ahora
+            </a>
+        </div>
     </div>
 </section>
 
@@ -1074,10 +1461,10 @@ ul, ol {
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; DEGLOB - Decoracion con Globos. Todos los derechos reservados.</p>
+            <p>&copy; 2026 DEGLOB - Decoracion con Globos. Todos los derechos reservados.</p>
             <div class="footer-legal">
                 <a href="../nosotros.html">Nosotros</a>
-                <a href="/blog/">Blog</a>
+                <a href="./">Blog</a>
                 <a href="../politica-privacidad.html">Politica de Privacidad</a>
             </div>
         </div>
@@ -1092,100 +1479,64 @@ ul, ol {
     </a>
 </div>
 
-<!-- JavaScript - IDENTICO A MESAS-DE-DULCES -->
+<!-- JavaScript - SISTEMA PROFESIONAL DE BLOG -->
 <script>
 // ============================================
-// BLOG CONFIG - DEGLOB
+// BLOG CONFIG - DEGLOB PRO v2.0
+// 12 cards por pagina, paginacion profesional
 // ============================================
 const BLOG_CONFIG = {
     postsPerPage: 12,
     articlesPath: 'articles.json',
-    defaultImage: '../img/branding/default-blog.webp',
+    defaultImage: '../img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp',
     categories: {
-        'bodas': 'Bodas',
-        'xv-anos': 'XV Anos',
-        'baby-shower': 'Baby Shower',
-        'cumpleanos': 'Cumpleanos',
-        'corporativos': 'Corporativos',
-        'arcos': 'Arcos de Globos',
-        'columnas': 'Columnas Decorativas',
-        'guias': 'Guias',
-        'tendencias': 'Tendencias'
+        'bodas': { name: 'Bodas', icon: 'fa-heart' },
+        'xv-anos': { name: 'XV Anos', icon: 'fa-crown' },
+        'baby-shower': { name: 'Baby Shower', icon: 'fa-baby' },
+        'cumpleanos': { name: 'Cumpleanos', icon: 'fa-cake-candles' },
+        'corporativos': { name: 'Corporativos', icon: 'fa-building' },
+        'arcos': { name: 'Arcos de Globos', icon: 'fa-archway' },
+        'columnas': { name: 'Columnas', icon: 'fa-monument' },
+        'guias': { name: 'Guias', icon: 'fa-book' },
+        'tendencias': { name: 'Tendencias', icon: 'fa-fire' }
     }
 };
-
-// Fallback articles in case JSON fails
-const FALLBACK_ARTICLES = [
-    {
-        id: 1706300001000,
-        title: "Tendencias en Decoracion con Globos en CDMX",
-        excerpt: "Paletas, estilos y montajes actuales para eventos en CDMX con enfoque profesional y materiales premium.",
-        category: "tendencias",
-        image: "../img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp",
-        slug: "tendencias-decoracion-globos",
-        readTime: "10 min lectura",
-        cta: "Ver Tendencias"
-    }
-];
 
 // State
 let allArticles = [];
 let filteredArticles = [];
 let currentPage = 1;
 let currentCategory = 'all';
+let categoryCounts = {};
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
-    renderCategories();
     loadArticles();
     checkUrlParams();
 });
 
-// Render category filters
-function renderCategories() {
-    const container = document.getElementById('categoriesContainer');
-    let html = '<button class="category-tag active" data-category="all">Todos</button>';
-
-    for (const [slug, name] of Object.entries(BLOG_CONFIG.categories)) {
-        html += `<button class="category-tag" data-category="${slug}">${name}</button>`;
-    }
-
-    container.innerHTML = html;
-
-    // Add click handlers
-    container.querySelectorAll('.category-tag').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const category = this.dataset.category;
-            filterByCategory(category);
-
-            // Update active state
-            container.querySelectorAll('.category-tag').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-
-            // Update URL
-            if (category === 'all') {
-                history.pushState({}, '', window.location.pathname);
-            } else {
-                history.pushState({}, '', `?categoria=${category}`);
-            }
-        });
-    });
-}
-
-// Load articles from JSON with retry
+// Load articles from JSON
 async function loadArticles(retries = 3) {
     const grid = document.getElementById('postsGrid');
 
     try {
-        const response = await fetch(BLOG_CONFIG.articlesPath);
+        const response = await fetch(BLOG_CONFIG.articlesPath + '?v=' + Date.now());
         if (!response.ok) throw new Error('Failed to load articles');
 
         const data = await response.json();
-        allArticles = (data.articles || []).filter(validateArticle).map(sanitizeArticle);
+        allArticles = (data.articles || data || []).filter(validateArticle).map(sanitizeArticle);
 
-        if (allArticles.length === 0) {
-            allArticles = FALLBACK_ARTICLES;
-        }
+        // Sort by ID (newest first)
+        allArticles.sort((a, b) => b.id - a.id);
+
+        // Calculate category counts
+        calculateCategoryCounts();
+
+        // Render categories with counts
+        renderCategories();
+
+        // Update stats
+        updateStats();
 
         filteredArticles = [...allArticles];
         renderPosts();
@@ -1197,12 +1548,33 @@ async function loadArticles(retries = 3) {
         if (retries > 0) {
             setTimeout(() => loadArticles(retries - 1), 1000);
         } else {
-            allArticles = FALLBACK_ARTICLES;
-            filteredArticles = [...allArticles];
-            renderPosts();
-            renderPagination();
+            grid.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-state-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h3>Error al cargar</h3>
+                    <p>No se pudieron cargar los articulos. Intenta recargar la pagina.</p>
+                    <button class="btn btn-primary" onclick="location.reload()">
+                        <i class="fas fa-refresh"></i> Recargar
+                    </button>
+                </div>
+            `;
         }
     }
+}
+
+// Calculate category counts
+function calculateCategoryCounts() {
+    categoryCounts = { all: allArticles.length };
+
+    for (const key of Object.keys(BLOG_CONFIG.categories)) {
+        categoryCounts[key] = allArticles.filter(a => a.category === key).length;
+    }
+}
+
+// Update stats in hero
+function updateStats() {
+    document.getElementById('totalArticles').textContent = allArticles.length;
+    document.getElementById('articlesCount').innerHTML = `Mostrando <strong>${filteredArticles.length}</strong> articulos`;
 }
 
 // Validate article has required fields
@@ -1227,22 +1599,74 @@ function sanitizeArticle(article) {
     };
 }
 
-// Render card - IDENTICO A MESAS-DE-DULCES
+// Render category filters with counts
+function renderCategories() {
+    const container = document.getElementById('categoriesContainer');
+
+    let html = `<button class="category-tag active" data-category="all">
+        Todos <span class="count">${categoryCounts.all || 0}</span>
+    </button>`;
+
+    for (const [slug, config] of Object.entries(BLOG_CONFIG.categories)) {
+        const count = categoryCounts[slug] || 0;
+        if (count > 0) { // Only show categories with articles
+            html += `<button class="category-tag" data-category="${slug}">
+                ${config.name} <span class="count">${count}</span>
+            </button>`;
+        }
+    }
+
+    container.innerHTML = html;
+
+    // Add click handlers
+    container.querySelectorAll('.category-tag').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.dataset.category;
+            filterByCategory(category);
+
+            // Update active state
+            container.querySelectorAll('.category-tag').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // Update URL
+            if (category === 'all') {
+                history.pushState({}, '', window.location.pathname);
+            } else {
+                history.pushState({}, '', `?categoria=${category}`);
+            }
+        });
+    });
+}
+
+// Render card - PROFESIONAL
 function renderCard(article) {
-    const categoryName = BLOG_CONFIG.categories[article.category] || article.category;
+    const categoryConfig = BLOG_CONFIG.categories[article.category] || { name: article.category, icon: 'fa-tag' };
 
     return `
         <article class="post-card" data-category="${article.category}" data-id="${article.id}">
-            <a href="${article.slug}.html" aria-label="${article.title}">
-                <img decoding="async" src="${article.image}" alt="${article.title}" loading="lazy" onerror="this.onerror=null; this.src='${BLOG_CONFIG.defaultImage}';">
+            <a href="${article.slug}.html" class="post-card-image" aria-label="${article.title}">
+                <img src="${article.image}" alt="${article.title}" loading="lazy"
+                     onerror="this.onerror=null; this.src='${BLOG_CONFIG.defaultImage}';">
+                <div class="post-card-badge">
+                    <span class="badge-category">${categoryConfig.name}</span>
+                    <span class="badge-time"><i class="far fa-clock"></i> ${article.readTime}</span>
+                </div>
             </a>
-            <div class="post-meta">
-                <span class="read-time"><i class="far fa-clock"></i> ${article.readTime}</span>
-                <span class="category">${categoryName}</span>
+            <div class="post-card-content">
+                <h3 class="post-card-title">
+                    <a href="${article.slug}.html">${article.title}</a>
+                </h3>
+                <p class="post-card-excerpt">${article.excerpt}</p>
+                <div class="post-card-footer">
+                    <div class="post-card-author">
+                        <div class="author-avatar">D</div>
+                        <span class="author-name">DEGLOB</span>
+                    </div>
+                    <a href="${article.slug}.html" class="post-card-link">
+                        ${article.cta} <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-            <h3><a href="${article.slug}.html">${article.title}</a></h3>
-            <p>${article.excerpt}</p>
-            <a href="${article.slug}.html" class="btn btn-primary">${article.cta}</a>
         </article>
     `;
 }
@@ -1254,35 +1678,52 @@ function renderPosts() {
     const end = start + BLOG_CONFIG.postsPerPage;
     const postsToShow = filteredArticles.slice(start, end);
 
+    // Update articles count
+    document.getElementById('articlesCount').innerHTML = `Mostrando <strong>${filteredArticles.length}</strong> articulos`;
+
     if (postsToShow.length === 0) {
         grid.innerHTML = `
             <div class="empty-state">
-                <i class="fas fa-search"></i>
+                <div class="empty-state-icon"><i class="fas fa-search"></i></div>
                 <h3>No hay articulos</h3>
                 <p>No se encontraron articulos en esta categoria. Prueba con otra categoria.</p>
+                <button class="btn btn-outline" onclick="filterByCategory('all'); document.querySelector('.category-tag[data-category=all]').click();">
+                    Ver todos los articulos
+                </button>
             </div>
         `;
         document.getElementById('pagination').innerHTML = '';
+        document.getElementById('paginationInfo').style.display = 'none';
+        document.getElementById('paginationProgress').style.display = 'none';
         return;
     }
 
     grid.innerHTML = postsToShow.map(renderCard).join('');
 }
 
-// Render pagination
+// Render pagination - PROFESIONAL CON 4 PÁGINAS PREPARADAS
 function renderPagination() {
     const pagination = document.getElementById('pagination');
     const paginationInfo = document.getElementById('paginationInfo');
+    const paginationProgress = document.getElementById('paginationProgress');
+    const progressFill = document.getElementById('progressFill');
+
     const totalPages = Math.ceil(filteredArticles.length / BLOG_CONFIG.postsPerPage);
     const start = (currentPage - 1) * BLOG_CONFIG.postsPerPage;
     const end = Math.min(start + BLOG_CONFIG.postsPerPage, filteredArticles.length);
 
     // Update pagination info
     if (filteredArticles.length > 0) {
-        paginationInfo.textContent = `Mostrando ${start + 1}-${end} de ${filteredArticles.length} articulos`;
-        paginationInfo.style.display = 'block';
+        paginationInfo.innerHTML = `Pagina <strong>${currentPage}</strong> de <strong>${totalPages}</strong> &nbsp;|&nbsp; Mostrando <strong>${start + 1}-${end}</strong> de <strong>${filteredArticles.length}</strong> articulos`;
+        paginationInfo.style.display = 'inline-block';
+
+        // Update progress bar
+        const progress = (currentPage / totalPages) * 100;
+        progressFill.style.width = progress + '%';
+        paginationProgress.style.display = 'block';
     } else {
         paginationInfo.style.display = 'none';
+        paginationProgress.style.display = 'none';
     }
 
     if (totalPages <= 1) {
@@ -1295,22 +1736,50 @@ function renderPagination() {
     let html = '';
 
     // Previous arrow
-    html += `<button class="pagination-arrow ${currentPage === 1 ? 'disabled' : ''}"
-        onclick="showPage(${currentPage - 1})"
-        ${currentPage === 1 ? 'disabled' : ''}>
+    html += `<button class="pagination-arrow" onclick="showPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="15 18 9 12 15 6"/>
         </svg>
+        <span>Anterior</span>
     </button>`;
 
-    // Build page numbers with ellipsis
+    // Build page numbers with smart ellipsis
     const showPages = [];
-    for (let i = 1; i <= totalPages; i++) {
-        if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+    const maxVisible = 5;
+
+    if (totalPages <= maxVisible + 2) {
+        // Show all pages if total is small
+        for (let i = 1; i <= totalPages; i++) {
             showPages.push(i);
-        } else if (showPages[showPages.length - 1] !== '...') {
+        }
+    } else {
+        // Smart ellipsis logic
+        showPages.push(1);
+
+        if (currentPage > 3) {
             showPages.push('...');
         }
+
+        let startPage = Math.max(2, currentPage - 1);
+        let endPage = Math.min(totalPages - 1, currentPage + 1);
+
+        if (currentPage <= 3) {
+            endPage = Math.min(4, totalPages - 1);
+        }
+
+        if (currentPage >= totalPages - 2) {
+            startPage = Math.max(2, totalPages - 3);
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            showPages.push(i);
+        }
+
+        if (currentPage < totalPages - 2) {
+            showPages.push('...');
+        }
+
+        showPages.push(totalPages);
     }
 
     showPages.forEach(p => {
@@ -1322,9 +1791,8 @@ function renderPagination() {
     });
 
     // Next arrow
-    html += `<button class="pagination-arrow ${currentPage === totalPages ? 'disabled' : ''}"
-        onclick="showPage(${currentPage + 1})"
-        ${currentPage === totalPages ? 'disabled' : ''}>
+    html += `<button class="pagination-arrow" onclick="showPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+        <span>Siguiente</span>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="9 18 15 12 9 6"/>
         </svg>
@@ -1342,8 +1810,16 @@ function showPage(page) {
     renderPosts();
     renderPagination();
 
-    // Scroll to top of posts
-    document.querySelector('.blog-section').scrollIntoView({ behavior: 'smooth' });
+    // Scroll to top of posts with offset
+    const blogSection = document.querySelector('.blog-section');
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    const categoriesHeight = document.querySelector('.blog-categories').offsetHeight;
+    const offset = headerHeight + categoriesHeight + 20;
+
+    window.scrollTo({
+        top: blogSection.offsetTop - offset,
+        behavior: 'smooth'
+    });
 }
 
 // Filter by category
@@ -1365,12 +1841,25 @@ function filterByCategory(category) {
 function checkUrlParams() {
     const params = new URLSearchParams(window.location.search);
     const category = params.get('categoria');
+    const page = params.get('pagina');
 
+    if (page) {
+        currentPage = parseInt(page) || 1;
+    }
+
+    // Category will be applied after articles load
     if (category) {
-        const btn = document.querySelector(`.category-tag[data-category="${category}"]`);
-        if (btn) {
-            btn.click();
-        }
+        // Wait for articles to load, then apply category
+        const checkLoaded = setInterval(() => {
+            const btn = document.querySelector(`.category-tag[data-category="${category}"]`);
+            if (btn) {
+                clearInterval(checkLoaded);
+                btn.click();
+            }
+        }, 100);
+
+        // Stop checking after 5 seconds
+        setTimeout(() => clearInterval(checkLoaded), 5000);
     }
 }
 
