@@ -1454,7 +1454,7 @@ ul, ol {
 // 12 cards por pagina, paginacion profesional
 // ============================================
 const BLOG_CONFIG = {
-    postsPerPage: 3,
+    postsPerPage: 10,
     articlesPath: 'articles.json',
     defaultImage: '../img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp',
     categories: {
@@ -1596,16 +1596,10 @@ function renderPosts() {
     grid.innerHTML = postsToShow.map(renderCard).join('');
 }
 
-// Render pagination
+// Render pagination - Always show 4 pages
 function renderPagination() {
     const pagination = document.getElementById('pagination');
-    const totalPages = Math.ceil(filteredArticles.length / BLOG_CONFIG.postsPerPage);
-
-    if (totalPages <= 1) {
-        pagination.innerHTML = '';
-        pagination.style.display = 'none';
-        return;
-    }
+    const totalPages = 4; // Always show 4 pages ready
 
     pagination.style.display = 'flex';
     let html = '';
