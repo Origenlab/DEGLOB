@@ -730,35 +730,48 @@
             
         }
 
-        /* ============================================
-           Breadcrumb Bar
+                /* ============================================
+           Header Spacer
         ============================================ */
-        .breadcrumb-bar {
-            background: var(--light);
-            padding: 15px 0;
-            margin-top: 140px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+        .header-spacer {
+            height: 145px;
+            width: 100%;
+            display: block;
+        }
+
+        /* ============================================
+           Breadcrumb Section
+        ============================================ */
+        .breadcrumb-section {
+            background: var(--white);
+            border-bottom: 1px solid #eaeaea;
+            padding: 14px 0;
         }
 
         .breadcrumb {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             font-size: 14px;
-            color: var(--gray);
         }
 
         .breadcrumb a {
-            color: var(--primary);
+            color: #666;
+            transition: color 0.2s ease;
         }
 
         .breadcrumb a:hover {
-            text-decoration: underline;
+            color: var(--primary);
         }
 
-        .breadcrumb i {
+        .breadcrumb .separator {
+            color: #ccc;
             font-size: 10px;
-            color: var(--gray-light);
+        }
+
+        .breadcrumb .current {
+            color: var(--primary);
+            font-weight: 500;
         }
 
         /* ============================================
@@ -1760,8 +1773,8 @@
                 display: none;
             }
 
-            .breadcrumb-bar {
-                margin-top: 104px;
+                        .header-spacer {
+                height: 70px;
             }
 
             .nav-menu {
@@ -2143,17 +2156,22 @@
     </header>
 
     <!-- Breadcrumb -->
-    <div class="breadcrumb-bar">
+    <!-- Header Spacer -->
+    <div class="header-spacer"></div>
+
+    <!-- Breadcrumb Section -->
+    <section class="breadcrumb-section">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="/">Inicio</a>
-                <i class="fas fa-chevron-right"></i>
-                <a href="servicios.html">Servicios</a>
-                <i class="fas fa-chevron-right"></i>
-                <span>Globos Gigantes</span>
+                <i class="fas fa-chevron-right separator"></i>
+                <a href="/servicios.html">Servicios</a>
+                <i class="fas fa-chevron-right separator"></i>
+                <span class="current">Globos Gigantes</span>
             </nav>
         </div>
-    </div>
+    </section>
+
 
     <!-- Hero Section -->
     <section class="hero">

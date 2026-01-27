@@ -555,33 +555,42 @@
             color: var(--gray);
         }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            padding: 15px 0;
-            background: var(--light);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+        /* Header Spacer */
+        .header-spacer {
+            height: 145px;
+            width: 100%;
+            display: block;
         }
 
-        .breadcrumb-list {
+        /* Breadcrumb Section */
+        .breadcrumb-section {
+            background: var(--white);
+            border-bottom: 1px solid #eaeaea;
+            padding: 14px 0;
+        }
+
+        .breadcrumb {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             font-size: 14px;
         }
 
-        .breadcrumb-list a {
-            color: var(--gray);
+        .breadcrumb a {
+            color: #666;
+            transition: color 0.2s ease;
         }
 
-        .breadcrumb-list a:hover {
+        .breadcrumb a:hover {
             color: var(--primary);
         }
 
-        .breadcrumb-list span {
-            color: var(--gray-light);
+        .breadcrumb .separator {
+            color: #ccc;
+            font-size: 10px;
         }
 
-        .breadcrumb-list .current {
+        .breadcrumb .current {
             color: var(--primary);
             font-weight: 500;
         }
@@ -1331,6 +1340,10 @@
         }
 
         @media (max-width: 768px) {
+            .header-spacer {
+                height: 70px;
+            }
+
             .header-top {
                 display: none;
             }
@@ -1507,6 +1520,23 @@
         </div>
     </header>
 
+    <!-- Header Spacer -->
+    <div class="header-spacer"></div>
+
+    <!-- Breadcrumb Section -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Inicio</a>
+                <i class="fas fa-chevron-right separator"></i>
+                <a href="/blog/">Blog</a>
+                <i class="fas fa-chevron-right separator"></i>
+                <span class="current">Decoración con Globos para Bodas en CDMX</span>
+            </nav>
+        </div>
+    </section>
+
+
     <!-- Article Hero -->
     <section class="article-hero">
         <div class="container">
@@ -1528,19 +1558,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <div class="container">
-            <ol class="breadcrumb-list">
-                <li><a href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><span>/</span></li>
-                <li><a href="../blog.html">Blog</a></li>
-                <li><span>/</span></li>
-                <li class="current">Decoracion con Globos para Bodas en CDMX</li>
-            </ol>
-        </div>
-    </nav>
 
     <!-- Article Main -->
     <article class="article-main">

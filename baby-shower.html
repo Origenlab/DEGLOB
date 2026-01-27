@@ -663,12 +663,9 @@
         /* ============================================
            Breadcrumb
         ============================================ */
-        .breadcrumb-bar {
-            background: var(--light);
-            padding: 15px 0;
-            margin-top: 140px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+                    .header-spacer {
+                height: 70px;
+            }
 
         .breadcrumb {
             display: flex;
@@ -1724,8 +1721,8 @@
                 display: flex;
             }
 
-            .breadcrumb-bar {
-                margin-top: 104px;
+                        .header-spacer {
+                height: 70px;
             }
 
             .hero {
@@ -2001,17 +1998,22 @@
     </header>
 
     <!-- Breadcrumb -->
-    <div class="breadcrumb-bar">
+    <!-- Header Spacer -->
+    <div class="header-spacer"></div>
+
+    <!-- Breadcrumb Section -->
+    <section class="breadcrumb-section">
         <div class="container">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="/">Inicio</a>
-                <i class="fas fa-chevron-right"></i>
-                <a href="eventos.html">Eventos</a>
-                <i class="fas fa-chevron-right"></i>
-                <span>Baby Shower</span>
+                <i class="fas fa-chevron-right separator"></i>
+                <a href="/eventos.html">Eventos</a>
+                <i class="fas fa-chevron-right separator"></i>
+                <span class="current">Baby Shower</span>
             </nav>
         </div>
-    </div>
+    </section>
+
 
     <!-- Hero -->
     <section class="hero">

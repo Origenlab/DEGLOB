@@ -668,11 +668,9 @@
         /* ==========================================
            BREADCRUMB
            ========================================== */
-        .breadcrumb-bar {
-            background: var(--light);
-            padding: 1rem 0;
-            margin-top: 77px;
-        }
+                    .header-spacer {
+                height: 70px;
+            }
 
         .breadcrumb {
             display: flex;
@@ -2114,17 +2112,22 @@
     <!-- ============================================
          BREADCRUMB
          ============================================ -->
-    <div class="breadcrumb-bar">
+    <!-- Header Spacer -->
+    <div class="header-spacer"></div>
+
+    <!-- Breadcrumb Section -->
+    <section class="breadcrumb-section">
         <div class="container">
-            <nav class="breadcrumb">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
                 <a href="/">Inicio</a>
-                <span class="separator">/</span>
-                <a href="eventos.html">Eventos</a>
-                <span class="separator">/</span>
+                <i class="fas fa-chevron-right separator"></i>
+                <a href="/eventos.html">Eventos</a>
+                <i class="fas fa-chevron-right separator"></i>
                 <span class="current">Corporativos</span>
             </nav>
         </div>
-    </div>
+    </section>
+
 
     <!-- ============================================
          HERO SECTION
