@@ -292,4 +292,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://fantasyglobos.com.mx/blog/columnas-decorativas-de-globos-elegancia-para-tu-evento-narvarte.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fantasyglobos.com.mx/blog/globos-helio-cdmx-impacto-y-elegancia-en-techos-flotantes.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
