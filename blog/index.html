@@ -1582,53 +1582,24 @@ function renderPosts() {
     const end = start + BLOG_CONFIG.postsPerPage;
     const postsToShow = filteredArticles.slice(start, end);
 
-    // Update articles count
-    document.getElementById('articlesCount').innerHTML = `Mostrando <strong>${filteredArticles.length}</strong> articulos`;
-
     if (postsToShow.length === 0) {
         grid.innerHTML = `
             <div class="empty-state">
                 <div class="empty-state-icon"><i class="fas fa-search"></i></div>
                 <h3>No hay articulos</h3>
-                <p>No se encontraron articulos en esta categoria. Prueba con otra categoria.</p>
-                <button class="btn btn-outline" onclick="filterByCategory('all'); document.querySelector('.category-tag[data-category=all]').click();">
-                    Ver todos los articulos
-                </button>
+                <p>No se encontraron articulos disponibles.</p>
             </div>
         `;
-        document.getElementById('pagination').innerHTML = '';
-        document.getElementById('paginationInfo').style.display = 'none';
-        document.getElementById('paginationProgress').style.display = 'none';
         return;
     }
 
     grid.innerHTML = postsToShow.map(renderCard).join('');
 }
 
-// Render pagination - PROFESIONAL CON 4 PÁGINAS PREPARADAS
+// Render pagination
 function renderPagination() {
     const pagination = document.getElementById('pagination');
-    const paginationInfo = document.getElementById('paginationInfo');
-    const paginationProgress = document.getElementById('paginationProgress');
-    const progressFill = document.getElementById('progressFill');
-
     const totalPages = Math.ceil(filteredArticles.length / BLOG_CONFIG.postsPerPage);
-    const start = (currentPage - 1) * BLOG_CONFIG.postsPerPage;
-    const end = Math.min(start + BLOG_CONFIG.postsPerPage, filteredArticles.length);
-
-    // Update pagination info
-    if (filteredArticles.length > 0) {
-        paginationInfo.innerHTML = `Pagina <strong>${currentPage}</strong> de <strong>${totalPages}</strong> &nbsp;|&nbsp; Mostrando <strong>${start + 1}-${end}</strong> de <strong>${filteredArticles.length}</strong> articulos`;
-        paginationInfo.style.display = 'inline-block';
-
-        // Update progress bar
-        const progress = (currentPage / totalPages) * 100;
-        progressFill.style.width = progress + '%';
-        paginationProgress.style.display = 'block';
-    } else {
-        paginationInfo.style.display = 'none';
-        paginationProgress.style.display = 'none';
-    }
 
     if (totalPages <= 1) {
         pagination.innerHTML = '';
