@@ -1480,7 +1480,6 @@ let categoryCounts = {};
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     loadArticles();
-    checkUrlParams();
 });
 
 // Load articles from JSON
@@ -1496,15 +1495,6 @@ async function loadArticles(retries = 3) {
 
         // Sort by ID (newest first)
         allArticles.sort((a, b) => b.id - a.id);
-
-        // Calculate category counts
-        calculateCategoryCounts();
-
-        // Render categories with counts
-        renderCategories();
-
-        // Update stats
-        updateStats();
 
         filteredArticles = [...allArticles];
         renderPosts();
@@ -1530,21 +1520,6 @@ async function loadArticles(retries = 3) {
     }
 }
 
-// Calculate category counts
-function calculateCategoryCounts() {
-    categoryCounts = { all: allArticles.length };
-
-    for (const key of Object.keys(BLOG_CONFIG.categories)) {
-        categoryCounts[key] = allArticles.filter(a => a.category === key).length;
-    }
-}
-
-// Update stats in hero
-function updateStats() {
-    document.getElementById('totalArticles').textContent = allArticles.length;
-    document.getElementById('articlesCount').innerHTML = `Mostrando <strong>${filteredArticles.length}</strong> articulos`;
-}
-
 // Validate article has required fields
 function validateArticle(article) {
     return article &&
@@ -1565,45 +1540,6 @@ function sanitizeArticle(article) {
         readTime: article.readTime || '5 min lectura',
         cta: article.cta || 'Leer mas'
     };
-}
-
-// Render category filters with counts
-function renderCategories() {
-    const container = document.getElementById('categoriesContainer');
-
-    let html = `<button class="category-tag active" data-category="all">
-        Todos <span class="count">${categoryCounts.all || 0}</span>
-    </button>`;
-
-    for (const [slug, config] of Object.entries(BLOG_CONFIG.categories)) {
-        const count = categoryCounts[slug] || 0;
-        if (count > 0) { // Only show categories with articles
-            html += `<button class="category-tag" data-category="${slug}">
-                ${config.name} <span class="count">${count}</span>
-            </button>`;
-        }
-    }
-
-    container.innerHTML = html;
-
-    // Add click handlers
-    container.querySelectorAll('.category-tag').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const category = this.dataset.category;
-            filterByCategory(category);
-
-            // Update active state
-            container.querySelectorAll('.category-tag').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-
-            // Update URL
-            if (category === 'all') {
-                history.pushState({}, '', window.location.pathname);
-            } else {
-                history.pushState({}, '', `?categoria=${category}`);
-            }
-        });
-    });
 }
 
 // Render card - PROFESIONAL
@@ -1788,47 +1724,6 @@ function showPage(page) {
         top: blogSection.offsetTop - offset,
         behavior: 'smooth'
     });
-}
-
-// Filter by category
-function filterByCategory(category) {
-    currentCategory = category;
-    currentPage = 1;
-
-    if (category === 'all') {
-        filteredArticles = [...allArticles];
-    } else {
-        filteredArticles = allArticles.filter(a => a.category === category);
-    }
-
-    renderPosts();
-    renderPagination();
-}
-
-// Check URL params
-function checkUrlParams() {
-    const params = new URLSearchParams(window.location.search);
-    const category = params.get('categoria');
-    const page = params.get('pagina');
-
-    if (page) {
-        currentPage = parseInt(page) || 1;
-    }
-
-    // Category will be applied after articles load
-    if (category) {
-        // Wait for articles to load, then apply category
-        const checkLoaded = setInterval(() => {
-            const btn = document.querySelector(`.category-tag[data-category="${category}"]`);
-            if (btn) {
-                clearInterval(checkLoaded);
-                btn.click();
-            }
-        }, 100);
-
-        // Stop checking after 5 seconds
-        setTimeout(() => clearInterval(checkLoaded), 5000);
-    }
 }
 
 // Mobile menu toggle
