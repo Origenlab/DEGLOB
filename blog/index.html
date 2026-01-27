@@ -584,6 +584,24 @@ ul, ol {
     cursor: not-allowed;
 }
 
+.pagination-btn.active {
+    background: var(--gradient);
+    color: var(--white);
+}
+
+.pagination-ellipsis {
+    padding: 0 8px;
+    color: var(--gray);
+    font-weight: 600;
+}
+
+.pagination-info {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--gray);
+}
+
 /* Loading & Empty States */
 .loading-spinner {
     width: 50px;
@@ -989,6 +1007,7 @@ ul, ol {
         <div class="pagination" id="pagination">
             <!-- Pagination is generated dynamically -->
         </div>
+        <div class="pagination-info" id="paginationInfo"></div>
     </div>
 </section>
 
@@ -1253,32 +1272,62 @@ function renderPosts() {
 // Render pagination
 function renderPagination() {
     const pagination = document.getElementById('pagination');
+    const paginationInfo = document.getElementById('paginationInfo');
     const totalPages = Math.ceil(filteredArticles.length / BLOG_CONFIG.postsPerPage);
+    const start = (currentPage - 1) * BLOG_CONFIG.postsPerPage;
+    const end = Math.min(start + BLOG_CONFIG.postsPerPage, filteredArticles.length);
+
+    // Update pagination info
+    if (filteredArticles.length > 0) {
+        paginationInfo.textContent = `Mostrando ${start + 1}-${end} de ${filteredArticles.length} articulos`;
+        paginationInfo.style.display = 'block';
+    } else {
+        paginationInfo.style.display = 'none';
+    }
 
     if (totalPages <= 1) {
         pagination.innerHTML = '';
+        pagination.style.display = 'none';
         return;
     }
 
+    pagination.style.display = 'flex';
     let html = '';
 
     // Previous arrow
-    html += `<button class="pagination-arrow" onclick="showPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
-        <i class="fas fa-chevron-left"></i>
+    html += `<button class="pagination-arrow ${currentPage === 1 ? 'disabled' : ''}"
+        onclick="showPage(${currentPage - 1})"
+        ${currentPage === 1 ? 'disabled' : ''}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"/>
+        </svg>
     </button>`;
 
-    // Page numbers
+    // Build page numbers with ellipsis
+    const showPages = [];
     for (let i = 1; i <= totalPages; i++) {
         if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
-            html += `<button class="pagination-btn ${i === currentPage ? 'active' : ''}" onclick="showPage(${i})">${i}</button>`;
-        } else if (i === currentPage - 2 || i === currentPage + 2) {
-            html += `<span style="padding: 0 8px; color: var(--gray);">...</span>`;
+            showPages.push(i);
+        } else if (showPages[showPages.length - 1] !== '...') {
+            showPages.push('...');
         }
     }
 
+    showPages.forEach(p => {
+        if (p === '...') {
+            html += `<span class="pagination-ellipsis">...</span>`;
+        } else {
+            html += `<button class="pagination-btn ${p === currentPage ? 'active' : ''}" onclick="showPage(${p})">${p}</button>`;
+        }
+    });
+
     // Next arrow
-    html += `<button class="pagination-arrow" onclick="showPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
-        <i class="fas fa-chevron-right"></i>
+    html += `<button class="pagination-arrow ${currentPage === totalPages ? 'disabled' : ''}"
+        onclick="showPage(${currentPage + 1})"
+        ${currentPage === totalPages ? 'disabled' : ''}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"/>
+        </svg>
     </button>`;
 
     pagination.innerHTML = html;
