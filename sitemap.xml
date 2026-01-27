@@ -272,4 +272,9 @@
         <priority>0.3</priority>
     </url>
 
+  <url>
+    <loc>https://deglob.com.mx/blog/magia-de-globos-en-xv-anos-arte-y-personalidad-pedregal.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
