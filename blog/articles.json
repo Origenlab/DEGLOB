@@ -1,66 +1,76 @@
 {
-    "version": "2.0",
-    "lastUpdate": "2026-01-27",
-    "articles": [
-        {
-            "id": 1706300001000,
-            "title": "Tendencias en Decoracion con Globos en CDMX",
-            "excerpt": "Paletas, estilos y montajes actuales para eventos en CDMX con enfoque profesional y materiales premium.",
-            "category": "tendencias",
-            "image": "../img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp",
-            "slug": "tendencias-decoracion-globos",
-            "readTime": "10 min lectura",
-            "cta": "Ver Tendencias"
-        },
-        {
-            "id": 1706300002000,
-            "title": "Arcos de Globos Organicos: Guia Completa para tu Evento",
-            "excerpt": "Tipos, paletas y ubicaciones para elegir un arco organico que destaque en tu evento en CDMX.",
-            "category": "guias",
-            "image": "../img/guirnaldas-de-globos/arco-globos-organico-tonos-pastel-pampas-salon-elegante.webp",
-            "slug": "arcos-globos-organicos-guia-completa",
-            "readTime": "12 min lectura",
-            "cta": "Leer Guia"
-        },
-        {
-            "id": 1706300003000,
-            "title": "Decoracion con Globos para Bodas en CDMX: Ideas Elegantes",
-            "excerpt": "Inspirate con ideas elegantes de decoracion con globos para bodas: arcos romanticos, backdrops e instalaciones.",
-            "category": "bodas",
-            "image": "../img/columnas-decorativas/columnas-globos-blanco-dorado-entrada-boda-elegante.webp",
-            "slug": "decoracion-globos-bodas-cdmx",
-            "readTime": "15 min lectura",
-            "cta": "Ver Ideas"
-        },
-        {
-            "id": 1706300004000,
-            "title": "Colores de Globos para XV Anos: Paletas en Tendencia",
-            "excerpt": "Paletas actuales para XV anos con rose gold, dusty blue y combinaciones modernas que impactan.",
-            "category": "xv-anos",
-            "image": "../img/arcos-de-globos/arco-globos-xv-anos-rose-gold-flores-photobooth.webp",
-            "slug": "colores-globos-xv-anos",
-            "readTime": "8 min lectura",
-            "cta": "Ver Paletas"
-        },
-        {
-            "id": 1706300005000,
-            "title": "Decoracion Baby Shower con Globos: Ideas Tiernas",
-            "excerpt": "Ideas encantadoras para baby shower con globos en tonos pastel, organicos y tematicas adorables.",
-            "category": "baby-shower",
-            "image": "../img/arcos-de-globos/arco-globos-baby-shower-rosa-durazno-its-a-girl.webp",
-            "slug": "decoracion-baby-shower-globos",
-            "readTime": "10 min lectura",
-            "cta": "Ver Ideas"
-        },
-        {
-            "id": 1706300006000,
-            "title": "Globos Helio vs Aire: Diferencias y Cuando Usar Cada Uno",
-            "excerpt": "Guia practica sobre las diferencias entre globos con helio y aire, y cuando elegir cada tipo.",
-            "category": "guias",
-            "image": "../img/globos-helio/techo-globos-helio-boda-salon-rustico-romantico.webp",
-            "slug": "globos-helio-vs-aire-diferencias",
-            "readTime": "7 min lectura",
-            "cta": "Leer Guia"
-        }
-    ]
+  "version": "2.0",
+  "lastUpdate": "2026-01-27",
+  "articles": [
+    {
+      "id": 1769539289377,
+      "title": "Magia de Globos en XV Años: Arte y Personalidad",
+      "excerpt": "Descubre cómo los globos transforman las celebraciones de XV años en experiencias únicas llenas de color y magia en la vibrante CDMX.",
+      "category": "xv-anos",
+      "image": "../img/arcos-de-globos/arco-globos-xv-anos-rose-gold-flores-photobooth.webp",
+      "slug": "magia-de-globos-en-xv-anos-arte-y-personalidad-pedregal",
+      "readTime": "12 min lectura",
+      "cta": "Cotizar Ahora"
+    },
+    {
+      "id": 1706300001000,
+      "title": "Tendencias en Decoracion con Globos en CDMX",
+      "excerpt": "Paletas, estilos y montajes actuales para eventos en CDMX con enfoque profesional y materiales premium.",
+      "category": "tendencias",
+      "image": "../img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp",
+      "slug": "tendencias-decoracion-globos",
+      "readTime": "10 min lectura",
+      "cta": "Ver Tendencias"
+    },
+    {
+      "id": 1706300002000,
+      "title": "Arcos de Globos Organicos: Guia Completa para tu Evento",
+      "excerpt": "Tipos, paletas y ubicaciones para elegir un arco organico que destaque en tu evento en CDMX.",
+      "category": "guias",
+      "image": "../img/guirnaldas-de-globos/arco-globos-organico-tonos-pastel-pampas-salon-elegante.webp",
+      "slug": "arcos-globos-organicos-guia-completa",
+      "readTime": "12 min lectura",
+      "cta": "Leer Guia"
+    },
+    {
+      "id": 1706300003000,
+      "title": "Decoracion con Globos para Bodas en CDMX: Ideas Elegantes",
+      "excerpt": "Inspirate con ideas elegantes de decoracion con globos para bodas: arcos romanticos, backdrops e instalaciones.",
+      "category": "bodas",
+      "image": "../img/columnas-decorativas/columnas-globos-blanco-dorado-entrada-boda-elegante.webp",
+      "slug": "decoracion-globos-bodas-cdmx",
+      "readTime": "15 min lectura",
+      "cta": "Ver Ideas"
+    },
+    {
+      "id": 1706300004000,
+      "title": "Colores de Globos para XV Anos: Paletas en Tendencia",
+      "excerpt": "Paletas actuales para XV anos con rose gold, dusty blue y combinaciones modernas que impactan.",
+      "category": "xv-anos",
+      "image": "../img/arcos-de-globos/arco-globos-xv-anos-rose-gold-flores-photobooth.webp",
+      "slug": "colores-globos-xv-anos",
+      "readTime": "8 min lectura",
+      "cta": "Ver Paletas"
+    },
+    {
+      "id": 1706300005000,
+      "title": "Decoracion Baby Shower con Globos: Ideas Tiernas",
+      "excerpt": "Ideas encantadoras para baby shower con globos en tonos pastel, organicos y tematicas adorables.",
+      "category": "baby-shower",
+      "image": "../img/arcos-de-globos/arco-globos-baby-shower-rosa-durazno-its-a-girl.webp",
+      "slug": "decoracion-baby-shower-globos",
+      "readTime": "10 min lectura",
+      "cta": "Ver Ideas"
+    },
+    {
+      "id": 1706300006000,
+      "title": "Globos Helio vs Aire: Diferencias y Cuando Usar Cada Uno",
+      "excerpt": "Guia practica sobre las diferencias entre globos con helio y aire, y cuando elegir cada tipo.",
+      "category": "guias",
+      "image": "../img/globos-helio/techo-globos-helio-boda-salon-rustico-romantico.webp",
+      "slug": "globos-helio-vs-aire-diferencias",
+      "readTime": "7 min lectura",
+      "cta": "Leer Guia"
+    }
+  ]
 }
