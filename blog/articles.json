@@ -1,7 +1,17 @@
 {
   "version": "2.0",
-  "lastUpdate": "2026-01-27",
+  "lastUpdate": "2026-01-28",
   "articles": [
+    {
+      "id": 1769590802181,
+      "title": "Globos XV Anos: Transformación Mágica para Tu Quinceañera",
+      "excerpt": "Haz de tus XV anos una celebración mágica con la decoracion con globos. Conoce cómo lograrlo con estilo y personalización total.",
+      "category": "xv-anos",
+      "image": "../img/arcos-de-globos/arco-globos-xv-anos-rose-gold-flores-photobooth.webp",
+      "slug": "globos-xv-anos-transformacion-magica-para-tu-quinceanera-narvarte",
+      "readTime": "12 min lectura",
+      "cta": "Globos XV Anos"
+    },
     {
       "id": 1769554682430,
       "title": "Globos Helio CDMX: Impacto y Elegancia en Techos Flotantes",
