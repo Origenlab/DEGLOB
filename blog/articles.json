@@ -1,7 +1,17 @@
 {
   "version": "2.0",
-  "lastUpdate": "2026-01-28",
+  "lastUpdate": "2026-01-31",
   "articles": [
+    {
+      "id": 1769850001244,
+      "title": "Arco Orgánico Globos: Elegancia Natural para tus Eventos",
+      "excerpt": "Transforma tu evento con arcos orgánicos de globos en CDMX. Elegancia natural para anfitriones exigentes. Descubre más.",
+      "category": "arcos",
+      "image": "../img/guirnaldas-de-globos/arco-globos-organico-tonos-pastel-pampas-salon-elegante.webp",
+      "slug": "arco-organico-globos-elegancia-natural-para-tus-eventos-santa-fe",
+      "readTime": "12 min lectura",
+      "cta": "Globos Arcos de Globos"
+    },
     {
       "id": 1769590802181,
       "title": "Globos XV Anos: Transformación Mágica para Tu Quinceañera",
