@@ -312,4 +312,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://fantasyglobos.com.mx/blog/columnas-globos-elegancia-en-entradas-y-escenarios-bosques-de-las.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
