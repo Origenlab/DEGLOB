@@ -1,7 +1,17 @@
 {
   "version": "2.0",
-  "lastUpdate": "2026-01-31",
+  "lastUpdate": "2026-02-03",
   "articles": [
+    {
+      "id": 1770109202305,
+      "title": "Columnas Globos: Elegancia en Entradas y Escenarios",
+      "excerpt": "Transforma tu evento con columnas globos: elegancia y personalización en cada detalle. Descubre cómo en CDMX.",
+      "category": "columnas",
+      "image": "../img/columnas-decorativas/columnas-globos-graduacion-dorado-azul-ceremonia.webp",
+      "slug": "columnas-globos-elegancia-en-entradas-y-escenarios-bosques-de-las",
+      "readTime": "12 min lectura",
+      "cta": "Globos Columnas Decorativas"
+    },
     {
       "id": 1769850001244,
       "title": "Arco Orgánico Globos: Elegancia Natural para tus Eventos",
