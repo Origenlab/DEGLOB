@@ -1,7 +1,17 @@
 {
   "version": "2.0",
-  "lastUpdate": "2026-02-03",
+  "lastUpdate": "2026-02-12",
   "articles": [
+    {
+      "id": 1770886802428,
+      "title": "Globos XV Años: Decoración Premium para Quinceañeras",
+      "excerpt": "Crea una celebración inolvidable con globos XV años. Descubre ideas y consejos para una decoración única en CDMX.",
+      "category": "xv-anos",
+      "image": "../img/arcos-de-globos/arco-globos-xv-anos-rose-gold-flores-photobooth.webp",
+      "slug": "globos-xv-anos-decoracion-premium-para-quinceaneras-santa-fe",
+      "readTime": "12 min lectura",
+      "cta": "Globos XV Años"
+    },
     {
       "id": 1770109202305,
       "title": "Columnas Globos: Elegancia en Entradas y Escenarios",
