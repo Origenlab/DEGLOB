@@ -257,6 +257,21 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- Paginas Institucionales -->
+    <url>
+        <loc>https://fantasyglobos.com.mx/contacto.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://fantasyglobos.com.mx/nosotros.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
     <!-- Paginas Legales -->
     <url>
         <loc>https://fantasyglobos.com.mx/politica-privacidad.html</loc>
@@ -272,54 +287,60 @@
         <priority>0.3</priority>
     </url>
 
-  <url>
-    <loc>https://fantasyglobos.com.mx/blog/magia-de-globos-en-xv-anos-arte-y-personalidad-pedregal.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasyglobos.com.mx/blog/globos-de-ensueno-transformando-cumpleanos-en-cdmx.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasyglobos.com.mx/blog/encanto-y-belleza-la-magia-de-los-globos-en-baby-showers-del-vall.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasyglobos.com.mx/blog/arco-organico-de-globos-elegancia-natural-en-tu-evento-pedregal.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasyglobos.com.mx/blog/columnas-decorativas-de-globos-elegancia-para-tu-evento-narvarte.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasyglobos.com.mx/blog/globos-helio-cdmx-impacto-y-elegancia-en-techos-flotantes.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasyglobos.com.mx/blog/globos-xv-anos-transformacion-magica-para-tu-quinceanera-narvarte.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasyglobos.com.mx/blog/arco-organico-globos-elegancia-natural-para-tus-eventos-santa-fe.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasyglobos.com.mx/blog/columnas-globos-elegancia-en-entradas-y-escenarios-bosques-de-las.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fantasyglobos.com.mx/blog/globos-xv-anos-decoracion-premium-para-quinceaneras-santa-fe.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+    <url>
+        <loc>https://fantasyglobos.com.mx/blog/magia-de-globos-en-xv-anos-arte-y-personalidad-pedregal.html</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fantasyglobos.com.mx/blog/globos-de-ensueno-transformando-cumpleanos-en-cdmx.html</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fantasyglobos.com.mx/blog/encanto-y-belleza-la-magia-de-los-globos-en-baby-showers-del-vall.html</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fantasyglobos.com.mx/blog/arco-organico-de-globos-elegancia-natural-en-tu-evento-pedregal.html</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fantasyglobos.com.mx/blog/columnas-decorativas-de-globos-elegancia-para-tu-evento-narvarte.html</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fantasyglobos.com.mx/blog/globos-helio-cdmx-impacto-y-elegancia-en-techos-flotantes.html</loc>
+        <lastmod>2026-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fantasyglobos.com.mx/blog/globos-xv-anos-transformacion-magica-para-tu-quinceanera-narvarte.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fantasyglobos.com.mx/blog/arco-organico-globos-elegancia-natural-para-tus-eventos-santa-fe.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fantasyglobos.com.mx/blog/columnas-globos-elegancia-en-entradas-y-escenarios-bosques-de-las.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://fantasyglobos.com.mx/blog/globos-xv-anos-decoracion-premium-para-quinceaneras-santa-fe.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>

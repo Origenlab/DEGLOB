@@ -1246,9 +1246,9 @@ ul, ol {
                     <a href="mailto:info@fantasyglobos.com.mx"><i class="fas fa-envelope"></i> info@fantasyglobos.com.mx</a>
                 </div>
                 <div class="header-top-right">
-                    <a href="https://facebook.com/deglob" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com/deglob" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@deglob" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://facebook.com/deglob" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/deglob" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@deglob" target="_blank" aria-label="TikTok" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
@@ -1258,7 +1258,7 @@ ul, ol {
         <div class="container">
             <div class="header-main-content">
                 <a href="../index.html" class="logo">
-                    <img src="../img/decoracion-con-globos.avif" alt="DEGLOB - Decoracion con Globos CDMX">
+                    <img src="../img/decoracion-con-globos.avif" alt="DEGLOB - Decoracion con Globos CDMX" width="726" height="244">
                 </a>
 
                 <ul class="nav-menu" id="navMenu">
@@ -1368,7 +1368,7 @@ ul, ol {
         <div class="blog-cta-content">
             <h2>¿Listo para Transformar tu Evento?</h2>
             <p>Cotiza sin compromiso y recibe una propuesta personalizada para tu celebracion</p>
-            <a href="https://wa.me/5215639565117?text=Hola,%20vi%20el%20blog%20y%20me%20interesa%20cotizar%20decoracion%20con%20globos" class="btn" target="_blank">
+            <a href="https://wa.me/5215639565117?text=Hola,%20vi%20el%20blog%20y%20me%20interesa%20cotizar%20decoracion%20con%20globos" class="btn" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-whatsapp"></i> Cotizar Ahora
             </a>
         </div>
@@ -1384,10 +1384,10 @@ ul, ol {
                 <div class="footer-tagline">Decoracion con Globos</div>
                 <p>Transformamos tus eventos en experiencias inolvidables con decoraciones de globos profesionales en CDMX.</p>
                 <div class="contact-social">
-                    <a href="https://facebook.com/deglob" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com/deglob" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@deglob" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://pinterest.com/deglob" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://facebook.com/deglob" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/deglob" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@deglob" target="_blank" aria-label="TikTok" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://pinterest.com/deglob" target="_blank" aria-label="Pinterest" rel="noopener noreferrer"><i class="fab fa-pinterest-p"></i></a>
                 </div>
             </div>
 
@@ -1421,7 +1421,7 @@ ul, ol {
                     <a href="tel:+5215639565117"><i class="fas fa-phone" style="margin-right: 8px;"></i>56 3956 5117</a>
                     <a href="mailto:info@fantasyglobos.com.mx"><i class="fas fa-envelope" style="margin-right: 8px;"></i>info@fantasyglobos.com.mx</a>
                     <span style="display: block; padding: 6px 0; color: var(--gray-light);"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>Polanco, CDMX</span>
-                    <a href="https://maps.app.goo.gl/2WMnoKHier52Xy7s5" target="_blank" class="google-maps-link">GOOGLE MAPS</a>
+                    <a href="https://maps.app.goo.gl/2WMnoKHier52Xy7s5" target="_blank" class="google-maps-link" rel="noopener noreferrer">GOOGLE MAPS</a>
                 </nav>
             </div>
         </div>
@@ -1440,7 +1440,7 @@ ul, ol {
 <!-- WhatsApp Float -->
 <div class="whatsapp-float">
     <span class="notification-badge">1</span>
-    <a href="https://wa.me/5215639565117?text=Hola,%20vi%20el%20blog%20y%20me%20interesa%20cotizar%20decoracion%20con%20globos" target="_blank" aria-label="WhatsApp">
+    <a href="https://wa.me/5215639565117?text=Hola,%20vi%20el%20blog%20y%20me%20interesa%20cotizar%20decoracion%20con%20globos" target="_blank" aria-label="WhatsApp" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
 </div>
@@ -1449,7 +1449,7 @@ ul, ol {
 <script>
 // ============================================
 // BLOG CONFIG - DEGLOB PRO v2.0
-// 12 cards por pagina, paginacion profesional
+// 10 cards por pagina, paginacion profesional
 // ============================================
 const BLOG_CONFIG = {
     postsPerPage: 10,
@@ -1594,10 +1594,16 @@ function renderPosts() {
     grid.innerHTML = postsToShow.map(renderCard).join('');
 }
 
-// Render pagination - Always show 4 pages
+// Render pagination
 function renderPagination() {
     const pagination = document.getElementById('pagination');
-    const totalPages = 4; // Always show 4 pages ready
+    const totalPages = Math.max(1, Math.ceil(filteredArticles.length / BLOG_CONFIG.postsPerPage));
+
+    if (totalPages <= 1) {
+        pagination.innerHTML = '';
+        pagination.style.display = 'none';
+        return;
+    }
 
     pagination.style.display = 'flex';
     let html = '';
@@ -1670,7 +1676,7 @@ function renderPagination() {
 
 // Show page
 function showPage(page) {
-    const totalPages = Math.ceil(filteredArticles.length / BLOG_CONFIG.postsPerPage);
+    const totalPages = Math.max(1, Math.ceil(filteredArticles.length / BLOG_CONFIG.postsPerPage));
     if (page < 1 || page > totalPages) return;
 
     currentPage = page;
