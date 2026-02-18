@@ -1,7 +1,17 @@
 {
   "version": "2.0",
-  "lastUpdate": "2026-02-15",
+  "lastUpdate": "2026-02-18",
   "articles": [
+    {
+      "id": 1771405202207,
+      "title": "Globos Helio CDMX: Decoracion Impactante para tu Evento",
+      "excerpt": "Descubre como los globos helio CDMX pueden transformar cualquier evento en una experiencia visualmente impactante y memorable. ¡Inspírate y comienza a planificar!",
+      "category": "guias",
+      "image": "../img/globos-helio/techo-globos-helio-boda-salon-rustico-romantico.webp",
+      "slug": "globos-helio-cdmx-decoracion-impactante-para-tu-evento",
+      "readTime": "12 min lectura",
+      "cta": "Globos Guias"
+    },
     {
       "id": 1771146002121,
       "title": "Arco Organico de Globos: La Elegancia Natural en CDMX",
