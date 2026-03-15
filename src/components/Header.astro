@@ -1,0 +1,160 @@
+---
+const currentPath = Astro.url.pathname;
+---
+<header slot="header">
+  <div class="header-top">
+    <div class="container header-top-inner">
+      <div class="header-contact">
+        <a href="tel:+5215639565117"><i class="fas fa-phone"></i> 56 3956 5117</a>
+        <a href="mailto:info@fantasyglobos.com.mx"><i class="fas fa-envelope"></i> info@fantasyglobos.com.mx</a>
+        <span><i class="fas fa-clock"></i> Lun-Vie 9-19h | Sab 10-16h</span>
+      </div>
+      <div class="header-social">
+        <a href="https://www.facebook.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@deglob" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.pinterest.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-de">DE</span><span class="logo-glob">GLOB</span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="/" class:list={[{ active: currentPath === '/' }]}>Inicio</a></li>
+        <li><a href="/servicios" class:list={[{ active: currentPath === '/servicios' || currentPath === '/servicios/' }]}>Servicios</a></li>
+        <li><a href="/nosotros" class:list={[{ active: currentPath === '/nosotros' || currentPath === '/nosotros/' }]}>Nosotros</a></li>
+        <li><a href="/contacto" class:list={[{ active: currentPath === '/contacto' || currentPath === '/contacto/' }]}>Contacto</a></li>
+        <li><a href="https://wa.me/5215639565117?text=Hola%2C%20quiero%20cotizar%20decoraci%C3%B3n%20con%20globos" class="nav-cta" target="_blank" rel="noopener noreferrer">Cotizar</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<script>
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('navMenu');
+  toggle?.addEventListener('click', () => menu?.classList.toggle('open'));
+</script>
+<style>
+  .header-top {
+    background: linear-gradient(135deg, #8B30EE 0%, #C900D4 100%);
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 8px 0;
+  }
+  .header-top-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .header-contact {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .header-contact a, .header-contact span {
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .header-social {
+    display: flex;
+    gap: 12px;
+  }
+  .header-social a {
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  .header-social a:hover { background: rgba(255,255,255,0.3); }
+  .navbar {
+    background: #fff;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 12px 0;
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  .logo-de {
+    background: linear-gradient(135deg, #8B30EE, #C900D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .logo-glob { color: #1a1a2e; }
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    align-items: center;
+  }
+  .nav-menu a {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #2d3436;
+  }
+  .nav-menu a:hover, .nav-menu a.active {
+    color: #8B30EE;
+    background: rgba(139,48,238,0.06);
+  }
+  .nav-cta {
+    background: linear-gradient(135deg, #8B30EE, #C900D4) !important;
+    color: #fff !important;
+    border-radius: 50px !important;
+    padding: 10px 24px !important;
+  }
+  .nav-cta:hover { opacity: 0.9; }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #1a1a2e;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    .header-contact span:last-child { display: none; }
+    .nav-toggle { display: block; }
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .nav-menu.open { display: flex; }
+  }
+  @media (max-width: 480px) {
+    .header-top { display: none; }
+  }
+</style>

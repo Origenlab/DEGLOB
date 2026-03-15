@@ -1,0 +1,216 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+
+const localBusinessSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://fantasyglobos.com.mx/#localbusiness",
+  "name": "DEGLOB - Decoración con Globos CDMX",
+  "founder": { "@type": "Person", "name": "Victor Mendoza" },
+  "foundingDate": "2005",
+  "telephone": "+52-1-56-3956-5117",
+  "email": "info@fantasyglobos.com.mx",
+  "address": { "@type": "PostalAddress", "streetAddress": "Calz. Gral. Mariano Escobedo 555", "addressLocality": "Polanco, Miguel Hidalgo", "addressRegion": "CDMX", "postalCode": "11580", "addressCountry": "MX" }
+});
+
+const breadcrumbSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://fantasyglobos.com.mx/" },
+    { "@type": "ListItem", "position": 2, "name": "Nosotros", "item": "https://fantasyglobos.com.mx/nosotros" }
+  ]
+});
+
+const stats = [
+  { num: '500+', label: 'Eventos Realizados' },
+  { num: '20+', label: 'Años de Experiencia' },
+  { num: '98%', label: 'Clientes Satisfechos' },
+  { num: '100%', label: 'Cobertura CDMX' },
+];
+
+const values = [
+  { icon: 'fa-briefcase', title: 'Profesionalismo', desc: 'Cada detalle cuenta. Trabajamos con los más altos estándares de calidad y puntualidad en cada evento.' },
+  { icon: 'fa-lightbulb', title: 'Creatividad', desc: 'Diseños únicos y personalizados que transforman tus ideas en realidades espectaculares.' },
+  { icon: 'fa-handshake', title: 'Compromiso', desc: 'Tu satisfacción es nuestra prioridad. No descansamos hasta superar tus expectativas.' },
+  { icon: 'fa-heart', title: 'Pasión', desc: 'Amamos lo que hacemos. Cada globo inflado lleva nuestra dedicación y entusiasmo.' },
+];
+
+const differentiators = [
+  { icon: 'fa-gem', title: 'Materiales Premium', desc: 'Utilizamos exclusivamente globos Qualatex y Sempertex, las marcas de mayor calidad mundial. Tus decoraciones lucirán perfectas durante todo el evento.' },
+  { icon: 'fa-check-double', title: 'Servicio Integral', desc: 'Desde la asesoría inicial hasta el desmontaje final. Nos encargamos de todo para que tú solo disfrutes de tu evento sin preocupaciones.' },
+  { icon: 'fa-award', title: 'Experiencia Comprobada', desc: '20 años decorando eventos en CDMX nos respaldan. Conocemos cada detalle para hacer de tu celebración un éxito garantizado.' },
+];
+---
+<Layout
+  title="Nosotros | DEGLOB - Decoración con Globos CDMX | 20 Años de Experiencia"
+  description="Conoce a DEGLOB, empresa mexicana con más de 20 años de experiencia en decoración con globos. Fundada por Victor Mendoza, hemos transformado miles de eventos en momentos inolvidables."
+  schemas={[localBusinessSchema, breadcrumbSchema]}
+>
+  <Header />
+
+  <HeroSection
+    badge="20 Años de Experiencia"
+    title="Conoce a"
+    titleAccent="DEGLOB"
+    description="Somos una empresa mexicana con más de 20 años de experiencia en decoración con globos. Fundada por Victor Mendoza, hemos transformado miles de eventos en momentos inolvidables. Nuestra pasión es crear experiencias visuales únicas que superan las expectativas de nuestros clientes."
+    ctaText="Conocer Nuestra Historia"
+    ctaHref="#historia"
+    seoTitle="Dos Décadas Transformando Eventos en CDMX"
+    seoText="DEGLOB es una empresa líder en decoración con globos en la Ciudad de México, fundada en 2005 por Victor Mendoza. Con más de 500 eventos realizados y un equipo de decoradores profesionales certificados, nos hemos consolidado como referentes en el sector de decoración para bodas, XV años, baby showers, cumpleaños y eventos corporativos en toda la zona metropolitana."
+  />
+
+  <!-- Historia -->
+  <section class="section" id="historia">
+    <div class="container">
+      <div class="history-grid">
+        <div>
+          <span class="section-badge">Nuestra Trayectoria</span>
+          <h2 class="section-title">Nuestra Historia</h2>
+          <p>DEGLOB nació hace 20 años del sueño de Victor Mendoza, quien con pasión y dedicación comenzó a transformar eventos en experiencias memorables a través de la decoración con globos.</p>
+          <p>Lo que inició como un pequeño emprendimiento familiar, hoy se ha convertido en una de las empresas líderes en decoración con globos en la Ciudad de México. A lo largo de dos décadas, hemos tenido el privilegio de ser parte de miles de celebraciones: bodas, XV años, baby showers, cumpleaños, eventos corporativos y mucho más.</p>
+          <p>Nuestro compromiso siempre ha sido el mismo: crear momentos inolvidables con decoraciones de la más alta calidad, atención personalizada y un servicio profesional que supera las expectativas de cada cliente.</p>
+        </div>
+        <div class="history-img">
+          <img src="/img/servicios/arcos-de-globos.webp" alt="Decoración profesional con globos para eventos en CDMX por DEGLOB" loading="lazy" width="560" height="400" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Nuestros Números</span>
+        <h2 class="section-title">Experiencia que Habla por Sí Sola</h2>
+        <p class="section-subtitle">Cada número representa miles de sonrisas y momentos inolvidables que hemos ayudado a crear</p>
+      </div>
+      <div class="grid-4">
+        {stats.map(s => (
+          <div class="stat-card">
+            <span class="stat-num">{s.num}</span>
+            <span class="stat-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Lo Que Nos Define</span>
+        <h2 class="section-title">Nuestros Valores</h2>
+        <p class="section-subtitle">Los pilares que guían cada proyecto y nos distinguen en el mercado</p>
+      </div>
+      <div class="grid-4">
+        {values.map(v => (
+          <div class="value-card">
+            <div class="value-icon"><i class={`fas ${v.icon}`}></i></div>
+            <h3>{v.title}</h3>
+            <p>{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciadores -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Nuestra Diferencia</span>
+        <h2 class="section-title">Por Qué Elegir DEGLOB</h2>
+        <p class="section-subtitle">Descubre lo que nos hace la mejor opción para tu evento</p>
+      </div>
+      <div class="grid-3">
+        {differentiators.map(d => (
+          <div class="diff-card">
+            <div class="value-icon"><i class={`fas ${d.icon}`}></i></div>
+            <h3>{d.title}</h3>
+            <p>{d.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container" style="text-align:center">
+      <h2 class="section-title" style="color:#fff">Hagamos Realidad tu Visión</h2>
+      <p style="color:#b2bec3;font-size:1.1rem;margin-bottom:32px">Cotiza sin compromiso y recibe una propuesta personalizada para tu evento. Respondemos en menos de 2 horas.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="https://wa.me/5215639565117?text=Hola%2C%20quiero%20cotizar%20decoraci%C3%B3n%20con%20globos" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+        <a href="tel:+5215639565117" class="btn btn-outline">Llamar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+<style>
+  .section-alt { background: #f8f9fa; }
+  .cta-section { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+  .history-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .history-grid p {
+    color: #636E72;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .history-img { border-radius: 16px; overflow: hidden; }
+  .stat-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border: 1px solid #f0f0f0;
+  }
+  .stat-num {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #8B30EE, #C900D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .stat-label { color: #636E72; font-weight: 500; }
+  .value-card, .diff-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border: 1px solid #f0f0f0;
+  }
+  .value-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(139,48,238,0.1), rgba(201,0,212,0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #8B30EE;
+    margin: 0 auto 16px;
+  }
+  .value-card h3, .diff-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #1a1a2e; }
+  .value-card p, .diff-card p { font-size: 0.9rem; color: #636E72; line-height: 1.7; }
+  @media (max-width: 768px) {
+    .history-grid { grid-template-columns: 1fr; }
+  }
+</style>

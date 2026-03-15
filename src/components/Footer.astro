@@ -1,0 +1,123 @@
+---
+const services = [
+  { name: 'Arcos de Globos', href: '/servicios' },
+  { name: 'Columnas Decorativas', href: '/servicios' },
+  { name: 'Backdrops y Paneles', href: '/servicios' },
+  { name: 'Globos con Helio', href: '/servicios' },
+  { name: 'Figuras Personalizadas', href: '/servicios' },
+  { name: 'Centros de Mesa', href: '/servicios' },
+  { name: 'Guirnaldas de Globos', href: '/servicios' },
+  { name: 'Globos Gigantes', href: '/servicios' },
+];
+const events = ['Bodas', 'XV Años', 'Baby Shower', 'Cumpleaños', 'Corporativos', 'Inauguraciones', 'Gender Reveal', 'Graduaciones'];
+---
+<footer slot="footer" class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">
+          <span class="logo-de">DE</span><span class="logo-glob">GLOB</span>
+        </a>
+        <p class="footer-tagline">Decoración con Globos</p>
+        <p class="footer-desc">Transformamos tus eventos en experiencias inolvidables con decoraciones de globos profesionales en toda la Ciudad de México.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@deglob" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.pinterest.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer-heading">Servicios</h3>
+        <ul class="footer-links">
+          {services.map(s => <li><a href={s.href}>{s.name}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">Eventos</h3>
+        <ul class="footer-links">
+          {events.map(e => <li><a href="/servicios">{e}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">Contacto</h3>
+        <ul class="footer-links footer-contact-list">
+          <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5215639565117">56 3956 5117</a></li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:info@fantasyglobos.com.mx">info@fantasyglobos.com.mx</a></li>
+          <li><i class="fas fa-map-marker-alt"></i> Calz. Gral. Mariano Escobedo 555, Polanco V Secc, Miguel Hidalgo, 11580 CDMX</li>
+          <li><i class="fas fa-clock"></i> Lun-Vie 9-19h | Sab 10-16h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 DEGLOB - Decoración con Globos. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <a href="/nosotros">Nosotros</a>
+        <a href="/contacto">Contacto</a>
+        <a href="/politica-privacidad">Política de Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<style>
+  .footer {
+    background: #1a1a2e;
+    color: #b2bec3;
+    padding: 64px 0 0;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-logo {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .logo-de {
+    background: linear-gradient(135deg, #8B30EE, #C900D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .logo-glob { color: #fff; }
+  .footer-tagline { color: #a855f7; font-family: 'Pacifico', cursive; font-size: 0.95rem; margin-bottom: 12px; }
+  .footer-desc { font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+  .footer-social { display: flex; gap: 10px; }
+  .footer-social a {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    color: #b2bec3; font-size: 0.9rem;
+  }
+  .footer-social a:hover { background: #8B30EE; color: #fff; }
+  .footer-heading { color: #fff; font-size: 1.1rem; margin-bottom: 20px; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; font-size: 0.9rem; }
+  .footer-links a:hover { color: #a855f7; }
+  .footer-contact-list li { display: flex; gap: 10px; align-items: flex-start; }
+  .footer-contact-list i { color: #8B30EE; margin-top: 4px; width: 16px; flex-shrink: 0; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-legal { display: flex; gap: 20px; }
+  .footer-legal a:hover { color: #a855f7; }
+  @media (max-width: 992px) {
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 576px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+</style>
