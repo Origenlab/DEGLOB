@@ -55,7 +55,7 @@ const { compact = false } = Astro.props;
     </button>
   </form>
 </div>
-<script>
+<script is:inline>
   document.getElementById('contactForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;

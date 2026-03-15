@@ -35,7 +35,7 @@ const currentPath = Astro.url.pathname;
     </div>
   </nav>
 </header>
-<script>
+<script is:inline>
   const toggle = document.getElementById('navToggle');
   const menu = document.getElementById('navMenu');
   toggle?.addEventListener('click', () => menu?.classList.toggle('open'));
