@@ -1,102 +1,192 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { WHATSAPP_URL_MSG } from '../../../lib/config';
 
-const title = "Gender Reveal con Globos Gigantes: Cómo Hacerlo Perfecto";
-const description = "Organiza un gender reveal inolvidable con globos gigantes. Te explicamos opciones, colores, logística y cómo crear el momento sorpresa perfecto.";
-const category = "Gender Reveal";
-const date = "2025-08-01";
+const title = 'Gender Reveal con Globos Gigantes: Ideas y Presupuestos';
+const description = 'Gender reveal con globos gigantes en CDMX: ideas para el gran reveal, colores rosa y azul, presupuestos y cómo hacerlo seguro para tus fotos.';
+const category = 'Eventos Especiales';
+const image = '/img/blog/gender-reveal-globos-gigantes.webp';
+const imageAlt = 'Globo gigante negro con confeti rosa para gender reveal';
+const canonical = 'https://fantasyglobos.com.mx/blog/gender-reveal-globos-gigantes/';
+const date = '2025-06-10';
 
-const structuredData = [{
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: description,
-  datePublished: date,
-  dateModified: date,
-  author: { '@type': 'Organization', name: 'DEGLOB' },
-  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
-}];
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Cuánto cuesta un globo gigante para gender reveal?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Un globo gigante 3ft con relleno de confeti y borlas decorativas cuesta entre $2,000-3,000 MXN. Paquetes de 3+ globos tienen descuento.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Qué va dentro del globo?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Confeti de color rosa (nena) o azul (nene) con sorpresa. También pueden ir pétalos, papel picado o globos pequeños de ese color.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cómo se revienta el globo de forma segura?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Con una aguja grande o palillo. Recomendamos un momento planificado con fotógrafo listo, cámara de video lista, familiares alrededor.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Puedo usar globo gigante en interiores?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sí, pero en espacios amplios (jardín, patio, salón grande). El ruido es fuerte cuando revienta, así que asegura que no haya mascotas asustadizas o bebés presentes.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Gender reveal con globos gigantes en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
 ---
 
-<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
-  <Breadcrumb items={[
-    { name: 'Blog', href: '/blog/' },
-    { name: title, href: '/blog/gender-reveal-globos-gigantes/' },
-  ]} />
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>El gran reveal: Momento emocionante con globos gigantes</h2>
+  <p>
+    El gender reveal es uno de los momentos más emocionantes del embarazo. Es cuando descubres el sexo del bebé y comparten la noticia con familia y amigos. Y los globos gigantes son perfectos para esto: crean anticipación, generan emoción, se ve increíble en fotos y videos.
+  </p>
+  <p>
+    Una cosa que vemos seguido: los gender reveals con globos gigantes generan reacciones genuinas. La sorpresa, la emoción, el llanto feliz de la mamá. Eso es lo que la gente recuerda después.
+  </p>
 
-  <article class="blog-article">
-    <header class="blog-article__header">
-      <span class="blog-article__category">{category}</span>
-      <h1 class="blog-article__title">{title}</h1>
-      <p class="blog-article__excerpt">{description}</p>
-      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-    </header>
+  <h2>Opciones de globos gigantes para gender reveal</h2>
+  <p>
+    <strong>Globo Negro con Confeti Sorpresa (La Clásica):</strong> Un globo de 3 pies negro relleno de confeti rosa o azul. Se revienta en el momento y saltan los papelitos de color. Costo: $2,000-2,500 MXN. Es la opción más popular.
+  </p>
+  <p>
+    <strong>Globo Transparente con Globos Adentro:</strong> Un globo transparente gigante relleno de 50+ globos pequeños de color rosa o azul. Cuando lo revientas, caen globos de color. Impacto visual máximo. Costo: $2,500-3,500 MXN.
+  </p>
+  <p>
+    <strong>Globo Gigante Flotante con Sorpresa:</strong> Un globo de helio que flota, con confeti dentro y globos pequeños sujetos con cinta. Costo: $3,500-4,500 MXN. Más espectacular pero más complejo.
+  </p>
 
-    <div class="blog-article__content">
-      <h2>El gender reveal: un momento para recordar</h2>
-      <p>La revelación del sexo del bebé se ha convertido en uno de los momentos más esperados y emocionantes del embarazo. En CDMX, cada vez más parejas organizan eventos especiales para compartir esta sorpresa con familiares y amigos, y los globos gigantes son el protagonista absoluto de estas celebraciones. El instante en que el globo se revienta y una lluvia de confeti rosa o azul llena el aire es sencillamente mágico.</p>
-      <p>Pero organizar un gender reveal exitoso requiere planificación y conocer las opciones disponibles. En esta guía te contamos todo lo que necesitas para que ese momento sea perfecto.</p>
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Quieres un gender reveal espectacular?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Cotiza globos gigantes para tu reveal →</a>
+    </p>
+  </div>
 
-      <h2>El globo gigante negro: el clásico que nunca falla</h2>
-      <p>El formato más popular para gender reveal es el globo gigante de 36 pulgadas (3 pies) en color negro. Su interior se rellena con confeti del color correspondiente al sexo del bebé: rosa para niña, azul para niño. Cuando los futuros padres pinchan el globo con un alfiler o una aguja decorativa, el confeti sale disparado creando un espectáculo visual que todos quieren capturar en foto y video.</p>
-      <p>Para que el efecto sea más impactante, se recomienda rellenar el globo con una mezcla de confeti de papel (para la caída lenta y elegante) y confeti metálico (para el brillo y la dispersión inicial). La cantidad ideal es entre 20 y 30 gramos de confeti para un globo de 36 pulgadas. Demasiado confeti puede hacer que el globo no se infle correctamente, mientras que muy poco resultará en una revelación discreta.</p>
+  <h2>Pasos para el gran momento</h2>
+  <p>
+    <strong>1. Coordinación Previa (2 semanas antes):</strong> Confirma el sexo del bebé con alguien confiable. Asegúrate que solo tú (y la pareja) lo sabes. Contacta al decorador de globos para preparar todo.
+  </p>
+  <p>
+    <strong>2. Lugar y Fecha (1 semana antes):</strong> Elige un lugar con buena iluminación para fotos. Matutino es ideal (luz natural). Avisa a fotógrafo y videógrafo exactamente a qué hora será el reveal.
+  </p>
+  <p>
+    <strong>3. Decoración del Espacio (4 horas antes):</strong> Arregla backdrop, pon flores, globos decorativos alrededor. El globo gigante es el protagonista, así que no sobrecargues el resto.
+  </p>
+  <p>
+    <strong>4. El Momento (10 minutos antes):</strong> Posiciona a toda la familia alrededor. Fotógrafo y videógrafo listos. Asegúrate de tener el globo gigante visible en todos los ángulos.
+  </p>
+  <p>
+    <strong>5. El Reveal (El Momento):</strong> Con una aguja o palillo afilado, revienta el globo. Dejar que la emoción fluya. Los mejores momentos son los no planeados.
+  </p>
 
-      <h2>Opciones más allá del globo negro</h2>
-      <p>Aunque el globo negro es el estándar, existen variaciones creativas que le dan un giro original al momento de la revelación:</p>
-      <ul>
-        <li><strong>Globo transparente con confeti:</strong> En lugar de ocultar el color, se llena un globo transparente gigante con confeti que se activa al reventarlo. La ventaja es que puedes decorar el exterior con vinilos que digan "He or She?" o "¿Niño o Niña?".</li>
-        <li><strong>Caja sorpresa con globos:</strong> Una caja grande decorada que al abrirse libera decenas de globos de helio en rosa o azul. El efecto de ver los globos elevarse al cielo es espectacular para fotos al aire libre.</li>
-        <li><strong>Globo con pintura:</strong> Un globo gigante relleno de pintura lavable rosa o azul que al reventarse salpica un lienzo blanco. Así obtienes además una obra de arte única como recuerdo.</li>
-        <li><strong>Piñata de globo:</strong> Un globo gigante decorado como piñata que los padres golpean hasta que explota revelando confeti y mini globos del color sorpresa.</li>
-      </ul>
+  <h2>Presupuestos reales para gender reveal completo</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Paquete</th>
+        <th>Incluye</th>
+        <th>Costo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Revelación</strong></td>
+        <td>1 globo gigante con confeti</td>
+        <td>$2,500</td>
+      </tr>
+      <tr>
+        <td><strong>Especial</strong></td>
+        <td>Globo gigante + arco + backdrop 2m + centros</td>
+        <td>$9,000</td>
+      </tr>
+      <tr>
+        <td><strong>Completo</strong></td>
+        <td>Globo gigante + arco + backdrop 3m + globos decorativos flotantes</td>
+        <td>$15,000+</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <h2>La decoración del evento completo</h2>
-      <p>El gender reveal no se limita al momento de la revelación. El espacio donde se realiza el evento merece una decoración que genere expectativa y emoción. Una propuesta popular es dividir la decoración en dos mitades: un lado rosa y otro azul, representando las dos opciones. Los invitados pueden colocarse en el lado de su predicción antes de la revelación.</p>
-      <p>Un arco orgánico en la entrada que combine rosa, azul y blanco con signos de interrogación establece el tema desde que los invitados llegan. La mesa de dulces puede tener secciones en ambos colores con un centro neutral donde se colocará el globo gigante de la revelación.</p>
+  <h2>Tips de seguridad y logística</h2>
+  <p>
+    El ruido de un globo gigante revientándose es fuerte. Si hay bebés presentes, avisa a los papás. Si hay mascotas asustadizas, considera un lugar tranquilo primero. Llena el globo solo 2-3 horas antes del evento para asegurar que no se desinfle.
+  </p>
+  <p>
+    Ten una aguja de coser gruesa o palillo de brocheta lista. Algunos globos de 3 pies son muy resistentes y necesitas algo puntiagudo. Un alfiler regular no funciona.
+  </p>
 
-      <h3>Decoración con preguntas y apuestas</h3>
-      <p>Colocar globos con helio en ambos colores que los invitados elijan según su predicción es una dinámica divertida que involucra a todos. Cada invitado toma un globo rosa o azul al llegar, y después de la revelación, quienes acertaron celebran con sus globos. Este tipo de interacción hace que el evento sea participativo y memorable.</p>
+  <h2>Decoración complementaria para el reveal</h2>
+  <p>
+    Un backdrop simple con flores o globos decorativos hace que la zona del reveal se vea profesional. Si es en casa, puedes usar una sábana blanca o decoración simple de fondo. El globo gigante debe ser el protagonista, así que no sobrecargues.
+  </p>
+  <p>
+    <a href="/servicios/globos-helio/">Globos flotantes</a> de color rosa y azul alrededor del área crean atmósfera mágica. <a href="/servicios/backdrops-paneles/">Un backdrop</a> de 2 metros con colores neutrales (blanco, crema, dorado) da profesionalismo a las fotos.
+  </p>
 
-      <h2>Logística y timing perfecto</h2>
-      <p>El globo gigante debe prepararse el mismo día del evento, idealmente unas dos a tres horas antes. Si se rellena con demasiada anticipación, el confeti puede asentarse en el fondo y no dispersarse bien al reventarlo. Es importante que la persona que prepare el globo sea la única que conozca el sexo del bebé (generalmente un familiar o amigo de confianza, o el propio decorador).</p>
-      <p>Asegúrate de que el fotógrafo y el camarógrafo estén posicionados antes de la revelación. El momento dura apenas unos segundos, así que no hay oportunidad de repetirlo. Comunica a todos los invitados el momento exacto para que estén listos con sus cámaras.</p>
+  <h2>Momento Bonus: Antes del Reveal</h2>
+  <p>
+    Algunos clientes hacen un "pre-reveal" con todos juntos adivinando el sexo, haciendo votos. Esto crea anticipación extra. Cuando finalmente revientas el globo, la emoción es aún mayor. Es un videazo para redes sociales después.
+  </p>
 
-      <h2>Tips finales para un gender reveal exitoso</h2>
-      <p>Si el evento es al aire libre, ten en cuenta la dirección del viento para que el confeti vuele hacia el frente de las cámaras y no se aleje de los padres. Usa un alfiler largo con mango para pinchar el globo, ya que facilita el momento y evita accidentes con agujas pequeñas. Y sobre todo, disfruta el momento: la genuina sorpresa y emoción de los futuros padres es lo que hace que estas fotos y videos sean verdaderamente especiales.</p>
-    </div>
-
-    <div class="blog-article__cta">
-      <h3>¿Necesitas globos para tu gender reveal?</h3>
-      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
-      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
-
-    <nav class="blog-article__back">
-      <a href="/blog/">&larr; Volver al blog</a>
-    </nav>
-  </article>
-
-</Base>
-
-<style>
-  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
-  .blog-article__header { margin-bottom: var(--spacing-2xl); }
-  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
-  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
-  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
-  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
-  .blog-article__content { margin-bottom: var(--spacing-2xl); }
-  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
-  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
-  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
-  .blog-article__content strong { color: var(--color-text); }
-  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
-  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
-  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
-  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-</style>
+  <p>
+    <strong>¿Quieres que tu gender reveal sea el talk de la familia?</strong> Cotiza un <a href="/servicios/globos-gigantes/">globo gigante</a> con confeti sorpresa. Te ayudamos a planificar todo. DEGLOB: donde los momentos se hacen especiales.
+  </p>
+</BlogLayout>

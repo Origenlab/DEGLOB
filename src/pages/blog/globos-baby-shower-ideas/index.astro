@@ -1,103 +1,218 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { WHATSAPP_URL_MSG } from '../../../lib/config';
 
-const title = "Ideas de Globos para Baby Shower: Guía Completa";
-const description = "Las mejores ideas de decoración con globos para baby shower. Paletas de colores, arreglos temáticos y tips para crear un ambiente mágico para la llegada del bebé.";
-const category = "Baby Shower";
-const date = "2025-10-10";
+const title = 'Baby Shower con Globos: Ideas Creativas y Colores Pastel';
+const description = 'Decoración con globos para baby shower: ideas pastel, arcos, backdrops para fotos y centros de mesa. Presupuestos reales para CDMX.';
+const category = 'Eventos Especiales';
+const image = '/img/blog/baby-shower-globos.webp';
+const imageAlt = 'Arco de globos en tonos pastel para baby shower';
+const canonical = 'https://fantasyglobos.com.mx/blog/globos-baby-shower-ideas/';
+const date = '2025-05-22';
 
-const structuredData = [{
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: description,
-  datePublished: date,
-  dateModified: date,
-  author: { '@type': 'Organization', name: 'DEGLOB' },
-  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
-}];
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Cuál es el presupuesto típico de un baby shower con globos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Paquete básico: $5,500 MXN. Paquete especial: $9,500 MXN. Paquete completo: $16,000+ MXN. Varía según número de invitados y elementos elegidos.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Qué colores funcionan mejor para baby shower?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Pastel menta, rosa suave, amarillo pálido, crema y blanco. Neutral: gris, beige, blanco. Combinaciones: rosa-blanco, menta-blanco, amarillo-blanco.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Qué elementos son imprescindibles?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Arco de globos para la entrada (sí). Backdrop para fotos (altamente recomendado). Centros de mesa (opcional pero mejora mucho). Mesa de dulces decorada (si hay).',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Es seguro usar globos cerca de bebés?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sí, siempre que estén asegurados bien. No dejes globos sueltos que bebés puedan alcanzar. Nuestros globos se instalan alto y fijo para máxima seguridad.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Baby shower con globos en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
 ---
 
-<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
-  <Breadcrumb items={[
-    { name: 'Blog', href: '/blog/' },
-    { name: title, href: '/blog/globos-baby-shower-ideas/' },
-  ]} />
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>Baby Shower: Fiesta de bienvenida al bebé con globos</h2>
+  <p>
+    El baby shower es la celebración donde la mamá recibe regalos y el amor de la familia antes de que llegue el bebé. Es un momento dulce, tierno, lleno de emoción. La decoración con globos es perfecta para esto: permite crear ambientes pastel, románticos y cálidos que hacen que todo se vea hermoso.
+  </p>
+  <p>
+    Una cosa que vemos seguido: los baby showers con decoración profesional son 10 veces más fotografiables. Las invitadas se toman fotos, las comparten en redes, y la mamá queda felicísima. Vale cada peso.
+  </p>
 
-  <article class="blog-article">
-    <header class="blog-article__header">
-      <span class="blog-article__category">{category}</span>
-      <h1 class="blog-article__title">{title}</h1>
-      <p class="blog-article__excerpt">{description}</p>
-      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-    </header>
+  <h2>Paletas de color clásicas para baby shower</h2>
+  <p>
+    <strong>Menta + Blanco + Dorado:</strong> La más popular actualmente. Fresca, moderna, femenina sin ser excesivamente rosa. Perfecta para cualquier espacio.
+  </p>
+  <p>
+    <strong>Rosa Pastel + Blanco + Dorado:</strong> La clásica dulce. Romántica, tierna, perfecta para mamás que aman el rosa suave. Funciona en cualquier lugar.
+  </p>
+  <p>
+    <strong>Amarillo + Blanco + Crema:</strong> Alegre, alegre, calientita. Perfecta si no sabes el sexo del bebé o quieres algo neutral que se vea cálido.
+  </p>
+  <p>
+    <strong>Gris + Blanco + Dorado:</strong> Sofisticada, moderna, adulta. Para mamás que quieren un baby shower elegante, no infantil.
+  </p>
 
-    <div class="blog-article__content">
-      <h2>El baby shower perfecto comienza con la decoración</h2>
-      <p>El baby shower es una de las celebraciones más especiales y emotivas antes de la llegada de un nuevo integrante a la familia. La decoración con globos juega un papel fundamental para crear ese ambiente cálido, alegre y lleno de ternura que caracteriza a estos eventos. En CDMX, cada vez más familias optan por decoraciones profesionales con globos que van mucho más allá de los típicos arreglos básicos.</p>
-      <p>Ya sea que organices el baby shower en casa, en un restaurante o en un salón de eventos, los globos se adaptan a cualquier espacio y presupuesto, permitiéndote crear una atmósfera memorable sin complicaciones.</p>
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Necesitas ideas para tu baby shower?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Manda la paleta de colores que te gusta →</a>
+    </p>
+  </div>
 
-      <h2>Paletas de colores para baby shower</h2>
-      <p>La elección de colores marca el tono de toda la decoración. Aquí las opciones más populares que hemos trabajado en nuestros eventos:</p>
-      <ul>
-        <li><strong>Rosa pastel y dorado:</strong> Un clásico para niñas que nunca pasa de moda. Los globos rosa en diferentes tonalidades combinados con acentos chrome dorados crean un look dulce y sofisticado.</li>
-        <li><strong>Azul cielo y blanco:</strong> Para niños, esta combinación transmite tranquilidad y frescura. Agrega globos transparentes con confeti azul para un toque especial.</li>
-        <li><strong>Verde menta y amarillo:</strong> Perfecto para baby showers de género neutro. Fresco, moderno y lleno de vida.</li>
-        <li><strong>Lila y lavanda:</strong> Una opción elegante que funciona tanto para niña como para género neutro, especialmente con acentos plateados.</li>
-        <li><strong>Arcoíris pastel:</strong> Ideal cuando quieres una celebración colorida pero suave, mezclando todos los tonos pastel en una sola composición.</li>
-      </ul>
+  <h2>Elementos decorativos que hacen impacto</h2>
+  <p>
+    <strong>Arco de Entrada:</strong> Un arco mediano (2-2.5m) en tonos pastel es el primer elemento que ven los invitados. Costo: $4,500-5,500 MXN. Imprescindible.
+  </p>
+  <p>
+    <strong>Backdrop para Fotos:</strong> Una pared de globos donde los invitados se tomen fotos. Tamaño recomendado: 2-3 metros. Costo: $4,500-6,000 MXN. Muy recomendado, generará fotos lindas.
+  </p>
+  <p>
+    <strong>Centros de Mesa:</strong> 8-10 mesas con centros decorativos de globos. Bouquets pastel o arreglos orgánicos pequeños. Costo: $2,500-3,500 MXN por 10 mesas. Opcional pero mejora mucho la atmósfera.
+  </p>
+  <p>
+    <strong>Mesa de Dulces Decorada:</strong> Si hay mesa de dulces o regalos, rodearla con <a href="/servicios/guirnaldas-de-globos/">guirnaldas de globos</a>. Costo: $2,000-3,000 MXN. Adicional pero espectacular.
+  </p>
 
-      <h2>Ideas de arreglos con globos para baby shower</h2>
-      <p>El arco de globos sobre la mesa principal es probablemente el elemento más impactante. Un arco orgánico en forma de media luna que enmarque la mesa de regalos o la mesa de dulces crea el punto focal perfecto para el evento. Puedes personalizar el arco con figuras de foil como biberones, carriolas, patitos o estrellas que complementen la temática.</p>
-      <p>Los bouquets de globos con helio son excelentes para marcar la entrada del venue o para distribuir en las mesas de los invitados. Un conjunto de cinco a siete globos en diferentes tamaños y texturas, anclados a un peso decorativo, funciona como centro de mesa elegante y festivo a la vez.</p>
+  <h2>Presupuestos por paquete</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Paquete</th>
+        <th>Incluye</th>
+        <th>Costo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Dulce</strong></td>
+        <td>Arco pequeño + backdrop 2m + 6 centros</td>
+        <td>$5,500</td>
+      </tr>
+      <tr>
+        <td><strong>Especial</strong></td>
+        <td>Arco mediano + backdrop 3m + 10 centros + globos flotantes</td>
+        <td>$9,500</td>
+      </tr>
+      <tr>
+        <td><strong>Completo</strong></td>
+        <td>Arco grande + backdrop premium + centros completos + mesa de dulces decorada</td>
+        <td>$16,000+</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <h3>Globos con nombre del bebé</h3>
-      <p>Si ya conoces el nombre del bebé, una instalación con globos formando las letras del nombre es un detalle personalizado que encanta a todos los asistentes. Se puede colocar sobre la pared principal o como parte del backdrop para fotos. Cada letra se construye con globos pequeños sobre una estructura interna, creando un efecto tridimensional impresionante.</p>
+  <h2>Temáticas populares para baby shower</h2>
+  <p>
+    <strong>Neutral Moderno:</strong> Grises, blancos, negros suaves, dorado. Elegante, adulto, minimalista.
+  </p>
+  <p>
+    <strong>Menta Fresca:</strong> Menta, blanco, dorado. Moderna, fresca, visualmente hermosa.
+  </p>
+  <p>
+    <strong>Rosa Romántico:</strong> Rosa pastel, blanco, dorado. Dulce, romántico, clásico.
+  </p>
+  <p>
+    <strong>Nube y Lluvia:</strong> Azul cielo, blanco, gris. Tema nube/lluvia es tendencia. Muy lindos y contemporáneos.
+  </p>
 
-      <h3>Columnas y guirnaldas temáticas</h3>
-      <p>Las columnas de globos a los lados de la mesa principal añaden verticalidad y presencia al espacio. Para baby showers, se suelen rematar con figuras de foil como osos de peluche, nubes o lunas. Las guirnaldas orgánicas que recorren la pared detrás de la mesa o que decoran el marco de una ventana son una forma sutil pero efectiva de llenar el espacio con color.</p>
+  <h2>Detalles que marcan la diferencia</h2>
+  <p>
+    <strong>Globos con Helio:</strong> Unos cuantos globos pequeños flotantes alrededor del arco o backdrop. Dan movimiento y ligereza. Costo adicional: $500-800 MXN.
+  </p>
+  <p>
+    <strong>Flores Secas Integradas:</strong> Eucalipto, pampas, flores secas. Integran textura natural y se ven premium. La mayoría de arcos de calidad las incluyen.
+  </p>
+  <p>
+    <strong>Cintas Cascada:</strong> Cintas satinadas que caen desde el arco o backdrop. Elegancia extra. Incluidas generalmente.
+  </p>
 
-      <h2>Temáticas populares para baby shower con globos</h2>
-      <p>Más allá del clásico rosa o azul, las temáticas permiten llevar la decoración a otro nivel. El tema de ositos y nubes se logra combinando globos en tonos neutros con figuras especiales y algodón para simular nubes. La temática de safari incorpora globos verdes, marrones y dorados con figuras de animales de foil. El tema de estrellas y luna utiliza globos en azul oscuro, plateado y dorado para crear un ambiente celestial.</p>
-      <p>Cada temática permite un nivel diferente de personalización. Un decorador profesional puede sugerirte combinaciones que tal vez no habías considerado y que elevarán el resultado final de tu baby shower.</p>
+  <h2>Logística: Qué preguntar antes de contratar</h2>
+  <p>
+    ¿Incluye instalación? ¿A qué hora instalan? ¿Cuánto tiempo tarda? ¿Tienen equipo de reparación el día del evento? ¿Qué pasa si llueve? (Si es al aire libre)
+  </p>
+  <p>
+    Estas preguntas básicas te dan claridad y evitan sorpresas el día del baby shower.
+  </p>
 
-      <h2>Tips para un baby shower inolvidable</h2>
-      <p>Reserva tu decoración con al menos dos semanas de anticipación, especialmente si necesitas globos en colores específicos que podrían requerir pedido especial. Considera el horario del evento: si es al aire libre durante el día, los globos con helio pueden verse afectados por el calor. Un profesional sabrá recomendarte las mejores opciones según las condiciones de tu venue y la hora del evento.</p>
-      <p>Finalmente, no olvides que la decoración debe complementar y no competir con los demás elementos de la fiesta. La armonía entre los globos, la mantelería, los centros de mesa y la papelería del evento es lo que crea una experiencia visual verdaderamente especial para la futura mamá y todos los invitados.</p>
-    </div>
+  <h2>Foto-oportunidades que no puedes perder</h2>
+  <p>
+    <strong>Zona del Arco:</strong> Toda la familia alrededor. Se ve hermoso en fotos.
+  </p>
+  <p>
+    <strong>Backdrop:</strong> Fotos individuales, fotos de grupo, selfies. Es lo que más se fotografía.
+  </p>
+  <p>
+    <strong>Mesa de Regalos:</strong> Con la decoración de globos de fondo se ve espectacular.
+  </p>
+  <p>
+    <strong>Mesas de Comida:</strong> Foto con centros de mesa visible. Los detalles cuentan.
+  </p>
 
-    <div class="blog-article__cta">
-      <h3>¿Necesitas decoración con globos para tu baby shower?</h3>
-      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
-      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
-
-    <nav class="blog-article__back">
-      <a href="/blog/">&larr; Volver al blog</a>
-    </nav>
-  </article>
-
-</Base>
-
-<style>
-  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
-  .blog-article__header { margin-bottom: var(--spacing-2xl); }
-  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
-  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
-  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
-  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
-  .blog-article__content { margin-bottom: var(--spacing-2xl); }
-  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
-  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
-  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
-  .blog-article__content strong { color: var(--color-text); }
-  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
-  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
-  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
-  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-</style>
+  <p>
+    <strong>¿Tu baby shower necesita que sea especial?</strong> Cuéntanos qué paleta de colores te gusta y el tamaño de tu fiesta. Cotizamos opciones en minutos. DEGLOB: donde cada bebé merece bienvenida hermosa.
+  </p>
+</BlogLayout>

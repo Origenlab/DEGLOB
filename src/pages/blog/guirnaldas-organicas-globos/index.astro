@@ -1,103 +1,240 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { WHATSAPP_URL_MSG } from '../../../lib/config';
 
-const title = "Guirnaldas Orgánicas de Globos: Todo lo que Necesitas Saber";
-const description = "Las guirnaldas orgánicas son la tendencia más solicitada en decoración con globos. Aprende sobre estilos, combinaciones de colores y cómo usarlas en tu evento.";
-const category = "Tendencias";
-const date = "2025-08-18";
+const title = 'Guirnaldas Orgánicas de Globos: Diseño, Instalación y Presupuestos';
+const description = 'Guirnaldas orgánicas con globos: cómo funcionan, tamaños recomendados, precios por metro y cómo instalar. Tendencia 2026 en CDMX.';
+const category = 'Ideas Decorativas';
+const image = '/img/blog/guirnalda-organica-globos.webp';
+const imageAlt = 'Guirnalda orgánica de globos en tonos pastel y verde';
+const canonical = 'https://fantasyglobos.com.mx/blog/guirnaldas-organicas-globos/';
+const date = '2025-02-08';
 
-const structuredData = [{
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: description,
-  datePublished: date,
-  dateModified: date,
-  author: { '@type': 'Organization', name: 'DEGLOB' },
-  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
-}];
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Cuánto cuesta una guirnalda de globos por metro?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Guirnalda básica: $800-1,000 por metro. Guirnalda premium: $1,200-1,500 por metro. Incluye globos, follaje e instalación.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Dónde se instalan guirnaldas de globos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Escaleras, barandales, mesas altas, arcos como base adicional, a lo largo de muros o barandas. Creatividad al máximo.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuál es la longitud ideal de una guirnalda?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Escalera: 3-5 metros. Mesa larga: 2-3 metros. Barandal: 3-6 metros. Depende del espacio. Entre más larga, más impactante.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Puedo instalar una guirnalda en interiores y exteriores?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sí, ambos. Interior: duran 2-3 semanas. Exterior: 18-24 horas (afectado por clima). Recomendamos instalación el día del evento.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Guirnaldas orgánicas de globos en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
 ---
 
-<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
-  <Breadcrumb items={[
-    { name: 'Blog', href: '/blog/' },
-    { name: title, href: '/blog/guirnaldas-organicas-globos/' },
-  ]} />
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>Guirnaldas orgánicas: La tendencia que domina en 2026</h2>
+  <p>
+    Las guirnaldas orgánicas de globos son la forma más elegante y contemporánea de decorar con globos. Son flexibles, se adaptan a cualquier espacio, y cuando están bien hechas, se ven absolutamente profesionales. Una cosa que vemos seguido: los eventos que usan guirnaldas orgánicas se ven 10 años más modernos que los que usan decoración tradicional.
+  </p>
+  <p>
+    A diferencia de los arcos de forma definida, las guirnaldas son naturalmente asimétricos, fluyen, se adaptan al espacio. Eso es lo que las hace tan versátiles y hermosas.
+  </p>
 
-  <article class="blog-article">
-    <header class="blog-article__header">
-      <span class="blog-article__category">{category}</span>
-      <h1 class="blog-article__title">{title}</h1>
-      <p class="blog-article__excerpt">{description}</p>
-      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-    </header>
+  <h2>¿Qué es exactamente una guirnalda orgánica?</h2>
+  <p>
+    Una guirnalda orgánica es una cinta continua de globos de diferentes tamaños, colores y texturas, intercalados con follaje real o artificial (eucalipto, pampas, flores secas). Se instala de forma asimétrica, con flujo natural, siguiendo líneas de mesas, escaleras o barandales.
+  </p>
+  <p>
+    La diferencia con arcos tradicionales: los arcos tienen una estructura geométrica definida. Las guirnaldas son más libres, más naturales, más modernas.
+  </p>
 
-    <div class="blog-article__content">
-      <h2>¿Qué son las guirnaldas orgánicas de globos?</h2>
-      <p>Las guirnaldas orgánicas de globos son composiciones lineales que combinan globos de diferentes tamaños, colores y texturas de forma aparentemente espontánea y natural. A diferencia de las guirnaldas tradicionales donde todos los globos son del mismo tamaño y están espaciados uniformemente, el estilo orgánico busca recrear una sensación de abundancia natural, como si los globos hubieran crecido espontáneamente en ese lugar.</p>
-      <p>Esta técnica se ha convertido en la favorita de decoradores profesionales en todo el mundo, y en CDMX no es la excepción. Su popularidad se debe a que resultan increíblemente fotogénicas y se adaptan a prácticamente cualquier tipo de evento, desde una fiesta infantil hasta una gala corporativa.</p>
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Necesitas una guirnalda para tu evento?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Cuéntanos los metros y estilo que quieres →</a>
+    </p>
+  </div>
 
-      <h2>Anatomía de una guirnalda orgánica perfecta</h2>
-      <p>Una guirnalda orgánica bien ejecutada tiene varios componentes que trabajan en conjunto. La base es una tira de conexión (balloon strip) sobre la cual se insertan los globos de diferentes tamaños. Los globos principales, generalmente de 11 pulgadas, forman el cuerpo de la guirnalda. Entre ellos se intercalan globos de 5 pulgadas que rellenan los espacios y crean profundidad. Los globos de 16 a 24 pulgadas se colocan estratégicamente como puntos focales que rompen la monotonía.</p>
-      <p>La proporción ideal suele ser aproximadamente 60% globos de 11 pulgadas, 30% de 5 pulgadas y 10% de globos grandes. Esta mezcla crea ese efecto voluminoso y dinámico que caracteriza al estilo orgánico. Los decoradores profesionales ajustan estas proporciones según el espacio y el efecto deseado.</p>
+  <h2>Dónde instalar guirnaldas: Ideas y posibilidades</h2>
+  <p>
+    <strong>Escalera:</strong> 3-5 metros de guirnalda por la barandilla. El efecto es dramático, elegante, muy fotografiable. Perfecto para bodas y XV años. Costo: $3,000-5,000 MXN para 4 metros.
+  </p>
+  <p>
+    <strong>Mesa Principal:</strong> 2-3 metros frente a la mesa de novios o quinceañera. Fluye naturalmente, enmarcan la mesa de honor sin ser rígido. Costo: $2,000-3,500 MXN por 3 metros.
+  </p>
+  <p>
+    <strong>Barandal o Muro:</strong> 3-6 metros de guirnalda colgando o adhiriéndose a barandal. Cubre amplio espacio, genera alto impacto. Costo: $2,500-5,000 MXN según longitud.
+  </p>
+  <p>
+    <strong>Base de Arco:</strong> En lugar de un arco de estructura simétrica, una guirnalda orgánica forma la base. Se ve más moderno, menos formal. Costo: $4,500-6,000 MXN para arco de 2.5m de base.
+  </p>
+  <p>
+    <strong>Entrada/Pasillo:</strong> Guirnalda en ambos lados del pasillo de entrada. Crea "efecto túnel" elegante. Costo: $3,000-4,000 MXN por lado.
+  </p>
 
-      <h2>Dónde colocar guirnaldas orgánicas</h2>
-      <p>La versatilidad de las guirnaldas es una de sus mayores fortalezas. Estas son las aplicaciones más populares que realizamos en eventos de CDMX:</p>
-      <ul>
-        <li><strong>Sobre mesas principales:</strong> Una guirnalda que recorre el borde de la mesa de dulces o la mesa de honor crea un marco natural que atrae todas las miradas.</li>
-        <li><strong>Marcos de puertas y ventanas:</strong> Enmarcar la entrada del venue o una ventana panorámica con una guirnalda orgánica transforma instantáneamente el espacio.</li>
-        <li><strong>Barandales de escaleras:</strong> En salones con escaleras, una guirnalda que desciende por el barandal crea un efecto espectacular para fotos y para el momento del vals.</li>
-        <li><strong>Paredes como acento:</strong> Una guirnalda que serpentea por una pared lisa añade color y textura sin necesidad de un muro completo de globos.</li>
-        <li><strong>Sobre la barra de bebidas:</strong> Decorar la zona del bar con una guirnalda orgánica invita a los invitados a acercarse y genera un punto de reunión atractivo.</li>
-      </ul>
+  <h2>Diseño de guirnaldas: Estilos populares 2026</h2>
+  <p>
+    <strong>Boho Natural:</strong> Terracota, crema, verde salvia + eucalipto abundante + flores secas. Feels rústico pero elegante.
+  </p>
+  <p>
+    <strong>Minimalista Moderno:</strong> Blanco monocromático + diferentes texturas (mate, chrome, satinado) + follaje verde mínimo. Ultra limpio, profesional.
+  </p>
+  <p>
+    <strong>Ahumado Sofisticado:</strong> Gris, negro, chrome plateado + follaje verde oscuro. Moderno, sofisticado, nocturno.
+  </p>
+  <p>
+    <strong>Pastel Romántico:</strong> Rosa, menta, crema + follaje verde claro + flores secas. Delicado, romántico, perfecto para bodas.
+  </p>
 
-      <h2>Combinaciones de colores que funcionan</h2>
-      <p>La regla general para guirnaldas orgánicas es trabajar con tres a cinco colores que incluyan al menos un tono neutro. Por ejemplo, una combinación de rosa dusty, mauve, blanco y un toque de chrome oro rosa crea una paleta romántica y sofisticada. Para eventos más vibrantes, fuscia, naranja, amarillo y verde con acentos blancos genera energía y alegría.</p>
-      <p>Un error común es usar demasiados colores sin un hilo conductor. La guirnalda debe tener una paleta definida que se repita a lo largo de toda su extensión, aunque la distribución de cada color varíe en cada sección. Esto crea ritmo visual sin caer en la monotonía.</p>
+  <h2>Presupuestos por longitud</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Longitud</th>
+        <th>Uso Típico</th>
+        <th>Costo Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>3 metros</strong></td>
+        <td>Mesa principal o entrada</td>
+        <td>$2,500-3,500</td>
+      </tr>
+      <tr>
+        <td><strong>5 metros</strong></td>
+        <td>Escalera o barandal largo</td>
+        <td>$4,000-5,500</td>
+      </tr>
+      <tr>
+        <td><strong>10 metros</strong></td>
+        <td>Múltiples espacios o guirnalda muy larga</td>
+        <td>$7,500-10,000</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <h3>Texturas y acabados que marcan la diferencia</h3>
-      <p>Mezclar acabados es fundamental para una guirnalda premium. Los globos chrome aportan brillo y reflejos, los mate ofrecen suavidad y elegancia, los transparentes con confeti añaden un toque festivo, y los globos pastel dan esa calidez que tanto gusta en celebraciones íntimas. Un decorador experimentado sabe dosificar cada acabado para lograr el equilibrio perfecto.</p>
+  <h2>Composición de una guirnalda profesional</h2>
+  <p>
+    <strong>Estructura base:</strong> Hilo resistente (tipo florista) que sostiene todo el peso.
+  </p>
+  <p>
+    <strong>Globos:</strong> 40% globos pequeños (5-7 pulgadas), 30% globos medianos, 20% globos grandes (11 pulgadas). Variación de tamaño es clave para que se vea orgánico.
+  </p>
+  <p>
+    <strong>Follaje:</strong> 30-40% del volumen total. Eucalipto, pampas, flores secas, hojas de palma. El follaje da volumen y sofisticación.
+  </p>
+  <p>
+    <strong>Texturas:</strong> Mix de mate, chrome, transparente. Esto genera profundidad visual incluso en monocromático.
+  </p>
 
-      <h2>Elementos complementarios</h2>
-      <p>Las guirnaldas orgánicas alcanzan otro nivel cuando se integran elementos adicionales. Ramas de eucalipto, flores artificiales de seda, hojas tropicales, mariposas de papel o incluso luces LED entre los globos pueden transformar una guirnalda bonita en una pieza de arte. Estos elementos se insertan en los espacios entre globos y se fijan con cinta floral o adhesivo especial.</p>
+  <h2>Instalación: Lo que debes saber</h2>
+  <p>
+    La instalación de guirnaldas es técnica. Requiere:
+  </p>
+  <ul>
+    <li>Puntos de anclaje seguros (barandas, muros, estructura de escalera)</li>
+    <li>Distribución equilibrada de peso</li>
+    <li>Ángulos y curvas que se vean naturales</li>
+    <li>Follaje que disimule ataduras</li>
+  </ul>
+  <p>
+    En DEGLOB, nuestros instaladores tienen experiencia de años instalando guirnaldas. Certifican que cada metro esté perfecto.
+  </p>
 
-      <h2>Duración y cuidados</h2>
-      <p>Una guirnalda orgánica bien construida con globos de calidad profesional como Qualatex o Sempertex dura entre tres y cinco días en interiores. Para maximizar su vida útil, es importante evitar la exposición directa al sol y a corrientes de aire caliente. En eventos al aire libre en CDMX, se recomienda instalar la guirnalda el mismo día del evento, preferiblemente pocas horas antes, para garantizar que luzca perfecta durante toda la celebración.</p>
-      <p>Si necesitas que la guirnalda dure más tiempo, existen tratamientos con productos especiales que sellan el poro del látex y extienden significativamente la vida del globo. Un profesional de confianza conoce estas técnicas y te asesorará sobre la mejor opción según las condiciones de tu evento.</p>
-    </div>
+  <h2>Duración: Interior vs Exterior</h2>
+  <p>
+    <strong>Interior:</strong> 2-3 semanas. Los globos de látex duran bastante en ambiente controlado.
+  </p>
+  <p>
+    <strong>Exterior:</strong> 18-24 horas. El sol, viento y humedad afectan globos. Recomendamos instalar el día del evento.
+  </p>
+  <p>
+    <strong>Tip profesional:</strong> Para eventos al aire libre, usa <a href="/servicios/globos-helio/">globos foil metalizado</a> en lugar de latex. Duran más, resisten mejor el clima.
+  </p>
 
-    <div class="blog-article__cta">
-      <h3>¿Necesitas una guirnalda orgánica para tu evento?</h3>
-      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
-      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
+  <h2>Combinación con otros elementos</h2>
+  <p>
+    Las <a href="/servicios/guirnaldas-de-globos/">guirnaldas orgánicas</a> funcionan perfecto con:
+  </p>
+  <p>
+    <strong>Arcos:</strong> Usa guirnalda como base y complementa con arco en la entrada.
+  </p>
+  <p>
+    <strong>Columnas:</strong> Guirnaldas flanqueando <a href="/servicios/columnas-decorativas/">columnas</a> crean coherencia visual.
+  </p>
+  <p>
+    <strong>Centros de mesa:</strong> Repite los colores y follaje de la guirnalda en <a href="/servicios/centros-de-mesa/">centros</a>. Integración total.
+  </p>
 
-    <nav class="blog-article__back">
-      <a href="/blog/">&larr; Volver al blog</a>
-    </nav>
-  </article>
+  <h2>Error común que debes evitar</h2>
+  <p>
+    No hagas guirnaldas que se vean "planas". Deben tener volumen, profundidad, asimetría. Las guirnaldas profesionales parecen "vivas", no como una línea de globos atados. Eso es lo que diferencia un trabajo amateur de uno profesional.
+  </p>
 
-</Base>
-
-<style>
-  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
-  .blog-article__header { margin-bottom: var(--spacing-2xl); }
-  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
-  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
-  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
-  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
-  .blog-article__content { margin-bottom: var(--spacing-2xl); }
-  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
-  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
-  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
-  .blog-article__content strong { color: var(--color-text); }
-  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
-  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
-  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
-  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-</style>
+  <p>
+    <strong>¿Necesitas una guirnalda orgánica para tu evento?</strong> Manda fotos del espacio y cuéntanos colores y estilo. Cotizamos con visuales en minutos. DEGLOB: guirnaldas que se ven como en revistas.
+  </p>
+</BlogLayout>

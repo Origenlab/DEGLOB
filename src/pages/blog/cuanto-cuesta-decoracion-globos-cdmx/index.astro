@@ -1,0 +1,305 @@
+---
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = '¿Cuánto Cuesta la Decoración con Globos en CDMX? Precios Reales 2026';
+const description = 'Precios reales de decoración con globos en CDMX: arcos, columnas, paneles y guirnaldas. Rangos por evento y cómo cotizar sin sorpresas.';
+const category = 'Precios';
+const image = '/img/blog/precios-decoracion-globos-cdmx.webp';
+const imageAlt = 'Tabla de precios y presupuestos para decoración con globos en CDMX';
+const canonical = 'https://fantasyglobos.com.mx/blog/cuanto-cuesta-decoracion-globos-cdmx/';
+const date = '2026-01-20';
+
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Por qué varían los precios de decoración con globos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Factores: tamaño del evento, tipo de globos (latex vs foil), colores especiales, follaje incluido, instalación, desmontaje, complejidad del diseño.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Hay costos ocultos en la decoración con globos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'En DEGLOB no. Nuestros precios incluyen instalación, transporte, armado y ajustes. Sin sorpresas. Otros pueden cobrar aparte instalación, transporte o diseño.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuál es el presupuesto mínimo para un evento pequeño?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mínimo recomendado: $5,000-7,000 MXN. Esto te da un arco básico. Para evento completo: $14,000-20,000 MXN mínimo.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Hay descuento por cantidad?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sí. Eventos grandes (bodas, XV años, corporativos) pueden tener descuentos 10-15%. Pregunta cuando cotices.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Precios de decoración con globos en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
+---
+
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>¿Cuánto cuesta exactamente la decoración con globos?</h2>
+  <p>
+    La pregunta que todos hacen: "¿Cuánto me cuesta?". Y la respuesta honesta es: depende. Pero en este artículo te damos números reales, no estimaciones vagas. Una cosa que vemos seguido: la gente que entiende de qué dependen los precios nunca se sorprende cuando cotiza. Los que no, siempre se sorprenden.
+  </p>
+  <p>
+    Te compartimos la lista completa de precios en DEGLOB para que sepas exactamente dónde va tu dinero.
+  </p>
+
+  <h2>Precios por elemento individual</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Elemento</th>
+        <th>Especificaciones</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Arco Pequeño</strong></td>
+        <td>1.5m ancho, latex standard</td>
+        <td>$2,500-3,500</td>
+      </tr>
+      <tr>
+        <td><strong>Arco Mediano</strong></td>
+        <td>2.5m ancho, latex + chrome</td>
+        <td>$4,500-5,500</td>
+      </tr>
+      <tr>
+        <td><strong>Arco Grande</strong></td>
+        <td>4m ancho, latex chrome + follaje</td>
+        <td>$7,000-8,500</td>
+      </tr>
+      <tr>
+        <td><strong>Columnas (par)</strong></td>
+        <td>1.8m altura, 2 columnas</td>
+        <td>$3,000-3,500</td>
+      </tr>
+      <tr>
+        <td><strong>Backdrop 2m x 2m</strong></td>
+        <td>Panel fotográfico, cobertura completa</td>
+        <td>$4,500-5,000</td>
+      </tr>
+      <tr>
+        <td><strong>Backdrop 3m x 2.5m</strong></td>
+        <td>Panel premium, orgánico</td>
+        <td>$5,500-6,500</td>
+      </tr>
+      <tr>
+        <td><strong>Guirnalda 3 metros</strong></td>
+        <td>Orgánica con follaje</td>
+        <td>$2,500-3,500</td>
+      </tr>
+      <tr>
+        <td><strong>Guirnalda 6 metros</strong></td>
+        <td>Orgánica premium con flores</td>
+        <td>$4,500-6,000</td>
+      </tr>
+      <tr>
+        <td><strong>Centros de mesa (10 unidades)</strong></td>
+        <td>Bouquets o arreglos pequeños</td>
+        <td>$2,000-3,000</td>
+      </tr>
+      <tr>
+        <td><strong>Globo Gigante 3ft</strong></td>
+        <td>Con confeti y borlas</td>
+        <td>$2,000-2,500</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Presupuestos por tipo de evento</h2>
+
+  <h3>Evento Pequeño (30-50 invitados)</h3>
+  <p>
+    <strong>Opción Básica ($7,500):</strong>
+    Arco mediano + backdrop 2m + pocas flores
+  </p>
+  <p>
+    <strong>Opción Estándar ($12,000):</strong>
+    Arco mediano + backdrop 3m + 8 centros de mesa + globos flotantes
+  </p>
+
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Necesitas presupuesto exacto?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Manda fotos del salón, número de invitados y tipo de evento →</a>
+    </p>
+  </div>
+
+  <h3>Boda (100-150 invitados)</h3>
+  <p>
+    <strong>Paquete Romántico ($8,500):</strong>
+    Arco mediano + 2 columnas + 10 centros + instalación
+  </p>
+  <p>
+    <strong>Paquete Elegante ($16,000):</strong>
+    Arco grande + 4 columnas + backdrop 3m + 15 centros + helio decorativo
+  </p>
+  <p>
+    <strong>Producción Completa ($28,000+):</strong>
+    Decoración integral: arcos, columnas, backdrop, centros, guirnaldas, diseño personalizado
+  </p>
+
+  <h3>XV Años (100-200 invitados)</h3>
+  <p>
+    <strong>Paquete Quinceañera ($7,500):</strong>
+    Arco entrada + backdrop 2m + número 15 gigante
+  </p>
+  <p>
+    <strong>Paquete Reina ($14,000):</strong>
+    Arco grande + 4 columnas + backdrop 3m + 12 centros + número 15
+  </p>
+  <p>
+    <strong>Producción XV ($25,000+):</strong>
+    Decoración total: arcos, columnas, backdrops, centros, guirnaldas, diseño integral
+  </p>
+
+  <h3>Baby Shower (40-80 invitados)</h3>
+  <p>
+    <strong>Paquete Dulce ($5,500):</strong>
+    Arco pequeño + backdrop 2m + 6 centros
+  </p>
+  <p>
+    <strong>Paquete Especial ($9,500):</strong>
+    Arco mediano + backdrop 3m + 10 centros + globos flotantes
+  </p>
+
+  <h3>Evento Corporativo (50-300 asistentes)</h3>
+  <p>
+    <strong>Paquete Branding ($7,000):</strong>
+    Backdrop 3m + 2 columnas corporativas
+  </p>
+  <p>
+    <strong>Paquete Evento ($13,000):</strong>
+    Arco entrada + backdrop premium + 4 columnas + globos personalizados
+  </p>
+  <p>
+    <strong>Producción Corporativa ($22,000+):</strong>
+    Decoración integral del venue, branding completo, coordinación profesional
+  </p>
+
+  <h2>Factores que afectan el precio</h2>
+  <p>
+    <strong>1. Tipo de globos:</strong> Latex standard ($5-10 c/u) vs chrome/metalizado ($15-25 c/u). Los especiales cuestan 2-3x más pero se ven premium.
+  </p>
+  <p>
+    <strong>2. Folaje incluido:</strong> Eucalipto, pampas, flores secas cuestan adicional ($500-2,000 MXN por elemento). El follaje genera volumen y sofisticación.
+  </p>
+  <p>
+    <strong>3. Globos personalizados:</strong> Si llevan logo o impresión, costo adicional 30-40% y tiempo mínimo 2 semanas.
+  </p>
+  <p>
+    <strong>4. Complejidad del diseño:</strong> Diseños simples cuestan menos que diseños intricados con múltiples elementos.
+  </p>
+  <p>
+    <strong>5. Instalación profesional:</strong> En DEGLOB está incluida. Otros proveedores pueden cobrar aparte $1,000-3,000 MXN.
+  </p>
+  <p>
+    <strong>6. Desmontaje:</strong> Incluido en nuestros precios. Algunos cobran aparte.
+  </p>
+
+  <h2>¿Qué está incluido en nuestros precios?</h2>
+  <p>
+    ✅ Globos (latex y especiales)<br />
+    ✅ Follaje (si aplica)<br />
+    ✅ Estructura e instalación<br />
+    ✅ Transporte<br />
+    ✅ Armado en el venue<br />
+    ✅ Ajustes el día del evento<br />
+    ✅ Desmontaje (en paquetes grandes)<br />
+    ❌ NO incluye: Diseño gráfico adicional, cambios de última hora o cambios de paleta completa
+  </p>
+
+  <h2>Cómo cotizar sin sorpresas</h2>
+  <p>
+    <strong>Paso 1:</strong> Define presupuesto aproximado. ¿$7,000? ¿$15,000? ¿$25,000?
+  </p>
+  <p>
+    <strong>Paso 2:</strong> Manda fotos de tu venue. Diferencia enorme entre salón, jardín, hacienda.
+  </p>
+  <p>
+    <strong>Paso 3:</strong> Cuéntame el tipo de evento, número de invitados, colores preferidos.
+  </p>
+  <p>
+    <strong>Paso 4:</strong> Te enviamos propuesta detallada con presupuesto línea por línea.
+  </p>
+  <p>
+    <strong>Paso 5:</strong> Aprueba y firma. Sin sorpresas después.
+  </p>
+
+  <h2>Estrategias para optimizar presupuesto</h2>
+  <p>
+    <strong>Estrategia 1:</strong> Invierte más en lo visible (arco, backdrop) y menos en detalles (centros, flores).
+  </p>
+  <p>
+    <strong>Estrategia 2:</strong> Usa aire para elementos fijos (arcos, columnas) y helio solo para efectos flotantes. Ahorras sin sacrificar impacto.
+  </p>
+  <p>
+    <strong>Estrategia 3:</strong> Paleta monocromática es más económica que multi-color. Blanco con texturas diferentes cuesta igual que blanco+rosa+dorado.
+  </p>
+  <p>
+    <strong>Estrategia 4:</strong> Eventos en fin de semana cuestan 10-15% más. Eventos entre semana son más económicos.
+  </p>
+
+  <p>
+    <strong>¿Necesitas presupuesto exacto para tu evento?</strong> No dudes en contactarnos. Cotizamos sin cargo y sin compromisos. DEGLOB: precios justos, transparentes, sin sorpresas.
+  </p>
+</BlogLayout>

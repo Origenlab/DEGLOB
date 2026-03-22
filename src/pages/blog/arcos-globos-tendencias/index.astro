@@ -1,101 +1,201 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { WHATSAPP_URL_MSG } from '../../../lib/config';
 
-const title = "Tendencias en Arcos de Globos para Eventos";
-const description = "Conoce las últimas tendencias en arcos de globos: orgánicos, asimétricos, con flores y más. Inspírate para tu próximo evento con los estilos más solicitados.";
-const category = "Tendencias";
-const date = "2025-10-28";
+const title = 'Arcos de Globos: Tendencias 2026 y Cómo Elegir el Tamaño Correcto';
+const description = 'Arcos de globos: tendencias 2026, colores de moda, tipos (orgánicos, simétricos, cromados). Tamaños recomendados y precios reales para eventos en CDMX.';
+const category = 'Tendencias';
+const image = '/img/blog/arcos-globos-tendencias-2026.webp';
+const imageAlt = 'Arco de globos orgánico en tonos metálicos para evento 2026';
+const canonical = 'https://fantasyglobos.com.mx/blog/arcos-globos-tendencias/';
+const date = '2025-10-20';
 
-const structuredData = [{
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: description,
-  datePublished: date,
-  dateModified: date,
-  author: { '@type': 'Organization', name: 'DEGLOB' },
-  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
-}];
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Qué son los arcos de globos orgánicos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Los arcos orgánicos combinan globos de diferentes tamaños en forma natural y asimétrica, con texturas variadas (mate, chrome, transparente) y frecuentemente con follaje. Lucen más contemporáneos que los arcos simétricos clásicos.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Qué tamaño de arco necesito?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Para espacios pequeños: 1.5m. Para salones medianos: 2.5m. Para grandes salones: 4m+. Recomendamos que el arco tenga entre 1/3 a 1/2 del ancho del espacio donde irá.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuáles son las tendencias de color 2026?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Tendencia 1: Monocromático con texturas (blanco con acabados diferentes). Tendencia 2: Ahumados y metálicos (gris, negro, chrome). Tendencia 3: Terracota y tierra (rústico moderno).',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuánto cuesta un arco de globos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Arco pequeño (1.5m): $2,500-3,500 MXN. Arco mediano (2.5m): $4,500-5,500 MXN. Arco grande (4m): $7,000-8,500 MXN. Incluye instalación.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Arcos de globos tendencias 2026 en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
 ---
 
-<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
-  <Breadcrumb items={[
-    { name: 'Blog', href: '/blog/' },
-    { name: title, href: '/blog/arcos-globos-tendencias/' },
-  ]} />
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>Arcos de globos: Más que decoración, son el punto focal</h2>
+  <p>
+    Un arco de globos es lo primero que ven tus invitados. Es lo que enmarcan todas las fotos, lo que define el tono de tu evento y lo que más recordarán después. Una cosa que vemos seguido: un buen arco puede transformar completamente un espacio, mientras que un arco mal hecho arruina la atmósfera.
+  </p>
+  <p>
+    Las tendencias en arcos de globos 2026 se dividen en tres corrientes: monocromático con texturas, ahumado/metálico moderno, y terracota/tierra rústico. En este artículo te explicamos cada tendencia, qué tamaño elegir según tu evento y cómo saber si tu arco está bien hecho.
+  </p>
 
-  <article class="blog-article">
-    <header class="blog-article__header">
-      <span class="blog-article__category">{category}</span>
-      <h1 class="blog-article__title">{title}</h1>
-      <p class="blog-article__excerpt">{description}</p>
-      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-    </header>
+  <h2>Tendencia 1: Monocromático con Texturas (La Sofisticación)</h2>
+  <p>
+    Blanco total pero con variaciones en acabados. Globos mate, chrome, seda, satinado y transparentes, todos en tonos de blanco pero con diferentes efectos visuales. Genera un aspecto minimalista, elegante y contemporáneo que funciona en salones modernos y espacios rústicos.
+  </p>
+  <p>
+    Esta tendencia es perfecta para parejas que quieren que el arco destaque sin competir con otros elementos. Se combina bien con <a href="/servicios/columnas-decorativas/">columnas decorativas</a> en tono similar. El costo es similar al de arcos en colores, alrededor de $5,500 MXN para un arco de 2.5m.
+  </p>
 
-    <div class="blog-article__content">
-      <h2>El arco de globos: protagonista indiscutible de cualquier evento</h2>
-      <p>Los arcos de globos se han consolidado como el elemento decorativo estrella en todo tipo de celebraciones. Ya no se trata de simples hileras de globos uniformes: hoy los arcos son verdaderas obras de arte que combinan texturas, tamaños, colores y materiales complementarios para crear piezas únicas. En CDMX, la demanda de arcos personalizados ha crecido enormemente, y cada temporada trae nuevas tendencias que elevan el nivel de la decoración.</p>
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Dudas sobre qué tendencia es para ti?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Manda fotos de tu venue por WhatsApp →</a>
+    </p>
+  </div>
 
-      <h2>Arcos orgánicos: la tendencia que sigue dominando</h2>
-      <p>El estilo orgánico continúa siendo el más solicitado. Se caracteriza por su apariencia natural y desestructurada, donde los globos de diferentes tamaños se agrupan de manera aparentemente aleatoria creando un efecto visual espectacular. La clave está en la variación: se mezclan globos de 5, 11, 16 y hasta 24 pulgadas en una misma pieza, logrando profundidad y movimiento.</p>
-      <p>Lo que hace especial al arco orgánico es su versatilidad. Funciona igual de bien en una boda íntima en un restaurante de la Condesa que en una fiesta de XV años en un gran salón de Tlalpan. Los decoradores profesionales planifican cada sección del arco para garantizar que la distribución de tamaños y colores sea armoniosa desde cualquier ángulo.</p>
+  <h2>Tendencia 2: Ahumados y Metálicos (La Modernidad)</h2>
+  <p>
+    Gris ahumado, negro profundo y chrome plateado. Globos especiales con acabado metalizado que reflejan luz. Se combina con flores secas en tonos neutros y follaje verde oscuro. Genera un ambiente sofisticado, moderno, casi futurista. Muy popular en eventos corporativos y bodas nocturnas.
+  </p>
+  <p>
+    Los globos chrome y especiales cuestan más (40-50% adicional), así que un arco ahumado-metálico de 2.5m ronda los $6,500-7,000 MXN. La instalación debe ser impecable porque los colores oscuros no perdonan detalles.
+  </p>
 
-      <h2>Arcos asimétricos: rompiendo esquemas</h2>
-      <p>La asimetría es una tendencia fuerte que desafía la decoración tradicional. En lugar de crear un arco completo de lado a lado, se diseña una estructura que concentra el volumen en un extremo y se diluye gradualmente hacia el otro. Este estilo funciona particularmente bien en espacios amplios y es ideal para enmarcar mesas de dulces, candy bars o zonas de registro.</p>
-      <p>Los arcos asimétricos también permiten integrar elementos colgantes como cintas de satín, cadenas de papel o guías de follaje que descienden desde la parte más densa del arco, añadiendo movimiento y dimensión al diseño.</p>
+  <h2>Tendencia 3: Terracota y Tierra (Lo Rústico Moderno)</h2>
+  <p>
+    Combinan terracota, óxido, verde salvia y crema. Muy popular en bodas boho, haciendas y espacios al aire libre. Los globos tienen acabados mate generalmente, y se integran follaje de eucalipto y flores secas. El resultado es cálido, natural y atemporal.
+  </p>
+  <p>
+    Esta paleta está más vigente que nunca en 2026. Un <a href="/servicios/arcos-de-globos/">arco de 2.5m en colores tierra</a> cuesta alrededor de $5,000-5,500 MXN. Se ve hermoso en lugares rústicos.
+  </p>
 
-      <h2>Integración de flores y follaje</h2>
-      <p>Una de las tendencias más elegantes es la combinación de globos con flores naturales o artificiales de alta calidad. Las ramas de eucalipto, las hojas de palma y las flores secas se entrelazan entre los globos para crear un look sofisticado que difumina la línea entre decoración floral y decoración con globos. Esta fusión es especialmente popular en bodas y eventos formales.</p>
-      <p>El follaje tropical también ha ganado terreno: hojas de monstera, helecho y palma arecana aportan frescura y un toque exótico que combina perfectamente con paletas de colores cálidos como terracota, verde oliva y dorado.</p>
+  <h2>Tamaños: Cómo Elegir Correctamente</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Tamaño</th>
+        <th>Ancho/Alto</th>
+        <th>Mejor Para</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pequeño</strong></td>
+        <td>1.5m x 2m</td>
+        <td>Mesas de dulces, entrantes pequeños</td>
+        <td>$2,500-3,500</td>
+      </tr>
+      <tr>
+        <td><strong>Mediano</strong></td>
+        <td>2.5m x 2.5m</td>
+        <td>Puertas de salones, altares pequeños</td>
+        <td>$4,500-5,500</td>
+      </tr>
+      <tr>
+        <td><strong>Grande</strong></td>
+        <td>4m x 2.5m</td>
+        <td>Grandes salones, jardines</td>
+        <td>$7,000-8,500</td>
+      </tr>
+      <tr>
+        <td><strong>XL</strong></td>
+        <td>5m+ x 3m+</td>
+        <td>Espectáculos grandes, producciones</td>
+        <td>$9,000+</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <h2>Colores y acabados en tendencia</h2>
-      <p>Los acabados chrome y metallic siguen siendo protagonistas. Los globos chrome en dorado, oro rosa y plata aportan un brillo sutil que eleva cualquier composición. Combinados con globos mate en tonos pastel o neutros, crean un contraste sofisticado.</p>
-      <ul>
-        <li><strong>Mocha y café:</strong> Tonos terrosos que transmiten calidez y elegancia natural.</li>
-        <li><strong>Sage green:</strong> El verde salvia sigue en auge, perfecto para eventos boho y rústicos.</li>
-        <li><strong>Dusty rose:</strong> Rosa empolvado que funciona tanto para baby showers como para bodas.</li>
-        <li><strong>Double-stuffed:</strong> La técnica de colocar un globo dentro de otro para lograr colores personalizados y un acabado premium.</li>
-      </ul>
+  <h2>Diferencia: Arcos Orgánicos vs Simétricos</h2>
+  <p>
+    <strong>Arcos Orgánicos:</strong> Asimétricos, combinan tamaños diferentes, fluyen naturalmente. Modernos, contemporáneos, funcionan en cualquier estilo. Recomendados para la mayoría de eventos.
+  </p>
+  <p>
+    <strong>Arcos Simétricos:</strong> Estructurados, equilibrados, matemáticos. Clásicos, formales, elegantes. Mejores para bodas tradicionales y eventos corporativos de gala.
+  </p>
+  <p>
+    En CDMX, 80% de nuestros clientes eligen orgánicos. Son más versátiles y perdonan mejor la instalación.
+  </p>
 
-      <h2>Arcos con iluminación</h2>
-      <p>Integrar luces LED dentro del arco de globos es una tendencia que transforma por completo el ambiente, especialmente en eventos nocturnos. Las luces cálidas entre los globos crean una atmósfera romántica e íntima, mientras que las luces de colores pueden adaptarse a temáticas más festivas. Esta técnica requiere planificación adicional pero el resultado visual justifica completamente la inversión.</p>
+  <h2>Globos especiales que dan toque 2026</h2>
+  <p>
+    Los arcos que realmente se destacan integran <a href="/servicios/globos-helio/">globos especiales</a>: orbz (redondos perfectos), foil metallizados, espejos, cromados y transparentes con confeti dentro. Estos globos cuestan 2-3x más que latex regular pero transforman completamente el arco.
+  </p>
+  <p>
+    Un arco con 40% globos especiales y 60% latex cuesta unos $1,000-1,500 MXN más pero se ve premium. Vale la pena para bodas y eventos importantes.
+  </p>
 
-      <h2>Cómo elegir el arco perfecto para tu evento</h2>
-      <p>La elección del estilo de arco depende de varios factores: el tipo de evento, el espacio disponible, la paleta de colores general y por supuesto el presupuesto. Un decorador profesional te ayudará a visualizar las opciones y recomendará el diseño que mejor se adapte a tu celebración. No tengas miedo de mezclar tendencias: a veces la combinación de un arco orgánico con elementos asimétricos y un toque de follaje es exactamente lo que tu evento necesita para ser inolvidable.</p>
-    </div>
+  <h2>Instalación: El detalle que importa</h2>
+  <p>
+    Un arco bien hecho requiere estructura interna, amarre invisible, distribución equilibrada y ajustes el día del evento. Un instalador sin experiencia puede dejar el arco flojo, desbalanceado o con globos en mal estado. En DEGLOB nuestros instaladores tienen 5+ años de experiencia: certifican que todo esté perfecto.
+  </p>
 
-    <div class="blog-article__cta">
-      <h3>¿Necesitas decoración con globos?</h3>
-      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
-      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
-
-    <nav class="blog-article__back">
-      <a href="/blog/">&larr; Volver al blog</a>
-    </nav>
-  </article>
-
-</Base>
-
-<style>
-  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
-  .blog-article__header { margin-bottom: var(--spacing-2xl); }
-  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
-  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
-  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
-  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
-  .blog-article__content { margin-bottom: var(--spacing-2xl); }
-  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
-  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
-  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
-  .blog-article__content strong { color: var(--color-text); }
-  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
-  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
-  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
-  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-</style>
+  <p>
+    <strong>¿Necesitas un arco para tu evento 2026?</strong> Cotiza por WhatsApp y dinos qué tendencia te llama: monocromático, ahumado o tierra. Te enviamos opciones visuales en minutos. DEGLOB: arcos que impactan.
+  </p>
+</BlogLayout>

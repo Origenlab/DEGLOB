@@ -1,102 +1,195 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { WHATSAPP_URL_MSG } from '../../../lib/config';
 
-const title = "Decoración con Globos para XV Años: Ideas Espectaculares";
-const description = "Transforma la fiesta de XV años con decoración profesional de globos. Ideas de arcos, columnas, backdrops y centros de mesa que harán inolvidable la celebración.";
-const category = "XV Años";
-const date = "2025-09-05";
+const title = 'Decoración con Globos para XV Años: Ideas Espectaculares en CDMX';
+const description = 'Decoración profesional con globos para XV años: arcos, columnas, backdrops y centros de mesa. Ideas de temáticas, colores y presupuestos reales en CDMX.';
+const category = 'XV Años';
+const image = '/img/blog/xv-anos-decoracion-globos.webp';
+const imageAlt = 'Backdrop de globos para fiesta de XV años en salón';
+const canonical = 'https://fantasyglobos.com.mx/blog/decoracion-xv-anos-globos/';
+const date = '2025-09-05';
 
-const structuredData = [{
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: description,
-  datePublished: date,
-  dateModified: date,
-  author: { '@type': 'Organization', name: 'DEGLOB' },
-  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
-}];
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Cuánto cuesta la decoración con globos para XV años?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Un paquete básico comienza en $7,500 MXN. Un paquete completo con arco, columnas, backdrop y centros cuesta entre $14,000-16,000 MXN. La producción integral puede llegar a $25,000+ MXN según el tamaño del salón.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Qué incluye un paquete de decoración con globos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Nuestros paquetes incluyen arco de entrada, columnas decorativas, backdrop para mesa principal, centros de mesa, número 15 gigante, instalación profesional y transporte. Sin costos ocultos.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuáles son las temáticas más populares?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Las más solicitadas son Enchanted Garden (pastel), Noche de Estrellas (azul-dorado), Princesa Moderna (rosa-dorado), Tropical Glam (colores vibrantes) y All White (minimalista).',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Con cuánta anticipación debo reservar?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Recomendamos reservar con 4-8 semanas de anticipación. Esto asegura disponibilidad de colores especiales, coordinación de detalles y un diseño personalizado que sea exactamente lo que sueña la quinceañera.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Decoración profesional con globos para XV años en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
 ---
 
-<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
-  <Breadcrumb items={[
-    { name: 'Blog', href: '/blog/' },
-    { name: title, href: '/blog/decoracion-xv-anos-globos/' },
-  ]} />
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>XV años: Una celebración que merece decoración excepcional</h2>
+  <p>
+    Los XV años son un hito en la vida de una joven: es su presentación en sociedad, su transición a la mayoría de edad, su noche de cuento de hadas. Cada detalle de la fiesta debe reflejar su personalidad, sus sueños y ese momento único. Una cosa que vemos seguido: las quinceañeras quieren que su fiesta sea diferente, que destaque, que sus invitados recuerden cada segundo.
+  </p>
+  <p>
+    La decoración con globos es perfecta para esto. Permite crear ambientes espectaculares que combinan elegancia, color y fantasía de una forma que casi ningún otro elemento logra. En CDMX, donde los XV años se hacen en salones de eventos, haciendas, jardines y terrazas, un diseño profesional puede transformar cualquier espacio en el escenario que toda quinceañera sueña.
+  </p>
 
-  <article class="blog-article">
-    <header class="blog-article__header">
-      <span class="blog-article__category">{category}</span>
-      <h1 class="blog-article__title">{title}</h1>
-      <p class="blog-article__excerpt">{description}</p>
-      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-    </header>
+  <h2>El arco de entrada: la presentación perfecta</h2>
+  <p>
+    La entrada es lo primero que ven tus invitados. Un arco de globos espectacular establece inmediatamente el tono de la celebración. Para XV años, los arcos suelen ser más grandes y elaborados que para otros eventos: 4 a 6 metros de ancho, combinando los colores de la temática con acentos chrome y figuras de foil como estrellas, coronas o mariposas.
+  </p>
+  <p>
+    Los arcos dobles generan un efecto de inmersión total: un arco interior enmarca la puerta y otro rodea la fachada del salón. Es una opción premium que cuesta entre $5,500-7,000 MXN pero vale cada peso porque es lo primero que ven tus invitados.
+  </p>
 
-    <div class="blog-article__content">
-      <h2>La fiesta de XV años merece una decoración inolvidable</h2>
-      <p>Los XV años son una de las celebraciones más importantes en la tradición mexicana. Es el momento en que una joven se presenta ante la sociedad, y cada detalle de la fiesta debe reflejar la personalidad y los sueños de la quinceañera. La decoración con globos se ha convertido en un elemento indispensable para estas fiestas, ya que permite crear ambientes espectaculares que combinan elegancia, color y fantasía de una manera que pocos elementos decorativos logran.</p>
-      <p>En CDMX, las fiestas de XV años pueden realizarse en salones de eventos, jardines, haciendas o incluso terrazas con vista a la ciudad. Cada espacio presenta oportunidades únicas para la decoración con globos, y un diseño profesional puede transformar cualquier lugar en el escenario de cuento de hadas que toda quinceañera sueña.</p>
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Necesitas diseño para los XV de tu hija?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Envíanos fotos del salón y cotizamos →</a>
+    </p>
+  </div>
 
-      <h2>El arco de entrada: la primera impresión</h2>
-      <p>La entrada del salón es el primer contacto visual que tienen los invitados con la fiesta, y un arco de globos espectacular establece inmediatamente el tono de la celebración. Para XV años, los arcos suelen ser más grandes y elaborados que para otros eventos. Un arco orgánico de cuatro a seis metros que combine los colores de la temática con acentos chrome y figuras de foil como estrellas o coronas crea una bienvenida impresionante.</p>
-      <p>Los arcos dobles, donde un arco interior enmarca la puerta y otro exterior rodea toda la fachada del salón, son una opción premium que genera un efecto de inmersión total desde el momento en que los invitados llegan.</p>
+  <h2>Backdrop para la mesa principal: El momento estelar</h2>
+  <p>
+    La mesa principal es donde se sienta la quinceañera. Necesita un fondo que la destaque como el punto focal del salón. Un muro de globos que cubra toda la pared detrás de la mesa, con diseño orgánico en degradado de colores, crea el escenario perfecto para fotos. Se personaliza con el número 15 en globos gigantes, el nombre de la quinceañera o elementos temáticos como mariposas, estrellas o flores.
+  </p>
+  <p>
+    Para un look moderno, los paneles de globos con secciones de diferentes texturas —combinando globos mate, chrome y transparentes con confeti— ofrecen profundidad visual que se ve increíble en fotos. Un backdrop de 3 metros cuesta entre $5,500-6,500 MXN e incluye instalación.
+  </p>
 
-      <h2>Backdrop para la mesa principal</h2>
-      <p>La mesa principal donde se sienta la quinceañera y su corte necesita un fondo que la destaque como el punto focal del salón. Un muro de globos que cubra toda la pared detrás de la mesa, con diseño orgánico en degradado de colores, crea el escenario perfecto. Se puede personalizar con el número 15 en globos gigantes, el nombre de la quinceañera o elementos temáticos como mariposas, estrellas o flores.</p>
-      <p>Para un look más moderno, los paneles de globos con secciones de diferentes texturas, combinando globos mate, chrome y transparentes con confeti, ofrecen una profundidad visual que se ve increíble tanto en persona como en las fotografías.</p>
+  <h2>Temáticas más solicitadas en CDMX</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Temática</th>
+        <th>Colores</th>
+        <th>Elementos Clave</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Enchanted Garden</strong></td>
+        <td>Tonos pastel</td>
+        <td>Follaje verde, flores naturales, mariposas foil</td>
+      </tr>
+      <tr>
+        <td><strong>Noche de Estrellas</strong></td>
+        <td>Azul, negro, dorado</td>
+        <td>Estrellas, lunas, luces LED transparentes</td>
+      </tr>
+      <tr>
+        <td><strong>Princesa Moderna</strong></td>
+        <td>Rosa, dorado, blanco</td>
+        <td>Coronas, castillos, detalles brillantes</td>
+      </tr>
+      <tr>
+        <td><strong>Tropical Glam</strong></td>
+        <td>Fucsia, naranja, verde</td>
+        <td>Hojas de palma, flores exóticas, vibración</td>
+      </tr>
+      <tr>
+        <td><strong>All White Sophisticate</strong></td>
+        <td>Blanco puro</td>
+        <td>Diferentes texturas, minimalista, elegante</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <h2>Centros de mesa que impresionan</h2>
-      <p>Los centros de mesa con globos para XV años pueden ser tan sencillos o elaborados como desees. Una opción popular es el bouquet de globos con helio compuesto por tres a cinco globos en diferentes acabados, sujetos a un peso decorativo que coordine con la paleta de colores. Otra alternativa es crear mini arreglos orgánicos sobre bases de acrílico transparente que se colocan directamente sobre la mesa.</p>
-      <p>Para mesas con muchos invitados, los centros de mesa altos con globos orbz en la parte superior y cascadas de cintas o guías de globos pequeños hacia abajo crean un efecto dramático sin obstruir la conversación entre los comensales.</p>
+  <h2>Centros de mesa y detalles que impresionan</h2>
+  <p>
+    Los centros de mesa con globos pueden ser sencillos o elaborados. Una opción popular es el bouquet con helio compuesto por 3 a 5 globos en diferentes acabados, sujetos a un peso decorativo que coordina con la paleta. Otra alternativa: mini arreglos orgánicos sobre bases de acrílico transparente directamente en la mesa.
+  </p>
+  <p>
+    Para mesas con muchos invitados, los centros altos con globos orbz en la parte superior y cascadas de cintas hacia abajo crean efecto dramático sin obstruir la conversación. 10 centros de mesa cuestan entre $2,500-3,500 MXN.
+  </p>
 
-      <h2>Temáticas populares para XV años</h2>
-      <ul>
-        <li><strong>Enchanted Garden:</strong> Globos en tonos pastel con abundante follaje verde, flores naturales integradas y mariposas de foil. Crea un ambiente de jardín mágico dentro del salón.</li>
-        <li><strong>Noche de Estrellas:</strong> Globos en azul oscuro, negro, dorado y plateado con estrellas y lunas. Globos transparentes con luces LED dentro simulan un cielo estrellado.</li>
-        <li><strong>Princesa Moderna:</strong> Rosa blush, dorado y blanco con coronas, castillos y detalles brillantes. Elegante sin ser infantil.</li>
-        <li><strong>Tropical Glam:</strong> Colores vibrantes como fucsia, naranja y verde tropical con hojas de palma y flores exóticas entre los globos.</li>
-        <li><strong>All White:</strong> Toda la decoración en blanco con diferentes texturas y acabados. Minimalista, sofisticado y perfecto para venues modernos.</li>
-      </ul>
+  <h2>El número 15: La pieza más fotografiada</h2>
+  <p>
+    Una de las piezas más icónicas de cualquier fiesta XV años es el número 15 en globos. Se construye de forma que destaque en cualquier zona del salón. Opciones: números llenos de mini globos de colores sobre estructura interna, o números gigantes de un solo color con acabado premium. La altura ideal es de 1.2 a 1.5 metros. Cuesta entre $2,800-3,500 MXN y es obligatorio en toda fiesta XV años.
+  </p>
 
-      <h2>El número XV como pieza central</h2>
-      <p>Una de las piezas más fotografiadas en cualquier fiesta de XV años es el número 15 en globos. Se puede construir en diferentes estilos: desde números llenos de mini globos de colores sobre estructura interna, hasta números gigantes de un solo color con acabado premium. La altura ideal es de 1.2 a 1.5 metros para que destaquen en cualquier zona del salón donde se coloquen.</p>
+  <h2>Presupuestos reales para XV años con globos</h2>
+  <p>
+    Un <a href="/eventos/xv-anos/">paquete Quinceañera básico</a> cuesta $7,500 MXN e incluye arco mediano, backdrop 2m y algunos centros. El paquete Reina (más solicitado) cuesta $14,000 MXN e incluye arco grande, 4 columnas, backdrop 3m, 12 centros y globos de helio. La producción integral puede llegar a $25,000+ MXN según el salón, temática y elementos adicionales.
+  </p>
+  <p>
+    Todos los presupuestos incluyen instalación profesional, transporte, armado en el venue y ajustes el día del evento. Sin sorpresas, sin costos ocultos. Te enviamos propuesta detallada en 10 minutos después de que cotices por WhatsApp.
+  </p>
 
-      <h2>Coordinación con otros elementos decorativos</h2>
-      <p>La decoración con globos para XV años funciona mejor cuando se coordina con los demás elementos del evento: la iluminación del salón, los arreglos florales, la mantelería y hasta el vestido de la quinceañera. Un equipo profesional de decoración te pedirá esta información para crear una propuesta integral donde cada elemento complemente a los demás, logrando una fiesta visualmente coherente y espectacular que la quinceañera y sus invitados recordarán por siempre.</p>
-    </div>
+  <h2>Coordinación profesional: Lo que hacemos</h2>
+  <p>
+    Trabajamos con tu quinceañera, su mamá y el salón para crear una propuesta integral. Pedimos: fotos del salón, paleta de colores de la ropa, temática elegida, horario del evento y número de mesas. Con esto, diseñamos todo coordinado: arco, columnas, backdrop, centros y detalles que resulten en una fiesta visualmente coherente y espectacular. Eso que recordarán por siempre.
+  </p>
 
-    <div class="blog-article__cta">
-      <h3>¿Necesitas decoración con globos para XV años?</h3>
-      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
-      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
-
-    <nav class="blog-article__back">
-      <a href="/blog/">&larr; Volver al blog</a>
-    </nav>
-  </article>
-
-</Base>
-
-<style>
-  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
-  .blog-article__header { margin-bottom: var(--spacing-2xl); }
-  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
-  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
-  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
-  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
-  .blog-article__content { margin-bottom: var(--spacing-2xl); }
-  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
-  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
-  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
-  .blog-article__content strong { color: var(--color-text); }
-  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
-  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
-  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
-  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-</style>
+  <p>
+    <strong>¿Es pronto para XV años en tu familia?</strong> Manda fotos del salón por WhatsApp. Te mostramos opciones y presupuestos sin compromiso. DEGLOB: donde tus XV años brillan de verdad.
+  </p>
+</BlogLayout>

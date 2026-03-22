@@ -1,103 +1,212 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { WHATSAPP_URL_MSG } from '../../../lib/config';
 
-const title = "Globos para Eventos Corporativos: Profesionalismo y Estilo";
-const description = "La decoración con globos en eventos corporativos aporta dinamismo y personalización de marca. Descubre cómo integrarlos en lanzamientos, convenciones y fiestas empresariales.";
-const category = "Corporativos";
-const date = "2025-06-27";
+const title = 'Decoración con Globos para Eventos Corporativos: Branding y Impacto';
+const description = 'Decoración corporativa con globos: backdrops con logo, arcos personalizados, columnas con branding. Presupuestos y diseños profesionales CDMX.';
+const category = 'Corporativos';
+const image = '/img/blog/evento-corporativo-globos.webp';
+const imageAlt = 'Backdrop de globos personalizados con logo corporativo';
+const canonical = 'https://fantasyglobos.com.mx/blog/globos-eventos-corporativos/';
+const date = '2025-04-18';
 
-const structuredData = [{
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: description,
-  datePublished: date,
-  dateModified: date,
-  author: { '@type': 'Organization', name: 'DEGLOB' },
-  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
-}];
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Puedo personalizar globos con logo de mi empresa?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sí. Ofrecemos globos impresos con logo, colores corporativos y mensajes personalizados. Tiempo mínimo: 2 semanas para producción.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuál es el presupuesto de un evento corporativo?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Paquete branding: $7,000 MXN. Paquete evento: $13,000 MXN. Paquete producción: $22,000+ MXN. Varía según tamaño y complejidad.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Qué tipos de eventos corporativos pueden tener decoración con globos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Lanzamientos de producto, conferencias, inauguraciones, gala de premios, networking, convenciones. Cualquier evento que necesite visual impacto y branding.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuánto tiempo antes debo reservar?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mínimo 4 semanas. Si hay globos impresos personalizados, 6 semanas. Esto asegura tiempo para diseño, producción y coordinación.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Decoración corporativa con globos en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
 ---
 
-<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
-  <Breadcrumb items={[
-    { name: 'Blog', href: '/blog/' },
-    { name: title, href: '/blog/globos-eventos-corporativos/' },
-  ]} />
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>Eventos corporativos: Donde branding se encuentra con impacto visual</h2>
+  <p>
+    Un evento corporativo es una oportunidad para reforzar identidad de marca, comunicar mensajes clave y crear experiencias memorables con clientes y empleados. La decoración con globos puede ser un vehículo poderoso para esto si se hace correctamente: debe sentirse profesional, alineada con la marca, y generar el ambiente que la empresa quiere proyectar.
+  </p>
+  <p>
+    Una cosa que vemos seguido: los eventos corporativos con decoración profesional generan mejor engagement y más cobertura en redes sociales. Los asistentes se toman fotos, las comparten, amplifica el alcance del evento. Eso es lo que busca cualquier empresa.
+  </p>
 
-  <article class="blog-article">
-    <header class="blog-article__header">
-      <span class="blog-article__category">{category}</span>
-      <h1 class="blog-article__title">{title}</h1>
-      <p class="blog-article__excerpt">{description}</p>
-      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-    </header>
+  <h2>Elementos corporativos con globos</h2>
+  <p>
+    <strong>Arco Corporativo:</strong> Arco de entrada en colores de marca. Puede incluir logo impresos en globos. Genera primera impresión impactante. Costo: $5,000-7,000 MXN.
+  </p>
+  <p>
+    <strong>Backdrop con Logo:</strong> Pared de globos que forma el logo de la empresa o mensaje clave. Perfecta para fotos y contenido de redes. Costo: $6,000-8,000 MXN.
+  </p>
+  <p>
+    <strong>Columnas Corporativas:</strong> Columnas en colores de marca para enmarcar areas clave (entrada, escenario, zona de cócteles). Costo: $3,000-5,000 MXN por par.
+  </p>
+  <p>
+    <strong>Instalación Integral:</strong> Globos decorativos en colores corporativos distribuidos por todo el espacio. Genera consistencia visual. Costo: $2,000-4,000 MXN adicional.
+  </p>
 
-    <div class="blog-article__content">
-      <h2>Globos en el mundo corporativo: más allá de lo convencional</h2>
-      <p>La decoración con globos para eventos corporativos ha roto completamente el estereotipo de que los globos son exclusivos para fiestas infantiles. Las empresas más innovadoras en CDMX han descubierto que una decoración profesional con globos aporta color, energía y personalidad de marca a sus eventos de una forma que otros elementos decorativos no logran. Desde lanzamientos de producto hasta fiestas de fin de año, los globos se han ganado un lugar en el mundo empresarial.</p>
-      <p>La clave está en el diseño estratégico: cada elemento debe comunicar los valores de la marca y reforzar el mensaje del evento. No se trata de llenar un espacio con globos de colores aleatorios, sino de crear instalaciones que integren la identidad corporativa de forma creativa y profesional.</p>
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Tienes un evento corporativo próximo?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Manda detalles del evento y propuesta de branding →</a>
+    </p>
+  </div>
 
-      <h2>Tipos de eventos corporativos con globos</h2>
-      <h3>Lanzamientos de producto</h3>
-      <p>Un lanzamiento de producto necesita generar impacto visual y crear un ambiente que comunique innovación y emoción. Un arco orgánico gigante en los colores corporativos que enmarque el escenario principal establece el tono del evento. Los globos gigantes suspendidos sobre la zona de exhibición del producto atraen la atención y crean puntos de interés para las fotos de prensa. Globos impresos con el logo o el nombre del producto añaden una capa extra de branding.</p>
+  <h2>Paletas de color corporativas que funcionan</h2>
+  <p>
+    <strong>Azul Profesional + Blanco + Plateado:</strong> Transmite confianza, profesionalismo, estabilidad. Ideal para finanzas, seguros, tecnología.
+  </p>
+  <p>
+    <strong>Gris + Negro + Dorado:</strong> Sofisticación extrema. Modernidad. Ideal para startups, agencias creativas, lujo.
+  </p>
+  <p>
+    <strong>Colores Corporativos Exactos:</strong> Usamos tus colores de marca en los globos. Refuerza identidad. Necesitamos códigos Pantone o especificaciones.
+  </p>
+  <p>
+    <strong>Neutral + Detalles de Color:</strong> Base neutral (blanco, gris) con acentos en un color corporativo. Versátil y profesional.
+  </p>
 
-      <h3>Convenciones y conferencias</h3>
-      <p>En espacios amplios como centros de convenciones, los globos ayudan a delimitar zonas y crear identidad en cada área. Columnas de globos a la entrada del registro, guirnaldas orgánicas decorando las áreas de networking y centros de mesa temáticos en la zona de comedor crean una experiencia coherente y memorable para los asistentes. Los colores corporativos se pueden reforzar en cada punto de contacto visual.</p>
+  <h2>Tipos de eventos corporativos que decoramos</h2>
+  <p>
+    <strong>Lanzamiento de Producto:</strong> El backdrop perfecto para que medios tomen fotos del producto. Logo de marca visible. Costo: $8,000-12,000 MXN.
+  </p>
+  <p>
+    <strong>Conferencia/Seminario:</strong> Columnas y arco en la zona de entrada. Backdrop en el escenario. Mantiene visual limpio pero con impacto. Costo: $7,000-10,000 MXN.
+  </p>
+  <p>
+    <strong>Gala de Premios:</strong> Escenario completamente decorado, columnas de acceso, backdrop para fotos. Ambiente elegante. Costo: $15,000-22,000 MXN.
+  </p>
+  <p>
+    <strong>Networking/Cóctel:</strong> Columnas estratégicamente colocadas, zona de fotos con branding. Facilita conversación mientras se mantiene marca visible. Costo: $7,000-10,000 MXN.
+  </p>
+  <p>
+    <strong>Inauguración/Ribbon Cutting:</strong> Arco monumental de entrada, decoración de fachada, zona de fotos. Momento simbólico con visual impactante. Costo: $10,000-15,000 MXN.
+  </p>
 
-      <h3>Fiestas de fin de año y aniversarios</h3>
-      <p>Estas celebraciones permiten mayor libertad creativa. Un techo de globos con helio en dorado y el color corporativo transforma cualquier salón en un espacio festivo. Las instalaciones de globos como photocalls con el logo de la empresa o los años celebrados generan contenido para redes sociales que extiende el alcance del evento mucho más allá de los asistentes presentes.</p>
+  <h2>Globos personalizados con logo</h2>
+  <p>
+    Ofrecemos globos impresos con logo de tu empresa, colores corporativos y mensajes personalizados. Tiempo mínimo: 2 semanas de producción. Costo adicional: 30-40% sobre globos regulares. El impacto visual es incomparable: transmite profesionalismo y atención al detalle.
+  </p>
 
-      <h3>Inauguraciones y aperturas</h3>
-      <p>La apertura de una nueva oficina, sucursal o tienda es una oportunidad perfecta para decoración con globos. Un arco de bienvenida en la fachada atrae la atención de transeúntes y genera expectativa. Las columnas con los colores de la marca a cada lado de la entrada principal crean una recepción VIP para los invitados.</p>
+  <h2>Presupuestos por paquete corporativo</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Paquete</th>
+        <th>Elementos Clave</th>
+        <th>Costo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Branding</strong></td>
+        <td>Backdrop 3m + 2 columnas corporativas</td>
+        <td>$7,000</td>
+      </tr>
+      <tr>
+        <td><strong>Evento</strong></td>
+        <td>Arco entrada + backdrop premium + 4 columnas + globos distribuidosd</td>
+        <td>$13,000</td>
+      </tr>
+      <tr>
+        <td><strong>Producción</strong></td>
+        <td>Decoración integral, escenario, entrada, múltiples espacios, coordinación</td>
+        <td>$22,000+</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <h2>Branding con globos: cómo integrar la identidad corporativa</h2>
-      <p>La impresión en globos es una herramienta poderosa para reforzar la marca. Se puede imprimir logos, nombres de producto, hashtags del evento o mensajes específicos directamente sobre los globos en alta calidad. Los globos impresos funcionan tanto como elementos decorativos como regalos para los asistentes que se los llevan a casa, extendiendo la visibilidad de la marca.</p>
-      <p>Más allá de la impresión, la selección cuidadosa de colores que coincidan exactamente con la paleta corporativa es fundamental. Los fabricantes de globos profesionales como Qualatex y Sempertex ofrecen una amplia gama de colores que permite encontrar coincidencias precisas con prácticamente cualquier color corporativo. Un decorador profesional trabaja con muestras de color para garantizar la fidelidad cromática.</p>
+  <h2>Coordinación profesional: Lo que ofrecemos</h2>
+  <p>
+    Visitamos el venue antes del evento. Entendemos el flow del espacio. Proponen ubicaciones estratégicas para máximo impacto. Coordinamos con producción, audiovisuales y otros proveedores. El día del evento, nuestro equipo instala con precisión, está presente durante el evento por si se necesitan ajustes, y desmonta correctamente.
+  </p>
 
-      <h2>Consideraciones especiales para eventos corporativos</h2>
-      <ul>
-        <li><strong>Timing de montaje:</strong> Los venues corporativos suelen tener ventanas de montaje más estrictas. Es necesario coordinar con la logística del evento para instalar sin interferir con otros proveedores.</li>
-        <li><strong>Seguridad:</strong> En espacios con techos altos, las instalaciones requieren equipo profesional y medidas de seguridad apropiadas.</li>
-        <li><strong>Desmontaje limpio:</strong> A diferencia de eventos sociales, los corporativos exigen un desmontaje rápido y sin residuos. El equipo de decoración debe dejar el espacio en condiciones perfectas.</li>
-        <li><strong>Aprobación de diseño:</strong> Las empresas suelen requerir mockups o renders del diseño antes de aprobar. Un decorador profesional puede presentar visualizaciones que faciliten la toma de decisiones.</li>
-      </ul>
+  <h2>Timeline recomendado</h2>
+  <p>
+    <strong>6 semanas antes:</strong> Primer contacto, propuesta inicial de diseño.
+  </p>
+  <p>
+    <strong>4 semanas antes:</strong> Diseño final, presupuesto confirmado, orden de globos si son personalizados.
+  </p>
+  <p>
+    <strong>2 semanas antes:</strong> Confirmación final de detalles, visita al venue, timeline de instalación.
+  </p>
+  <p>
+    <strong>Día del evento:</strong> Llegada 3-4 horas antes, instalación completa, ajustes finales.
+  </p>
 
-      <h2>Retorno de inversión en decoración</h2>
-      <p>La decoración con globos para eventos corporativos no es un gasto, es una inversión en la experiencia de marca. Un evento bien decorado genera más contenido compartible en redes sociales, mejora la percepción de marca entre los asistentes y crea un ambiente que facilita el networking y la conexión emocional con la empresa. En un mercado donde la experiencia lo es todo, invertir en decoración profesional marca la diferencia entre un evento más y uno que la gente recuerda y comenta.</p>
-    </div>
-
-    <div class="blog-article__cta">
-      <h3>¿Necesitas decoración con globos para tu evento corporativo?</h3>
-      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
-      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
-
-    <nav class="blog-article__back">
-      <a href="/blog/">&larr; Volver al blog</a>
-    </nav>
-  </article>
-
-</Base>
-
-<style>
-  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
-  .blog-article__header { margin-bottom: var(--spacing-2xl); }
-  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
-  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
-  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
-  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
-  .blog-article__content { margin-bottom: var(--spacing-2xl); }
-  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
-  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
-  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
-  .blog-article__content strong { color: var(--color-text); }
-  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
-  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
-  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
-  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-</style>
+  <p>
+    <strong>¿Tu empresa necesita decoración corporativa profesional?</strong> Cuéntanos el tipo de evento, tamaño, colores de marca. Hacemos propuesta visual y presupuesto. DEGLOB: donde corporativo se ve impactante.
+  </p>
+</BlogLayout>

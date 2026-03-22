@@ -1,0 +1,396 @@
+---
+import Base from './Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { WHATSAPP_URL_MSG } from '../lib/config';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  imageAlt?: string;
+  category?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  schemaMarkup?: object[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  image,
+  imageAlt,
+  category = 'Blog',
+  ogTitle,
+  ogDescription,
+  ogImage,
+  schemaMarkup = [],
+  noindex = false,
+} = Astro.props;
+
+// Breadcrumbs
+const breadcrumbItems = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Blog', href: '/blog/' },
+  { name: title, href: canonical },
+];
+---
+
+<Base
+  title={`${title} — Blog DEGLOB`}
+  description={description}
+  canonical={canonical}
+  ogTitle={ogTitle || title}
+  ogDescription={ogDescription || description}
+  ogImage={ogImage || image}
+  structuredData={schemaMarkup}
+  noindex={noindex}
+>
+  <Breadcrumb items={breadcrumbItems} />
+
+  <article class="blog-layout">
+    <div class="blog-layout__container">
+      <!-- CONTENIDO PRINCIPAL -->
+      <div class="blog-layout__content">
+        <header class="blog-header">
+          {category && <span class="blog-header__category">{category}</span>}
+          <h1 class="blog-header__title">{title}</h1>
+          <p class="blog-header__excerpt">{description}</p>
+        </header>
+
+        {image && (
+          <figure class="blog-hero-image">
+            <img
+              src={image}
+              alt={imageAlt || title}
+              width="800"
+              height="400"
+              loading="lazy"
+            />
+          </figure>
+        )}
+
+        <div class="blog-body">
+          <slot />
+        </div>
+      </div>
+
+      <!-- SIDEBAR STICKY -->
+      <aside class="blog-layout__sidebar">
+        <!-- CTA PRINCIPAL -->
+        <div class="sidebar-cta">
+          <h3 class="sidebar-cta__title">¿Necesitas cotizar?</h3>
+          <p class="sidebar-cta__text">
+            Escríbenos por WhatsApp. Te respondemos en minutos.
+          </p>
+          <a href={WHATSAPP_URL_MSG} class="btn btn--wa btn--full" target="_blank" rel="noopener">
+            Cotizar Gratis
+          </a>
+        </div>
+
+        <!-- ARTÍCULOS POPULARES -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-section__title">Artículos Populares</h3>
+          <ul class="sidebar-articles">
+            <li>
+              <a href="/blog/decoracion-globos-bodas-cdmx/">
+                Decoración con Globos para Bodas
+              </a>
+            </li>
+            <li>
+              <a href="/blog/arcos-globos-tendencias/">
+                Arcos de Globos: Tendencias 2026
+              </a>
+            </li>
+            <li>
+              <a href="/blog/decoracion-xv-anos-globos/">
+                XV Años: Ideas con Globos
+              </a>
+            </li>
+            <li>
+              <a href="/blog/globos-baby-shower-ideas/">
+                Baby Shower: Ideas Creativas
+              </a>
+            </li>
+            <li>
+              <a href="/blog/como-elegir-decoracion-globos/">
+                Cómo Elegir la Decoración Perfecta
+              </a>
+            </li>
+            <li>
+              <a href="/blog/globos-eventos-corporativos/">
+                Eventos Corporativos con Globos
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- SERVICIOS RELACIONADOS -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-section__title">Nuestros Servicios</h3>
+          <ul class="sidebar-services">
+            <li>
+              <a href="/servicios/arcos-de-globos/">Arcos de Globos</a>
+            </li>
+            <li>
+              <a href="/servicios/columnas-decorativas/">Columnas Decorativas</a>
+            </li>
+            <li>
+              <a href="/servicios/guirnaldas-de-globos/">Guirnaldas Orgánicas</a>
+            </li>
+            <li>
+              <a href="/servicios/globos-helio/">Globos con Helio</a>
+            </li>
+            <li>
+              <a href="/servicios/centros-de-mesa/">Centros de Mesa</a>
+            </li>
+            <li>
+              <a href="/servicios/backdrops-paneles/">Backdrops y Paneles</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .blog-layout {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .blog-layout__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  /* HEADER */
+  .blog-header {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .blog-header__category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.375rem 1rem;
+    background: rgba(139, 48, 238, 0.08);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .blog-header__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
+
+  .blog-header__excerpt {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* HERO IMAGE */
+  .blog-hero-image {
+    width: 100%;
+    height: auto;
+    margin: var(--spacing-2xl) 0;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+  }
+
+  .blog-hero-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* BODY CONTENT */
+  .blog-body {
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .blog-body :global(h2) {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+  }
+
+  .blog-body :global(h3) {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: var(--spacing-lg) 0 var(--spacing-sm);
+  }
+
+  .blog-body :global(p) {
+    font-size: var(--font-size-base);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .blog-body :global(ul),
+  .blog-body :global(ol) {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+  }
+
+  .blog-body :global(li) {
+    font-size: var(--font-size-base);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .blog-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-lg) 0;
+    font-size: var(--font-size-sm);
+  }
+
+  .blog-body :global(table th) {
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .blog-body :global(table td) {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .blog-body :global(strong) {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .blog-body :global(a) {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .blog-body :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  /* SIDEBAR */
+  .blog-layout__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+  }
+
+  /* SIDEBAR CTA */
+  .sidebar-cta {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    color: white;
+    text-align: center;
+  }
+
+  .sidebar-cta__title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    margin: 0 0 var(--spacing-sm);
+  }
+
+  .sidebar-cta__text {
+    font-size: var(--font-size-sm);
+    margin: 0 0 var(--spacing-md);
+    opacity: 0.95;
+  }
+
+  .btn--full {
+    width: 100%;
+  }
+
+  /* SIDEBAR SECTIONS */
+  .sidebar-section {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+  }
+
+  .sidebar-section__title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 var(--spacing-md);
+  }
+
+  .sidebar-articles,
+  .sidebar-services {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-articles li,
+  .sidebar-services li {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .sidebar-articles a,
+  .sidebar-services a {
+    display: block;
+    padding: var(--spacing-sm) 0;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-border);
+    transition: color 0.2s;
+  }
+
+  .sidebar-articles a:hover,
+  .sidebar-services a:hover {
+    color: var(--color-accent);
+  }
+
+  .sidebar-articles li:last-child a,
+  .sidebar-services li:last-child a {
+    border-bottom: none;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .blog-layout__container {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+
+    .blog-layout__sidebar {
+      position: static;
+      top: auto;
+    }
+
+    .blog-header__title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+  }
+</style>

@@ -1,106 +1,191 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { WHATSAPP_URL_MSG } from '../../../lib/config';
 
-const title = "Centros de Mesa con Globos Elegantes para Eventos";
-const description = "Crea centros de mesa sofisticados con globos para bodas, XV años y eventos corporativos. Ideas de diseño, combinaciones y tips para un resultado profesional.";
-const category = "Decoración";
-const date = "2025-07-14";
+const title = 'Centros de Mesa con Globos: Ideas Elegantes y Presupuestos';
+const description = 'Centros de mesa con globos para bodas, XV años y eventos: bouquets, arreglos flotantes, orbz. Ideas de colores, alturas y precios reales CDMX.';
+const category = 'Ideas Decorativas';
+const image = '/img/blog/centros-mesa-globos.webp';
+const imageAlt = 'Centros de mesa con globos transparentes y confeti dorado';
+const canonical = 'https://fantasyglobos.com.mx/blog/centros-mesa-globos-elegantes/';
+const date = '2025-08-12';
 
-const structuredData = [{
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: description,
-  datePublished: date,
-  dateModified: date,
-  author: { '@type': 'Organization', name: 'DEGLOB' },
-  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
-}];
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Cuál es la altura ideal de un centro de mesa?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Entre 30-45 cm. Los invitados deben poder ver caras sin levantar la cabeza. Centros altos (60cm+) son para mesas de dulces o áreas sin comensales.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuánto cuesta un centro de mesa con globos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Bouquets simples: $150-250 por unidad. Arreglos elaborados: $350-500. Presupuesto por 15 mesas: $2,500-4,500 MXN incluyendo instalación.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Qué estilo funciona mejor?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Depende: bouquets simples para eventos casuales, orbz metálicos para modernos, arreglos orgánicos para boho/rústico, centros altos para eventos grandes.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Puedo usar globos flotantes en los centros?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sí, pero con cuidado. Globos pequeños con helio sobre la mesa funcionan bien. Globos grandes obstruyen vista. Recomendamos bouquets anclados a peso decorativo.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Centros de mesa con globos para eventos en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
 ---
 
-<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
-  <Breadcrumb items={[
-    { name: 'Blog', href: '/blog/' },
-    { name: title, href: '/blog/centros-mesa-globos-elegantes/' },
-  ]} />
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>Centros de mesa: El detalle que tus invitados tocan</h2>
+  <p>
+    Los centros de mesa son únicos porque tus invitados los ven de cerca durante toda la comida. Pueden tocarlos, interactuar con ellos, tomarse fotos. Un buen centro de mesa debe ser bonito, pero también funcional: que no obstruya la vista, que no oscile cuando la gente levanta cosas, que no ocupe espacio innecesario en la mesa.
+  </p>
+  <p>
+    Una cosa que vemos seguido: los mejores eventos tienen centros de mesa que coordinan con el arco y el backdrop, creando una experiencia visual coherente. Esto es lo que diferencia un evento mediocre de uno que tus invitados recuerdan.
+  </p>
 
-  <article class="blog-article">
-    <header class="blog-article__header">
-      <span class="blog-article__category">{category}</span>
-      <h1 class="blog-article__title">{title}</h1>
-      <p class="blog-article__excerpt">{description}</p>
-      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-    </header>
+  <h2>5 tipos de centros de mesa con globos que funcionan</h2>
+  <p>
+    <strong>1. Bouquet Simple (El Clásico):</strong> 3-5 globos de latex en colores coordinados, atados con cinta y anclados a un peso decorativo. Costo: $150-250 por unidad. Funciona en cualquier evento.
+  </p>
+  <p>
+    <strong>2. Orbz Metálicos (El Moderno):</strong> Globos redondos metallizados, que reflejan luz. Se ven premium, contemporáneos. Cuestan el doble pero se ven increíble en fotos. $300-400 por unidad.
+  </p>
+  <p>
+    <strong>3. Arreglo Orgánico (El Versátil):</strong> Mix de tamaños, texturas, follaje, flores. Asimétrico, naturalista. Funciona en cualquier evento. $350-500 por unidad.
+  </p>
+  <p>
+    <strong>4. Centros Altos (El Dramático):</strong> 60-80cm de altura, globos en cascada con cintas. Para mesas de dulces o áreas sin comensales. $500-750 por unidad.
+  </p>
+  <p>
+    <strong>5. Mini Arreglos (El Sutil):</strong> Pequeños arreglos de 20-30cm sobre bases de acrílico. Elegantes, modernos, no interfieren. $200-300 por unidad.
+  </p>
 
-    <div class="blog-article__content">
-      <h2>Centros de mesa con globos: elegancia en cada detalle</h2>
-      <p>Los centros de mesa son piezas fundamentales en la decoración de cualquier evento con mesas para invitados. Mientras que los arreglos florales han sido la opción tradicional durante décadas, los centros de mesa con globos ofrecen una alternativa moderna, versátil y visualmente impactante que cada vez gana más adeptos en CDMX. Lo mejor de todo es que pueden ser tan elegantes y sofisticados como cualquier arreglo floral, e incluso combinar ambos elementos.</p>
-      <p>La clave para lograr centros de mesa con globos que luzcan elegantes y no infantiles está en la selección cuidadosa de colores, texturas y proporciones. Un centro de mesa bien diseñado complementa la decoración general del evento y se convierte en un tema de conversación entre los invitados.</p>
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Cuántas mesas tienes?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Cotiza centros de mesa personalizados →</a>
+    </p>
+  </div>
 
-      <h2>Estilos de centros de mesa con globos</h2>
-      <h3>Bouquets de helio con peso decorativo</h3>
-      <p>Este es el estilo más clásico y funcional. Consiste en un conjunto de tres a siete globos de helio en diferentes tamaños y acabados, sujetos a un peso en la base de la mesa. Los globos flotan a diferentes alturas creando verticalidad sin ocupar espacio en la mesa. Las cintas pueden ser de satín, organza o incluso cadenas doradas para un look premium. El peso puede ser una base de acrílico, un jarrón pequeño con flores o un elemento temático.</p>
+  <h2>Presupuestos reales por cantidad de mesas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Número de Mesas</th>
+        <th>Tipo Centro</th>
+        <th>Costo Total</th>
+        <th>Por Mesa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>10 mesas</td>
+        <td>Bouquet simple</td>
+        <td>$2,000-2,500</td>
+        <td>$200-250</td>
+      </tr>
+      <tr>
+        <td>15 mesas</td>
+        <td>Arreglo orgánico</td>
+        <td>$4,000-5,000</td>
+        <td>$267-333</td>
+      </tr>
+      <tr>
+        <td>20 mesas</td>
+        <td>Orbz + arreglo</td>
+        <td>$6,500-7,500</td>
+        <td>$325-375</td>
+      </tr>
+      <tr>
+        <td>30 mesas</td>
+        <td>Diseño premium</td>
+        <td>$8,000-10,000</td>
+        <td>$267-333</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <h3>Topiary de globos</h3>
-      <p>Los topiaries son estructuras verticales donde los globos se agrupan formando una esfera o forma geométrica en la parte superior de un bastón o columna delgada. Son elegantes y permiten jugar con la altura sin obstruir la vista de los invitados. Funcionan especialmente bien en bodas y eventos formales cuando se realizan en colores neutros o metálicos.</p>
+  <h2>Colores que funcionan mejor en centros de mesa</h2>
+  <p>
+    Los centros que mejor se ven en fotos son aquellos que contrastan con la mantelería. Si la mantel es blanca, globos en colores oscuros o metálicos resaltan. Si la mantel es oscura, globos claros brillan. La regla: contraste = impacto visual.
+  </p>
+  <p>
+    Para <a href="/eventos/bodas/">bodas</a>, los mejores combos son blanco-dorado, nude-dorado, blanco-plateado. Para <a href="/eventos/xv-anos/">XV años</a>, rosa-dorado o tonos pastel funcionan. Para <a href="/eventos/corporativos/">eventos corporativos</a>, monocromático o corporativo.
+  </p>
 
-      <h3>Mini guirnaldas orgánicas de mesa</h3>
-      <p>Una tendencia que ha ganado mucha popularidad es colocar una guirnalda orgánica pequeña directamente sobre la mesa, generalmente corriendo a lo largo del centro como un camino de mesa. Se construye con globos de 5 y 9 pulgadas intercalados con velas, flores y follaje. El resultado es una pieza central compartida que une visualmente a todos los comensales.</p>
+  <h2>Alturas: El factor funcional que importa</h2>
+  <p>
+    Centros de 30-40cm son ideales para mesas de comida. Los invitados pueden ver caras, conversar, comer sin obstáculos. Centros de 60cm+ son para mesas altas, de coctel o mesas de dulces. Nunca hagas centros de mesa altos en mesas de comida: los invitados se frustran.
+  </p>
+  <p>
+    Los centros con helio tienden a oscilarse. Si usas globos flotantes, fíjalos bien con pesos decorativos pesados. Un globo que se va oscilando durante la cena arruina la atmósfera.
+  </p>
 
-      <h3>Globos orbz y bubbles</h3>
-      <p>Los globos orbz (esféricos y metálicos) y los bubble balloons (transparentes y perfectamente redondos) son ideales para centros de mesa modernos y minimalistas. Un solo globo orbz dorado sobre una base con flores puede ser suficiente para crear un centro de mesa impactante. Los bubbles permiten rellenarlos con confeti, plumas o pétalos que se ven a través del material transparente.</p>
+  <h2>Instalación y mantenimiento</h2>
+  <p>
+    Los globos duran más tiempo si los instalo pocas horas antes del evento. El calor, los aires acondicionados fuertes y la luz solar afectan su duración. En DEGLOB, instalamos 2-3 horas antes de que comience la comida para máxima frescura. Además, llevamos equipo de reparación por si algún globo necesita ajuste.
+  </p>
 
-      <h2>Cómo elegir el centro de mesa según el evento</h2>
-      <ul>
-        <li><strong>Bodas:</strong> Opta por bouquets de helio en colores neutros (blanco, crema, dorado, champagne) con cintas elegantes. Los topiaries en blanco con base floral son ideales para recepciones formales.</li>
-        <li><strong>XV años:</strong> Puedes ser más atrevida con los colores. Bouquets que combinen el color principal de la fiesta con acentos chrome y globos de confeti crean un look juvenil pero sofisticado.</li>
-        <li><strong>Baby shower:</strong> Mini guirnaldas orgánicas en tonos pastel con pequeños elementos temáticos como estrellas o lunas integradas entre los globos.</li>
-        <li><strong>Eventos corporativos:</strong> Centros minimalistas con globos en los colores corporativos. Un orbz con el logo de la empresa impreso es un detalle de branding sutil pero efectivo.</li>
-        <li><strong>Cumpleaños:</strong> La libertad creativa es total. Centros de mesa temáticos con figuras de foil y globos en los colores favoritos del festejado.</li>
-      </ul>
-
-      <h2>La importancia de la proporción</h2>
-      <p>Un error frecuente es crear centros de mesa demasiado grandes que dominan la mesa e incomodan a los invitados, o demasiado pequeños que pasan desapercibidos. La regla general es que el centro de mesa no debe superar un tercio del ancho de la mesa y debe permitir que los invitados se vean entre sí cómodamente. Los centros altos con globos de helio resuelven esto elegantemente: el volumen está arriba, dejando libre la línea de vista a nivel de la mesa.</p>
-
-      <h2>Combinando globos con otros elementos</h2>
-      <p>Los centros de mesa más elegantes suelen combinar globos con flores frescas o secas, velas, bases de acrílico o cristal, follaje natural y elementos decorativos como perlas o piedras. La fusión de texturas entre la suavidad del látex, el brillo del chrome y la delicadeza de las flores crea composiciones de alto nivel que sorprenden incluso a quienes podrían tener prejuicios sobre la decoración con globos.</p>
-
-      <h2>Presupuesto y cantidad</h2>
-      <p>Los centros de mesa con globos suelen ser más accesibles que los arreglos florales equivalentes, especialmente cuando se necesitan en cantidad. Para un evento con 20 o 30 mesas, la diferencia de precio puede ser considerable. Además, los globos permiten crear centros de mesa altos y voluminosos a una fracción del costo de un arreglo floral de la misma envergadura. Un decorador profesional te presentará opciones dentro de tu presupuesto que maximicen el impacto visual en cada mesa de tu evento.</p>
-    </div>
-
-    <div class="blog-article__cta">
-      <h3>¿Necesitas centros de mesa con globos?</h3>
-      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
-      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
-
-    <nav class="blog-article__back">
-      <a href="/blog/">&larr; Volver al blog</a>
-    </nav>
-  </article>
-
-</Base>
-
-<style>
-  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
-  .blog-article__header { margin-bottom: var(--spacing-2xl); }
-  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
-  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
-  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
-  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
-  .blog-article__content { margin-bottom: var(--spacing-2xl); }
-  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
-  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
-  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
-  .blog-article__content strong { color: var(--color-text); }
-  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
-  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
-  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
-  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-</style>
+  <p>
+    <strong>¿Cuántas mesas tienes para tu evento?</strong> Dinos la cantidad, colores y estilo. Cotizamos con <a href="/servicios/centros-de-mesa/">opciones de centros de mesa</a> profesionales en 10 minutos. DEGLOB: detalles que se recuerdan.
+  </p>
+</BlogLayout>

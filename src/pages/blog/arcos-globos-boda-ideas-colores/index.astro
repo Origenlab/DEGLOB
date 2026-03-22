@@ -1,0 +1,235 @@
+---
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = 'Arcos de Globos para Boda: Ideas, Colores y Cómo Elegir el Tamaño Correcto';
+const description = 'Arcos de globos para bodas: colores que funcionan, tamaños recomendados y los errores que debes evitar. Con fotos y precios reales CDMX.';
+const category = 'Bodas';
+const image = '/img/blog/arco-globos-boda-ideas.webp';
+const imageAlt = 'Arco de globos blanco y dorado para ceremonia de boda';
+const canonical = 'https://fantasyglobos.com.mx/blog/arcos-globos-boda-ideas-colores/';
+const date = '2026-01-10';
+
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Qué tamaño de arco es correcto para mi boda?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Pequeño (1.5m) para bodas intimistas. Mediano (2.5m) para bodas estándar. Grande (4m) para salones amplios o jardines. Regla: 1/3 del espacio disponible.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuál es el color de arco más popular para bodas?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Blanco-dorado sigue siendo #1. Tendencia actual: monocromático blanco con texturas. Segundo lugar: tonos nude-rosa empolvado.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Puedo combinar el arco con otro estilo de decoración?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Perfectamente. El arco debe coordinarse con flores, tela, iluminación, vestido de novia. Funciona mejor cuando todo está en armonía.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuánto tiempo antes debo contratar el arco?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mínimo 3-4 semanas. Para colores especiales o personalizados, 6-8 semanas. Así aseguran disponibilidad y diseño cuidado.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Arcos de globos para bodas en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
+---
+
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>El arco de bodas: Tu momento más fotografiado</h2>
+  <p>
+    Tu arco de globos es donde sucede la magia de la boda. Es donde te casas, donde todos toman fotos, donde pasan los momentos más importantes. Debe ser perfecto. Una cosa que vemos seguido: las parejas que eligen bien su arco están contentas toda la vida. Los que eligen mal, lo recuerdan en cada foto.
+  </p>
+  <p>
+    Te contamos cómo elegir arco que sea perfecto para TU boda.
+  </p>
+
+  <h2>5 Estilos de Arcos Populares en 2026</h2>
+  <p>
+    <strong>1. Minimalista Monocromático (La Tendencia 2026):</strong> Todo blanco pero con texturas diferentes. Mate, chrome, satinado, transparente. Ultra moderno, elegante, sin distractores. Se ve increíble en cualquier foto. Costo: $5,000-5,500 MXN.
+  </p>
+  <p>
+    <strong>2. Clásico Blanco-Dorado:</strong> La que nunca falla. Blanco cremoso, dorado, follaje verde. Romántica, elegante, funciona en cualquier lugar. Costo: $4,500-5,500 MXN.
+  </p>
+  <p>
+    <strong>3. Boho Natural (Terracota-Verde):</strong> Terracota, ocre, verde salvia, flores secas, pampas. Rústico pero sofisticado. Perfecta para haciendas o jardines. Costo: $5,000-6,000 MXN.
+  </p>
+  <p>
+    <strong>4. Ahumado Sofisticado:</strong> Gris, negro, chrome plateado, follaje oscuro. Modernísimo, elegante, para bodas nocturnas. Costo: $5,500-6,500 MXN.
+  </p>
+  <p>
+    <strong>5. Romántico Pastel (Nude-Rosa):</strong> Rosa pálido, crema, dorado, flores naturales. Romántico, femenino, delicado. Costo: $5,000-5,500 MXN.
+  </p>
+
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Necesitas un arco para tu boda?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Cuéntanos el estilo y cuán grande lo quieres →</a>
+    </p>
+  </div>
+
+  <h2>Cómo Elegir el Tamaño Correcto</h2>
+  <p>
+    <strong>Regla de Oro:</strong> El arco debe ser 1/3 del ancho del espacio donde va. Si tu espacio mide 6m de ancho, arco de 2m está bien. Si mide 9m, arco de 3m funciona.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Tamaño</th>
+        <th>Espacio Ideal</th>
+        <th>Mejor Para</th>
+        <th>Costo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1.5m</strong></td>
+        <td>4-5m espacio</td>
+        <td>Bodas intimistas, mesas pequeñas</td>
+        <td>$2,500-3,500</td>
+      </tr>
+      <tr>
+        <td><strong>2.5m</strong></td>
+        <td>7-8m espacio</td>
+        <td>Bodas estándar (la más popular)</td>
+        <td>$4,500-5,500</td>
+      </tr>
+      <tr>
+        <td><strong>4m</strong></td>
+        <td>10-12m espacio</td>
+        <td>Salones grandes, jardines amplios</td>
+        <td>$7,000-8,500</td>
+      </tr>
+      <tr>
+        <td><strong>5m+</strong></td>
+        <td>14m+ espacio</td>
+        <td>Eventos muy grandes, producciones</td>
+        <td>$9,000+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Coordinación con el Resto de tu Boda</h2>
+  <p>
+    <strong>Vestido de Novia:</strong> Si es blanco puro, arco blanco-dorado complementa. Si es marfil, terracota-verde funciona mejor. Coordinación es clave.
+  </p>
+  <p>
+    <strong>Mantelería:</strong> Los colores del arco deben dialogar con las telas. Blanco arco + mantel blanco = coherencia. Rosa pastel arco + mantel beige = armonia.
+  </p>
+  <p>
+    <strong>Flores:</strong> Si tienes flores naturales, el arco debe tener colores similares. No mezcles terracota-verde arco con flores rosa brillante. Falta coherencia.
+  </p>
+  <p>
+    <strong>Iluminación:</strong> Luz natural (día) hace que blancos y pasteles brillen. Luz cálida artificial (noche) favorece dorados y ahumados.
+  </p>
+
+  <h2>Errores a Evitar</h2>
+  <p>
+    <strong>Error 1: Arco demasiado pequeño</strong> - Se pierde en la fotografía. Parece amateur.
+  </p>
+  <p>
+    <strong>Error 2: Arco demasiado cargado</strong> - Flores excesivas, decoración demasiada. Menos es más.
+  </p>
+  <p>
+    <strong>Error 3: Colores no coordinados</strong> - Arco rosa, flores terracota, vestido blanco. Inconsistencia visual.
+  </p>
+  <p>
+    <strong>Error 4: No revisar el lugar primero</strong> - Un arco hermoso se ve diferente en salón vs jardín vs hacienda.
+  </p>
+  <p>
+    <strong>Error 5: Decidir último momento</strong> - Colores especiales o follaje premium requieren tiempo.
+  </p>
+
+  <h2>Arco Orgánico vs Simétrico: ¿Cuál es mejor?</h2>
+  <p>
+    <strong>Orgánico (Asimétrico):</strong> Globos de diferentes tamaños, flujo natural. Moderno, contemporáneo, se ve menos "estructurado". Recomendado.
+  </p>
+  <p>
+    <strong>Simétrico (Geométrico):</strong> Perfectamente balanceado, estructura clara. Clásico, formal, tradicional. Para bodas muy formales.
+  </p>
+  <p>
+    En CDMX, 75% elige orgánico. Es la tendencia actual y se adapta mejor a cualquier estilo de boda.
+  </p>
+
+  <h2>Pre-boda: Pasos para asegurar tu arco perfecto</h2>
+  <p>
+    <strong>3 meses antes:</strong> Contacta con decorador. Muestra inspiración de arcos que te gusten.
+  </p>
+  <p>
+    <strong>2 meses antes:</strong> Visita el lugar de la boda. Decorador analiza espacio, iluminación, arquitectura.
+  </p>
+  <p>
+    <strong>1 mes antes:</strong> Propuesta final de arco. Colores, tamaño, estilo definidos.
+  </p>
+  <p>
+    <strong>2 semanas antes:</strong> Confirmación final. Cambios últimas si necesario.
+  </p>
+  <p>
+    <strong>1 semana antes:</strong> Confirmación de detalles finales, horario de instalación.
+  </p>
+  <p>
+    <strong>Día de la boda:</strong> Instalación 3 horas antes. Equipo en standby para cualquier ajuste.
+  </p>
+
+  <p>
+    <strong>¿Tu boda necesita un arco que sea absolutamente perfecto?</strong> Trabajamos solo bodas. Conocemos cada detalle, cada tendencia, cada posibilidad. DEGLOB: donde arcos se vuelven inolvidables.
+  </p>
+</BlogLayout>

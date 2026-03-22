@@ -1,103 +1,215 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { WHATSAPP_URL_MSG } from '../../../lib/config';
 
-const title = "Cómo Elegir la Mejor Decoración con Globos para tu Evento";
-const description = "Guía paso a paso para elegir la decoración con globos ideal. Considera el tipo de evento, presupuesto, espacio y estilo para tomar la mejor decisión.";
-const category = "Guías";
-const date = "2025-06-10";
+const title = 'Cómo Elegir la Decoración Perfecta con Globos: Guía Práctica';
+const description = 'Guía para elegir decoración con globos: cuándo usar arcos, columnas, backdrops o centros. Preguntas que debes hacer, presupuestos y pasos en CDMX.';
+const category = 'Guías';
+const image = '/img/blog/elegir-decoracion-globos.webp';
+const imageAlt = 'Proceso de selección de colores y estilos para decoración con globos';
+const canonical = 'https://fantasyglobos.com.mx/blog/como-elegir-decoracion-globos/';
+const date = '2025-07-03';
 
-const structuredData = [{
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: description,
-  datePublished: date,
-  dateModified: date,
-  author: { '@type': 'Organization', name: 'DEGLOB' },
-  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
-}];
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Cuánto debo presupuestar para decoración con globos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mínimo $5,000-7,000 MXN para un evento pequeño. Para bodas o XV años, $14,000-25,000 MXN es lo usual. Presupuestos mayores permiten más detalles y calidad premium.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cómo sé si un proveedor es profesional?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Busca portafolio con fotos de eventos reales, referencias de clientes, experiencia mínima 2-3 años, seguro de responsabilidad civil y garantía de instalación profesional.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Qué preguntas debo hacer antes de contratar?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Incluye instalación/desmontaje, cuánto cuesta cambio de colores, qué pasa si llueve, tiempos de preparación, equipo de reparación el día del evento, cancelaciones y cambios.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Con cuánta anticipación debo contratar?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mínimo 2 semanas para eventos pequeños. Para bodas y XV años, 4-8 semanas es lo recomendado. Esto asegura disponibilidad de colores especiales y diseño personalizado.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Guía para elegir decoración con globos en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
 ---
 
-<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
-  <Breadcrumb items={[
-    { name: 'Blog', href: '/blog/' },
-    { name: title, href: '/blog/como-elegir-decoracion-globos/' },
-  ]} />
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>El proceso: Paso a paso para elegir bien</h2>
+  <p>
+    Elegir decoración con globos puede sentir abrumador. Hay muchas opciones, muchos proveedores, y muchas decisiones. Pero existe un proceso lógico que simplifica todo. Una cosa que vemos seguido: las parejas y familias que planifican bien desde el inicio nunca se arrepienten. Los que improvisan al final siempre querían haber hecho algo diferente.
+  </p>
+  <p>
+    Te compartimos el proceso exacto que usamos con nuestros clientes para que te sientas seguro/a en cada decisión.
+  </p>
 
-  <article class="blog-article">
-    <header class="blog-article__header">
-      <span class="blog-article__category">{category}</span>
-      <h1 class="blog-article__title">{title}</h1>
-      <p class="blog-article__excerpt">{description}</p>
-      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-    </header>
+  <h2>Paso 1: Define tu presupuesto</h2>
+  <p>
+    Antes de cualquier otra cosa, sabe cuánto puedes gastar. La decoración con globos puede costar desde $3,000 MXN (muy básico) hasta $30,000+ MXN (producción completa). Defines un rango y después todas las decisiones fluyen de ahí.
+  </p>
+  <p>
+    Una regla general en eventos: la decoración es entre 10-15% del presupuesto total. Si tu evento cuesta $100,000 MXN, la decoración debería estar entre $10,000-15,000 MXN.
+  </p>
 
-    <div class="blog-article__content">
-      <h2>Antes de empezar: define tu visión</h2>
-      <p>Elegir la decoración con globos adecuada para tu evento puede parecer abrumador con tantas opciones disponibles. Arcos, columnas, guirnaldas, backdrops, centros de mesa, figuras personalizadas... las posibilidades son casi infinitas. Pero no te preocupes: con un enfoque organizado y las preguntas correctas, encontrar la combinación perfecta es más sencillo de lo que parece. Esta guía te llevará paso a paso por el proceso de decisión.</p>
-      <p>Lo primero es tener clara la visión general de tu evento. Antes de pensar en globos específicos, responde estas preguntas: ¿Qué tipo de evento es? ¿Cuál es la atmósfera que quieres crear? ¿Hay una temática o paleta de colores definida? ¿Cuántos invitados esperas? Las respuestas a estas preguntas son la base sobre la cual se construirá toda tu decoración.</p>
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Necesitas ayuda con el presupuesto?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Cuéntanos el tipo de evento y te asesoramos →</a>
+    </p>
+  </div>
 
-      <h2>Paso 1: Conoce tu espacio</h2>
-      <p>El venue es determinante para elegir el tipo de decoración. Un salón con techos altos permite instalaciones verticales como columnas de tres metros o techos de globos con helio que serían imposibles en un espacio más reducido. Un jardín al aire libre requiere considerar el clima y optar por estructuras resistentes al viento. Un restaurante íntimo necesita piezas más discretas que no abrumen el espacio.</p>
-      <p>Visita tu venue o solicita las medidas y fotos antes de reunirte con tu decorador. Información como la altura del techo, el ancho de la entrada, el color de las paredes y la iluminación existente ayudan enormemente a diseñar una propuesta que se integre naturalmente al espacio. Un decorador profesional incluso puede hacer una visita previa al venue para evaluar las posibilidades y limitaciones.</p>
+  <h2>Paso 2: Elige los elementos decorativos</h2>
+  <p>
+    No necesitas todo. Define qué es realmente importante para tu evento. Un <a href="/servicios/arcos-de-globos/">arco de entrada</a> es casi obligatorio (impacto máximo). Un <a href="/servicios/backdrops-paneles/">backdrop para fotos</a> es muy recomendado (tus invitados querrán fotos). <a href="/servicios/centros-de-mesa/">Centros de mesa</a> son opcionales pero elevan la calidad del evento. <a href="/servicios/columnas-decorativas/">Columnas</a> son el toque final que marca la diferencia.
+  </p>
+  <p>
+    Una estrategia: invierte más en lo que tus invitados verán primero (arco) y en lo que fotografiarán (backdrop). Ahorra en elementos secundarios.
+  </p>
 
-      <h2>Paso 2: Define tu presupuesto</h2>
-      <p>Ser honesto con tu presupuesto desde el principio permite que el decorador te ofrezca opciones realistas y optimice cada peso invertido. La decoración con globos tiene la ventaja de adaptarse a rangos de presupuesto muy amplios: desde opciones accesibles con globos estándar hasta instalaciones premium con globos chrome, confeti y elementos complementarios.</p>
-      <p>Como referencia general, un arco orgánico puede ir desde $2,500 hasta $15,000 o más dependiendo del tamaño y los materiales. Los centros de mesa van desde $150 hasta $500 por mesa. Un backdrop completo puede costar entre $3,500 y $16,000 según la cobertura y complejidad. Estos rangos te dan una idea para planificar, aunque los precios exactos dependen de las especificaciones de cada proyecto.</p>
+  <h2>Paso 3: Elige tu paleta de colores</h2>
+  <p>
+    Los colores definen el tono del evento. Revisa: vestido de la novia, decoración existente del salón, iluminación, mantelería. Una paleta coherente multiplica el impacto visual.
+  </p>
+  <p>
+    Tendencias 2026: monocromático (blanco con texturas), ahumado/metálico (gris, negro, chrome) y tierra (terracota, verde salvia). Pero lo que te guste a ti es lo más importante.
+  </p>
 
-      <h2>Paso 3: Elige los elementos principales</h2>
-      <p>No necesitas todos los tipos de decoración para lograr un evento espectacular. Es mejor invertir en dos o tres elementos bien ejecutados que dispersar el presupuesto en muchos elementos pequeños. Estos son los elementos más impactantes por tipo de evento:</p>
-      <ul>
-        <li><strong>Bodas:</strong> Un arco para la ceremonia y centros de mesa para la recepción cubren los dos momentos principales.</li>
-        <li><strong>XV años:</strong> El backdrop para la mesa principal y columnas en la entrada crean el mayor impacto visual.</li>
-        <li><strong>Cumpleaños:</strong> Un arco orgánico como fondo para fotos y una guirnalda sobre la mesa de dulces son suficientes para transformar el espacio.</li>
-        <li><strong>Baby shower:</strong> El arco sobre la mesa de regalos y bouquets de helio en las mesas de invitados crean el ambiente perfecto.</li>
-        <li><strong>Corporativos:</strong> Columnas en la entrada y un backdrop con branding para fotos profesionales.</li>
-      </ul>
+  <h2>Paso 4: Evalúa proveedores profesionales</h2>
+  <p>
+    Busca mínimo 3 opciones. Un proveedor profesional debe tener:
+  </p>
+  <ul>
+    <li><strong>Portafolio real:</strong> Fotos de eventos reales en CDMX, no referencias de internet</li>
+    <li><strong>Experiencia comprobable:</strong> Mínimo 2-3 años, referencias de clientes</li>
+    <li><strong>Presupuesto transparente:</strong> Detallan qué incluye, qué no, costos adicionales</li>
+    <li><strong>Flexibilidad:</strong> Escuchan ideas, hacen propuestas, se adaptan al presupuesto</li>
+    <li><strong>Garantía:</strong> Instalación profesional, equipo de reparación el día del evento</li>
+  </ul>
 
-      <h2>Paso 4: Selecciona tu paleta de colores</h2>
-      <p>La paleta de colores es quizás la decisión más importante después del presupuesto. Una buena regla es elegir un color principal, un color secundario y un acento metálico o neutro. Por ejemplo: rosa blush como principal, borgoña como secundario y dorado chrome como acento. Esta combinación se aplica en todas las piezas de decoración para crear coherencia visual.</p>
-      <p>Evita usar más de cuatro o cinco colores diferentes, ya que la composición puede verse caótica. Si te cuesta decidir, lleva muestras de tu mantelería, invitaciones o vestido al decorador para que pueda hacer coincidencias exactas con los colores de globos disponibles.</p>
+  <h2>Paso 5: Haz preguntas clave</h2>
+  <p>Antes de contratar, aclara estos puntos:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Pregunta Importante</th>
+        <th>Por Qué Importa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>¿Incluye instalación y desmontaje?</td>
+        <td>Evita sorpresas de costos adicionales</td>
+      </tr>
+      <tr>
+        <td>¿A qué hora instalan? ¿Cuánto tiempo tarda?</td>
+        <td>Coordina con timeline del evento</td>
+      </tr>
+      <tr>
+        <td>¿Qué pasa si llueve o hay viento?</td>
+        <td>Plan B para eventos al aire libre</td>
+      </tr>
+      <tr>
+        <td>¿Hay equipo de reparación el día del evento?</td>
+        <td>Confianza de que arreglen problemas en vivo</td>
+      </tr>
+      <tr>
+        <td>¿Cuál es la política de cambios y cancelaciones?</td>
+        <td>Flexibilidad si algo cambia</td>
+      </tr>
+      <tr>
+        <td>¿Tienen referencias de eventos similares?</td>
+        <td>Confirma experiencia en TU tipo de evento</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <h2>Paso 5: Considera la logística</h2>
-      <p>Aspectos prácticos que muchas veces se pasan por alto incluyen el tiempo de montaje permitido por el venue, el acceso para el equipo de decoración y sus materiales, si hay restricciones sobre el uso de helio o elementos colgantes, y la hora de desmontaje después del evento. Comunica estos datos a tu decorador con anticipación para evitar sorpresas el día del evento.</p>
+  <h2>Paso 6: Obtén propuesta detallada</h2>
+  <p>
+    Una buena propuesta incluye: descripción de cada elemento, colores específicos, dimensiones, presupuesto línea por línea, fechas de reserva/pago, términos de cancelación. No firmes nada sin esto en papel.
+  </p>
 
-      <h2>Paso 6: Confía en el profesional</h2>
-      <p>Una vez que hayas definido tu visión, presupuesto y preferencias, confía en la experiencia de tu decorador. Los profesionales trabajan con globos todos los días y conocen técnicas, materiales y combinaciones que pueden superar lo que habías imaginado. Comparte tu inspiración (fotos de Pinterest, Instagram o eventos anteriores), pero mantente abierto a sus sugerencias profesionales. El resultado de esa colaboración será una decoración que refleje tu visión pero ejecutada con la calidad y el detalle que solo la experiencia profesional puede lograr.</p>
-    </div>
+  <h2>Paso 7: Confirma detalles finales 7 días antes</h2>
+  <p>
+    Una semana antes del evento, confirma todo con el proveedor: horario exacto de llegada, número de invitados si cambió, detalles finales de colores, acceso al salón, contactos de emergencia. Este contacto final te da tranquilidad.
+  </p>
 
-    <div class="blog-article__cta">
-      <h3>¿Necesitas ayuda para elegir tu decoración?</h3>
-      <p>Cotiza gratis y sin compromiso. Te asesoramos para encontrar la opción perfecta.</p>
-      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
+  <h2>Errores comunes que debes evitar</h2>
+  <p>
+    <strong>Error 1:</strong> Elegir proveedor solo por precio. El más barato generalmente significa calidad baja.
+  </p>
+  <p>
+    <strong>Error 2:</strong> No visitar el salón antes. Diferencia enorme entre una foto y el espacio real.
+  </p>
+  <p>
+    <strong>Error 3:</strong> Definir colores sin ver el salón iluminado. La iluminación cambia todo.
+  </p>
+  <p>
+    <strong>Error 4:</strong> Reservar una semana antes. Los buenos proveedores se agotan rápido.
+  </p>
+  <p>
+    <strong>Error 5:</strong> No comunicar cambios importantes. Si algo cambió, avisa con tiempo.
+  </p>
 
-    <nav class="blog-article__back">
-      <a href="/blog/">&larr; Volver al blog</a>
-    </nav>
-  </article>
-
-</Base>
-
-<style>
-  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
-  .blog-article__header { margin-bottom: var(--spacing-2xl); }
-  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
-  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
-  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
-  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
-  .blog-article__content { margin-bottom: var(--spacing-2xl); }
-  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
-  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
-  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
-  .blog-article__content strong { color: var(--color-text); }
-  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
-  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
-  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
-  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-</style>
+  <p>
+    <strong>¿Necesitas asesoría personalizada?</strong> Manda fotos de tu salón y cuéntanos qué evento celebras. Te ayudamos a elegir los elementos y presupuestos correctos. DEGLOB: donde elegir bien es posible.
+  </p>
+</BlogLayout>

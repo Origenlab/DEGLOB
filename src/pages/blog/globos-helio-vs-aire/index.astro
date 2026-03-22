@@ -1,109 +1,245 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { WHATSAPP_URL_MSG } from '../../../lib/config';
 
-const title = "Globos de Helio vs Aire: Guía Completa para tu Evento";
-const description = "Aprende las diferencias entre globos de helio y de aire, cuándo usar cada tipo, duración, costos y cuál es la mejor opción según el tipo de evento que planeas.";
-const category = "Guías";
-const date = "2025-09-22";
+const title = 'Globos de Helio vs Látex/Aire: Diferencias, Duración y Cuándo Usar Cada Uno';
+const description = 'Globos helio vs látex: diferencias, duración, seguridad, precio. Guía práctica para elegir el tipo correcto para tu evento en CDMX.';
+const category = 'Guías Técnicas';
+const image = '/img/blog/globos-helio-vs-latex.webp';
+const imageAlt = 'Comparativa visual de globos de helio y látex flotantes';
+const canonical = 'https://fantasyglobos.com.mx/blog/globos-helio-vs-aire/';
+const date = '2025-03-14';
 
-const structuredData = [{
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: description,
-  datePublished: date,
-  dateModified: date,
-  author: { '@type': 'Organization', name: 'DEGLOB' },
-  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
-}];
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Cuál es la diferencia principal entre helio y aire?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Helio flota (es más ligero que aire), aire no flota. Helio cuesta más. Aire dura más tiempo. Usar depende del efecto que quieras.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuánto tiempo duran los globos de helio?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Globos de látex con helio: 12-18 horas. Globos foil/metalizado: 3-4 semanas. Pierden elevación gradualmente pasadas 18 horas.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuál es más seguro?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Ambos son seguros si se instalan correctamente. Helio: riesgo bajo, asegura bien. Aire: peso en estructura, verificar bien fijado.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuál es la diferencia de precio?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Aire: $5-10 pesos/globo. Helio: $25-50 pesos/globo (aprox 3-5x más caro). Pero duran 3-4 semanas vs horas.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Globos helio y de aire para eventos en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
 ---
 
-<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
-  <Breadcrumb items={[
-    { name: 'Blog', href: '/blog/' },
-    { name: title, href: '/blog/globos-helio-vs-aire/' },
-  ]} />
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>Helio vs Aire: Entender las diferencias te ahorra dinero y problemas</h2>
+  <p>
+    A la hora de decorar con globos, surge la pregunta inevitable: ¿Helio o aire? La respuesta no es simple porque depende de muchos factores: duración necesaria, efecto visual buscado, presupuesto, espacio disponible. Una cosa que vemos seguido: los clientes que entienden las diferencias desde el inicio eligen exactamente lo que necesitan sin gastar de más.
+  </p>
+  <p>
+    En este artículo te explicamos todo lo que necesitas saber para elegir bien.
+  </p>
 
-  <article class="blog-article">
-    <header class="blog-article__header">
-      <span class="blog-article__category">{category}</span>
-      <h1 class="blog-article__title">{title}</h1>
-      <p class="blog-article__excerpt">{description}</p>
-      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-    </header>
+  <h2>¿Qué es el helio y por qué flota?</h2>
+  <p>
+    El helio es un gas noble que es más ligero que el aire. Un globo lleno de helio flota porque la combinación del globo + helio pesa menos que el aire que desplaza. Es ciencia simple pero efectiva. Un globo de látex de 11 pulgadas con helio puede levantarse con una masa de solo 3-5 gramos.
+  </p>
 
-    <div class="blog-article__content">
-      <h2>Una decisión que impacta toda tu decoración</h2>
-      <p>Cuando planeas la decoración con globos para un evento, una de las primeras preguntas que surge es: ¿helio o aire? La respuesta no es tan simple como parece, ya que cada opción tiene ventajas y aplicaciones específicas que pueden hacer una gran diferencia en el resultado final de tu decoración. En esta guía te explicamos todo lo que necesitas saber para tomar la mejor decisión.</p>
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿No sabes si necesitas helio o aire?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Cuéntanos tu evento y te asesoramos →</a>
+    </p>
+  </div>
 
-      <h2>Globos inflados con aire: versatilidad y duración</h2>
-      <p>Los globos inflados con aire son la base de la mayoría de las decoraciones profesionales. Arcos, guirnaldas, columnas, backdrops y figuras personalizadas se construyen utilizando globos inflados con aire que se sujetan a estructuras o se unen entre sí con técnicas especializadas. Su principal ventaja es la duración: un globo de látex de buena calidad inflado con aire puede mantener su forma durante tres a cinco días sin problema.</p>
-      <p>Otra ventaja significativa es el costo. Al no requerir helio, las decoraciones con aire son más accesibles económicamente, lo que permite destinar más presupuesto a la cantidad o calidad de los globos. Además, los globos con aire no flotan, lo que significa que puedes colocarlos exactamente donde quieras sin preocuparte de que se muevan.</p>
+  <h2>Globos de Aire (Sin Helio)</h2>
+  <p>
+    <strong>Cómo funcionan:</strong> Se llenan con aire comprimido. Se fijan a estructuras, mesas, paredes. No flotan.
+  </p>
+  <p>
+    <strong>Ventajas:</strong>
+  </p>
+  <ul>
+    <li>Muchísimo más baratos: $5-10 pesos por globo</li>
+    <li>Duran semanas: Los globos de látex aire pueden durar 2-4 semanas si están en interior</li>
+    <li>Sin riesgo de desaparición: No se van volando</li>
+    <li>Perfectos para arcos, columnas, backdrops: Todas las instalaciones fijas</li>
+    <li>Sin mantenimiento: Funcionan solos una vez instalados</li>
+  </ul>
+  <p>
+    <strong>Desventajas:</strong>
+  </p>
+  <ul>
+    <li>No flotan: No generan el efecto mágico de globos flotantes</li>
+    <li>Requieren estructura: Necesitan soporte para mantenerse en su lugar</li>
+    <li>Necesitan instalación profesional: No es DIY</li>
+  </ul>
 
-      <h3>Aplicaciones ideales para globos con aire</h3>
-      <ul>
-        <li><strong>Arcos orgánicos y clásicos:</strong> Toda la estructura se construye con globos inflados con aire sobre un marco metálico o de PVC.</li>
-        <li><strong>Guirnaldas decorativas:</strong> Las cadenas de globos para paredes, barandales y techos utilizan aire exclusivamente.</li>
-        <li><strong>Columnas:</strong> Las estructuras verticales requieren la estabilidad que solo el aire proporciona.</li>
-        <li><strong>Backdrops y muros:</strong> Los paneles completos de globos se ensamblan con aire para mantener uniformidad.</li>
-        <li><strong>Figuras y números:</strong> Cualquier forma personalizada utiliza globos con aire sobre estructura interna.</li>
-      </ul>
+  <h2>Globos de Helio (Flotantes)</h2>
+  <p>
+    <strong>Cómo funcionan:</strong> Se llenan con helio puro. Flotan en el aire. Se mantienen arriba con peso o cinta.
+  </p>
+  <p>
+    <strong>Ventajas:</strong>
+  </p>
+  <ul>
+    <li>Efecto visual mágico: Flotan arriba, generan "wow"</li>
+    <li>Flexible: Se pueden colocar donde quieras</li>
+    <li>Perfecto para techo: Crea efecto de lluvia o flotante visual</li>
+    <li>Bouquets bonitos: Se usa mucho en centros de mesa y ramos de regalos</li>
+    <li>Mayor visibilidad: Los globos flotantes se ven desde más lejos</li>
+  </ul>
+  <p>
+    <strong>Desventajas:</strong>
+  </p>
+  <ul>
+    <li>Mucho más caro: $25-50 pesos por globo (3-5x más)</li>
+    <li>Duración limitada: 12-18 horas en latex regular</li>
+    <li>Se desinflan gradualmente: Pierden flotabilidad lentamente</li>
+    <li>Riesgo de fuga: Si no están bien atados, se van volando</li>
+    <li>Necesita reabastecimiento: En eventos largos, necesitas botella de helio a mano</li>
+  </ul>
 
-      <h2>Globos inflados con helio: magia flotante</h2>
-      <p>El helio es un gas más ligero que el aire, lo que permite que los globos floten. Este efecto visual es inigualable y crea una sensación de magia y celebración que ningún otro elemento decorativo puede replicar. Ver globos flotando en el techo de un salón con cintas cayendo suavemente es una experiencia visual que transforma cualquier espacio.</p>
-      <p>Sin embargo, el helio tiene sus limitaciones. Los globos de látex inflados con helio tienen una vida útil de aproximadamente 8 a 12 horas, dependiendo del tamaño del globo, la temperatura ambiente y la altitud. En la Ciudad de México, la altitud de 2,240 metros sobre el nivel del mar afecta ligeramente la flotabilidad, algo que los decoradores profesionales ya contemplan en sus cálculos.</p>
+  <h2>Comparativa lado a lado</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Factor</th>
+        <th>Globos de Aire</th>
+        <th>Globos de Helio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Costo por unidad</strong></td>
+        <td>$5-10</td>
+        <td>$25-50</td>
+      </tr>
+      <tr>
+        <td><strong>Duración (látex)</strong></td>
+        <td>2-4 semanas</td>
+        <td>12-18 horas</td>
+      </tr>
+      <tr>
+        <td><strong>Duración (foil metalizado)</strong></td>
+        <td>3-4 semanas</td>
+        <td>3-4 semanas</td>
+      </tr>
+      <tr>
+        <td><strong>Flota</strong></td>
+        <td>No</td>
+        <td>Sí (primeras 18h)</td>
+      </tr>
+      <tr>
+        <td><strong>Mejor para</strong></td>
+        <td>Arcos, columnas, backdrops, instalaciones fijas</td>
+        <td>Techo, bouquets, efectos flotantes</td>
+      </tr>
+      <tr>
+        <td><strong>Instalación requerida</strong></td>
+        <td>Sí, profesional</td>
+        <td>Mínima, peso decorativo suficiente</td>
+      </tr>
+      <tr>
+        <td><strong>Riesgo de daño</strong></td>
+        <td>Bajo (fijos)</td>
+        <td>Medio (pueden punzarse, desaparecer)</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <h3>Aplicaciones ideales para globos con helio</h3>
-      <ul>
-        <li><strong>Bouquets flotantes:</strong> Conjuntos de globos con cintas como centros de mesa o decoración de entrada.</li>
-        <li><strong>Techos flotantes:</strong> Decenas de globos cubriendo el techo de un salón para un efecto dramático.</li>
-        <li><strong>Suelta de globos:</strong> Momentos especiales como la llegada de los novios o el brindis (usando globos biodegradables).</li>
-        <li><strong>Globos gigantes:</strong> Los globos de 3 pies con helio crean puntos focales impresionantes.</li>
-      </ul>
+  <h2>Cuándo usar cada uno: Guía práctica</h2>
+  <p>
+    <strong>Usa AIRE si:</strong> Es un <a href="/servicios/arcos-de-globos/">arco de entrada</a>, <a href="/servicios/columnas-decorativas/">columnas</a>, <a href="/servicios/backdrops-paneles/">backdrop fotográfico</a>. Cualquier instalación fija que deba durar todo el evento y más allá.
+  </p>
+  <p>
+    <strong>Usa HELIO si:</strong> Es un <a href="/servicios/globos-helio/">bouquet de globos</a> para regalo, un efecto de techo flotante, decoración de centros de mesa altos, o quieres que el evento tenga ese toque "flotante" visual.
+  </p>
+  <p>
+    <strong>Usa MEZCLA si:</strong> Quieres lo mejor de ambos. Arco y columnas de aire (duran todo el evento) + algunos globos flotantes de helio (efecto visual extra). Presupuesto medio, máximo impacto.
+  </p>
 
-      <h2>Comparativa de costos</h2>
-      <p>El helio representa un costo adicional significativo. Un tanque de helio tiene un precio que se suma al costo de los globos y la mano de obra. Como referencia general, una decoración equivalente con helio puede costar entre un 40% y un 60% más que la misma decoración con aire. Sin embargo, hay efectos decorativos que solo se logran con helio y que valen completamente la inversión.</p>
+  <h2>Presupuesto: El factor económico</h2>
+  <p>
+    Si tienes 50 globos en un arco, con aire te cuesta $500-1,000 MXN. Con helio costaría $2,500-5,000 MXN. Esa diferencia sustancial es por qué entender la diferencia te ayuda a optimizar presupuesto.
+  </p>
+  <p>
+    Una estrategia inteligente: Base de aire (arco, columnas, backdrop) + detalles de helio (algunos globos flotantes, bouquets). Te da impacto visual con presupuesto controlado.
+  </p>
 
-      <h2>Lo mejor de ambos mundos: decoración mixta</h2>
-      <p>La realidad es que las mejores decoraciones combinan ambas técnicas. Un arco orgánico de aire como pieza central, complementado con bouquets de helio en las mesas y algunos globos gigantes flotantes en puntos estratégicos, ofrece variedad visual y optimiza el presupuesto. El decorador profesional sabe exactamente dónde utilizar cada tipo para maximizar el impacto.</p>
+  <h2>Durabilidad: El factor tiempo</h2>
+  <p>
+    Si tu evento es mañana y durará 8 horas, helio funciona perfecto. Si tu evento es en una semana y dura medio día, aire es mejor economía. Si quieres decoración que dure todo el mes, definitivamente aire con foil metalizado (los foil duran 3-4 semanas incluso con helio).
+  </p>
 
-      <h2>Consejos para elegir</h2>
-      <p>Si tu evento dura más de 6 horas, prioriza las decoraciones con aire para los elementos principales y reserva el helio para detalles puntuales que se instalarán poco antes del inicio. Si tu presupuesto es ajustado, la decoración con aire te dará mayor impacto por cada peso invertido. Y si buscas ese factor sorpresa, nada supera un techo lleno de globos flotantes con helio cuando los invitados entran al salón.</p>
-      <p>En cualquier caso, consultar con un profesional te ahorrará dinero y disgustos. Un decorador experimentado conoce los materiales, las condiciones del venue y las técnicas que garantizan que tu decoración se mantenga perfecta durante todo el evento.</p>
-    </div>
+  <h2>Seguridad: Lo que debes saber</h2>
+  <p>
+    Ambos son seguros si se instalan correctamente. Helio: asegura bien las cintas para que no se escapen. Aire: verifica que la estructura esté firme para que no caiga. Evita globos cerca de fuentes de calor (chimeneas, estufas), como quiera que sean, pueden inflarse demasiado.
+  </p>
 
-    <div class="blog-article__cta">
-      <h3>¿Necesitas asesoría para tu decoración con globos?</h3>
-      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
-      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
-
-    <nav class="blog-article__back">
-      <a href="/blog/">&larr; Volver al blog</a>
-    </nav>
-  </article>
-
-</Base>
-
-<style>
-  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
-  .blog-article__header { margin-bottom: var(--spacing-2xl); }
-  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
-  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
-  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
-  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
-  .blog-article__content { margin-bottom: var(--spacing-2xl); }
-  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
-  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
-  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
-  .blog-article__content strong { color: var(--color-text); }
-  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
-  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
-  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
-  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-</style>
+  <p>
+    <strong>¿Necesitas determinar qué tipo de globos es mejor para tu evento?</strong> Manda detalles. Te asesoramos sin cargo. DEGLOB: expertos en aire, helio y decisiones inteligentes.
+  </p>
+</BlogLayout>

@@ -1,100 +1,191 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import Breadcrumb from '../../../components/Breadcrumb.astro';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { WHATSAPP_URL_MSG } from '../../../lib/config';
 
-const title = "Decoración con Globos para Bodas en CDMX: Ideas y Tendencias";
-const description = "Descubre las mejores ideas de decoración con globos para bodas en Ciudad de México. Desde arcos románticos hasta centros de mesa elegantes que transformarán tu celebración.";
-const category = "Bodas";
-const date = "2025-11-15";
+const title = 'Decoración con Globos para Bodas en CDMX: Ideas y Tendencias';
+const description = 'Decoración con globos para bodas en CDMX: arcos románticos, centros de mesa y backdrops espectaculares. Colores, precios y diseños que funcionan en salones y jardines.';
+const category = 'Bodas';
+const image = '/img/blog/decoracion-boda-globos.webp';
+const imageAlt = 'Arco de globos blanco y dorado para boda en CDMX';
+const canonical = 'https://fantasyglobos.com.mx/blog/decoracion-globos-bodas-cdmx/';
+const date = '2025-11-15';
 
-const structuredData = [{
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description: description,
-  datePublished: date,
-  dateModified: date,
-  author: { '@type': 'Organization', name: 'DEGLOB' },
-  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
-}];
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Cuál es el costo de un arco de globos para boda?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Un arco mediano (2.5m) cuesta entre $4,500-5,000 MXN, mientras que arcos grandes (4m) rondan los $7,000-8,000 MXN. El precio incluye instalación, colores a elegir y globos premium.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuánto tiempo dura la decoración con globos en una boda?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Los globos de látex duran entre 12-18 horas. Los globos chrome y especiales pueden durar 24 horas. Recomendamos instalar 2-3 horas antes del evento para máxima frescura.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuáles son los colores de boda más populares?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Los colores más solicitados son blanco-dorado (clásico), tonos nude-rosa (romántico), terracota-verde (boho) y azul-plata (moderno). Combinamos cualquier paleta que quieras.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Incluye instalación la decoración con globos?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sí, toda nuestra decoración incluye instalación profesional, transporte y armado en el venue. No hay costos ocultos. Cubrimos toda la CDMX sin cargo adicional.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Decoración profesional con globos para bodas, XV años y eventos en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
 ---
 
-<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
-  <Breadcrumb items={[
-    { name: 'Blog', href: '/blog/' },
-    { name: title, href: '/blog/decoracion-globos-bodas-cdmx/' },
-  ]} />
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>Por qué elegir globos para decorar tu boda</h2>
+  <p>
+    La decoración con globos para bodas ha evolucionado enormemente. Lo que hace años solo se usaba en fiestas infantiles hoy es la opción elegida por parejas sofisticadas en toda la CDMX. Una cosa que vemos seguido: las novias quieren que su boda se vea diferente, pero sin usar flores naturales caras que se marchitan.
+  </p>
+  <p>
+    Los globos ofrecen versatilidad que pocos elementos decorativos logran: se adaptan a cualquier paleta de colores, presupuesto y tamaño de venue. Ya sea un jardín al aire libre en Coyoacán o un salón elegante en Polanco, la decoración con globos se integra perfectamente. Además, es una alternativa más accesible que las flores naturales sin sacrificar impacto visual.
+  </p>
 
-  <article class="blog-article">
-    <header class="blog-article__header">
-      <span class="blog-article__category">{category}</span>
-      <h1 class="blog-article__title">{title}</h1>
-      <p class="blog-article__excerpt">{description}</p>
-      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-    </header>
+  <h2>Arcos de globos: El elemento que define tu boda</h2>
+  <p>
+    El arco de globos es el elemento más importante. Es lo primero que ven tus invitados, lo que enmarcan todas tus fotos de ceremonia y lo que da tono a toda la decoración. Un arco orgánico en tonos blancos, cremas y dorados enmarca el altar perfectamente y crea un fondo espectacular para las fotos del momento más importante de tu vida.
+  </p>
+  <p>
+    Los arcos asimétricos que combinan diferentes tamaños de globos con follaje verde y flores secas son especialmente populares en bodas al aire libre. Para bodas más formales, los arcos simétricos en tonos monocromáticos ofrecen elegancia clásica. Integramos globos chrome dorados o plateados para ese toque de lujo que hace la diferencia.
+  </p>
 
-    <div class="blog-article__content">
-      <h2>Por qué elegir globos para decorar tu boda</h2>
-      <p>La decoración con globos para bodas ha evolucionado enormemente en los últimos años. Lo que antes se asociaba con fiestas infantiles, hoy se ha convertido en una tendencia sofisticada que las parejas en CDMX eligen para darle un toque único y personalizado a su gran día. Los globos ofrecen una versatilidad que pocos elementos decorativos pueden igualar: se adaptan a cualquier paleta de colores, estilo y tamaño de venue.</p>
-      <p>En Ciudad de México, donde los espacios para bodas van desde jardines al aire libre en Coyoacán hasta salones elegantes en Polanco, la decoración con globos permite crear ambientes que se ajustan perfectamente a cada entorno. Además, representan una alternativa más accesible que las flores naturales sin sacrificar impacto visual.</p>
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Necesitas un arco para tu boda?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Cotiza gratis por WhatsApp →</a>
+    </p>
+  </div>
 
-      <h2>Arcos de globos para la ceremonia</h2>
-      <p>El arco de globos es sin duda el elemento más solicitado para bodas. Un arco orgánico en tonos blancos, cremas y dorados enmarca perfectamente el altar y crea un fondo espectacular para las fotos de la ceremonia. Los arcos asimétricos, que combinan diferentes tamaños de globos con follaje verde y flores secas, son especialmente populares en bodas al aire libre.</p>
-      <p>Para bodas más formales, los arcos simétricos en tonos monocromáticos ofrecen una elegancia clásica. Puedes integrar globos chrome dorados o plateados para añadir un toque de lujo. La estructura del arco se adapta al espacio: desde arcos de medio punto hasta instalaciones que enmarcan completamente el pasillo nupcial.</p>
+  <h2>Centros de mesa y backdrops que funcionan</h2>
+  <p>
+    Los centros de mesa con globos permiten arreglos altos y llamativos sin obstaculizar la vista entre invitados. Un bouquet de tres globos transparentes rellenos de confeti dorado, sostenidos por un peso decorativo con flores, se ve sofisticado. Globos orbz en tonos metálicos combinados con velas resultan modernos y elegantes.
+  </p>
+  <p>
+    El muro de globos como fondo para fotos se ha vuelto imprescindible. Un backdrop orgánico con los colores de la boda crea el escenario perfecto para fotos memorables. Personalizamos con iniciales de los novios en letras de globos o integramos neón para un look contemporáneo. Las instalaciones de globos en el techo, flotando con helio, transforman por completo la atmósfera.
+  </p>
 
-      <h2>Centros de mesa con globos para la recepción</h2>
-      <p>Los centros de mesa con globos han ganado popularidad porque permiten crear arreglos altos y llamativos sin obstaculizar la vista entre los invitados. Un bouquet de tres globos transparentes rellenos de confeti dorado, sostenidos por un peso decorativo con flores, resulta sofisticado y moderno. También puedes optar por globos orbz en tonos metálicos combinados con velas y vegetación.</p>
+  <h2>Paletas de color y precios reales</h2>
+  <p>Las combinaciones más solicitadas en CDMX:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Paleta de Colores</th>
+        <th>Estilo</th>
+        <th>Mejor Para</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Blanco + Dorado</strong></td>
+        <td>Clásico y elegante</td>
+        <td>Bodas formales en salones</td>
+      </tr>
+      <tr>
+        <td><strong>Nude + Rosa empolvado</strong></td>
+        <td>Romántico y delicado</td>
+        <td>Jardines y haciendas</td>
+      </tr>
+      <tr>
+        <td><strong>Terracota + Verde salvia</strong></td>
+        <td>Boho y natural</td>
+        <td>Venues rústicos y jardines</td>
+      </tr>
+      <tr>
+        <td><strong>Azul rey + Plata</strong></td>
+        <td>Sofisticado y moderno</td>
+        <td>Bodas de noche en salones</td>
+      </tr>
+      <tr>
+        <td><strong>Blanco monocromático</strong></td>
+        <td>Minimalista y chic</td>
+        <td>Espacios contemporáneos</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <h2>Backdrops y photocalls nupciales</h2>
-      <p>El muro de globos como fondo para la zona de fotos se ha vuelto imprescindible. Un backdrop orgánico que combine los colores de la boda crea el escenario perfecto para que tus invitados se tomen fotos memorables. Puedes personalizarlo con las iniciales de los novios en letras de globos o integrar un letrero de neón para un look contemporáneo.</p>
-      <p>Las instalaciones de globos en el techo del salón, ya sea con helio o suspendidos con hilo transparente, transforman por completo la atmósfera del espacio. Imagina entrar a la recepción y ver cientos de globos blancos flotando sobre las mesas con cintas doradas cayendo suavemente. El efecto es simplemente mágico.</p>
+  <h2>Presupuesto de decoración con globos para boda</h2>
+  <p>
+    Los precios dependen del tamaño del evento y elementos que elijas. Un arco mediano (2.5m) cuesta entre $4,500-5,500 MXN. Arcos grandes (4m) rondan los $7,000-8,500 MXN. Los <a href="/servicios/centros-de-mesa/">centros de mesa</a> para 15 personas cuestan $3,500-4,500 MXN. Un <a href="/servicios/backdrops-paneles/">backdrop de 3 metros</a> sale entre $5,500-6,500 MXN.
+  </p>
+  <p>
+    Lo importante: todos nuestros precios incluyen instalación profesional, transporte, armado y ajustes el día del evento. No hay sorpresas. Cotiza sin compromiso por WhatsApp y te enviaremos presupuesto detallado en 10 minutos.
+  </p>
 
-      <h2>Paletas de colores populares para bodas</h2>
-      <p>Las combinaciones más solicitadas en CDMX incluyen:</p>
-      <ul>
-        <li><strong>Blanco y dorado:</strong> Clásico y elegante, perfecto para bodas formales en salones.</li>
-        <li><strong>Tonos nude y rosa empolvado:</strong> Romántico y delicado, ideal para jardines y haciendas.</li>
-        <li><strong>Terracota y verde salvia:</strong> Tendencia boho que combina perfectamente con venues rústicos.</li>
-        <li><strong>Azul rey y plata:</strong> Sofisticado y moderno, excelente para bodas de noche.</li>
-        <li><strong>Blanco monocromático:</strong> Minimalista y chic, con diferentes texturas de globos (mate, chrome, transparente).</li>
-      </ul>
+  <h2>Planificación: Qué debes saber</h2>
+  <p>
+    Planifica con al menos 3 semanas de anticipación para asegurar disponibilidad de colores especiales. Si tu boda es al aire libre, considera el clima: los globos de látex pueden verse afectados por calor intenso. Instalamos pocas horas antes del evento para máxima frescura.
+  </p>
+  <p>
+    Coordina los colores de los globos con mantelería, centros florales e iluminación del venue. Cuando todos los elementos trabajan en armonía, el resultado es una boda visualmente espectacular. Nuestro equipo tiene 5+ años de experiencia en más de 200 bodas en CDMX. Hemos visto qué funciona y qué no.
+  </p>
 
-      <h2>Tips para tu decoración de boda con globos</h2>
-      <p>Planifica tu decoración con al menos tres semanas de anticipación para asegurar disponibilidad de colores y materiales especiales. Considera el clima si tu boda es al aire libre: los globos de látex pueden verse afectados por el calor intenso, así que es mejor planificar la instalación pocas horas antes del evento. Un equipo profesional de decoración conoce estos detalles y te garantiza que todo luzca impecable en el momento indicado.</p>
-      <p>No olvides coordinar los colores de los globos con el resto de tu decoración: mantelería, centros de mesa florales y la iluminación del venue. Cuando todos los elementos trabajan en armonía, el resultado es una boda visualmente espectacular que tus invitados recordarán por mucho tiempo.</p>
-    </div>
+  <h2>Servicios relacionados</h2>
+  <p>
+    Además de arcos y centros de mesa, ofrecemos <a href="/servicios/columnas-decorativas/">columnas decorativas</a> para enmarcar entradas, <a href="/servicios/guirnaldas-de-globos/">guirnaldas orgánicas</a> para escenarios y <a href="/servicios/globos-helio/">globos con helio</a> para efectos flotantes. Cada servicio se personaliza según tu presupuesto y visión.
+  </p>
 
-    <div class="blog-article__cta">
-      <h3>¿Necesitas decoración con globos para tu boda?</h3>
-      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
-      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
-    </div>
-
-    <nav class="blog-article__back">
-      <a href="/blog/">&larr; Volver al blog</a>
-    </nav>
-  </article>
-
-</Base>
-
-<style>
-  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
-  .blog-article__header { margin-bottom: var(--spacing-2xl); }
-  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
-  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
-  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
-  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
-  .blog-article__content { margin-bottom: var(--spacing-2xl); }
-  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
-  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
-  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
-  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
-  .blog-article__content strong { color: var(--color-text); }
-  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
-  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
-  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
-  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
-</style>
+  <p>
+    <strong>¿Lista la decoración de tu boda?</strong> Escríbenos por WhatsApp. Cotizamos en minutos y respondemos todas tus dudas. DEGLOB: donde tus globos saben de bodas.
+  </p>
+</BlogLayout>

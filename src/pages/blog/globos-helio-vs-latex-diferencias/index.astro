@@ -1,0 +1,283 @@
+---
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = 'Globos de Helio vs Látex: ¿Cuál Usar para tu Evento y Por Qué?';
+const description = 'Diferencias entre globos de helio y látex: duración, precio, seguridad y dónde usar cada uno. Guía práctica para eventos en CDMX.';
+const category = 'Guías';
+const image = '/img/blog/helio-vs-latex-globos.webp';
+const imageAlt = 'Globo de helio flotante junto a globo de látex anclado';
+const canonical = 'https://fantasyglobos.com.mx/blog/globos-helio-vs-latex-diferencias/';
+const date = '2026-01-05';
+
+const schemaMarkup = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: image,
+    datePublished: date,
+    dateModified: date,
+    author: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+    publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '¿Es el helio seguro para eventos con niños?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Totalmente seguro. El helio no es tóxico. Asegura que globos estén bien anclados para que niños no los suelten accidentalmente.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cuántas veces puedo rellenar un globo con helio?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Aunque técnicamente se puede, no recomendamos. Cada ciclo daña el globo. Mejor usar uno nuevo. Los precios son accesibles.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Dónde se consigue helio?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'En decoradores profesionales como DEGLOB. También en tiendas de globos. NO en farmacias ni con vendedores informales. Asegura que sea helio puro.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Qué pasa si un globo de helio se revienta?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Nada malo. El helio se dispersa en el aire (es más ligero). No causa daño. Solo pierdes el globo. Llevamos globos extra para emergencias.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'DEGLOB — Decoración con Globos',
+    image: 'https://fantasyglobos.com.mx/img/branding/logo-deglob.svg',
+    description: 'Globos helio y latex para eventos en CDMX.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Calz. Gral. Mariano Escobedo 555',
+      addressLocality: 'Ciudad de México',
+      addressRegion: 'CDMX',
+      postalCode: '11580',
+      addressCountry: 'MX',
+    },
+    telephone: '+525639565117',
+    url: 'https://fantasyglobos.com.mx',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '38',
+    },
+  },
+];
+---
+
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
+  <h2>Helio vs Látex: La guía definitiva de diferencias</h2>
+  <p>
+    Cuando mencionamos "globos con helio", la gente suele pensar en globos que flotan. Cuando decimos "globos de látex", piensan en globos normales que se inflan con aire. Pero la diferencia es mucho más que eso. Una cosa que vemos seguido: entender realmente las diferencias te ayuda a elegir exactamente lo que necesitas sin pagar de más.
+  </p>
+  <p>
+    En este artículo desglosamos todo de forma clara.
+  </p>
+
+  <h2>¿Qué es el helio exactamente?</h2>
+  <p>
+    El helio es un gas inerte, inodoro, incoloro, no tóxico. Es el segundo elemento más ligero del universo (después del hidrógeno). Cuando llenas un globo con helio, el globo flota porque helio + globo pesan menos que el aire que desplazan. Es pura física, funciona siempre.
+  </p>
+
+  <h2>Comparativa detallada: Helio vs Látex</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Característica</th>
+        <th>Globos de Helio</th>
+        <th>Globos de Látex (Aire)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Flota</strong></td>
+        <td>Sí, siempre</td>
+        <td>No, se cae</td>
+      </tr>
+      <tr>
+        <td><strong>Duración latex</strong></td>
+        <td>12-18 horas (pierde helio)</td>
+        <td>2-4 semanas</td>
+      </tr>
+      <tr>
+        <td><strong>Duración foil</strong></td>
+        <td>3-4 semanas con helio</td>
+        <td>3-4 semanas sin helio</td>
+      </tr>
+      <tr>
+        <td><strong>Costo por globo</strong></td>
+        <td>$25-50 pesos</td>
+        <td>$5-10 pesos</td>
+      </tr>
+      <tr>
+        <td><strong>Mejor para</strong></td>
+        <td>Efectos flotantes, centros altos, momentos cortos</td>
+        <td>Arcos, columnas, backdrops, duraciones largas</td>
+      </tr>
+      <tr>
+        <td><strong>Instalación</strong></td>
+        <td>Mínima (peso decorativo suficiente)</td>
+        <td>Profesional (estructura fija)</td>
+      </tr>
+      <tr>
+        <td><strong>Mantenimiento</strong></td>
+        <td>Ninguno (duran 12-18h latex)</td>
+        <td>Ninguno (duran semanas)</td>
+      </tr>
+      <tr>
+        <td><strong>Flexibilidad</strong></td>
+        <td>Puedes moverlo durante evento</td>
+        <td>Una vez instalado, fijo</td>
+      </tr>
+      <tr>
+        <td><strong>Seguridad</strong></td>
+        <td>100% seguro (helio no tóxico)</td>
+        <td>100% seguro (aire es aire)</td>
+      </tr>
+      <tr>
+        <td><strong>Eco-friendly</strong></td>
+        <td>Helio se dispersa. Globo si es biodegradable</td>
+        <td>Si es latex, biodegradable</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Cuando USAR HELIO</h2>
+  <p>
+    ✅ Bouquets decorativos para regalar<br />
+    ✅ Globos flotantes en techo (efecto lluvia)<br />
+    ✅ Centros de mesa altos<br />
+    ✅ Elementos flotantes en eventos cortos (3-6 horas)<br />
+    ✅ Gender reveal con globos gigantes<br />
+    ✅ Arreglos florales con globos flotantes<br />
+  </p>
+
+  <div style="text-align: center; padding: 2rem; background: rgba(139, 48, 238, 0.05); border-radius: 8px; margin: 2rem 0;">
+    <p style="margin: 0; color: var(--color-text);">
+      <strong>¿Necesitas globos helio o látex?</strong><br />
+      <a href={WHATSAPP_URL_MSG} style="color: var(--color-primary); font-weight: 600;">Cuéntanos qué necesitas y te asesoramos →</a>
+    </p>
+  </div>
+
+  <h2>Cuando USAR LÁTEX (Aire)</h2>
+  <p>
+    ✅ <a href="/servicios/arcos-de-globos/">Arcos de entrada</a><br />
+    ✅ <a href="/servicios/columnas-decorativas/">Columnas decorativas</a><br />
+    ✅ <a href="/servicios/backdrops-paneles/">Backdrops fotográficos</a><br />
+    ✅ <a href="/servicios/centros-de-mesa/">Centros de mesa</a> (tipo bouquet fijo)<br />
+    ✅ <a href="/servicios/guirnaldas-de-globos/">Guirnaldas</a><br />
+    ✅ Cualquier instalación fija que dure todo el evento<br />
+    ✅ Decoración de larga duración (semanas)<br />
+  </p>
+
+  <h2>La estrategia ganadora: Combina ambos</h2>
+  <p>
+    La mayoría de eventos usa MEZCLA:
+  </p>
+  <p>
+    <strong>Base de Aire (Latex):</strong> Arco, columnas, backdrop. Duran todo el evento, instalación profesional, aspecto impecable.
+  </p>
+  <p>
+    <strong>Detalles de Helio:</strong> Algunos globos flotantes alrededor, bouquets especiales, efectos flotantes. Generan "wow" visual.
+  </p>
+  <p>
+    Ejemplo: Bodas grandes siempre usan esta estrategia. Arco y columnas aire (duran 8+ horas perfectos), más algunos globos helio flotantes para efecto extra.
+  </p>
+
+  <h2>Precios: La realidad económica</h2>
+  <p>
+    Si decoras con 100 globos:
+  </p>
+  <p>
+    <strong>Opción Helio:</strong> 100 globos x $40 = $4,000 MXN (sin contar instalación)<br />
+    <strong>Opción Latex:</strong> 100 globos x $7.50 = $750 MXN + instalación profesional ~$3,000 = $3,750 MXN total<br />
+  </p>
+  <p>
+    ¿Helio cuesta más? Ligeramente. ¿Vale la pena para los 12-18 horas que duran? Solo si realmente necesitas el efecto flotante.
+  </p>
+
+  <h2>Duración: El factor crítico</h2>
+  <p>
+    <strong>Helio en Latex:</strong> 12-18 horas (después comienzan a bajar, a las 24h ya están en el piso)
+  </p>
+  <p>
+    <strong>Helio en Foil/Metalizado:</strong> 3-4 SEMANAS (superior al latex)
+  </p>
+  <p>
+    <strong>Aire en Latex:</strong> 2-4 semanas (interior; exterior menos)
+  </p>
+  <p>
+    <strong>Aire en Foil:</strong> 3-4 semanas
+  </p>
+  <p>
+    Si necesitas decoración que dure meses, NO uses helio en latex. Usa aire en foil.
+  </p>
+
+  <h2>Instalación: Dónde está la diferencia de trabajo</h2>
+  <p>
+    <strong>Helio:</strong> Llenas globo con helio, atas una cinta a un peso decorativo. Listo. Es relativamente fácil. Por eso es más económico en instalación.
+  </p>
+  <p>
+    <strong>Latex/Aire:</strong> Necesita estructura, anclajes, distribución de peso, aseguramientos. Requiere técnico profesional. Por eso cuesta más la instalación pero el resultado es duradero.
+  </p>
+
+  <h2>Preguntas frecuentes sobre helio</h2>
+  <p>
+    <strong>P: ¿Es tóxico el helio?</strong><br />
+    <strong>R:</strong> No. Es completamente seguro. Se usa en hospitales. Ni siquiera hay riesgos si un niño respira helio (no recomendamos, pero no es peligroso).
+  </p>
+  <p>
+    <strong>P: ¿Se agota el helio en México?</strong><br />
+    <strong>R:</strong> No. Hay suministro estable. Algunos años puede haber escasez global, pero es raro.
+  </p>
+  <p>
+    <strong>P: ¿Puedo inflar yo mismo los globos con helio?</strong><br />
+    <strong>R:</strong> Técnicamente sí, pero es peligroso sin equipo. Requiere botella de helio, regulador, seguridad. Mejor contratar profesional.
+  </p>
+
+  <h2>Resumen: ¿Cuál elegir para tu evento?</h2>
+  <p>
+    <strong>Evento corto (4-8 horas) con efectos flotantes:</strong> Helio en foil (duran bien 3-4 semanas)
+  </p>
+  <p>
+    <strong>Evento que durará todo el día y después:</strong> Aire en foil (duran 3-4 semanas, impecable durante evento)
+  </p>
+  <p>
+    <strong>Decoración de larga duración (1-2 semanas):</strong> Aire siempre (más económico)
+  </p>
+  <p>
+    <strong>Estrategia ganadora:</strong> Aire para base sólida + Helio para detalles flotantes. Máximo impacto, presupuesto balanceado.
+  </p>
+
+  <p>
+    <strong>¿Necesitas asesoría para saber qué tipo elegir para tu evento?</strong> Nos especializamos en combinar opciones de forma inteligente. DEGLOB: globos helio, latex, y sabiduría para elegir bien.
+  </p>
+</BlogLayout>
