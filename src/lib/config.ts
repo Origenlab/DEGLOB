@@ -168,6 +168,17 @@ export const SERVICIOS = [
 ] as const;
 
 // -- Navegación principal --
+export const EVENTOS = [
+  { nombre: 'Bodas', slug: 'bodas' },
+  { nombre: 'XV Años', slug: 'xv-anos' },
+  { nombre: 'Baby Shower', slug: 'baby-shower' },
+  { nombre: 'Cumpleaños Infantil', slug: 'cumpleanos-infantil' },
+  { nombre: 'Cumpleaños Adulto', slug: 'cumpleanos-adulto' },
+  { nombre: 'Corporativos', slug: 'corporativos' },
+  { nombre: 'Graduaciones', slug: 'graduaciones' },
+  { nombre: 'Gender Reveal', slug: 'gender-reveal' },
+] as const;
+
 export const NAV_LINKS = [
   {
     label: 'Servicios',
@@ -175,6 +186,14 @@ export const NAV_LINKS = [
     children: SERVICIOS.map((s) => ({
       label: s.nombre,
       href: `/servicios/${s.slug}/`,
+    })),
+  },
+  {
+    label: 'Eventos',
+    href: '/eventos/',
+    children: EVENTOS.map((e) => ({
+      label: e.nombre,
+      href: `/eventos/${e.slug}/`,
     })),
   },
   { label: 'Nosotros', href: '/nosotros/' },
