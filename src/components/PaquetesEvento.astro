@@ -1,0 +1,171 @@
+---
+import { PAQUETES_EVENTOS, WHATSAPP_NUMBER } from '../lib/config';
+
+interface Props {
+  eventoSlug: string;
+  eventoNombre: string;
+}
+
+const { eventoSlug } = Astro.props;
+
+const paquetes = PAQUETES_EVENTOS[eventoSlug];
+if (!paquetes || paquetes.length === 0) {
+  return;
+}
+---
+
+<div class="pkg-grid">
+  {paquetes.map((paquete) => (
+    <div class={`pkg-card${paquete.destacado ? ' pkg-card--destacado' : ''}`}>
+      {paquete.destacado && (
+        <div class="pkg-card__badge">Más Solicitado</div>
+      )}
+      <div class="pkg-card__header">
+        <h3 class="pkg-card__name">{paquete.nombre}</h3>
+        <p class="pkg-card__price">
+          {paquete.precioDesde ? 'Desde ' : ''}
+          <span class="pkg-card__price-number">
+            ${paquete.precio.toLocaleString('es-MX')}
+          </span>
+          {' '}<span class="pkg-card__price-currency">MXN</span>
+        </p>
+        <p class="pkg-card__desc">{paquete.descripcion}</p>
+      </div>
+      <ul class="pkg-card__features">
+        {paquete.incluye.map((item) => (
+          <li><span class="pkg-card__check">✓</span> {item}</li>
+        ))}
+      </ul>
+      <a
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(paquete.waMsg)}`}
+        class="pkg-card__btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Cotizar Paquete
+      </a>
+    </div>
+  ))}
+</div>
+
+<style>
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .pkg-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .pkg-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pkg-card--destacado {
+    border: 2px solid #8B30EE;
+  }
+
+  .pkg-card__badge {
+    background: #8B30EE;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0.375rem 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .pkg-card__header {
+    background: var(--color-bg);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .pkg-card__name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+  }
+
+  .pkg-card__price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+  }
+
+  .pkg-card__price-number {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #8B30EE;
+  }
+
+  .pkg-card__price-currency {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+  }
+
+  .pkg-card__desc {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .pkg-card__features {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    flex: 1;
+    list-style: none;
+    margin: 0;
+  }
+
+  .pkg-card__features li {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .pkg-card__check {
+    color: #8B30EE;
+    font-weight: 700;
+    flex-shrink: 0;
+    line-height: 1.5;
+  }
+
+  .pkg-card__btn {
+    display: block;
+    text-align: center;
+    padding: 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: #8B30EE;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s;
+  }
+
+  .pkg-card__btn:hover {
+    background: #7020cc;
+  }
+</style>

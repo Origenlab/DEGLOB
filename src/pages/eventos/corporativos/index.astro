@@ -6,6 +6,7 @@ import SectionHeader from '../../../components/SectionHeader.astro';
 import CategoryCard from '../../../components/CategoryCard.astro';
 import FaqSection from '../../../components/FaqSection.astro';
 import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import PaquetesEvento from '../../../components/PaquetesEvento.astro';
 import { faqSchema } from '../../../lib/seo';
 
 const serviciosRecomendados = SERVICIOS.filter(s => ['columnas-decorativas', 'arcos-de-globos', 'backdrops-paneles', 'guirnaldas-de-globos', 'globos-helio', 'centros-de-mesa'].includes(s.slug));
@@ -87,6 +88,17 @@ const structuredData = [
           />
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="paquetes">
+    <div class="container">
+      <SectionHeader
+        badge="Paquetes"
+        title="Paquetes de Decoración para Corporativos"
+        subtitle="Elige el paquete ideal para tu evento. Todos incluyen instalación profesional en CDMX."
+      />
+      <PaquetesEvento eventoSlug="corporativos" eventoNombre="Corporativos" />
     </div>
   </section>
 

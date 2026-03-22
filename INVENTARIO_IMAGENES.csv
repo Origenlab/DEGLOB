@@ -1,0 +1,57 @@
+Ruta,Categoría,Debe Existir,Existe,Tamaño,Formato,Estado,Notas
+/public/img/servicios/arcos-de-globos.webp,Servicios Hero,SÍ,SÍ,1200x675,webp,✅,Hero principal
+/public/img/servicios/columnas-globos.webp,Servicios Hero,SÍ,❓,1200x675,webp,⚠️,Validar
+/public/img/servicios/backdrops-paneles.webp,Servicios Hero,SÍ,❓,1200x675,webp,⚠️,Validar
+/public/img/servicios/globos-helio.webp,Servicios Hero,SÍ,❓,1200x675,webp,⚠️,Validar
+/public/img/servicios/figuras-globos.webp,Servicios Hero,SÍ,❓,1200x675,webp,⚠️,Validar
+/public/img/servicios/centros-mesa-globos.webp,Servicios Hero,SÍ,❓,1200x675,webp,⚠️,Validar
+/public/img/servicios/globos-gigantes.webp,Servicios Hero,SÍ,❓,1200x675,webp,⚠️,Validar
+/public/img/servicios/guirnaldas-globos.webp,Servicios Hero,SÍ,❓,1200x675,webp,⚠️,Validar
+/public/img/blog/blog-arcos-tendencias-organicos-decoracion.webp,Blog Featured,SÍ,NO,1200x630,webp,❌,GENERAR ImageFX
+/public/img/blog/blog-centros-mesa-globos-elegante.webp,Blog Featured,SÍ,NO,1200x630,webp,❌,GENERAR ImageFX
+/public/img/blog/blog-guia-elegir-decoracion-globos.webp,Blog Featured,SÍ,NO,1200x630,webp,❌,GENERAR ImageFX
+/public/img/blog/blog-bodas-cdmx-decoracion-globos.webp,Blog Featured,SÍ,NO,1200x630,webp,❌,GENERAR ImageFX
+/public/img/blog/blog-xv-anos-quinceañera-globos.webp,Blog Featured,SÍ,NO,1200x630,webp,❌,GENERAR ImageFX
+/public/img/blog/blog-gender-reveal-globos-gigantes.webp,Blog Featured,SÍ,NO,1200x630,webp,❌,GENERAR ImageFX
+/public/img/blog/blog-baby-shower-globos-pastel.webp,Blog Featured,SÍ,NO,1200x630,webp,❌,GENERAR ImageFX
+/public/img/blog/blog-eventos-corporativos-branding-globos.webp,Blog Featured,SÍ,NO,1200x630,webp,❌,GENERAR ImageFX
+/public/img/blog/blog-helio-aire-comparativa-globos.webp,Blog Featured,SÍ,NO,1200x630,webp,❌,GENERAR ImageFX
+/public/img/blog/blog-guirnaldas-organicas-natural.webp,Blog Featured,SÍ,NO,1200x630,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-pequeno-1-candy-bar-blanco.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-pequeno-2-mesa-dulces-rosa.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-pequeno-3-baby-shower-pastel.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-pequeno-4-cumpleanos-colores.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-pequeno-5-salon-entrada.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-pequeno-6-detalle-globos-calidad.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-mediano-1-boda-ceremonia-blanco.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-mediano-2-xv-anos-rosa-dorado.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-mediano-3-photobooth-sesion-fotos.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-mediano-4-jardin-flores-eucalipto.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-mediano-5-mesa-regalos-entrada.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-mediano-6-detalle-construccion.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-grande-1-boda-ceremonia-4m.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-grande-2-salon-entrada-principal.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-grande-3-mesa-novios-backdrop.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-grande-4-arco-multicolor-fiesta.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-grande-5-escenario-premios-corporativo.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/arco-grande-6-estructura-interna-profesional.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/produccion-arcos-1-multiples-arcos-completo.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/produccion-arcos-2-paleta-colores-multiples.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/produccion-arcos-3-ceremonia-recepcion.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/produccion-arcos-4-equipo-instalacion-profesional.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/produccion-arcos-5-escala-monumental.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+/public/img/arcos-de-globos/produccion-arcos-6-detalle-finalizacion.webp,Sub-paquete,SÍ,NO,1200x800,webp,❌,GENERAR ImageFX
+[... Patrón similar para columnas-decorativas (24) + backdrops-paneles (24) + globos-helio (24) + figuras-personalizadas (24) + centros-de-mesa (24) + guirnaldas-de-globos (24) + globos-gigantes (18) ...]
+/public/img/arcos-de-globos/,Galería,SÍ,SÍ,--,webp,✅,24 existentes + 24 nuevas
+/public/img/columnas-decorativas/,Galería,SÍ,SÍ,--,webp,✅,41 existentes + 24 nuevas
+/public/img/backdrops-paneles/,Galería,SÍ,❓,--,webp,⚠️,Validar + 24 nuevas
+/public/img/figuras-de-globos/,Galería,SÍ,SÍ,--,webp,✅,31 existentes + 24 nuevas
+/public/img/globos-centro-de-mesas/,Galería,SÍ,SÍ,--,webp,✅,38 existentes + 24 nuevas
+/public/img/globos-gigantes/,Galería,SÍ,SÍ,--,webp,✅,57 existentes + 18 nuevas
+/public/img/globos-helio/,Galería,SÍ,SÍ,--,webp,✅,37 existentes + 24 nuevas
+/public/img/guirnaldas-de-globos/,Galería,SÍ,SÍ,--,webp,✅,81 existentes + 24 nuevas
+RESUMEN,,,,,,,
+"Total imágenes a GENERAR",Blog (10) + Sub-paquetes (192) = 202,SÍ,NO,,webp,❌,"✅ Archivos existentes: 385+
+❌ Archivos a generar: 202
+⚠️ Archivos a validar: ~8
+Total: ~595 imágenes en sitio"
