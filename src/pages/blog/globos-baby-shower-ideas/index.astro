@@ -1,0 +1,103 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = "Ideas de Globos para Baby Shower: Guía Completa";
+const description = "Las mejores ideas de decoración con globos para baby shower. Paletas de colores, arreglos temáticos y tips para crear un ambiente mágico para la llegada del bebé.";
+const category = "Baby Shower";
+const date = "2025-10-10";
+
+const structuredData = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  datePublished: date,
+  dateModified: date,
+  author: { '@type': 'Organization', name: 'DEGLOB' },
+  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+}];
+---
+
+<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
+  <Breadcrumb items={[
+    { name: 'Blog', href: '/blog/' },
+    { name: title, href: '/blog/globos-baby-shower-ideas/' },
+  ]} />
+
+  <article class="blog-article">
+    <header class="blog-article__header">
+      <span class="blog-article__category">{category}</span>
+      <h1 class="blog-article__title">{title}</h1>
+      <p class="blog-article__excerpt">{description}</p>
+      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+    </header>
+
+    <div class="blog-article__content">
+      <h2>El baby shower perfecto comienza con la decoración</h2>
+      <p>El baby shower es una de las celebraciones más especiales y emotivas antes de la llegada de un nuevo integrante a la familia. La decoración con globos juega un papel fundamental para crear ese ambiente cálido, alegre y lleno de ternura que caracteriza a estos eventos. En CDMX, cada vez más familias optan por decoraciones profesionales con globos que van mucho más allá de los típicos arreglos básicos.</p>
+      <p>Ya sea que organices el baby shower en casa, en un restaurante o en un salón de eventos, los globos se adaptan a cualquier espacio y presupuesto, permitiéndote crear una atmósfera memorable sin complicaciones.</p>
+
+      <h2>Paletas de colores para baby shower</h2>
+      <p>La elección de colores marca el tono de toda la decoración. Aquí las opciones más populares que hemos trabajado en nuestros eventos:</p>
+      <ul>
+        <li><strong>Rosa pastel y dorado:</strong> Un clásico para niñas que nunca pasa de moda. Los globos rosa en diferentes tonalidades combinados con acentos chrome dorados crean un look dulce y sofisticado.</li>
+        <li><strong>Azul cielo y blanco:</strong> Para niños, esta combinación transmite tranquilidad y frescura. Agrega globos transparentes con confeti azul para un toque especial.</li>
+        <li><strong>Verde menta y amarillo:</strong> Perfecto para baby showers de género neutro. Fresco, moderno y lleno de vida.</li>
+        <li><strong>Lila y lavanda:</strong> Una opción elegante que funciona tanto para niña como para género neutro, especialmente con acentos plateados.</li>
+        <li><strong>Arcoíris pastel:</strong> Ideal cuando quieres una celebración colorida pero suave, mezclando todos los tonos pastel en una sola composición.</li>
+      </ul>
+
+      <h2>Ideas de arreglos con globos para baby shower</h2>
+      <p>El arco de globos sobre la mesa principal es probablemente el elemento más impactante. Un arco orgánico en forma de media luna que enmarque la mesa de regalos o la mesa de dulces crea el punto focal perfecto para el evento. Puedes personalizar el arco con figuras de foil como biberones, carriolas, patitos o estrellas que complementen la temática.</p>
+      <p>Los bouquets de globos con helio son excelentes para marcar la entrada del venue o para distribuir en las mesas de los invitados. Un conjunto de cinco a siete globos en diferentes tamaños y texturas, anclados a un peso decorativo, funciona como centro de mesa elegante y festivo a la vez.</p>
+
+      <h3>Globos con nombre del bebé</h3>
+      <p>Si ya conoces el nombre del bebé, una instalación con globos formando las letras del nombre es un detalle personalizado que encanta a todos los asistentes. Se puede colocar sobre la pared principal o como parte del backdrop para fotos. Cada letra se construye con globos pequeños sobre una estructura interna, creando un efecto tridimensional impresionante.</p>
+
+      <h3>Columnas y guirnaldas temáticas</h3>
+      <p>Las columnas de globos a los lados de la mesa principal añaden verticalidad y presencia al espacio. Para baby showers, se suelen rematar con figuras de foil como osos de peluche, nubes o lunas. Las guirnaldas orgánicas que recorren la pared detrás de la mesa o que decoran el marco de una ventana son una forma sutil pero efectiva de llenar el espacio con color.</p>
+
+      <h2>Temáticas populares para baby shower con globos</h2>
+      <p>Más allá del clásico rosa o azul, las temáticas permiten llevar la decoración a otro nivel. El tema de ositos y nubes se logra combinando globos en tonos neutros con figuras especiales y algodón para simular nubes. La temática de safari incorpora globos verdes, marrones y dorados con figuras de animales de foil. El tema de estrellas y luna utiliza globos en azul oscuro, plateado y dorado para crear un ambiente celestial.</p>
+      <p>Cada temática permite un nivel diferente de personalización. Un decorador profesional puede sugerirte combinaciones que tal vez no habías considerado y que elevarán el resultado final de tu baby shower.</p>
+
+      <h2>Tips para un baby shower inolvidable</h2>
+      <p>Reserva tu decoración con al menos dos semanas de anticipación, especialmente si necesitas globos en colores específicos que podrían requerir pedido especial. Considera el horario del evento: si es al aire libre durante el día, los globos con helio pueden verse afectados por el calor. Un profesional sabrá recomendarte las mejores opciones según las condiciones de tu venue y la hora del evento.</p>
+      <p>Finalmente, no olvides que la decoración debe complementar y no competir con los demás elementos de la fiesta. La armonía entre los globos, la mantelería, los centros de mesa y la papelería del evento es lo que crea una experiencia visual verdaderamente especial para la futura mamá y todos los invitados.</p>
+    </div>
+
+    <div class="blog-article__cta">
+      <h3>¿Necesitas decoración con globos para tu baby shower?</h3>
+      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+
+    <nav class="blog-article__back">
+      <a href="/blog/">&larr; Volver al blog</a>
+    </nav>
+  </article>
+
+</Base>
+
+<style>
+  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
+  .blog-article__header { margin-bottom: var(--spacing-2xl); }
+  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
+  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
+  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
+  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  .blog-article__content { margin-bottom: var(--spacing-2xl); }
+  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
+  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
+  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
+  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
+  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
+  .blog-article__content strong { color: var(--color-text); }
+  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
+  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
+  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
+  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
+</style>

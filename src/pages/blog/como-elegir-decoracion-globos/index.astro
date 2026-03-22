@@ -1,0 +1,103 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = "Cómo Elegir la Mejor Decoración con Globos para tu Evento";
+const description = "Guía paso a paso para elegir la decoración con globos ideal. Considera el tipo de evento, presupuesto, espacio y estilo para tomar la mejor decisión.";
+const category = "Guías";
+const date = "2025-06-10";
+
+const structuredData = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  datePublished: date,
+  dateModified: date,
+  author: { '@type': 'Organization', name: 'DEGLOB' },
+  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+}];
+---
+
+<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
+  <Breadcrumb items={[
+    { name: 'Blog', href: '/blog/' },
+    { name: title, href: '/blog/como-elegir-decoracion-globos/' },
+  ]} />
+
+  <article class="blog-article">
+    <header class="blog-article__header">
+      <span class="blog-article__category">{category}</span>
+      <h1 class="blog-article__title">{title}</h1>
+      <p class="blog-article__excerpt">{description}</p>
+      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+    </header>
+
+    <div class="blog-article__content">
+      <h2>Antes de empezar: define tu visión</h2>
+      <p>Elegir la decoración con globos adecuada para tu evento puede parecer abrumador con tantas opciones disponibles. Arcos, columnas, guirnaldas, backdrops, centros de mesa, figuras personalizadas... las posibilidades son casi infinitas. Pero no te preocupes: con un enfoque organizado y las preguntas correctas, encontrar la combinación perfecta es más sencillo de lo que parece. Esta guía te llevará paso a paso por el proceso de decisión.</p>
+      <p>Lo primero es tener clara la visión general de tu evento. Antes de pensar en globos específicos, responde estas preguntas: ¿Qué tipo de evento es? ¿Cuál es la atmósfera que quieres crear? ¿Hay una temática o paleta de colores definida? ¿Cuántos invitados esperas? Las respuestas a estas preguntas son la base sobre la cual se construirá toda tu decoración.</p>
+
+      <h2>Paso 1: Conoce tu espacio</h2>
+      <p>El venue es determinante para elegir el tipo de decoración. Un salón con techos altos permite instalaciones verticales como columnas de tres metros o techos de globos con helio que serían imposibles en un espacio más reducido. Un jardín al aire libre requiere considerar el clima y optar por estructuras resistentes al viento. Un restaurante íntimo necesita piezas más discretas que no abrumen el espacio.</p>
+      <p>Visita tu venue o solicita las medidas y fotos antes de reunirte con tu decorador. Información como la altura del techo, el ancho de la entrada, el color de las paredes y la iluminación existente ayudan enormemente a diseñar una propuesta que se integre naturalmente al espacio. Un decorador profesional incluso puede hacer una visita previa al venue para evaluar las posibilidades y limitaciones.</p>
+
+      <h2>Paso 2: Define tu presupuesto</h2>
+      <p>Ser honesto con tu presupuesto desde el principio permite que el decorador te ofrezca opciones realistas y optimice cada peso invertido. La decoración con globos tiene la ventaja de adaptarse a rangos de presupuesto muy amplios: desde opciones accesibles con globos estándar hasta instalaciones premium con globos chrome, confeti y elementos complementarios.</p>
+      <p>Como referencia general, un arco orgánico puede ir desde $2,500 hasta $15,000 o más dependiendo del tamaño y los materiales. Los centros de mesa van desde $150 hasta $500 por mesa. Un backdrop completo puede costar entre $3,500 y $16,000 según la cobertura y complejidad. Estos rangos te dan una idea para planificar, aunque los precios exactos dependen de las especificaciones de cada proyecto.</p>
+
+      <h2>Paso 3: Elige los elementos principales</h2>
+      <p>No necesitas todos los tipos de decoración para lograr un evento espectacular. Es mejor invertir en dos o tres elementos bien ejecutados que dispersar el presupuesto en muchos elementos pequeños. Estos son los elementos más impactantes por tipo de evento:</p>
+      <ul>
+        <li><strong>Bodas:</strong> Un arco para la ceremonia y centros de mesa para la recepción cubren los dos momentos principales.</li>
+        <li><strong>XV años:</strong> El backdrop para la mesa principal y columnas en la entrada crean el mayor impacto visual.</li>
+        <li><strong>Cumpleaños:</strong> Un arco orgánico como fondo para fotos y una guirnalda sobre la mesa de dulces son suficientes para transformar el espacio.</li>
+        <li><strong>Baby shower:</strong> El arco sobre la mesa de regalos y bouquets de helio en las mesas de invitados crean el ambiente perfecto.</li>
+        <li><strong>Corporativos:</strong> Columnas en la entrada y un backdrop con branding para fotos profesionales.</li>
+      </ul>
+
+      <h2>Paso 4: Selecciona tu paleta de colores</h2>
+      <p>La paleta de colores es quizás la decisión más importante después del presupuesto. Una buena regla es elegir un color principal, un color secundario y un acento metálico o neutro. Por ejemplo: rosa blush como principal, borgoña como secundario y dorado chrome como acento. Esta combinación se aplica en todas las piezas de decoración para crear coherencia visual.</p>
+      <p>Evita usar más de cuatro o cinco colores diferentes, ya que la composición puede verse caótica. Si te cuesta decidir, lleva muestras de tu mantelería, invitaciones o vestido al decorador para que pueda hacer coincidencias exactas con los colores de globos disponibles.</p>
+
+      <h2>Paso 5: Considera la logística</h2>
+      <p>Aspectos prácticos que muchas veces se pasan por alto incluyen el tiempo de montaje permitido por el venue, el acceso para el equipo de decoración y sus materiales, si hay restricciones sobre el uso de helio o elementos colgantes, y la hora de desmontaje después del evento. Comunica estos datos a tu decorador con anticipación para evitar sorpresas el día del evento.</p>
+
+      <h2>Paso 6: Confía en el profesional</h2>
+      <p>Una vez que hayas definido tu visión, presupuesto y preferencias, confía en la experiencia de tu decorador. Los profesionales trabajan con globos todos los días y conocen técnicas, materiales y combinaciones que pueden superar lo que habías imaginado. Comparte tu inspiración (fotos de Pinterest, Instagram o eventos anteriores), pero mantente abierto a sus sugerencias profesionales. El resultado de esa colaboración será una decoración que refleje tu visión pero ejecutada con la calidad y el detalle que solo la experiencia profesional puede lograr.</p>
+    </div>
+
+    <div class="blog-article__cta">
+      <h3>¿Necesitas ayuda para elegir tu decoración?</h3>
+      <p>Cotiza gratis y sin compromiso. Te asesoramos para encontrar la opción perfecta.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+
+    <nav class="blog-article__back">
+      <a href="/blog/">&larr; Volver al blog</a>
+    </nav>
+  </article>
+
+</Base>
+
+<style>
+  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
+  .blog-article__header { margin-bottom: var(--spacing-2xl); }
+  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
+  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
+  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
+  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  .blog-article__content { margin-bottom: var(--spacing-2xl); }
+  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
+  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
+  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
+  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
+  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
+  .blog-article__content strong { color: var(--color-text); }
+  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
+  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
+  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
+  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
+</style>

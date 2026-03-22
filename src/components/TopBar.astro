@@ -1,0 +1,136 @@
+---
+/**
+ * TopBar — DEGLOB
+ * Barra superior con info de contacto. Estática, desaparece en mobile < 480px.
+ */
+---
+
+<div class="topbar" role="complementary" aria-label="Información de contacto">
+  <div class="container">
+    <div class="topbar__mobile">
+      <a href="tel:+5215639565117">📞 56 3956 5117</a>
+      <span class="topbar__sep">|</span>
+      <a href="https://wa.me/5215639565117" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="topbar__left">
+      <span class="topbar__label">Decoración Profesional con Globos — CDMX</span>
+      <span class="topbar__sep">|</span>
+      <a href="tel:+5215639565117">📞 56 3956 5117</a>
+      <span class="topbar__sep">|</span>
+      <a href="https://wa.me/5215639565117" target="_blank" rel="noopener">WhatsApp: 56 3956 5117</a>
+    </div>
+    <div class="topbar__right">
+      <span class="topbar__hours">Lun-Vie 9-19h | Sáb 10-16h</span>
+      <a href="https://wa.me/5215639565117?text=Hola%2C%20quiero%20cotizar%20decoraci%C3%B3n%20con%20globos" class="topbar__cta" target="_blank" rel="noopener">Cotiza gratis</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .topbar {
+    background: #1a1a2e;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.8125rem;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .topbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .topbar__left {
+    display: none;
+  }
+
+  .topbar__right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .topbar__mobile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .topbar__mobile a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+  }
+
+  .topbar__mobile a:hover {
+    color: #fff;
+  }
+
+  .topbar__label {
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
+
+  .topbar__left a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+  }
+
+  .topbar__left a:hover {
+    color: #fff;
+  }
+
+  .topbar__sep {
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  .topbar__hours {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .topbar__cta {
+    background: #C900D4;
+    color: #fff;
+    padding: 0.25rem 0.875rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+
+  .topbar__cta:hover {
+    background: #a800b0;
+  }
+
+  @media (min-width: 768px) {
+    .topbar .container {
+      justify-content: space-between;
+    }
+
+    .topbar__left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .topbar__mobile {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .topbar { display: none; }
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = "Gender Reveal con Globos Gigantes: Cómo Hacerlo Perfecto";
+const description = "Organiza un gender reveal inolvidable con globos gigantes. Te explicamos opciones, colores, logística y cómo crear el momento sorpresa perfecto.";
+const category = "Gender Reveal";
+const date = "2025-08-01";
+
+const structuredData = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  datePublished: date,
+  dateModified: date,
+  author: { '@type': 'Organization', name: 'DEGLOB' },
+  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+}];
+---
+
+<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
+  <Breadcrumb items={[
+    { name: 'Blog', href: '/blog/' },
+    { name: title, href: '/blog/gender-reveal-globos-gigantes/' },
+  ]} />
+
+  <article class="blog-article">
+    <header class="blog-article__header">
+      <span class="blog-article__category">{category}</span>
+      <h1 class="blog-article__title">{title}</h1>
+      <p class="blog-article__excerpt">{description}</p>
+      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+    </header>
+
+    <div class="blog-article__content">
+      <h2>El gender reveal: un momento para recordar</h2>
+      <p>La revelación del sexo del bebé se ha convertido en uno de los momentos más esperados y emocionantes del embarazo. En CDMX, cada vez más parejas organizan eventos especiales para compartir esta sorpresa con familiares y amigos, y los globos gigantes son el protagonista absoluto de estas celebraciones. El instante en que el globo se revienta y una lluvia de confeti rosa o azul llena el aire es sencillamente mágico.</p>
+      <p>Pero organizar un gender reveal exitoso requiere planificación y conocer las opciones disponibles. En esta guía te contamos todo lo que necesitas para que ese momento sea perfecto.</p>
+
+      <h2>El globo gigante negro: el clásico que nunca falla</h2>
+      <p>El formato más popular para gender reveal es el globo gigante de 36 pulgadas (3 pies) en color negro. Su interior se rellena con confeti del color correspondiente al sexo del bebé: rosa para niña, azul para niño. Cuando los futuros padres pinchan el globo con un alfiler o una aguja decorativa, el confeti sale disparado creando un espectáculo visual que todos quieren capturar en foto y video.</p>
+      <p>Para que el efecto sea más impactante, se recomienda rellenar el globo con una mezcla de confeti de papel (para la caída lenta y elegante) y confeti metálico (para el brillo y la dispersión inicial). La cantidad ideal es entre 20 y 30 gramos de confeti para un globo de 36 pulgadas. Demasiado confeti puede hacer que el globo no se infle correctamente, mientras que muy poco resultará en una revelación discreta.</p>
+
+      <h2>Opciones más allá del globo negro</h2>
+      <p>Aunque el globo negro es el estándar, existen variaciones creativas que le dan un giro original al momento de la revelación:</p>
+      <ul>
+        <li><strong>Globo transparente con confeti:</strong> En lugar de ocultar el color, se llena un globo transparente gigante con confeti que se activa al reventarlo. La ventaja es que puedes decorar el exterior con vinilos que digan "He or She?" o "¿Niño o Niña?".</li>
+        <li><strong>Caja sorpresa con globos:</strong> Una caja grande decorada que al abrirse libera decenas de globos de helio en rosa o azul. El efecto de ver los globos elevarse al cielo es espectacular para fotos al aire libre.</li>
+        <li><strong>Globo con pintura:</strong> Un globo gigante relleno de pintura lavable rosa o azul que al reventarse salpica un lienzo blanco. Así obtienes además una obra de arte única como recuerdo.</li>
+        <li><strong>Piñata de globo:</strong> Un globo gigante decorado como piñata que los padres golpean hasta que explota revelando confeti y mini globos del color sorpresa.</li>
+      </ul>
+
+      <h2>La decoración del evento completo</h2>
+      <p>El gender reveal no se limita al momento de la revelación. El espacio donde se realiza el evento merece una decoración que genere expectativa y emoción. Una propuesta popular es dividir la decoración en dos mitades: un lado rosa y otro azul, representando las dos opciones. Los invitados pueden colocarse en el lado de su predicción antes de la revelación.</p>
+      <p>Un arco orgánico en la entrada que combine rosa, azul y blanco con signos de interrogación establece el tema desde que los invitados llegan. La mesa de dulces puede tener secciones en ambos colores con un centro neutral donde se colocará el globo gigante de la revelación.</p>
+
+      <h3>Decoración con preguntas y apuestas</h3>
+      <p>Colocar globos con helio en ambos colores que los invitados elijan según su predicción es una dinámica divertida que involucra a todos. Cada invitado toma un globo rosa o azul al llegar, y después de la revelación, quienes acertaron celebran con sus globos. Este tipo de interacción hace que el evento sea participativo y memorable.</p>
+
+      <h2>Logística y timing perfecto</h2>
+      <p>El globo gigante debe prepararse el mismo día del evento, idealmente unas dos a tres horas antes. Si se rellena con demasiada anticipación, el confeti puede asentarse en el fondo y no dispersarse bien al reventarlo. Es importante que la persona que prepare el globo sea la única que conozca el sexo del bebé (generalmente un familiar o amigo de confianza, o el propio decorador).</p>
+      <p>Asegúrate de que el fotógrafo y el camarógrafo estén posicionados antes de la revelación. El momento dura apenas unos segundos, así que no hay oportunidad de repetirlo. Comunica a todos los invitados el momento exacto para que estén listos con sus cámaras.</p>
+
+      <h2>Tips finales para un gender reveal exitoso</h2>
+      <p>Si el evento es al aire libre, ten en cuenta la dirección del viento para que el confeti vuele hacia el frente de las cámaras y no se aleje de los padres. Usa un alfiler largo con mango para pinchar el globo, ya que facilita el momento y evita accidentes con agujas pequeñas. Y sobre todo, disfruta el momento: la genuina sorpresa y emoción de los futuros padres es lo que hace que estas fotos y videos sean verdaderamente especiales.</p>
+    </div>
+
+    <div class="blog-article__cta">
+      <h3>¿Necesitas globos para tu gender reveal?</h3>
+      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+
+    <nav class="blog-article__back">
+      <a href="/blog/">&larr; Volver al blog</a>
+    </nav>
+  </article>
+
+</Base>
+
+<style>
+  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
+  .blog-article__header { margin-bottom: var(--spacing-2xl); }
+  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
+  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
+  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
+  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  .blog-article__content { margin-bottom: var(--spacing-2xl); }
+  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
+  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
+  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
+  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
+  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
+  .blog-article__content strong { color: var(--color-text); }
+  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
+  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
+  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
+  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
+</style>

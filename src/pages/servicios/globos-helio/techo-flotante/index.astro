@@ -1,0 +1,129 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import Hero from '../../../../components/Hero.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import CtaBar from '../../../../components/CtaBar.astro';
+import FaqSection from '../../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../../lib/config';
+import { faqSchema } from '../../../../lib/seo';
+
+const servicio = SERVICIOS.find(s => s.slug === 'globos-helio')!;
+const paquete = servicio.paquetes.find(p => p.slug === 'techo-flotante')!;
+const otrosPaquetes = servicio.paquetes.filter(p => p.slug !== 'techo-flotante');
+
+const faqItems = [
+  { pregunta: '¿Cómo funciona el techo flotante de globos?', respuesta: 'Inflamos más de 50 globos con helio que suben al techo del venue. Cada globo lleva una cinta que cae elegantemente creando un efecto de cortina flotante. El resultado es un techo cubierto de globos con cintas que caen a diferentes alturas.' },
+  { pregunta: '¿Qué altura de techo se necesita?', respuesta: 'El techo flotante funciona mejor en espacios con techos de 3 a 5 metros de altura. En techos muy altos, las cintas se ajustan para que los globos queden a la altura visible ideal.' },
+  { pregunta: '¿Cuánto tiempo duran los globos en el techo?', respuesta: 'Los globos de latex con helio en el techo duran entre 8 y 12 horas. Para eventos de todo el día, recomendamos complementar con globos foil que duran más. Siempre calculamos la duración según tu horario.' },
+  { pregunta: '¿El efecto wow de qué se trata?', respuesta: 'El efecto wow es la reacción de tus invitados al entrar al salón y ver el techo completamente cubierto de globos flotantes con cintas cayendo como una lluvia elegante. Es una decoración que sorprende a adultos y niños por igual.' },
+  { pregunta: '¿Se puede combinar con otros servicios?', respuesta: 'Por supuesto. El techo flotante se combina frecuentemente con arcos de globos en la entrada, columnas en la pista de baile o centros de mesa con helio. Ofrecemos descuento en paquetes combinados.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${paquete.nombre} — ${servicio.nombre}`,
+    description: `Paquete ${paquete.nombre} de ${servicio.nombre.toLowerCase()}. ${servicio.descripcion}`,
+    brand: { '@type': 'Organization', name: 'DEGLOB' },
+    offers: {
+      '@type': 'Offer',
+      price: paquete.precio,
+      priceCurrency: 'MXN',
+      availability: 'https://schema.org/InStock',
+      url: `${SITE_URL}/servicios/${servicio.slug}/${paquete.slug}/`,
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '64',
+      bestRating: '5',
+    },
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title={`${paquete.nombre} — ${servicio.nombre} | DEGLOB`}
+  description={`${paquete.nombre} de ${servicio.nombre.toLowerCase()} desde $${paquete.precio.toLocaleString()} MXN. ${paquete.features.slice(0, 3).join(', ')}. Instalación incluida en CDMX.`}
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Servicios', href: '/servicios/' },
+    { name: servicio.nombre, href: `/servicios/${servicio.slug}/` },
+    { name: paquete.nombre, href: `/servicios/${servicio.slug}/${paquete.slug}/` },
+  ]} />
+
+  <Hero
+    badge={`${servicio.nombre} — ${paquete.nombre}`}
+    title={`${paquete.nombre}`}
+    description={`Paquete de ${servicio.nombre.toLowerCase()} que incluye ${paquete.features[0].toLowerCase()}. Instalación profesional incluida en toda la CDMX.`}
+    primaryCta={{ text: `Cotizar $${paquete.precio.toLocaleString()} + IVA`, href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver más paquetes', href: `/servicios/${servicio.slug}/` }}
+  >
+    <Fragment slot="hero-seo">
+      <p>El techo flotante de globos con helio es una de las decoraciones más impactantes que puedes agregar a tu evento. Con más de 50 globos flotando en el techo y cintas que caen elegantemente, este efecto transforma por completo la atmósfera de cualquier salón en CDMX.</p>
+      <p>Globos de latex y chrome en tu paleta de colores suben al techo creando un cielo de color, mientras las cintas de caída elegante generan un efecto de cortina flotante. La instalación profesional garantiza la distribución perfecta de cada globo para un resultado uniforme y espectacular.</p>
+    </Fragment>
+  </Hero>
+
+  <CtaBar
+    items={otrosPaquetes.map(p => ({ label: p.nombre, href: `/servicios/${servicio.slug}/${p.slug}/` }))}
+    headline="Otros paquetes disponibles"
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="features-grid">
+        {paquete.features.map(f => (
+          <div class="feature-item feature-item--yes">
+            <span class="feature-item__icon">&#10003;</span>
+            <span>{f}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="price-highlight">
+        <span class="price-highlight__label">Precio desde</span>
+        <span class="price-highlight__amount">${paquete.precio.toLocaleString()} <small>MXN + IVA</small></span>
+        <span class="price-highlight__note">Instalación incluida en CDMX</span>
+        <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener" style="margin-top:1rem">Reservar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--bg">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        <h2>Techo Flotante de Globos con Helio: Transforma tu Salón</h2>
+        <p>El techo flotante de globos es una de esas decoraciones que genera un impacto inmediato en cada persona que entra al salón. Más de 50 globos inflados con helio cubren el techo del venue mientras sus cintas caen a diferentes alturas, creando un efecto de cascada flotante que transforma cualquier espacio en un ambiente mágico.</p>
+        <p>La clave del techo flotante está en la distribución estratégica de los globos. Nuestro equipo calcula la cantidad exacta según las dimensiones del techo, asegurando una cobertura uniforme. Los colores chrome y pastel reflejan la iluminación del salón, creando juegos de luz y color que evolucionan durante la noche.</p>
+        <p>Este servicio es particularmente impactante en salones de eventos con techos de doble altura en zonas como Santa Fe, Polanco e Interlomas. También es una de las decoraciones favoritas para cumpleaños infantiles donde los niños quedan fascinados al ver globos flotando sobre sus cabezas.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para reservar?</h2>
+      <p class="cta-dark__text">Cotiza tu {paquete.nombre.toLowerCase()} y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .features-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; max-width: 600px; margin: 0 auto var(--spacing-2xl); }
+  .feature-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; border-radius: var(--border-radius); font-size: var(--font-size-sm); }
+  .feature-item--yes { background: #f0fdf4; color: #166534; }
+  .feature-item__icon { font-weight: 700; flex-shrink: 0; }
+  .price-highlight { text-align: center; padding: var(--spacing-xl); background: var(--color-bg); border-radius: var(--border-radius-lg); max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .price-highlight__label { font-size: var(--font-size-sm); color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .price-highlight__amount { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); line-height: 1.2; }
+  .price-highlight__amount small { font-size: 1rem; font-weight: 500; color: var(--color-text-light); }
+  .price-highlight__note { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  @media (min-width: 640px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>

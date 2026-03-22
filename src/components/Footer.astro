@@ -1,123 +1,137 @@
 ---
-const services = [
-  { name: 'Arcos de Globos', href: '/servicios' },
-  { name: 'Columnas Decorativas', href: '/servicios' },
-  { name: 'Backdrops y Paneles', href: '/servicios' },
-  { name: 'Globos con Helio', href: '/servicios' },
-  { name: 'Figuras Personalizadas', href: '/servicios' },
-  { name: 'Centros de Mesa', href: '/servicios' },
-  { name: 'Guirnaldas de Globos', href: '/servicios' },
-  { name: 'Globos Gigantes', href: '/servicios' },
-];
-const events = ['Bodas', 'XV Años', 'Baby Shower', 'Cumpleaños', 'Corporativos', 'Inauguraciones', 'Gender Reveal', 'Graduaciones'];
+import { SITE_NAME, SITE_TAGLINE, PHONE_DISPLAY, PHONE_URL, WHATSAPP_URL_MSG, EMAIL, EMAIL_URL, BUSINESS_HOURS, SERVICIOS } from '../lib/config';
+
+const currentYear = new Date().getFullYear();
+const servicios1 = SERVICIOS.slice(0, 4);
+const servicios2 = SERVICIOS.slice(4);
 ---
-<footer slot="footer" class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="footer-logo">
-          <span class="logo-de">DE</span><span class="logo-glob">GLOB</span>
-        </a>
-        <p class="footer-tagline">Decoración con Globos</p>
-        <p class="footer-desc">Transformamos tus eventos en experiencias inolvidables con decoraciones de globos profesionales en toda la Ciudad de México.</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@deglob" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://www.pinterest.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__cta-band">
+    <div class="container">
+      <div class="footer__cta-inner">
+        <div class="footer__cta-content">
+          <p class="footer__cta-text">¿Listo para decorar tu evento?</p>
+          <p class="footer__cta-sub">Cotiza gratis y sin compromiso. Respuesta en minutos.</p>
+        </div>
+        <div class="footer__cta-actions">
+          <a href={WHATSAPP_URL_MSG} class="footer__cta-btn footer__cta-btn--primary" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+          <a href={PHONE_URL} class="footer__cta-btn footer__cta-btn--ghost">Llamar ahora</a>
         </div>
       </div>
-      <div>
-        <h3 class="footer-heading">Servicios</h3>
-        <ul class="footer-links">
-          {services.map(s => <li><a href={s.href}>{s.name}</a></li>)}
-        </ul>
-      </div>
-      <div>
-        <h3 class="footer-heading">Eventos</h3>
-        <ul class="footer-links">
-          {events.map(e => <li><a href="/servicios">{e}</a></li>)}
-        </ul>
-      </div>
-      <div>
-        <h3 class="footer-heading">Contacto</h3>
-        <ul class="footer-links footer-contact-list">
-          <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5215639565117">56 3956 5117</a></li>
-          <li><i class="fas fa-envelope"></i> <a href="mailto:info@fantasyglobos.com.mx">info@fantasyglobos.com.mx</a></li>
-          <li><i class="fas fa-map-marker-alt"></i> Calz. Gral. Mariano Escobedo 555, Polanco V Secc, Miguel Hidalgo, 11580 CDMX</li>
-          <li><i class="fas fa-clock"></i> Lun-Vie 9-19h | Sab 10-16h</li>
-        </ul>
+    </div>
+  </div>
+
+  <div class="footer__main">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="footer__logo-text">{SITE_NAME}</span>
+            <span class="footer__logo-tag">{SITE_TAGLINE}</span>
+          </div>
+          <p class="footer__brand-desc">Decoración profesional con globos para bodas, XV años, baby showers, cumpleaños y eventos corporativos en CDMX. Instalación incluida.</p>
+          <div class="footer__contact-grid">
+            <a href={PHONE_URL} class="footer__contact-item">
+              <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>{PHONE_DISPLAY}</span>
+            </a>
+            <a href={WHATSAPP_URL_MSG} class="footer__contact-item" target="_blank" rel="noopener">
+              <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <a href={EMAIL_URL} class="footer__contact-item">
+              <svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>{EMAIL}</span>
+            </a>
+          </div>
+          <div class="footer__schedule">
+            <svg class="footer__schedule-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>{BUSINESS_HOURS.display}</span>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__title">Servicios</h3>
+          <ul class="footer__list">
+            {servicios1.map((s) => (
+              <li><a href={`/servicios/${s.slug}/`} class="footer__link">{s.nombre}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__title">Más Servicios</h3>
+          <ul class="footer__list">
+            {servicios2.map((s) => (
+              <li><a href={`/servicios/${s.slug}/`} class="footer__link">{s.nombre}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__title">Empresa</h3>
+          <ul class="footer__list">
+            <li><a href="/" class="footer__link">Inicio</a></li>
+            <li><a href="/nosotros/" class="footer__link">Nosotros</a></li>
+            <li><a href="/contacto/" class="footer__link">Contacto</a></li>
+            <li><a href="/blog/" class="footer__link">Blog</a></li>
+            <li><a href="/politica-privacidad/" class="footer__link">Aviso de Privacidad</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 DEGLOB - Decoración con Globos. Todos los derechos reservados.</p>
-      <div class="footer-legal">
-        <a href="/nosotros">Nosotros</a>
-        <a href="/contacto">Contacto</a>
-        <a href="/politica-privacidad">Política de Privacidad</a>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container">
+      <div class="footer__bottom-inner">
+        <p class="footer__copy">&copy; {currentYear} {SITE_NAME}. Todos los derechos reservados.</p>
+        <div class="footer__legal">
+          <a href="/politica-privacidad/">Aviso de Privacidad</a>
+        </div>
       </div>
     </div>
   </div>
 </footer>
+
 <style>
-  .footer {
-    background: #1a1a2e;
-    color: #b2bec3;
-    padding: 64px 0 0;
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-    gap: 40px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .footer-logo {
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    display: inline-block;
-    margin-bottom: 8px;
-  }
-  .logo-de {
-    background: linear-gradient(135deg, #8B30EE, #C900D4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .logo-glob { color: #fff; }
-  .footer-tagline { color: #a855f7; font-family: 'Pacifico', cursive; font-size: 0.95rem; margin-bottom: 12px; }
-  .footer-desc { font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
-  .footer-social { display: flex; gap: 10px; }
-  .footer-social a {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    display: flex; align-items: center; justify-content: center;
-    color: #b2bec3; font-size: 0.9rem;
-  }
-  .footer-social a:hover { background: #8B30EE; color: #fff; }
-  .footer-heading { color: #fff; font-size: 1.1rem; margin-bottom: 20px; }
-  .footer-links { list-style: none; }
-  .footer-links li { margin-bottom: 10px; font-size: 0.9rem; }
-  .footer-links a:hover { color: #a855f7; }
-  .footer-contact-list li { display: flex; gap: 10px; align-items: flex-start; }
-  .footer-contact-list i { color: #8B30EE; margin-top: 4px; width: 16px; flex-shrink: 0; }
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 0;
-    font-size: 0.85rem;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .footer-legal { display: flex; gap: 20px; }
-  .footer-legal a:hover { color: #a855f7; }
-  @media (max-width: 992px) {
-    .footer-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 576px) {
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-  }
+  .footer { background: #18181b; color: var(--footer-text-90); }
+  .footer__cta-band { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); padding: var(--spacing-xl) 0; }
+  .footer__cta-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--spacing-lg); }
+  .footer__cta-text { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-white); margin: 0; }
+  .footer__cta-sub { font-size: var(--font-size-base); color: rgba(255, 255, 255, 0.85); margin: 0.25rem 0 0; }
+  .footer__cta-actions { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; justify-content: center; }
+  .footer__cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: var(--font-size-sm); font-weight: 600; border-radius: var(--border-radius); transition: background-color 0.2s ease; }
+  .footer__cta-btn--primary { background: var(--color-white); color: var(--color-primary); }
+  .footer__cta-btn--primary:hover { background: var(--color-bg); }
+  .footer__cta-btn--ghost { background: transparent; color: var(--color-white); border: 2px solid rgba(255, 255, 255, 0.5); }
+  .footer__cta-btn--ghost:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--color-white); }
+  .footer__main { padding: var(--spacing-2xl) 0; }
+  .footer__grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-xl); }
+  .footer__logo { margin-bottom: var(--spacing-md); }
+  .footer__logo-text { display: block; font-size: var(--font-size-xl); font-weight: 800; color: var(--color-white); }
+  .footer__logo-tag { display: block; font-size: var(--font-size-sm); color: var(--color-primary); font-weight: 500; margin-top: 0.125rem; }
+  .footer__brand-desc { font-size: var(--font-size-sm); color: var(--footer-text-70); line-height: 1.7; margin: 0 0 var(--spacing-md); }
+  .footer__contact-grid { display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer__contact-item { display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--font-size-sm); color: var(--footer-text-90); }
+  .footer__contact-item:hover { color: var(--color-white); }
+  .footer__contact-icon { flex-shrink: 0; color: var(--color-primary); }
+  .footer__schedule { display: flex; align-items: center; gap: 0.5rem; margin-top: var(--spacing-md); padding-top: var(--spacing-md); border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: var(--font-size-sm); color: var(--footer-text-90); }
+  .footer__schedule-icon { color: var(--color-primary); }
+  .footer__col { display: flex; flex-direction: column; }
+  .footer__title { font-size: var(--font-size-sm); font-weight: 700; color: var(--color-white); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 var(--spacing-md); }
+  .footer__list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer__link { font-size: var(--font-size-sm); color: var(--footer-text-70); }
+  .footer__link:hover { color: var(--color-white); }
+  .footer__bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: var(--spacing-md) 0; }
+  .footer__bottom-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--spacing-sm); }
+  .footer__copy { font-size: var(--font-size-xs); color: var(--footer-text-50); margin: 0; }
+  .footer__legal { display: flex; gap: var(--spacing-md); }
+  .footer__legal a { font-size: var(--font-size-xs); color: var(--footer-text-50); }
+  .footer__legal a:hover { color: var(--color-white); }
+  @media (min-width: 640px) { .footer__grid { grid-template-columns: repeat(2, 1fr); } .footer__brand { grid-column: 1 / -1; } .footer__bottom-inner { flex-direction: row; justify-content: space-between; } }
+  @media (min-width: 768px) { .footer__cta-inner { flex-direction: row; justify-content: space-between; text-align: left; } }
+  @media (min-width: 1024px) { .footer__grid { grid-template-columns: 1.5fr 1fr 1fr 0.8fr; } .footer__brand { grid-column: auto; } }
+  @media print { .footer { display: none !important; } }
 </style>

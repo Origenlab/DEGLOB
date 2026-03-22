@@ -1,0 +1,109 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = "Globos de Helio vs Aire: Guía Completa para tu Evento";
+const description = "Aprende las diferencias entre globos de helio y de aire, cuándo usar cada tipo, duración, costos y cuál es la mejor opción según el tipo de evento que planeas.";
+const category = "Guías";
+const date = "2025-09-22";
+
+const structuredData = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  datePublished: date,
+  dateModified: date,
+  author: { '@type': 'Organization', name: 'DEGLOB' },
+  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+}];
+---
+
+<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
+  <Breadcrumb items={[
+    { name: 'Blog', href: '/blog/' },
+    { name: title, href: '/blog/globos-helio-vs-aire/' },
+  ]} />
+
+  <article class="blog-article">
+    <header class="blog-article__header">
+      <span class="blog-article__category">{category}</span>
+      <h1 class="blog-article__title">{title}</h1>
+      <p class="blog-article__excerpt">{description}</p>
+      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+    </header>
+
+    <div class="blog-article__content">
+      <h2>Una decisión que impacta toda tu decoración</h2>
+      <p>Cuando planeas la decoración con globos para un evento, una de las primeras preguntas que surge es: ¿helio o aire? La respuesta no es tan simple como parece, ya que cada opción tiene ventajas y aplicaciones específicas que pueden hacer una gran diferencia en el resultado final de tu decoración. En esta guía te explicamos todo lo que necesitas saber para tomar la mejor decisión.</p>
+
+      <h2>Globos inflados con aire: versatilidad y duración</h2>
+      <p>Los globos inflados con aire son la base de la mayoría de las decoraciones profesionales. Arcos, guirnaldas, columnas, backdrops y figuras personalizadas se construyen utilizando globos inflados con aire que se sujetan a estructuras o se unen entre sí con técnicas especializadas. Su principal ventaja es la duración: un globo de látex de buena calidad inflado con aire puede mantener su forma durante tres a cinco días sin problema.</p>
+      <p>Otra ventaja significativa es el costo. Al no requerir helio, las decoraciones con aire son más accesibles económicamente, lo que permite destinar más presupuesto a la cantidad o calidad de los globos. Además, los globos con aire no flotan, lo que significa que puedes colocarlos exactamente donde quieras sin preocuparte de que se muevan.</p>
+
+      <h3>Aplicaciones ideales para globos con aire</h3>
+      <ul>
+        <li><strong>Arcos orgánicos y clásicos:</strong> Toda la estructura se construye con globos inflados con aire sobre un marco metálico o de PVC.</li>
+        <li><strong>Guirnaldas decorativas:</strong> Las cadenas de globos para paredes, barandales y techos utilizan aire exclusivamente.</li>
+        <li><strong>Columnas:</strong> Las estructuras verticales requieren la estabilidad que solo el aire proporciona.</li>
+        <li><strong>Backdrops y muros:</strong> Los paneles completos de globos se ensamblan con aire para mantener uniformidad.</li>
+        <li><strong>Figuras y números:</strong> Cualquier forma personalizada utiliza globos con aire sobre estructura interna.</li>
+      </ul>
+
+      <h2>Globos inflados con helio: magia flotante</h2>
+      <p>El helio es un gas más ligero que el aire, lo que permite que los globos floten. Este efecto visual es inigualable y crea una sensación de magia y celebración que ningún otro elemento decorativo puede replicar. Ver globos flotando en el techo de un salón con cintas cayendo suavemente es una experiencia visual que transforma cualquier espacio.</p>
+      <p>Sin embargo, el helio tiene sus limitaciones. Los globos de látex inflados con helio tienen una vida útil de aproximadamente 8 a 12 horas, dependiendo del tamaño del globo, la temperatura ambiente y la altitud. En la Ciudad de México, la altitud de 2,240 metros sobre el nivel del mar afecta ligeramente la flotabilidad, algo que los decoradores profesionales ya contemplan en sus cálculos.</p>
+
+      <h3>Aplicaciones ideales para globos con helio</h3>
+      <ul>
+        <li><strong>Bouquets flotantes:</strong> Conjuntos de globos con cintas como centros de mesa o decoración de entrada.</li>
+        <li><strong>Techos flotantes:</strong> Decenas de globos cubriendo el techo de un salón para un efecto dramático.</li>
+        <li><strong>Suelta de globos:</strong> Momentos especiales como la llegada de los novios o el brindis (usando globos biodegradables).</li>
+        <li><strong>Globos gigantes:</strong> Los globos de 3 pies con helio crean puntos focales impresionantes.</li>
+      </ul>
+
+      <h2>Comparativa de costos</h2>
+      <p>El helio representa un costo adicional significativo. Un tanque de helio tiene un precio que se suma al costo de los globos y la mano de obra. Como referencia general, una decoración equivalente con helio puede costar entre un 40% y un 60% más que la misma decoración con aire. Sin embargo, hay efectos decorativos que solo se logran con helio y que valen completamente la inversión.</p>
+
+      <h2>Lo mejor de ambos mundos: decoración mixta</h2>
+      <p>La realidad es que las mejores decoraciones combinan ambas técnicas. Un arco orgánico de aire como pieza central, complementado con bouquets de helio en las mesas y algunos globos gigantes flotantes en puntos estratégicos, ofrece variedad visual y optimiza el presupuesto. El decorador profesional sabe exactamente dónde utilizar cada tipo para maximizar el impacto.</p>
+
+      <h2>Consejos para elegir</h2>
+      <p>Si tu evento dura más de 6 horas, prioriza las decoraciones con aire para los elementos principales y reserva el helio para detalles puntuales que se instalarán poco antes del inicio. Si tu presupuesto es ajustado, la decoración con aire te dará mayor impacto por cada peso invertido. Y si buscas ese factor sorpresa, nada supera un techo lleno de globos flotantes con helio cuando los invitados entran al salón.</p>
+      <p>En cualquier caso, consultar con un profesional te ahorrará dinero y disgustos. Un decorador experimentado conoce los materiales, las condiciones del venue y las técnicas que garantizan que tu decoración se mantenga perfecta durante todo el evento.</p>
+    </div>
+
+    <div class="blog-article__cta">
+      <h3>¿Necesitas asesoría para tu decoración con globos?</h3>
+      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+
+    <nav class="blog-article__back">
+      <a href="/blog/">&larr; Volver al blog</a>
+    </nav>
+  </article>
+
+</Base>
+
+<style>
+  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
+  .blog-article__header { margin-bottom: var(--spacing-2xl); }
+  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
+  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
+  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
+  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  .blog-article__content { margin-bottom: var(--spacing-2xl); }
+  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
+  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
+  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
+  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
+  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
+  .blog-article__content strong { color: var(--color-text); }
+  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
+  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
+  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
+  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
+</style>

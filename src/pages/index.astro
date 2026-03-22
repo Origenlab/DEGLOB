@@ -1,303 +1,247 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import HeroSection from '../components/HeroSection.astro';
-import GallerySection from '../components/GallerySection.astro';
-import ContactForm from '../components/ContactForm.astro';
+// =============================================================================
+// DEGLOB — Homepage (fantasyglobos.com.mx)
+// Decoración profesional con globos en CDMX
+// =============================================================================
 
-const localBusinessSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://fantasyglobos.com.mx/#localbusiness",
-  "name": "DEGLOB - Decoración con Globos CDMX",
-  "image": "https://fantasyglobos.com.mx/img/decoracion-con-globos.avif",
-  "description": "Servicio profesional de decoración con globos para bodas, XV años, baby shower, cumpleaños y eventos corporativos en Ciudad de México y área metropolitana.",
-  "url": "https://fantasyglobos.com.mx",
-  "telephone": "+52-1-56-3956-5117",
-  "email": "info@fantasyglobos.com.mx",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Calz. Gral. Mariano Escobedo 555",
-    "addressLocality": "Polanco, Miguel Hidalgo",
-    "addressRegion": "CDMX",
-    "postalCode": "11580",
-    "addressCountry": "MX"
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import CtaBar from '../components/CtaBar.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../lib/config';
+import { organizationSchema, localBusinessSchema, webSiteSchema, faqSchema } from '../lib/seo';
+
+// -- FAQ Items --
+const faqItems = [
+  {
+    pregunta: '¿Qué tipos de decoración con globos ofrecen?',
+    respuesta: 'Ofrecemos arcos orgánicos y clásicos, columnas decorativas, guirnaldas, backdrops y paneles, globos con helio, figuras personalizadas, centros de mesa y globos gigantes. Cada servicio se adapta a la temática y estilo de tu evento.',
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": 19.4326, "longitude": -99.1332 },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
-  ],
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "215", "ratingCount": "248", "bestRating": "5", "worstRating": "1" },
-  "sameAs": ["https://www.facebook.com/deglob","https://www.instagram.com/deglob","https://www.tiktok.com/@deglob"]
-});
-
-const serviceSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Decoración con Globos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "DEGLOB - Decoración con Globos CDMX",
-    "telephone": "+52-1-56-3956-5117"
+  {
+    pregunta: '¿Incluyen instalación y desmontaje?',
+    respuesta: 'Sí, todos nuestros paquetes incluyen instalación profesional en el lugar de tu evento. En los paquetes de producción completa también incluimos el desmontaje al finalizar el evento.',
   },
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Servicios de Decoración con Globos",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arcos de Globos" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Columnas Decorativas" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Backdrops y Paneles" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Globos con Helio" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Figuras Personalizadas" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Centros de Mesa" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Guirnaldas de Globos" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Globos Gigantes" } }
-    ]
-  }
-});
-
-const services = [
-  { icon: 'fa-archway', title: 'Arcos de Globos', desc: 'Creamos arcos orgánicos y clásicos que transforman cualquier entrada o mesa principal en un punto focal espectacular. Diseños personalizados con combinaciones de colores y texturas únicas para tu evento.' },
-  { icon: 'fa-landmark', title: 'Columnas Decorativas', desc: 'Columnas elegantes que añaden altura y sofisticación a cualquier espacio. Perfectas para enmarcar entradas, escenarios y mesas de honor con diseños espiralados o rectos.' },
-  { icon: 'fa-image', title: 'Backdrops y Paneles', desc: 'Muros y backdrops de globos ideales para photocalls y fondos de escenario. Creamos instalaciones que se convierten en el corazón visual de tu celebración y generan contenido para redes sociales.' },
-  { icon: 'fa-cloud', title: 'Globos con Helio', desc: 'Arreglos flotantes y techos suspendidos que crean ambientes mágicos e inmersivos. Bouquets personalizados con globos metálicos, confeti y LED para cualquier ocasión especial.' },
-  { icon: 'fa-shapes', title: 'Figuras Personalizadas', desc: 'Esculturas y figuras de globos diseñadas especialmente para tu temática. Desde personajes infantiles hasta estructuras arquitectónicas únicas que sorprenden a todos tus invitados.' },
-  { icon: 'fa-holly-berry', title: 'Centros de Mesa', desc: 'Arreglos pequeños pero impactantes para las mesas de tus invitados. Combinamos globos con bases elegantes, flores y detalles temáticos que complementan perfectamente tu decoración.' },
-  { icon: 'fa-link', title: 'Guirnaldas de Globos', desc: 'Cadenas orgánicas de globos perfectas para decorar paredes, barandales, techos y espacios lineales. Versatilidad y elegancia que se adapta a cualquier ambiente y temática.' },
-  { icon: 'fa-circle', title: 'Globos Gigantes', desc: 'Globos de 3 pies o más que generan un impacto visual inmediato. Ideales para entradas, sesiones fotográficas, gender reveals y momentos especiales que requieren protagonismo.' },
+  {
+    pregunta: '¿Con cuánta anticipación debo reservar?',
+    respuesta: 'Recomendamos reservar con al menos 2 semanas de anticipación para garantizar disponibilidad. Para eventos grandes como bodas o XV años, lo ideal es agendar con 1 a 2 meses de anticipación.',
+  },
+  {
+    pregunta: '¿Cubren toda la Ciudad de México?',
+    respuesta: 'Sí, cubrimos toda la CDMX y Zona Metropolitana incluyendo Polanco, Santa Fe, Coyoacán, Condesa, Roma, Del Valle, Naucalpan, Tlalnepantla, Huixquilucan y Satélite. El servicio de instalación está incluido sin costo adicional.',
+  },
+  {
+    pregunta: '¿Puedo elegir los colores y la temática?',
+    respuesta: 'Por supuesto. Trabajamos con una amplia gama de colores en globos latex, chrome, pastel, confeti y foil. Nos adaptamos a la paleta de colores y temática de tu evento para crear una decoración coherente y espectacular.',
+  },
+  {
+    pregunta: '¿Cuánto dura la decoración con globos?',
+    respuesta: 'La decoración con globos de aire dura entre 3 y 5 días en condiciones normales. Los globos con helio duran entre 8 y 12 horas. Recomendamos instalar lo más cercano posible al inicio del evento para un resultado óptimo.',
+  },
+  {
+    pregunta: '¿Qué métodos de pago aceptan?',
+    respuesta: 'Aceptamos efectivo, transferencia bancaria y tarjetas de crédito/débito. Para reservar, solicitamos un anticipo del 50% y el resto se liquida antes de la instalación.',
+  },
+  {
+    pregunta: '¿Ofrecen servicio para eventos corporativos?',
+    respuesta: 'Sí, atendemos eventos corporativos como inauguraciones, lanzamientos de productos, convenciones y fiestas empresariales. Ofrecemos facturación y podemos adaptar la decoración a la imagen corporativa de tu empresa.',
+  },
 ];
 
-const events = [
-  { icon: 'fa-heart', title: 'Bodas', desc: 'Arcos románticos y elegantes que enmarcan el altar y la mesa de honor. Creamos ambientes sofisticados con paletas de colores personalizadas para el día más especial de tu vida.' },
-  { icon: 'fa-crown', title: 'XV Años', desc: 'Celebra con estilo quinceañero con decoraciones en tendencia. Arcos monumentales, columnas elegantes y backdrops espectaculares en colores pastel, metalizados y diseños únicos.' },
-  { icon: 'fa-baby', title: 'Baby Shower', desc: 'Dale la bienvenida al nuevo integrante con decoraciones tiernas y encantadoras. Arcos orgánicos, letras personalizadas y temáticas adorables que capturan la dulzura del momento.' },
-  { icon: 'fa-cake-candles', title: 'Cumpleaños', desc: 'Fiestas temáticas para todas las edades con decoraciones personalizadas. Desde personajes infantiles hasta celebraciones elegantes de adultos con números gigantes y backdrops únicos.' },
-  { icon: 'fa-building', title: 'Corporativos', desc: 'Decoración profesional con colores institucionales e integración de logotipos. Activaciones de marca, lanzamientos de productos y eventos empresariales que generan impacto visual.' },
-  { icon: 'fa-store', title: 'Inauguraciones', desc: 'Genera impacto visual desde el primer momento con decoraciones espectaculares para tu apertura. Arcos de entrada, columnas y estructuras que atraen miradas y clientes potenciales.' },
-  { icon: 'fa-venus-mars', title: 'Gender Reveal', desc: 'Revela el género de tu bebé de forma mágica e inolvidable. Globos sorpresa con confeti, cajas decoradas y ambientación en tonos neutros que hacen del momento algo especial.' },
-  { icon: 'fa-graduation-cap', title: 'Graduaciones', desc: 'Celebra los logros académicos con decoraciones festivas y personalizadas. Arcos en colores institucionales, números del año y backdrops perfectos para las fotos del recuerdo.' },
-];
-
-const features = [
-  { icon: 'fa-palette', title: 'Diseño Personalizado', desc: 'Adaptamos cada decoración a tu temática, colores y visión. Hacemos realidad lo que imaginas.' },
-  { icon: 'fa-gem', title: 'Calidad Premium', desc: 'Trabajamos con las mejores marcas: Sempertex, Qualatex y Anagram. Globos que duran más.' },
-  { icon: 'fa-check-double', title: 'Servicio Completo', desc: 'Incluimos diseño, materiales, transporte, montaje profesional y desmontaje al finalizar.' },
-  { icon: 'fa-face-smile', title: 'Cero Estrés', desc: 'Llegamos puntual, nos encargamos de todo. Tú solo disfruta de tu evento sin preocupaciones.' },
-];
-
-const testimonials = [
-  { name: 'Ofelia Aranda', role: 'Directora Comercial, inflablesparafiestas.com.mx', text: 'DEGLOB ha sido nuestro proveedor de confianza por más de 2 años. Sus arcos orgánicos y columnas de globos complementan perfectamente nuestros inflables en fiestas infantiles y eventos familiares.' },
-  { name: 'Sonia Castañeda', role: 'Gerente de Proyectos, eventech.mx', text: 'En Eventech trabajamos con los mejores proveedores y DEGLOB está entre ellos. Sus decoraciones con globos aportan el toque visual que nuestros eventos corporativos necesitan. Siempre puntuales y creativos.' },
-  { name: 'Frank Oropeza', role: 'Coordinador de Diseño, mesas-de-dulces.com', text: 'Los globos son el complemento perfecto para nuestras mesas de dulces. DEGLOB entiende nuestra estética y crea arcos y guirnaldas que hacen que cada mesa luzca espectacular en las fotos.' },
-];
-
-const faqs = [
-  { q: '¿Con cuánta anticipación debo reservar mi decoración?', a: 'Recomendamos reservar con mínimo 7 días de anticipación para eventos pequeños y 15-30 días para eventos grandes o temporadas altas (diciembre, mayo, San Valentín, graduaciones). Esto nos permite planificar cada detalle de tu decoración perfectamente.' },
-  { q: '¿Qué incluye el servicio de decoración con globos?', a: 'Nuestro servicio incluye: diseño personalizado según tu temática, materiales premium de marcas certificadas, transporte, montaje profesional en tu evento y desmontaje al finalizar. Tú solo disfrutas, nosotros nos encargamos de todo.' },
-  { q: '¿Pueden personalizar los globos con mi logo o colores?', a: 'Sí, ofrecemos globos impresos con logotipos y trabajamos con tu manual de identidad para igualar colores Pantone. Ideal para eventos corporativos, inauguraciones y activaciones de marca que requieren branding específico.' },
-  { q: '¿Cuánto cuesta la decoración con globos?', a: 'El precio varía según el tipo de decoración, tamaño del evento y complejidad del diseño. Manejamos paquetes desde $2,500 MXN para arcos básicos hasta $15,000+ MXN para decoraciones completas de bodas y eventos corporativos. Cotiza sin compromiso.' },
-  { q: '¿Qué zonas cubren en CDMX?', a: 'Cubrimos toda la Ciudad de México y zona metropolitana: Polanco, Santa Fe, Coyoacán, Condesa, Roma, Del Valle, Naucalpan, Tlalnepantla, Huixquilucan, Interlomas, Satélite. También realizamos eventos en Querétaro, Puebla y Cuernavaca con coordinación previa.' },
-  { q: '¿Los globos son biodegradables?', a: 'Sí, trabajamos con globos de látex 100% natural que son biodegradables. También promovemos el uso de estructuras reutilizables y evitamos los lanzamientos de globos al aire para ser responsables con el medio ambiente.' },
+// -- Structured Data --
+const structuredData = [
+  organizationSchema(),
+  localBusinessSchema(),
+  webSiteSchema(),
+  faqSchema(faqItems),
 ];
 ---
-<Layout
-  title="Decoración con globos | decoracion con globos para fiestas | globo"
-  description="Decoración con globos que transforma cualquier fiesta en un evento inolvidable. Descubre ideas creativas y elegantes para decorar con globos."
-  schemas={[localBusinessSchema, serviceSchema]}
->
-  <Header />
 
-  <HeroSection
-    badge="Decoración con Globos Profesional en CDMX"
-    title="Decoración con Globos para Fiestas en CDMX"
-    titleAccent="Profesional y Personalizada"
-    description="En DEGLOB creamos decoraciones con globos espectaculares para bodas, XV años, baby shower, cumpleaños y eventos corporativos. Nos encargamos de todo el diseño y montaje para que solo disfrutes de tu celebración."
-    ctaText="Ver Servicios"
-    ctaHref="/servicios"
-    seoTitle="Líderes en Decoración con Globos en Ciudad de México"
-    seoText="Con más de 20 años de experiencia en el mercado de la decoración para eventos, DEGLOB se ha consolidado como la empresa número uno en decoración con globos en CDMX y zona metropolitana. Hemos transformado más de 500 eventos en experiencias visuales inolvidables, desde íntimas celebraciones familiares hasta grandes eventos corporativos para marcas reconocidas a nivel nacional."
-    seoText2="Nuestro equipo de decoradores profesionales certificados trabaja exclusivamente con materiales premium de las mejores marcas mundiales como Qualatex, Sempertex y Anagram, garantizando decoraciones que impactan desde el primer momento. Ofrecemos servicio integral que incluye asesoría personalizada, diseño creativo, montaje profesional y desmontaje, cubriendo toda la Ciudad de México: Polanco, Santa Fe, Coyoacán, Condesa, Roma, Del Valle, Pedregal, así como Estado de México y ciudades cercanas."
+<Base
+  title="DEGLOB — Decoración Profesional con Globos para Eventos en CDMX"
+  description="Decoración profesional con globos para bodas, XV años, baby showers, cumpleaños y eventos corporativos en CDMX. Arcos, columnas, guirnaldas, figuras y más. Instalación incluida."
+  structuredData={structuredData}
+>
+
+
+  <!-- ====== HERO ====== -->
+  <Hero
+    badge="Decoración con Globos CDMX"
+    title="Decoración Profesional con Globos para tu Evento"
+    description="Transformamos tus celebraciones con decoraciones de globos espectaculares. Arcos, columnas, guirnaldas, figuras personalizadas y más para bodas, XV años, baby showers y eventos corporativos en la Ciudad de México."
+    primaryCta={{ text: 'Cotizar Gratis', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Servicios', href: '/servicios/' }}
+
+  >
+    <Fragment slot="hero-seo">
+      <p>
+        En <strong>DEGLOB</strong> somos especialistas en <strong>decoración con globos para eventos en CDMX</strong>.
+        Diseñamos e instalamos arcos orgánicos, columnas decorativas, guirnaldas, backdrops, figuras personalizadas
+        y arreglos con helio que transforman cualquier espacio en una experiencia inolvidable para tus invitados.
+      </p>
+      <p>
+        Ya sea una <strong>boda elegante</strong>, unos <strong>XV años</strong>, un <strong>baby shower</strong>,
+        un <strong>cumpleaños temático</strong> o un <strong>evento corporativo</strong>, nuestro equipo de decoradores
+        profesionales se encarga de todo: desde el diseño creativo hasta la instalación en el lugar de tu evento.
+        Cubrimos toda la <strong>Ciudad de México y Zona Metropolitana</strong> con materiales premium y atención personalizada.
+      </p>
+    </Fragment>
+  </Hero>
+
+  <!-- ====== CTA BAR ====== -->
+  <CtaBar
+    items={[
+      { label: 'Arcos', icon: 'arcos', href: '/servicios/arcos-de-globos/' },
+      { label: 'Guirnaldas', icon: 'guirnaldas', href: '/servicios/guirnaldas-de-globos/' },
+      { label: 'Helio', icon: 'helio', href: '/servicios/globos-helio/' },
+      { label: 'Cotizar', icon: 'cotizar', href: WHATSAPP_URL_MSG },
+    ]}
   />
 
-  <!-- Servicios -->
-  <section class="section">
+  <!-- ====== SERVICIOS ====== -->
+  <section class="section" aria-labelledby="servicios-title">
     <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Nuestros Servicios</span>
-        <h2 class="section-title">Tipos de Decoración con Globos</h2>
-        <p class="section-subtitle">Ofrecemos diferentes estilos y estructuras para que tu evento luzca espectacular</p>
-      </div>
-      <div class="grid-4 services-grid">
-        {services.map(s => (
-          <div class="card">
-            <div class="card-icon"><i class={`fas ${s.icon}`}></i></div>
-            <h3>{s.title}</h3>
-            <p>{s.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Eventos -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Decoramos tu Evento</span>
-        <h2 class="section-title">Decoración con Globos por Tipo de Evento</h2>
-        <p class="section-subtitle">Cada celebración merece una decoración única y personalizada</p>
-      </div>
+      <SectionHeader
+        badge="Lo que hacemos"
+        title="Nuestros Servicios"
+        subtitle="Ofrecemos una amplia gama de decoraciones con globos para todo tipo de eventos. Cada servicio incluye diseño personalizado e instalación profesional en CDMX."
+        id="servicios-title"
+      />
       <div class="grid-4">
-        {events.map(e => (
-          <div class="card">
-            <div class="card-icon"><i class={`fas ${e.icon}`}></i></div>
-            <h3>{e.title}</h3>
-            <p>{e.desc}</p>
-          </div>
+        {SERVICIOS.map((s) => (
+          <CategoryCard
+            title={s.nombre}
+            subtitle={s.descripcion}
+            href={`/servicios/${s.slug}/`}
+            image={s.imagen}
+            subcategories={s.paquetes.map((p) => ({
+              name: p.nombre,
+              href: `/servicios/${s.slug}/${p.slug}/`,
+            }))}
+          />
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Por qué elegirnos -->
-  <section class="section">
+  <!-- ====== EVENTOS ====== -->
+  <section class="section section--alt" aria-labelledby="eventos-title">
     <div class="container">
-      <div class="section-header">
-        <span class="section-badge">¿Por qué DEGLOB?</span>
-        <h2 class="section-title">Por Qué Elegirnos para tu Evento</h2>
-        <p class="section-subtitle">Nos distinguimos por ofrecer un servicio integral y de calidad premium</p>
-      </div>
+      <SectionHeader
+        badge="Tipos de evento"
+        title="Decoramos Todo Tipo de Eventos"
+        subtitle="Nos especializamos en crear la ambientación perfecta con globos para cada tipo de celebración. Instalación profesional incluida en toda la CDMX."
+        id="eventos-title"
+      />
       <div class="grid-4">
-        {features.map(f => (
-          <div class="card card-feature">
-            <div class="card-icon"><i class={`fas ${f.icon}`}></i></div>
-            <h3>{f.title}</h3>
-            <p>{f.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Galería -->
-  <GallerySection />
-
-  <!-- CTA -->
-  <section class="section cta-section">
-    <div class="container" style="text-align:center">
-      <h2 class="section-title" style="color:#fff">¿Listo para Transformar tu Evento?</h2>
-      <p style="color:#b2bec3;font-size:1.1rem;margin-bottom:32px">Cotiza sin compromiso y recibe una propuesta personalizada en menos de 24 horas</p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-        <a href="https://wa.me/5215639565117?text=Hola%2C%20quiero%20cotizar%20decoraci%C3%B3n%20con%20globos" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
-        <a href="/contacto" class="btn btn-outline">Enviar Mensaje</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonios -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Testimonios</span>
-        <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
-        <p class="section-subtitle">La satisfacción de nuestros clientes es nuestra mejor carta de presentación</p>
-      </div>
-      <div class="grid-3">
-        {testimonials.map(t => (
-          <div class="card testimonial-card">
-            <div class="stars">{'★'.repeat(5)}</div>
-            <p class="testimonial-text">"{t.text}"</p>
-            <div class="testimonial-author">
-              <strong>{t.name}</strong>
-              <span>{t.role}</span>
+        {[
+          { nombre: 'Bodas', slug: 'bodas', imagen: '/img/arcos-de-globos/arco-globos-boda-elegante-verde-durazno-follaje.webp', descripcion: 'Arcos románticos, backdrops y centros de mesa para el día más especial.' },
+          { nombre: 'XV Años', slug: 'xv-anos', imagen: '/img/arcos-de-globos/arco-globos-quince-anos-azul-plateado-pista.webp', descripcion: 'Decoración espectacular para la fiesta de quinceañera soñada.' },
+          { nombre: 'Baby Shower', slug: 'baby-shower', imagen: '/img/arcos-de-globos/arco-globos-baby-shower-rosa-durazno-its-a-girl.webp', descripcion: 'Arreglos tiernos y elegantes para recibir a tu bebé.' },
+          { nombre: 'Cumpleaños Infantil', slug: 'cumpleanos-infantil', imagen: '/img/globos-para-cumpleanos/arco-globos-unicornio-magico-fiesta-princesa.webp', descripcion: 'Figuras de personajes, arcos y temáticas mágicas para niños.' },
+          { nombre: 'Cumpleaños Adulto', slug: 'cumpleanos-adulto', imagen: '/img/globos-centro-de-mesas/centro-mesa-globos-numero-dorado-cumpleanos-adulto.webp', descripcion: 'Decoraciones sofisticadas en chrome y dorado para adultos.' },
+          { nombre: 'Corporativos', slug: 'corporativos', imagen: '/img/columnas-decorativas/columnas-globos-apertura-azul-blanco-dorado-empresa.webp', descripcion: 'Decoración profesional para inauguraciones y eventos de empresa.' },
+          { nombre: 'Graduaciones', slug: 'graduaciones', imagen: '/img/globos-helio/bouquet-globos-graduacion-negro-dorado-estrellas.webp', descripcion: 'Celebra tu logro académico con globos elegantes y temáticos.' },
+          { nombre: 'Gender Reveal', slug: 'gender-reveal', imagen: '/img/globos-gigantes/globo-gigante-confeti-rosa-cumpleanos-infantil-nina.webp', descripcion: 'Globos gigantes y decoración para revelar el sexo del bebé.' },
+        ].map((e) => (
+          <a href={`/eventos/${e.slug}/`} class="event-card">
+            <div class="event-card__img-wrap">
+              <img src={e.imagen} alt={`Decoración con globos para ${e.nombre} en CDMX`} loading="lazy" decoding="async" width="640" height="360" />
             </div>
+            <div class="event-card__body">
+              <h3 class="event-card__title">{e.nombre}</h3>
+              <p class="event-card__desc">{e.descripcion}</p>
+              <span class="event-card__btn">Ver más</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FAQ ====== -->
+  <FaqSection items={faqItems} />
+
+  <!-- ====== TESTIMONIOS ====== -->
+  <section class="section section--alt" aria-labelledby="testimonios-title">
+    <div class="container">
+      <SectionHeader
+        badge="Clientes felices"
+        title="Lo Que Dicen Nuestros Clientes"
+        subtitle="Más de 500 eventos decorados con globos en CDMX. Estas son las experiencias de quienes confiaron en DEGLOB para sus celebraciones."
+        id="testimonios-title"
+      />
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">
+            "El arco de globos para nuestra boda quedó espectacular. Superó todas nuestras expectativas. El equipo de DEGLOB fue muy profesional y puntual con la instalación."
+          </p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name">Carolina M.</span>
+            <span class="testimonial-card__event">Boda en Polanco</span>
           </div>
-        ))}
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">
+            "Contratamos la decoración completa para los XV años de mi hija. Las columnas, el backdrop y los centros de mesa quedaron increíbles. Todos los invitados quedaron encantados."
+          </p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name">Laura G.</span>
+            <span class="testimonial-card__event">XV Años en Coyoacán</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">
+            "La guirnalda orgánica para el baby shower de mi esposa fue hermosa. Los colores combinaron perfecto con la temática. Sin duda volveremos a contratarlos."
+          </p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name">Roberto S.</span>
+            <span class="testimonial-card__event">Baby Shower en Nápoles</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">
+            "Excelente servicio para nuestro evento corporativo. Las figuras personalizadas con el logo de la empresa fueron un éxito total. Muy recomendados."
+          </p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name">Andrea P.</span>
+            <span class="testimonial-card__event">Evento Corporativo en Santa Fe</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">
+            "Los globos gigantes para el gender reveal fueron perfectos. El momento de la revelación fue mágico gracias a DEGLOB. El confeti azul salió espectacular."
+          </p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name">Daniela y Marcos</span>
+            <span class="testimonial-card__event">Gender Reveal en Condesa</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">
+            "El techo flotante con globos de helio para el cumpleaños de mi hijo fue increíble. Los niños no paraban de ver hacia arriba. Servicio puntual y muy amables."
+          </p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name">Patricia V.</span>
+            <span class="testimonial-card__event">Cumpleaños en Del Valle</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Preguntas Frecuentes</span>
-        <h2 class="section-title">¿Tienes Dudas?</h2>
-        <p class="section-subtitle">Aquí respondemos las preguntas más comunes sobre nuestros servicios</p>
-      </div>
-      <div class="faq-list">
-        {faqs.map(f => (
-          <details class="faq-item">
-            <summary>{f.q}</summary>
-            <p>{f.a}</p>
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section class="section" id="cotizar">
-    <div class="container">
-      <ContactForm />
-    </div>
-  </section>
-
-  <Footer />
-</Layout>
-<style>
-  .section-alt { background: #f8f9fa; }
-  .cta-section { background: linear-gradient(135deg, #1a1a2e, #16213e); }
-  .card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 32px 24px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    border: 1px solid #f0f0f0;
-  }
-  .section-alt .card { background: #fff; }
-  .card-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, rgba(139,48,238,0.1), rgba(201,0,212,0.1));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    color: #8B30EE;
-    margin-bottom: 16px;
-  }
-  .card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #1a1a2e; }
-  .card p { font-size: 0.9rem; color: #636E72; line-height: 1.7; }
-  .testimonial-card { text-align: center; }
-  .stars { color: #D4AF37; font-size: 1.2rem; margin-bottom: 16px; }
-  .testimonial-text { font-style: italic; margin-bottom: 20px; font-size: 0.95rem; color: #2d3436; }
-  .testimonial-author strong { display: block; color: #1a1a2e; }
-  .testimonial-author span { font-size: 0.85rem; color: #636E72; }
-  .faq-list { max-width: 800px; margin: 0 auto; }
-  .faq-item {
-    background: #fff;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    border: 1px solid #f0f0f0;
-    overflow: hidden;
-  }
-  .faq-item summary {
-    padding: 20px 24px;
-    font-weight: 600;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after { content: '+'; font-size: 1.4rem; color: #8B30EE; flex-shrink: 0; margin-left: 16px; }
-  .faq-item[open] summary::after { content: '−'; }
-  .faq-item p { padding: 0 24px 20px; color: #636E72; line-height: 1.7; }
-</style>
+</Base>

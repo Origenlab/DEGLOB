@@ -1,0 +1,140 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const servicio = SERVICIOS.find(s => s.slug === 'guirnaldas-de-globos')!;
+const paquetes = servicio.paquetes;
+
+const faqItems = [
+  { pregunta: '¿Qué longitud de guirnalda de globos necesito?', respuesta: 'Depende del espacio que quieras decorar. Para una mesa de dulces o barra de postres, de 2 a 3 metros suelen ser suficientes. Para decorar un barandal o escalera, recomendamos de 5 a 8 metros. Para cubrir una pared completa o el frente de un escenario, de 8 a 15 metros. Te asesoramos según las dimensiones de tu venue.' },
+  { pregunta: '¿Cuál es la diferencia entre una guirnalda y un arco de globos?', respuesta: 'La guirnalda es un elemento lineal y flexible que se adapta a cualquier superficie: paredes, barandales, marcos de puertas, techos y mesas. El arco es una estructura curva autoportante que se coloca en el piso. Ambos usan el estilo orgánico con globos de diferentes tamaños, pero la guirnalda ofrece mayor versatilidad de instalación.' },
+  { pregunta: '¿Cómo se instala una guirnalda de globos?', respuesta: 'La guirnalda se monta sobre una tira de plástico flexible con orificios que sostiene los globos. Esta tira se fija a la superficie con ganchos adhesivos removibles, alambre o hilo de nylon, dependiendo del material del venue. No dañamos paredes ni superficies y retiramos todo al finalizar el evento.' },
+  { pregunta: '¿Se puede agregar follaje o flores a la guirnalda?', respuesta: 'Sí, es uno de los complementos más populares. Integramos ramas de eucalipto artificial, hojas tropicales, flores de seda y follaje verde entre los globos para crear un efecto orgánico natural muy en tendencia para bodas y eventos al aire libre. Los paquetes medianos y grandes ya incluyen esta opción.' },
+  { pregunta: '¿Cuánto tiempo dura una guirnalda de globos instalada?', respuesta: 'En interiores, una guirnalda bien instalada mantiene su aspecto entre 24 y 72 horas. En exteriores con sombra, de 12 a 24 horas. Recomendamos instalar la guirnalda el mismo día del evento o máximo un día antes para asegurar que luzca perfecta durante toda tu celebración.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: servicio.nombre,
+    description: servicio.descripcion,
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `Paquetes de ${servicio.nombre}`,
+      itemListElement: paquetes.map(p => ({
+        '@type': 'Offer',
+        name: p.nombre,
+        price: p.precio,
+        priceCurrency: 'MXN',
+        url: `${SITE_URL}/servicios/${servicio.slug}/${p.slug}/`,
+      })),
+    },
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title={`${servicio.nombre} — DEGLOB | Decoración con Globos CDMX`}
+  description={`${servicio.descripcion} Paquetes desde $${paquetes[0].precio.toLocaleString()} MXN. Instalación incluida en CDMX.`}
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Servicios', href: '/servicios/' },
+    { name: servicio.nombre, href: `/servicios/${servicio.slug}/` },
+  ]} />
+
+  <Hero
+    badge={servicio.nombre}
+    title={`${servicio.nombre} para Eventos en CDMX`}
+    description={servicio.descripcion + ' Cotiza hoy y recibe tu presupuesto en minutos.'}
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Paquetes', href: '#paquetes' }}
+    metrics={[
+      { valor: `${paquetes.length} paquetes`, texto: 'disponibles' },
+      { valor: `Desde $${paquetes[0].precio.toLocaleString()}`, texto: 'MXN + IVA' },
+      { valor: 'Instalación', texto: 'incluida' },
+    ]}
+  >
+    <Fragment slot="hero-seo">
+      <p>Las guirnaldas organicas de globos son el elemento decorativo mas versatil que existe. Se adaptan a cualquier superficie y espacio: paredes, barandales, escaleras, marcos de puertas, mesas de dulces e incluso techos. Su estilo organico con globos de multiples tamanos y texturas crea un efecto visual fluido y natural que es tendencia absoluta en la decoracion de eventos en la Ciudad de Mexico.</p>
+      <p>En DEGLOB fabricamos guirnaldas desde 3 metros para espacios pequenos hasta producciones de 15 metros o mas para cubrir salones completos. Cada guirnalda se construye con globos premium de latex, chrome y confeti en las combinaciones de color que elijas, y se puede complementar con follaje artificial, flores de seda y elementos tematicos para crear una decoracion unica y personalizada.</p>
+    </Fragment>
+  </Hero>
+
+  <CtaBar items={paquetes.map(p => ({ label: p.nombre, href: `/servicios/${servicio.slug}/${p.slug}/` }))} headline="Elige tu paquete" />
+
+  <section class="section" id="paquetes">
+    <div class="container">
+      <SectionHeader
+        badge="Paquetes"
+        title={`Paquetes de ${servicio.nombre}`}
+        subtitle="Elige el paquete ideal para tu evento. Todos incluyen instalación profesional en CDMX."
+      />
+      <div class="pkg-grid">
+        {paquetes.map(p => (
+          <div class="pkg-card">
+            <div class="pkg-card__header">
+              <h3 class="pkg-card__name">{p.nombre}</h3>
+              <p class="pkg-card__price">${p.precio.toLocaleString()} <span>MXN</span></p>
+            </div>
+            <ul class="pkg-card__features">
+              {p.features.map(f => (
+                <li>&#10003; {f}</li>
+              ))}
+            </ul>
+            <a href={`/servicios/${servicio.slug}/${p.slug}/`} class="pkg-card__btn">Ver Paquete</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--bg">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        <h2>Guirnaldas de Globos: Versatilidad y Elegancia Orgánica</h2>
+        <p>Las guirnaldas de globos representan la evolucion moderna de la decoracion con globos. A diferencia de las decoraciones clasicas con globos del mismo tamano, las guirnaldas organicas combinan globos de 5, 11, 16 y 24 pulgadas en una cadena fluida que se adapta a la forma del espacio, creando un efecto visual natural y sofisticado que se ha convertido en la tendencia dominante en decoracion de eventos.</p>
+        <h3>Aplicaciones Más Populares</h3>
+        <p>Las guirnaldas son increiblemente versatiles. Para bodas, se instalan a lo largo de la mesa de honor, enmarcando a los novios con un fondo floral y organico. Para cumpleanos, decoran la pared principal o la mesa de dulces creando el escenario perfecto para las fotos. En XV anos, las guirnaldas recorren barandales y escaleras aportando glamour a cada rincon del salon. Para eventos corporativos, se adaptan al branding de la empresa con colores institucionales.</p>
+        <h3>Técnicas de Instalación Profesional</h3>
+        <p>Utilizamos sistemas de instalacion profesionales que no dañan las superficies de tu venue. Ganchos adhesivos removibles para paredes pintadas, sujeciones con hilo de nylon para techos y vigas, y fijaciones con alambre para barandales y estructuras metalicas. Al finalizar tu evento, retiramos todo sin dejar marca alguna. Esta atencion al detalle nos ha ganado la confianza de los mejores salones y jardines de CDMX.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tus guirnaldas de globos y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .pkg-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  .pkg-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+  .pkg-card__header { background: var(--color-bg); padding: 1.5rem; text-align: center; }
+  .pkg-card__name { font-size: 1.125rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .pkg-card__price { font-size: 1.75rem; font-weight: 800; color: var(--color-primary); margin: 0; }
+  .pkg-card__price span { font-size: 0.875rem; font-weight: 500; color: var(--color-text-light); }
+  .pkg-card__features { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; list-style: none; }
+  .pkg-card__features li { font-size: 0.875rem; color: var(--color-text); line-height: 1.5; padding-left: 0.25rem; }
+  .pkg-card__btn { display: block; text-align: center; padding: 0.875rem; font-size: 0.875rem; font-weight: 600; background: var(--color-primary); color: var(--color-white); text-decoration: none; margin: 0 1.5rem 1.5rem; border-radius: var(--border-radius); transition: background-color 0.2s; }
+  .pkg-card__btn:hover { background: var(--color-primary-dark); }
+  @media (min-width: 640px) { .pkg-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .pkg-grid { grid-template-columns: repeat(4, 1fr); } }
+</style>

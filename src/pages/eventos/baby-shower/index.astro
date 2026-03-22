@@ -1,0 +1,149 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CategoryCard from '../../../components/CategoryCard.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const serviciosRecomendados = SERVICIOS.filter(s => ['arcos-de-globos', 'backdrops-paneles', 'globos-helio', 'centros-de-mesa', 'globos-gigantes', 'figuras-personalizadas'].includes(s.slug));
+
+const galeria = [
+  '/img/arcos-de-globos/arco-globos-baby-shower-nina-rosa-mesa-dulces.webp',
+      '/img/columnas-decorativas/columnas-globos-baby-shower-azul-blanco-mesa-regalos.webp',
+      '/img/columnas-decorativas/columnas-globos-baby-shower-nina-rosa-biberon.webp',
+      '/img/columnas-decorativas/columnas-globos-baby-shower-nino-azul-osito.webp',
+      '/img/globos-helio/decoracion-baby-shower-globos-helio-mesa-dulces-jardin.webp',
+      '/img/globos-helio/globos-helio-baby-shower-exterior-mesa-postres-pastel.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-pastel-baby-shower-flores.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-azul-plata-baby-shower-nino.webp'
+];
+
+const faqItems = [
+  { pregunta: '¿Qué colores se recomiendan para un baby shower?', respuesta: 'Los colores más populares son rosa y durazno para niña, azul cielo y mint para niño, y tonos neutros como verde sage, amarillo, beige y blanco para temáticas gender neutral. Nos adaptamos a la paleta que hayas elegido.' },
+  { pregunta: '¿Pueden hacer decoración sin revelar el sexo del bebé?', respuesta: 'Sí, ofrecemos decoraciones gender neutral en colores verdes, amarillos, blancos y beige. También podemos incluir un globo de gender reveal como sorpresa dentro de la decoración del baby shower.' },
+  { pregunta: '¿Qué elementos son imprescindibles para un baby shower?', respuesta: 'Los más solicitados son: un arco pequeño o mediano para la mesa de dulces, un backdrop para fotos grupales, bouquets de helio distribuidos en el espacio y un globo gigante como pieza central. Cotiza tu combinación ideal.' },
+  { pregunta: '¿Pueden agregar el nombre del bebé en globos?', respuesta: 'Sí, creamos letras con el nombre del bebé en globos que pueden colocarse sobre el backdrop, la mesa principal o como pieza decorativa independiente. Es uno de los detalles más fotografiados.' },
+  { pregunta: '¿Cuánto cuesta decorar un baby shower?', respuesta: 'Una decoración básica con arco y bouquets empieza desde $4,000 MXN. Un paquete completo con arco, backdrop, centros de mesa y helio va de $10,000 a $20,000 MXN según el tamaño del evento.' },
+  { pregunta: '¿Decoran baby showers en restaurantes?', respuesta: 'Sí, decoramos baby showers en restaurantes, cafeterías, jardines, salones y casas particulares. Nos adaptamos al espacio disponible y coordinamos con el lugar para los horarios de instalación.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Decoración con Globos para Baby Shower',
+    description: 'Arreglos tiernos y elegantes con globos para recibir a tu bebé. Arcos pastel, bouquets, centros de mesa y fondos fotogénicos.',
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title="Decoración con Globos para Baby Shower en CDMX | DEGLOB"
+  description="Arreglos tiernos y elegantes con globos para recibir a tu bebé. Arcos pastel, bouquets, centros de mesa y fondos fotogénicos. Cotiza hoy. Instalación incluida en CDMX."
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Eventos', href: '/eventos/' },
+    { name: 'Baby Shower', href: '/eventos/baby-shower/' },
+  ]} />
+
+  <Hero
+    badge="Baby Shower"
+    title="Decoración con Globos para Baby Shower en CDMX"
+    description="Arreglos tiernos y elegantes con globos para recibir a tu bebé. Arcos pastel, bouquets, centros de mesa y fondos fotogénicos. Cotiza hoy y recibe tu presupuesto en minutos."
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Servicios', href: '#servicios' }}
+  >
+    <Fragment slot="hero-seo">
+      <p>En <strong>DEGLOB</strong> creamos decoraciones con globos espectaculares para <strong>baby shower</strong> en la Ciudad de México y zona metropolitana. Nuestro equipo de decoradores profesionales se encarga de todo: diseño, producción, transporte e instalación.</p>
+      <p>Desde arcos orgánicos y columnas decorativas hasta backdrops fotogénicos y centros de mesa, cada elemento se personaliza según tu visión y la temática de tu evento. Trabajamos con globos premium y materiales de primera para garantizar resultados impecables.</p>
+    </Fragment>
+  </Hero>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <SectionHeader
+        badge="Servicios recomendados"
+        title="Servicios de Globos para Baby Shower"
+        subtitle="Estos son los servicios que más solicitan nuestros clientes para baby shower. Cada uno incluye instalación profesional en CDMX."
+      />
+      <div class="grid-3">
+        {serviciosRecomendados.map((s) => (
+          <CategoryCard
+            title={s.nombre}
+            subtitle={s.descripcion}
+            href={`/servicios/${s.slug}/`}
+            image={s.imagen}
+            subcategories={s.paquetes.map((p) => ({
+              name: p.nombre,
+              href: `/servicios/${s.slug}/${p.slug}/`,
+            }))}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader
+        badge="Inspiración"
+        title="Galería de Baby Shower"
+        subtitle="Estos son algunos de nuestros trabajos de decoración con globos para baby shower en CDMX."
+      />
+      <div class="gallery-grid">
+        {galeria.map((img, i) => (
+          <div class="gallery-item">
+            <img src={img} alt={`Decoración con globos para baby shower en CDMX — ejemplo ${i + 1}`} loading="lazy" decoding="async" width="640" height="480" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        
+        <h2>Decoración con Globos para Baby Shower: Ternura y Estilo para Recibir a tu Bebé</h2>
+        <p>Un baby shower es la celebración más tierna del embarazo, y la decoración con globos es la forma perfecta de crear un ambiente cálido, fotogénico y memorable. En DEGLOB diseñamos decoraciones en tonos pastel, combinaciones modernas y temáticas adorables que hacen de tu baby shower un evento especial.</p>
+        <h3>Mesa de Dulces con Arco de Globos</h3>
+        <p>La mesa de dulces es el corazón visual de todo baby shower y un arco de globos pequeño o mediano la enmarca perfectamente. Nuestros arcos orgánicos en tonos pastel — rosa durazno, azul cielo, mint, lavanda — combinados con globos chrome y elementos florales crean el fondo ideal para la candy bar y las fotos de los invitados.</p>
+        <h3>Backdrop Personalizado para Fotos</h3>
+        <p>Un panel de globos con el nombre del bebé es el elemento más fotografiado de todo baby shower moderno. Diseñamos backdrops de 2 a 3 metros que incluyen letras personalizadas, figuras temáticas como ositos, nubes o estrellas, y una composición de colores que unifica toda la decoración.</p>
+        <h3>Bouquets y Globos con Helio</h3>
+        <p>Los bouquets de globos con helio distribuidos por el espacio agregan volumen y movimiento a la decoración. Cada bouquet incluye globos foil temáticos (biberones, carriolas, piecitos) que refuerzan la temática del baby shower y crean puntos de color en cada rincón del venue.</p>
+        <h3>Globo Gigante y Gender Reveal</h3>
+        <p>El globo gigante de 3 pies con confeti es la pieza de impacto por excelencia. Puede usarse como decoración estática o como globo de gender reveal para revelar el sexo del bebé en el momento más emocionante de la fiesta, con una lluvia de confeti rosa o azul que sorprende a todos.</p>
+        <p>Decoramos baby showers en restaurantes de la Condesa, jardines de Coyoacán, cafeterías de la Roma, salones de Polanco y casas particulares en toda la CDMX. Desde celebraciones íntimas de 20 personas hasta fiestas de 100 invitados, adaptamos nuestra decoración al espacio y al estilo que imagines.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tu decoración con globos para baby shower y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid-3 { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+  .gallery-item { border-radius: var(--border-radius-lg); overflow: hidden; aspect-ratio: 4/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+</style>

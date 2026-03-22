@@ -1,0 +1,102 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = "Decoración con Globos para XV Años: Ideas Espectaculares";
+const description = "Transforma la fiesta de XV años con decoración profesional de globos. Ideas de arcos, columnas, backdrops y centros de mesa que harán inolvidable la celebración.";
+const category = "XV Años";
+const date = "2025-09-05";
+
+const structuredData = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  datePublished: date,
+  dateModified: date,
+  author: { '@type': 'Organization', name: 'DEGLOB' },
+  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+}];
+---
+
+<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
+  <Breadcrumb items={[
+    { name: 'Blog', href: '/blog/' },
+    { name: title, href: '/blog/decoracion-xv-anos-globos/' },
+  ]} />
+
+  <article class="blog-article">
+    <header class="blog-article__header">
+      <span class="blog-article__category">{category}</span>
+      <h1 class="blog-article__title">{title}</h1>
+      <p class="blog-article__excerpt">{description}</p>
+      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+    </header>
+
+    <div class="blog-article__content">
+      <h2>La fiesta de XV años merece una decoración inolvidable</h2>
+      <p>Los XV años son una de las celebraciones más importantes en la tradición mexicana. Es el momento en que una joven se presenta ante la sociedad, y cada detalle de la fiesta debe reflejar la personalidad y los sueños de la quinceañera. La decoración con globos se ha convertido en un elemento indispensable para estas fiestas, ya que permite crear ambientes espectaculares que combinan elegancia, color y fantasía de una manera que pocos elementos decorativos logran.</p>
+      <p>En CDMX, las fiestas de XV años pueden realizarse en salones de eventos, jardines, haciendas o incluso terrazas con vista a la ciudad. Cada espacio presenta oportunidades únicas para la decoración con globos, y un diseño profesional puede transformar cualquier lugar en el escenario de cuento de hadas que toda quinceañera sueña.</p>
+
+      <h2>El arco de entrada: la primera impresión</h2>
+      <p>La entrada del salón es el primer contacto visual que tienen los invitados con la fiesta, y un arco de globos espectacular establece inmediatamente el tono de la celebración. Para XV años, los arcos suelen ser más grandes y elaborados que para otros eventos. Un arco orgánico de cuatro a seis metros que combine los colores de la temática con acentos chrome y figuras de foil como estrellas o coronas crea una bienvenida impresionante.</p>
+      <p>Los arcos dobles, donde un arco interior enmarca la puerta y otro exterior rodea toda la fachada del salón, son una opción premium que genera un efecto de inmersión total desde el momento en que los invitados llegan.</p>
+
+      <h2>Backdrop para la mesa principal</h2>
+      <p>La mesa principal donde se sienta la quinceañera y su corte necesita un fondo que la destaque como el punto focal del salón. Un muro de globos que cubra toda la pared detrás de la mesa, con diseño orgánico en degradado de colores, crea el escenario perfecto. Se puede personalizar con el número 15 en globos gigantes, el nombre de la quinceañera o elementos temáticos como mariposas, estrellas o flores.</p>
+      <p>Para un look más moderno, los paneles de globos con secciones de diferentes texturas, combinando globos mate, chrome y transparentes con confeti, ofrecen una profundidad visual que se ve increíble tanto en persona como en las fotografías.</p>
+
+      <h2>Centros de mesa que impresionan</h2>
+      <p>Los centros de mesa con globos para XV años pueden ser tan sencillos o elaborados como desees. Una opción popular es el bouquet de globos con helio compuesto por tres a cinco globos en diferentes acabados, sujetos a un peso decorativo que coordine con la paleta de colores. Otra alternativa es crear mini arreglos orgánicos sobre bases de acrílico transparente que se colocan directamente sobre la mesa.</p>
+      <p>Para mesas con muchos invitados, los centros de mesa altos con globos orbz en la parte superior y cascadas de cintas o guías de globos pequeños hacia abajo crean un efecto dramático sin obstruir la conversación entre los comensales.</p>
+
+      <h2>Temáticas populares para XV años</h2>
+      <ul>
+        <li><strong>Enchanted Garden:</strong> Globos en tonos pastel con abundante follaje verde, flores naturales integradas y mariposas de foil. Crea un ambiente de jardín mágico dentro del salón.</li>
+        <li><strong>Noche de Estrellas:</strong> Globos en azul oscuro, negro, dorado y plateado con estrellas y lunas. Globos transparentes con luces LED dentro simulan un cielo estrellado.</li>
+        <li><strong>Princesa Moderna:</strong> Rosa blush, dorado y blanco con coronas, castillos y detalles brillantes. Elegante sin ser infantil.</li>
+        <li><strong>Tropical Glam:</strong> Colores vibrantes como fucsia, naranja y verde tropical con hojas de palma y flores exóticas entre los globos.</li>
+        <li><strong>All White:</strong> Toda la decoración en blanco con diferentes texturas y acabados. Minimalista, sofisticado y perfecto para venues modernos.</li>
+      </ul>
+
+      <h2>El número XV como pieza central</h2>
+      <p>Una de las piezas más fotografiadas en cualquier fiesta de XV años es el número 15 en globos. Se puede construir en diferentes estilos: desde números llenos de mini globos de colores sobre estructura interna, hasta números gigantes de un solo color con acabado premium. La altura ideal es de 1.2 a 1.5 metros para que destaquen en cualquier zona del salón donde se coloquen.</p>
+
+      <h2>Coordinación con otros elementos decorativos</h2>
+      <p>La decoración con globos para XV años funciona mejor cuando se coordina con los demás elementos del evento: la iluminación del salón, los arreglos florales, la mantelería y hasta el vestido de la quinceañera. Un equipo profesional de decoración te pedirá esta información para crear una propuesta integral donde cada elemento complemente a los demás, logrando una fiesta visualmente coherente y espectacular que la quinceañera y sus invitados recordarán por siempre.</p>
+    </div>
+
+    <div class="blog-article__cta">
+      <h3>¿Necesitas decoración con globos para XV años?</h3>
+      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+
+    <nav class="blog-article__back">
+      <a href="/blog/">&larr; Volver al blog</a>
+    </nav>
+  </article>
+
+</Base>
+
+<style>
+  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
+  .blog-article__header { margin-bottom: var(--spacing-2xl); }
+  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
+  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
+  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
+  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  .blog-article__content { margin-bottom: var(--spacing-2xl); }
+  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
+  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
+  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
+  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
+  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
+  .blog-article__content strong { color: var(--color-text); }
+  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
+  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
+  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
+  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
+</style>

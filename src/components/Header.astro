@@ -1,29 +1,16 @@
 ---
 const currentPath = Astro.url.pathname;
 ---
-<header slot="header">
-  <div class="header-top">
-    <div class="container header-top-inner">
-      <div class="header-contact">
-        <a href="tel:+5215639565117"><i class="fas fa-phone"></i> 56 3956 5117</a>
-        <a href="mailto:info@fantasyglobos.com.mx"><i class="fas fa-envelope"></i> info@fantasyglobos.com.mx</a>
-        <span><i class="fas fa-clock"></i> Lun-Vie 9-19h | Sab 10-16h</span>
-      </div>
-      <div class="header-social">
-        <a href="https://www.facebook.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@deglob" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.pinterest.com/deglob" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-      </div>
-    </div>
-  </div>
+<header>
   <nav class="navbar">
     <div class="container nav-inner">
-      <a href="/" class="nav-logo">
-        <span class="logo-de">DE</span><span class="logo-glob">GLOB</span>
+      <a href="/" class="nav-logo" aria-label="DEGLOB - Inicio">
+        <img src="/img/decoracion-con-globos.avif" alt="DEGLOB — Decoración con Globos CDMX" class="nav-logo__img" width="180" height="60" loading="eager" decoding="async" fetchpriority="high" />
       </a>
       <button class="nav-toggle" aria-label="Abrir menú" id="navToggle">
-        <i class="fas fa-bars"></i>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
       </button>
       <ul class="nav-menu" id="navMenu">
         <li><a href="/" class:list={[{ active: currentPath === '/' }]}>Inicio</a></li>
@@ -41,106 +28,90 @@ const currentPath = Astro.url.pathname;
   toggle?.addEventListener('click', () => menu?.classList.toggle('open'));
 </script>
 <style>
-  .header-top {
-    background: linear-gradient(135deg, #8B30EE 0%, #C900D4 100%);
-    color: #fff;
-    font-size: 0.85rem;
-    padding: 8px 0;
-  }
-  .header-top-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .header-contact {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .header-contact a, .header-contact span {
-    color: #fff;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .header-social {
-    display: flex;
-    gap: 12px;
-  }
-  .header-social a {
-    color: #fff;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-  }
-  .header-social a:hover { background: rgba(255,255,255,0.3); }
+  /* Navbar */
   .navbar {
-    background: #fff;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    background: #8f2fef;
     position: sticky;
     top: 0;
     z-index: 100;
-    padding: 12px 0;
+    padding: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
   .nav-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height: 64px;
   }
+
+  /* Logo */
   .nav-logo {
-    font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
   }
-  .logo-de {
-    background: linear-gradient(135deg, #8B30EE, #C900D4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .nav-logo__img {
+    height: 72px;
+    width: auto;
+    max-width: 270px;
+    object-fit: contain;
+    display: block;
   }
-  .logo-glob { color: #1a1a2e; }
+
+  /* Nav Links */
   .nav-menu {
     display: flex;
     list-style: none;
-    gap: 8px;
+    gap: 4px;
     align-items: center;
+    margin: 0;
+    padding: 0;
   }
   .nav-menu a {
     padding: 8px 16px;
     border-radius: 8px;
     font-weight: 500;
     font-size: 0.95rem;
-    color: #2d3436;
+    color: #fff;
+    text-decoration: none;
   }
-  .nav-menu a:hover, .nav-menu a.active {
-    color: #8B30EE;
-    background: rgba(139,48,238,0.06);
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: #fff;
+    background: rgba(255,255,255,0.15);
   }
   .nav-cta {
-    background: linear-gradient(135deg, #8B30EE, #C900D4) !important;
-    color: #fff !important;
+    background: #fff !important;
+    color: #8f2fef !important;
     border-radius: 50px !important;
     padding: 10px 24px !important;
+    font-weight: 700 !important;
+    transition: opacity 0.2s;
   }
   .nav-cta:hover { opacity: 0.9; }
+
+  /* Hamburger */
   .nav-toggle {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
-    color: #1a1a2e;
     cursor: pointer;
+    padding: 8px;
+    flex-direction: column;
+    gap: 5px;
   }
+  .nav-toggle__line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+  }
+
+  /* Mobile */
   @media (max-width: 768px) {
     .header-contact span:last-child { display: none; }
-    .nav-toggle { display: block; }
+    .nav-toggle { display: flex; }
     .nav-menu {
       display: none;
       flex-direction: column;
@@ -148,11 +119,14 @@ const currentPath = Astro.url.pathname;
       top: 100%;
       left: 0;
       right: 0;
-      background: #fff;
+      background: #8f2fef;
       padding: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 99;
     }
     .nav-menu.open { display: flex; }
+    .nav-menu a { padding: 12px 16px; }
+    .nav-cta { text-align: center; width: 100%; display: block !important; }
   }
   @media (max-width: 480px) {
     .header-top { display: none; }

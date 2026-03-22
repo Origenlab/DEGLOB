@@ -1,0 +1,149 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CategoryCard from '../../../components/CategoryCard.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const serviciosRecomendados = SERVICIOS.filter(s => ['arcos-de-globos', 'globos-helio', 'columnas-decorativas', 'backdrops-paneles', 'centros-de-mesa', 'globos-gigantes'].includes(s.slug));
+
+const galeria = [
+  '/img/globos-helio/bouquet-globos-graduacion-estrellas-doradas-universidad.webp',
+      '/img/globos-helio/bouquet-globos-graduacion-negro-dorado-estrellas.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-graduacion-negro-dorado-birrete.webp',
+      '/img/columnas-decorativas/columnas-globos-ceremonia-premios-oro-negro-escenario.webp',
+      '/img/arcos-de-globos/arco-globos-blancos-plata-boda-elegante-salon.webp',
+      '/img/guirnaldas-de-globos/arco-globos-entrada-gala-azul-marino-dorado-plateado.webp',
+      '/img/globos-gigantes/globo-gigante-confeti-dorado-sesion-fotos-terraza-ciudad.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-corporativo-azul-plata-conferencia.webp'
+];
+
+const faqItems = [
+  { pregunta: '¿Qué colores se usan para decoraciones de graduación?', respuesta: 'Los colores clásicos de graduación son negro con dorado, pero también se usan los colores de la escuela o universidad. Azul marino con plateado, verde con dorado y granate con blanco son combinaciones populares.' },
+  { pregunta: '¿Pueden incluir birretes y diplomas en la decoración?', respuesta: 'Sí, integramos globos foil con forma de birrete, estrellas doradas y elementos de graduación como diplomas. Estos detalles temáticos refuerzan la celebración del logro académico.' },
+  { pregunta: '¿Decoran tanto la ceremonia como la fiesta de graduación?', respuesta: 'Sí, podemos decorar el escenario de la ceremonia con arcos y columnas, y luego la fiesta posterior con backdrops, centros de mesa y decoración ambiental. Ofrecemos paquetes combinados.' },
+  { pregunta: '¿Cuánto cuesta decorar una graduación?', respuesta: 'Desde $4,000 MXN para una decoración básica de fiesta. Paquetes para ceremonia y fiesta van de $10,000 a $25,000 MXN dependiendo del tamaño del evento y la cantidad de elementos.' },
+  { pregunta: '¿Pueden decorar en universidades o escuelas?', respuesta: 'Sí, tenemos experiencia decorando en universidades, preparatorias y escuelas de CDMX. Coordinamos con la institución para cumplir los protocolos de acceso y tiempos de instalación.' },
+  { pregunta: '¿Ofrecen bouquets individuales para graduados?', respuesta: 'Sí, creamos bouquets de globos con helio como regalos individuales para graduados. Incluyen globos foil de birrete y estrellas con cintas premium. Disponibles para pedidos mínimos de 5 unidades.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Decoración con Globos para Graduaciones',
+    description: 'Celebra tu logro académico con arcos, bouquets, columnas y decoraciones temáticas en dorado, negro y los colores de tu escuela.',
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title="Decoración con Globos para Graduaciones en CDMX | DEGLOB"
+  description="Celebra tu logro académico con arcos, bouquets, columnas y decoraciones temáticas en dorado, negro y los colores de tu escuela. Cotiza hoy. Instalación incluida en CDMX."
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Eventos', href: '/eventos/' },
+    { name: 'Graduaciones', href: '/eventos/graduaciones/' },
+  ]} />
+
+  <Hero
+    badge="Graduaciones"
+    title="Decoración con Globos para Graduaciones en CDMX"
+    description="Celebra tu logro académico con arcos, bouquets, columnas y decoraciones temáticas en dorado, negro y los colores de tu escuela. Cotiza hoy y recibe tu presupuesto en minutos."
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Servicios', href: '#servicios' }}
+  >
+    <Fragment slot="hero-seo">
+      <p>En <strong>DEGLOB</strong> creamos decoraciones con globos espectaculares para <strong>graduaciones</strong> en la Ciudad de México y zona metropolitana. Nuestro equipo de decoradores profesionales se encarga de todo: diseño, producción, transporte e instalación.</p>
+      <p>Desde arcos orgánicos y columnas decorativas hasta backdrops fotogénicos y centros de mesa, cada elemento se personaliza según tu visión y la temática de tu evento. Trabajamos con globos premium y materiales de primera para garantizar resultados impecables.</p>
+    </Fragment>
+  </Hero>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <SectionHeader
+        badge="Servicios recomendados"
+        title="Servicios de Globos para Graduaciones"
+        subtitle="Estos son los servicios que más solicitan nuestros clientes para graduaciones. Cada uno incluye instalación profesional en CDMX."
+      />
+      <div class="grid-3">
+        {serviciosRecomendados.map((s) => (
+          <CategoryCard
+            title={s.nombre}
+            subtitle={s.descripcion}
+            href={`/servicios/${s.slug}/`}
+            image={s.imagen}
+            subcategories={s.paquetes.map((p) => ({
+              name: p.nombre,
+              href: `/servicios/${s.slug}/${p.slug}/`,
+            }))}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader
+        badge="Inspiración"
+        title="Galería de Graduaciones"
+        subtitle="Estos son algunos de nuestros trabajos de decoración con globos para graduaciones en CDMX."
+      />
+      <div class="gallery-grid">
+        {galeria.map((img, i) => (
+          <div class="gallery-item">
+            <img src={img} alt={`Decoración con globos para graduaciones en CDMX — ejemplo ${i + 1}`} loading="lazy" decoding="async" width="640" height="480" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        
+        <h2>Decoración con Globos para Graduaciones: Celebra tu Logro con Estilo</h2>
+        <p>La graduación es uno de los momentos más importantes de la vida académica y merece una celebración a la altura del esfuerzo. En DEGLOB creamos decoraciones con globos que capturan la emoción y el orgullo de este logro, tanto para la ceremonia formal como para la fiesta de celebración.</p>
+        <h3>Decoración para la Ceremonia de Graduación</h3>
+        <p>Enmarcamos escenarios de ceremonia con arcos elegantes en colores institucionales, columnas que delimitan el pasillo de honor y bouquets de helio que agregan solemnidad al momento. Los colores negro y dorado son clásicos, pero nos adaptamos a los colores de cada escuela o universidad.</p>
+        <h3>Fiesta de Graduación con Globos</h3>
+        <p>La fiesta posterior a la ceremonia es donde la decoración puede ser más festiva y espectacular. Backdrops con el año de graduación, arcos orgánicos en la entrada, centros de mesa temáticos con birretes de foil y techos flotantes de helio transforman el salón en un espacio de celebración memorable.</p>
+        <h3>Bouquets y Regalos para Graduados</h3>
+        <p>Los bouquets de globos con helio se han convertido en el regalo más popular para graduados. Nuestros arreglos incluyen globos foil con forma de birrete, estrellas doradas y cintas premium, creando un regalo vistoso y fotogénico que el graduado puede llevar consigo durante toda la celebración.</p>
+        <h3>Centros de Mesa Temáticos</h3>
+        <p>Nuestros centros de mesa de graduación combinan globos en negro y dorado con elementos temáticos como mini birretes, diplomas decorativos y números con el año. Cada centro es una pieza que refuerza la temática de logro y celebración en cada mesa del banquete.</p>
+        <p>Decoramos graduaciones de todos los niveles educativos en CDMX: desde kinder y primaria hasta preparatoria, universidad y posgrado. Trabajamos en instituciones de toda la ciudad y zona metropolitana, adaptando el estilo y escala de la decoración al nivel académico.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tu decoración con globos para graduaciones y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid-3 { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+  .gallery-item { border-radius: var(--border-radius-lg); overflow: hidden; aspect-ratio: 4/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+</style>

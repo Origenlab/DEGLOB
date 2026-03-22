@@ -1,0 +1,149 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CategoryCard from '../../../components/CategoryCard.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const serviciosRecomendados = SERVICIOS.filter(s => ['columnas-decorativas', 'arcos-de-globos', 'backdrops-paneles', 'guirnaldas-de-globos', 'globos-helio', 'centros-de-mesa'].includes(s.slug));
+
+const galeria = [
+  '/img/globos-helio/decoracion-globos-helio-dorado-plata-evento-corporativo.webp',
+      '/img/globos-helio/decoracion-globos-helio-coctel-empresarial-elegante.webp',
+      '/img/columnas-decorativas/columnas-globos-ceremonia-premios-oro-negro-escenario.webp',
+      '/img/columnas-decorativas/columnas-globos-congreso-azul-plata-registro-stand.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-corporativo-azul-marino-plata-salon.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-corporativo-azul-plata-conferencia.webp',
+      '/img/guirnaldas-de-globos/arco-globos-elegante-azul-marino-dorado-blanco-evento-corporativo.webp',
+      '/img/globos-helio/arco-globos-inauguracion-tienda-rojo-blanco-comercial.webp'
+];
+
+const faqItems = [
+  { pregunta: '¿Pueden usar los colores corporativos de nuestra empresa?', respuesta: 'Sí, trabajamos con Pantone y referencias de color para reproducir fielmente los colores de tu marca. Buscamos las tonalidades más cercanas en nuestra gama de globos premium para una decoración brandeada.' },
+  { pregunta: '¿Ofrecen facturación para empresas?', respuesta: 'Sí, emitimos factura fiscal (CFDI) con todos los datos requeridos. Podemos facturar a nombre de la empresa o razón social que nos indiques.' },
+  { pregunta: '¿Pueden instalar en centros de convenciones y hoteles?', respuesta: 'Sí, tenemos experiencia instalando en los principales centros de convenciones y hoteles de CDMX: Centro Banamex, WTC, Expo Santa Fe, hoteles en Reforma, Polanco y Santa Fe. Coordinamos con los equipos de logística de cada venue.' },
+  { pregunta: '¿Qué tipo de eventos corporativos decoran?', respuesta: 'Decoramos inauguraciones, lanzamientos de producto, convenciones, seminarios, fiestas de fin de año, premiaciones, aniversarios de empresa y cualquier evento corporativo que requiera decoración con globos.' },
+  { pregunta: '¿Pueden integrar logos o mensajes en la decoración?', respuesta: 'Sí, podemos incluir logos en globos impresos, crear figuras que representen productos o marcas, e integrar letreros y elementos brandeados dentro de las composiciones de globos.' },
+  { pregunta: '¿Cuánto tiempo necesitan para instalar en un evento corporativo?', respuesta: 'Dependiendo de la cantidad de elementos, necesitamos entre 2 y 6 horas. Coordinamos con tu equipo de producción para cumplir los tiempos del montaje general del evento.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Decoración con Globos para Corporativos',
+    description: 'Decoración profesional con globos en colores corporativos para inauguraciones, lanzamientos, convenciones y fiestas de empresa.',
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title="Decoración con Globos para Eventos Corporativos en CDMX | DEGLOB"
+  description="Decoración profesional con globos en colores corporativos para inauguraciones, lanzamientos, convenciones y fiestas de empresa. Cotiza hoy. Instalación incluida en CDMX."
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Eventos', href: '/eventos/' },
+    { name: 'Corporativos', href: '/eventos/corporativos/' },
+  ]} />
+
+  <Hero
+    badge="Corporativos"
+    title="Decoración con Globos para Eventos Corporativos en CDMX"
+    description="Decoración profesional con globos en colores corporativos para inauguraciones, lanzamientos, convenciones y fiestas de empresa. Cotiza hoy y recibe tu presupuesto en minutos."
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Servicios', href: '#servicios' }}
+  >
+    <Fragment slot="hero-seo">
+      <p>En <strong>DEGLOB</strong> creamos decoraciones con globos espectaculares para <strong>corporativos</strong> en la Ciudad de México y zona metropolitana. Nuestro equipo de decoradores profesionales se encarga de todo: diseño, producción, transporte e instalación.</p>
+      <p>Desde arcos orgánicos y columnas decorativas hasta backdrops fotogénicos y centros de mesa, cada elemento se personaliza según tu visión y la temática de tu evento. Trabajamos con globos premium y materiales de primera para garantizar resultados impecables.</p>
+    </Fragment>
+  </Hero>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <SectionHeader
+        badge="Servicios recomendados"
+        title="Servicios de Globos para Corporativos"
+        subtitle="Estos son los servicios que más solicitan nuestros clientes para corporativos. Cada uno incluye instalación profesional en CDMX."
+      />
+      <div class="grid-3">
+        {serviciosRecomendados.map((s) => (
+          <CategoryCard
+            title={s.nombre}
+            subtitle={s.descripcion}
+            href={`/servicios/${s.slug}/`}
+            image={s.imagen}
+            subcategories={s.paquetes.map((p) => ({
+              name: p.nombre,
+              href: `/servicios/${s.slug}/${p.slug}/`,
+            }))}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader
+        badge="Inspiración"
+        title="Galería de Corporativos"
+        subtitle="Estos son algunos de nuestros trabajos de decoración con globos para corporativos en CDMX."
+      />
+      <div class="gallery-grid">
+        {galeria.map((img, i) => (
+          <div class="gallery-item">
+            <img src={img} alt={`Decoración con globos para corporativos en CDMX — ejemplo ${i + 1}`} loading="lazy" decoding="async" width="640" height="480" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        
+        <h2>Decoración con Globos para Eventos Corporativos: Imagen Profesional con Impacto</h2>
+        <p>Los eventos corporativos requieren una decoración que proyecte profesionalismo, creatividad y atención al detalle. En DEGLOB nos especializamos en crear ambientes con globos que refuerzan la imagen de tu empresa, utilizando colores corporativos y diseños que comunican la identidad de tu marca.</p>
+        <h3>Inauguraciones y Aperturas</h3>
+        <p>La inauguración de una nueva oficina, tienda o sucursal merece una decoración que genere expectativa y capture atención. Arcos monumentales en la entrada, columnas enmarcando el acceso y guirnaldas decorativas en los colores de tu marca crean el ambiente perfecto para dar la bienvenida a clientes, socios e invitados VIP.</p>
+        <h3>Lanzamientos de Producto y Marca</h3>
+        <p>Un lanzamiento de producto necesita un escenario visualmente impactante. Diseñamos backdrops brandeados, instalaciones con globos que integran el logo de la empresa y composiciones temáticas que refuerzan el concepto del producto o servicio presentado.</p>
+        <h3>Convenciones y Seminarios</h3>
+        <p>Para convenciones, usamos columnas decorativas que enmarcan escenarios, guirnaldas que decoran áreas de registro y centros de mesa con globos para las mesas de networking. Los globos con helio agregan volumen al espacio sin interferir con la logística del evento.</p>
+        <h3>Fiestas de Fin de Año y Premiaciones</h3>
+        <p>Las fiestas corporativas merecen una decoración que celebre los logros del equipo. Arcos espectaculares, techos flotantes de helio y centros de mesa elegantes transforman cualquier salón en un escenario de celebración que motiva y une a los colaboradores.</p>
+        <p>Atendemos empresas en toda la CDMX: desde startups en la Roma hasta corporativos en Santa Fe, y desde pymes en Polanco hasta congresos en el WTC y Centro Banamex. Ofrecemos facturación y nos adaptamos a los protocolos de cada empresa.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tu decoración con globos para corporativos y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid-3 { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+  .gallery-item { border-radius: var(--border-radius-lg); overflow: hidden; aspect-ratio: 4/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+</style>

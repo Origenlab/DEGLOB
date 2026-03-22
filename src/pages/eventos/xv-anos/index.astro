@@ -1,0 +1,149 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CategoryCard from '../../../components/CategoryCard.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const serviciosRecomendados = SERVICIOS.filter(s => ['arcos-de-globos', 'columnas-decorativas', 'backdrops-paneles', 'figuras-personalizadas', 'globos-helio', 'centros-de-mesa'].includes(s.slug));
+
+const galeria = [
+  '/img/arcos-de-globos/arco-globos-quince-anos-rosa-dorado-damas.webp',
+      '/img/arcos-de-globos/arco-globos-quinceanera-mariposas-pastel-exterior.webp',
+      '/img/arcos-de-globos/arco-globos-xv-anos-azul-plata-salon-fiestas.webp',
+      '/img/arcos-de-globos/arco-globos-xv-anos-fucsia-plata-estrellas.webp',
+      '/img/arcos-de-globos/arco-globos-xv-anos-mariposas-azul-lila-jardin.webp',
+      '/img/arcos-de-globos/arco-globos-xv-anos-rosa-vino-entrada-salon.webp',
+      '/img/columnas-decorativas/columnas-globos-blanco-oro-entrada-evento-luces.webp',
+      '/img/globos-gigantes/globo-gigante-cobre-metalico-xv-anos-quinceañera-salon.webp'
+];
+
+const faqItems = [
+  { pregunta: '¿Qué estilos de decoración con globos son tendencia para XV años?', respuesta: 'Las tendencias actuales incluyen arcos orgánicos con mariposas, columnas con remates de estrellas foil, backdrops con números gigantes (XV o 15), paletas en rosa con dorado o azul con plata, y techos flotantes de helio que transforman el salón completo.' },
+  { pregunta: '¿Pueden decorar el salón completo para los XV años?', respuesta: 'Sí, ofrecemos paquetes integrales que cubren entrada, pasillo, pista de baile, mesa principal, mesa de dulces y área de fotos. Coordinamos todos los elementos para una decoración coherente y espectacular.' },
+  { pregunta: '¿Pueden hacer la decoración con la temática de mariposas?', respuesta: 'Sí, la temática de mariposas es una de las más solicitadas. Integramos mariposas de foil, papel y tela entre los globos, creando composiciones que van desde lo sutil hasta lo espectacular.' },
+  { pregunta: '¿Qué paquete recomiendan para unos XV años?', respuesta: 'Para unos XV años recomendamos mínimo un arco grande para la pista de baile, columnas en la entrada y un backdrop para la mesa principal. Si el presupuesto lo permite, centros de mesa y techo flotante completan la experiencia.' },
+  { pregunta: '¿Cuánto cuesta decorar con globos unos XV años?', respuesta: 'Los precios varían según la cantidad de elementos. Una decoración básica empieza desde $8,000 MXN (arco + columnas) y una producción completa puede ir de $25,000 a $50,000 MXN dependiendo del tamaño del salón y los elementos seleccionados.' },
+  { pregunta: '¿El número 15 gigante de globos se puede agregar?', respuesta: 'Sí, el número 15 o XV hecho con globos es uno de los elementos más fotografiados en las fiestas de quinceañera. Cada dígito mide 1.2 metros y se personaliza en los colores de tu fiesta.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Decoración con Globos para XV Años',
+    description: 'Transforma tu fiesta de quinceañera con arcos monumentales, columnas de pasillo, backdrops fotogénicos y figuras personalizadas.',
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title="Decoración con Globos para XV Años en CDMX | DEGLOB"
+  description="Transforma tu fiesta de quinceañera con arcos monumentales, columnas de pasillo, backdrops fotogénicos y figuras personalizadas. Cotiza hoy. Instalación incluida en CDMX."
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Eventos', href: '/eventos/' },
+    { name: 'XV Años', href: '/eventos/xv-anos/' },
+  ]} />
+
+  <Hero
+    badge="XV Años"
+    title="Decoración con Globos para XV Años en CDMX"
+    description="Transforma tu fiesta de quinceañera con arcos monumentales, columnas de pasillo, backdrops fotogénicos y figuras personalizadas. Cotiza hoy y recibe tu presupuesto en minutos."
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Servicios', href: '#servicios' }}
+  >
+    <Fragment slot="hero-seo">
+      <p>En <strong>DEGLOB</strong> creamos decoraciones con globos espectaculares para <strong>xv años</strong> en la Ciudad de México y zona metropolitana. Nuestro equipo de decoradores profesionales se encarga de todo: diseño, producción, transporte e instalación.</p>
+      <p>Desde arcos orgánicos y columnas decorativas hasta backdrops fotogénicos y centros de mesa, cada elemento se personaliza según tu visión y la temática de tu evento. Trabajamos con globos premium y materiales de primera para garantizar resultados impecables.</p>
+    </Fragment>
+  </Hero>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <SectionHeader
+        badge="Servicios recomendados"
+        title="Servicios de Globos para XV Años"
+        subtitle="Estos son los servicios que más solicitan nuestros clientes para xv años. Cada uno incluye instalación profesional en CDMX."
+      />
+      <div class="grid-3">
+        {serviciosRecomendados.map((s) => (
+          <CategoryCard
+            title={s.nombre}
+            subtitle={s.descripcion}
+            href={`/servicios/${s.slug}/`}
+            image={s.imagen}
+            subcategories={s.paquetes.map((p) => ({
+              name: p.nombre,
+              href: `/servicios/${s.slug}/${p.slug}/`,
+            }))}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader
+        badge="Inspiración"
+        title="Galería de XV Años"
+        subtitle="Estos son algunos de nuestros trabajos de decoración con globos para xv años en CDMX."
+      />
+      <div class="gallery-grid">
+        {galeria.map((img, i) => (
+          <div class="gallery-item">
+            <img src={img} alt={`Decoración con globos para xv años en CDMX — ejemplo ${i + 1}`} loading="lazy" decoding="async" width="640" height="480" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        
+        <h2>Decoración con Globos para XV Años: Haz Realidad la Fiesta Soñada</h2>
+        <p>Los XV años son una celebración única que merece una decoración a la altura del momento. En DEGLOB creamos ambientes mágicos con globos que transforman salones de fiesta en escenarios de cuento, combinando las tendencias más actuales con la personalidad de cada quinceañera.</p>
+        <h3>Entrada Triunfal con Arcos y Columnas</h3>
+        <p>La llegada al salón debe ser espectacular. Nuestros arcos monumentales de hasta 4 metros enmarcan la entrada principal mientras que las columnas decorativas crean un pasillo de honor por donde la quinceañera hace su entrada triunfal. Los colores clásicos como rosa con dorado, azul con plata o lila con blanco son los más solicitados.</p>
+        <h3>Pista de Baile y Vals</h3>
+        <p>El vals es el momento central de la fiesta y merece un escenario impecable. Diseñamos arcos orgánicos o backdrops que enmarcan la pista donde la quinceañera bailará con su padre y sus chambelanes. Las columnas decorativas delimitan el espacio de baile creando un marco fotogénico para este momento inolvidable.</p>
+        <h3>Mesa Principal y Área de Fotos</h3>
+        <p>La mesa de la quinceañera se enmarca con un backdrop personalizado que puede incluir su nombre en letras de globos, el número 15 gigante o un diseño temático como mariposas, coronas o estrellas. El photobooth con backdrop de globos se ha vuelto indispensable en toda fiesta de XV años moderna.</p>
+        <h3>Temáticas Populares para XV Años</h3>
+        <p>Las temáticas más solicitadas incluyen mariposas (en todos los colores), jardín encantado con follaje y flores, noche de estrellas con globos chrome y foil, princesas con coronas y castillos, y estilo moderno minimalista en tonos neutros con acentos metálicos. Nos adaptamos a cualquier visión creativa.</p>
+        <p>Decoramos XV años en todos los salones de CDMX y zona metropolitana: desde salones en Naucalpan y Tlalnepantla hasta haciendas en Cuernavaca y jardines en Xochimilco. Nuestro equipo se adapta a las dimensiones y estilo de cada venue para crear la decoración perfecta.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tu decoración con globos para xv años y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid-3 { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+  .gallery-item { border-radius: var(--border-radius-lg); overflow: hidden; aspect-ratio: 4/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+</style>

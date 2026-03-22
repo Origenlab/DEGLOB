@@ -1,0 +1,101 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = "Tendencias en Arcos de Globos para Eventos";
+const description = "Conoce las últimas tendencias en arcos de globos: orgánicos, asimétricos, con flores y más. Inspírate para tu próximo evento con los estilos más solicitados.";
+const category = "Tendencias";
+const date = "2025-10-28";
+
+const structuredData = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  datePublished: date,
+  dateModified: date,
+  author: { '@type': 'Organization', name: 'DEGLOB' },
+  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+}];
+---
+
+<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
+  <Breadcrumb items={[
+    { name: 'Blog', href: '/blog/' },
+    { name: title, href: '/blog/arcos-globos-tendencias/' },
+  ]} />
+
+  <article class="blog-article">
+    <header class="blog-article__header">
+      <span class="blog-article__category">{category}</span>
+      <h1 class="blog-article__title">{title}</h1>
+      <p class="blog-article__excerpt">{description}</p>
+      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+    </header>
+
+    <div class="blog-article__content">
+      <h2>El arco de globos: protagonista indiscutible de cualquier evento</h2>
+      <p>Los arcos de globos se han consolidado como el elemento decorativo estrella en todo tipo de celebraciones. Ya no se trata de simples hileras de globos uniformes: hoy los arcos son verdaderas obras de arte que combinan texturas, tamaños, colores y materiales complementarios para crear piezas únicas. En CDMX, la demanda de arcos personalizados ha crecido enormemente, y cada temporada trae nuevas tendencias que elevan el nivel de la decoración.</p>
+
+      <h2>Arcos orgánicos: la tendencia que sigue dominando</h2>
+      <p>El estilo orgánico continúa siendo el más solicitado. Se caracteriza por su apariencia natural y desestructurada, donde los globos de diferentes tamaños se agrupan de manera aparentemente aleatoria creando un efecto visual espectacular. La clave está en la variación: se mezclan globos de 5, 11, 16 y hasta 24 pulgadas en una misma pieza, logrando profundidad y movimiento.</p>
+      <p>Lo que hace especial al arco orgánico es su versatilidad. Funciona igual de bien en una boda íntima en un restaurante de la Condesa que en una fiesta de XV años en un gran salón de Tlalpan. Los decoradores profesionales planifican cada sección del arco para garantizar que la distribución de tamaños y colores sea armoniosa desde cualquier ángulo.</p>
+
+      <h2>Arcos asimétricos: rompiendo esquemas</h2>
+      <p>La asimetría es una tendencia fuerte que desafía la decoración tradicional. En lugar de crear un arco completo de lado a lado, se diseña una estructura que concentra el volumen en un extremo y se diluye gradualmente hacia el otro. Este estilo funciona particularmente bien en espacios amplios y es ideal para enmarcar mesas de dulces, candy bars o zonas de registro.</p>
+      <p>Los arcos asimétricos también permiten integrar elementos colgantes como cintas de satín, cadenas de papel o guías de follaje que descienden desde la parte más densa del arco, añadiendo movimiento y dimensión al diseño.</p>
+
+      <h2>Integración de flores y follaje</h2>
+      <p>Una de las tendencias más elegantes es la combinación de globos con flores naturales o artificiales de alta calidad. Las ramas de eucalipto, las hojas de palma y las flores secas se entrelazan entre los globos para crear un look sofisticado que difumina la línea entre decoración floral y decoración con globos. Esta fusión es especialmente popular en bodas y eventos formales.</p>
+      <p>El follaje tropical también ha ganado terreno: hojas de monstera, helecho y palma arecana aportan frescura y un toque exótico que combina perfectamente con paletas de colores cálidos como terracota, verde oliva y dorado.</p>
+
+      <h2>Colores y acabados en tendencia</h2>
+      <p>Los acabados chrome y metallic siguen siendo protagonistas. Los globos chrome en dorado, oro rosa y plata aportan un brillo sutil que eleva cualquier composición. Combinados con globos mate en tonos pastel o neutros, crean un contraste sofisticado.</p>
+      <ul>
+        <li><strong>Mocha y café:</strong> Tonos terrosos que transmiten calidez y elegancia natural.</li>
+        <li><strong>Sage green:</strong> El verde salvia sigue en auge, perfecto para eventos boho y rústicos.</li>
+        <li><strong>Dusty rose:</strong> Rosa empolvado que funciona tanto para baby showers como para bodas.</li>
+        <li><strong>Double-stuffed:</strong> La técnica de colocar un globo dentro de otro para lograr colores personalizados y un acabado premium.</li>
+      </ul>
+
+      <h2>Arcos con iluminación</h2>
+      <p>Integrar luces LED dentro del arco de globos es una tendencia que transforma por completo el ambiente, especialmente en eventos nocturnos. Las luces cálidas entre los globos crean una atmósfera romántica e íntima, mientras que las luces de colores pueden adaptarse a temáticas más festivas. Esta técnica requiere planificación adicional pero el resultado visual justifica completamente la inversión.</p>
+
+      <h2>Cómo elegir el arco perfecto para tu evento</h2>
+      <p>La elección del estilo de arco depende de varios factores: el tipo de evento, el espacio disponible, la paleta de colores general y por supuesto el presupuesto. Un decorador profesional te ayudará a visualizar las opciones y recomendará el diseño que mejor se adapte a tu celebración. No tengas miedo de mezclar tendencias: a veces la combinación de un arco orgánico con elementos asimétricos y un toque de follaje es exactamente lo que tu evento necesita para ser inolvidable.</p>
+    </div>
+
+    <div class="blog-article__cta">
+      <h3>¿Necesitas decoración con globos?</h3>
+      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+
+    <nav class="blog-article__back">
+      <a href="/blog/">&larr; Volver al blog</a>
+    </nav>
+  </article>
+
+</Base>
+
+<style>
+  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
+  .blog-article__header { margin-bottom: var(--spacing-2xl); }
+  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
+  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
+  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
+  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  .blog-article__content { margin-bottom: var(--spacing-2xl); }
+  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
+  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
+  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
+  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
+  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
+  .blog-article__content strong { color: var(--color-text); }
+  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
+  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
+  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
+  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
+</style>

@@ -1,0 +1,140 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const servicio = SERVICIOS.find(s => s.slug === 'globos-helio')!;
+const paquetes = servicio.paquetes;
+
+const faqItems = [
+  { pregunta: '¿Cuánto tiempo duran los globos con helio?', respuesta: 'Los globos de latex con helio duran entre 12 y 18 horas en condiciones normales de interior. Los globos de foil (metálicos) pueden mantenerse flotando de 3 a 7 días. Para mayor duración, aplicamos un tratamiento especial llamado Hi-Float que extiende la vida del globo de latex hasta 24 horas o más.' },
+  { pregunta: '¿Cuántos globos con helio necesito para mi evento?', respuesta: 'Para un bouquet de mesa se recomiendan de 5 a 7 globos. Para crear un efecto de techo flotante en un salón mediano, necesitarás entre 50 y 100 globos dependiendo del área a cubrir. Te asesoramos sobre la cantidad ideal según el tamaño de tu espacio y el efecto visual deseado.' },
+  { pregunta: '¿Los globos con helio se pueden personalizar?', respuesta: 'Sí, ofrecemos globos con confeti, globos con mensajes impresos, globos transparentes con rellenos especiales y combinaciones de globos de foil con formas de estrellas, corazones, números y letras. Cada bouquet se diseña a medida con la paleta de colores de tu evento.' },
+  { pregunta: '¿Ofrecen entrega a domicilio de globos con helio?', respuesta: 'Sí, todos nuestros paquetes de globos con helio incluyen entrega a domicilio o al venue de tu evento en CDMX y zona metropolitana. Los bouquets llegan listos con cintas decorativas y peso para que los coloques donde desees.' },
+  { pregunta: '¿Se pueden mezclar globos de helio con otro tipo de decoración?', respuesta: 'Por supuesto. Los globos con helio se complementan perfectamente con arcos, guirnaldas y centros de mesa. Un techo flotante combinado con un arco de entrada crea un ambiente envolvente espectacular. Podemos diseñar paquetes combinados con descuento especial.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: servicio.nombre,
+    description: servicio.descripcion,
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `Paquetes de ${servicio.nombre}`,
+      itemListElement: paquetes.map(p => ({
+        '@type': 'Offer',
+        name: p.nombre,
+        price: p.precio,
+        priceCurrency: 'MXN',
+        url: `${SITE_URL}/servicios/${servicio.slug}/${p.slug}/`,
+      })),
+    },
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title={`${servicio.nombre} — DEGLOB | Decoración con Globos CDMX`}
+  description={`${servicio.descripcion} Paquetes desde $${paquetes[0].precio.toLocaleString()} MXN. Instalación incluida en CDMX.`}
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Servicios', href: '/servicios/' },
+    { name: servicio.nombre, href: `/servicios/${servicio.slug}/` },
+  ]} />
+
+  <Hero
+    badge={servicio.nombre}
+    title={`${servicio.nombre} para Eventos en CDMX`}
+    description={servicio.descripcion + ' Cotiza hoy y recibe tu presupuesto en minutos.'}
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Paquetes', href: '#paquetes' }}
+    metrics={[
+      { valor: `${paquetes.length} paquetes`, texto: 'disponibles' },
+      { valor: `Desde $${paquetes[0].precio.toLocaleString()}`, texto: 'MXN + IVA' },
+      { valor: 'Instalación', texto: 'incluida' },
+    ]}
+  >
+    <Fragment slot="hero-seo">
+      <p>Los globos con helio crean un ambiente magico e inmersivo que ninguna otra decoracion puede igualar. Desde bouquets flotantes que dan vida a las mesas de tus invitados hasta techos completos cubiertos de globos con cintas que caen elegantemente, el helio transforma cualquier espacio en una experiencia visual unica para bodas, XV anos, cumpleanos y eventos corporativos en CDMX.</p>
+      <p>En DEGLOB trabajamos con helio de alta pureza y globos de marcas certificadas que garantizan la maxima duracion de flotacion. Aplicamos tratamiento Hi-Float a todos nuestros globos de latex para extender su vida util y asegurar que se mantengan perfectos durante toda tu celebracion. Nuestros bouquets incluyen cintas decorativas, pesos y acabados premium.</p>
+    </Fragment>
+  </Hero>
+
+  <CtaBar items={paquetes.map(p => ({ label: p.nombre, href: `/servicios/${servicio.slug}/${p.slug}/` }))} headline="Elige tu paquete" />
+
+  <section class="section" id="paquetes">
+    <div class="container">
+      <SectionHeader
+        badge="Paquetes"
+        title={`Paquetes de ${servicio.nombre}`}
+        subtitle="Elige el paquete ideal para tu evento. Todos incluyen instalación profesional en CDMX."
+      />
+      <div class="pkg-grid">
+        {paquetes.map(p => (
+          <div class="pkg-card">
+            <div class="pkg-card__header">
+              <h3 class="pkg-card__name">{p.nombre}</h3>
+              <p class="pkg-card__price">${p.precio.toLocaleString()} <span>MXN</span></p>
+            </div>
+            <ul class="pkg-card__features">
+              {p.features.map(f => (
+                <li>&#10003; {f}</li>
+              ))}
+            </ul>
+            <a href={`/servicios/${servicio.slug}/${p.slug}/`} class="pkg-card__btn">Ver Paquete</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--bg">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        <h2>Globos con Helio: Magia Flotante para tu Celebración</h2>
+        <p>Los globos con helio tienen la capacidad unica de llenar el espacio vertical de cualquier salon, creando una atmosfera envolvente que sorprende a los invitados desde el momento en que llegan. Un techo flotante de globos con cintas cayendo suavemente genera un efecto de ensueño perfecto para bodas romanticas, mientras que bouquets de colores vibrantes con globos de confeti aportan la energia que toda fiesta de cumpleanos necesita.</p>
+        <h3>Bouquets Personalizados para Cada Ocasión</h3>
+        <p>Cada bouquet que creamos es una pieza unica diseñada con una combinacion especifica de globos de latex, foil metalico, confeti y cintas decorativas. Para bodas, combinamos tonos blancos, dorados y nude con cintas de satin. Para baby showers, mezclamos globos pastel con confeti y globos transparentes con mini globos dentro. Para eventos corporativos, integramos los colores de la marca con acabados chrome elegantes.</p>
+        <h3>Techo Flotante: El Efecto Wow Garantizado</h3>
+        <p>Nuestro servicio de techo flotante es uno de los mas solicitados para bodas y XV anos. Consiste en cubrir parcial o totalmente el techo del salon con globos de helio atados con cintas largas que crean un efecto de cascada. Al entrar al espacio, los invitados quedan inmediatamente impresionados por la transformacion visual. Es una decoracion que genera fotos espectaculares y se convierte en el tema de conversacion de la noche.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tus globos con helio y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .pkg-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  .pkg-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+  .pkg-card__header { background: var(--color-bg); padding: 1.5rem; text-align: center; }
+  .pkg-card__name { font-size: 1.125rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .pkg-card__price { font-size: 1.75rem; font-weight: 800; color: var(--color-primary); margin: 0; }
+  .pkg-card__price span { font-size: 0.875rem; font-weight: 500; color: var(--color-text-light); }
+  .pkg-card__features { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; list-style: none; }
+  .pkg-card__features li { font-size: 0.875rem; color: var(--color-text); line-height: 1.5; padding-left: 0.25rem; }
+  .pkg-card__btn { display: block; text-align: center; padding: 0.875rem; font-size: 0.875rem; font-weight: 600; background: var(--color-primary); color: var(--color-white); text-decoration: none; margin: 0 1.5rem 1.5rem; border-radius: var(--border-radius); transition: background-color 0.2s; }
+  .pkg-card__btn:hover { background: var(--color-primary-dark); }
+  @media (min-width: 640px) { .pkg-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .pkg-grid { grid-template-columns: repeat(4, 1fr); } }
+</style>

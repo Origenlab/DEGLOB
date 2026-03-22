@@ -1,169 +1,134 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import HeroSection from '../components/HeroSection.astro';
-import ContactForm from '../components/ContactForm.astro';
-
-const localBusinessSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://fantasyglobos.com.mx/#localbusiness",
-  "name": "DEGLOB - Decoración con Globos CDMX",
-  "telephone": "+52-1-56-3956-5117",
-  "email": "info@fantasyglobos.com.mx",
-  "address": { "@type": "PostalAddress", "streetAddress": "Calz. Gral. Mariano Escobedo 555", "addressLocality": "Polanco, Miguel Hidalgo", "addressRegion": "CDMX", "postalCode": "11580", "addressCountry": "MX" },
-  "geo": { "@type": "GeoCoordinates", "latitude": 19.4326, "longitude": -99.1332 },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
-  ]
-});
-
-const breadcrumbSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://fantasyglobos.com.mx/" },
-    { "@type": "ListItem", "position": 2, "name": "Contacto", "item": "https://fantasyglobos.com.mx/contacto" }
-  ]
-});
-
-const contactMethods = [
-  { icon: 'fab fa-whatsapp', title: 'WhatsApp', subtitle: 'La forma más rápida de contactarnos', desc: 'Escríbenos directamente y recibe respuesta en minutos. Envíanos fotos de inspiración, cuéntanos sobre tu evento y te cotizamos al momento.', action: { text: '56 3956 5117', href: 'https://wa.me/5215639565117' } },
-  { icon: 'fas fa-phone', title: 'Teléfono', subtitle: 'Llámanos directamente', desc: 'Si prefieres hablar por teléfono, estamos disponibles para atenderte y resolver todas tus dudas sobre nuestros servicios.', action: { text: '56 3956 5117', href: 'tel:+5215639565117' } },
-  { icon: 'fas fa-envelope', title: 'Correo Electrónico', subtitle: 'Para cotizaciones formales', desc: 'Envíanos un correo con los detalles de tu evento y te responderemos con una cotización detallada.', action: { text: 'info@fantasyglobos.com.mx', href: 'mailto:info@fantasyglobos.com.mx' } },
-  { icon: 'fas fa-map-marker-alt', title: 'Ubicación', subtitle: 'Nuestra dirección', desc: 'Calz. Gral. Mariano Escobedo 555, Polanco V Secc, Miguel Hidalgo, 11580 CDMX', action: { text: 'Ver en Google Maps', href: 'https://maps.google.com/?q=Calz.+Gral.+Mariano+Escobedo+555,+Polanco,+CDMX' } },
-];
-
-const hours = [
-  { title: 'Lunes a Viernes', desc: 'Atención completa para cotizaciones, planeación y consultas', time: '9:00 - 19:00' },
-  { title: 'Sábados', desc: 'Atención a citas previas y eventos programados', time: '10:00 - 16:00' },
-  { title: 'Instalaciones', desc: 'Montaje y desmontaje de decoraciones disponible todos los días', time: '24/7' },
-];
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import CtaBar from '../components/CtaBar.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { WHATSAPP_URL_MSG, PHONE_DISPLAY, PHONE_URL, EMAIL, EMAIL_URL, BUSINESS_HOURS, LOCATION, SOCIAL_MEDIA } from '../lib/config';
+import { organizationSchema, breadcrumbSchema } from '../lib/seo';
 ---
-<Layout
-  title="Contacto | DEGLOB - Decoración con Globos CDMX | Cotiza Gratis"
-  description="Contacta a DEGLOB para cotizar decoración con globos en CDMX. WhatsApp 56 3956 5117. Respuesta en menos de 2 horas. Atendemos bodas, XV años, baby showers y más."
-  schemas={[localBusinessSchema, breadcrumbSchema]}
->
-  <Header />
 
-  <HeroSection
-    badge="Respuesta en menos de 2 horas"
-    title="Contáctanos"
-    titleAccent="Estamos para Ayudarte"
-    description="¿Tienes un evento especial? Cuéntanos tu idea y te ayudamos a hacerla realidad. Cotiza sin compromiso y recibe atención personalizada de nuestro equipo."
-    ctaText="Ver Formulario"
-    ctaHref="#formulario"
-    seoTitle="Múltiples Formas de Contactarnos"
-    seoText="En DEGLOB facilitamos el proceso de cotización para que obtengas la decoración con globos perfecta para tu evento. Puedes contactarnos por WhatsApp para una respuesta inmediata, llamarnos por teléfono, enviarnos un correo electrónico o visitarnos en nuestra ubicación en Polanco, CDMX. Nuestro equipo de asesores está listo para ayudarte a planear cada detalle de tu decoración."
+<Base
+  title="Contacto — DEGLOB | Decoración con Globos CDMX"
+  description="Contacta a DEGLOB para cotizar decoración con globos en CDMX. WhatsApp, teléfono, correo y ubicación. Respuesta en menos de 2 horas. Cotización sin compromiso."
+  structuredData={[organizationSchema()]}
+>
+
+  <Breadcrumb items={[{ name: 'Contacto', href: '/contacto/' }]} />
+
+  <Hero
+    badge="Contacto"
+    title="Cotiza tu Decoración con Globos"
+    description="Platícanos tu idea y te ayudamos a hacerla realidad. Recibe una cotización personalizada sin compromiso para tu evento en CDMX. Respondemos en menos de 2 horas."
+    primaryCta={{ text: 'WhatsApp', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: PHONE_DISPLAY, href: PHONE_URL }}
   />
 
-  <!-- Métodos de contacto -->
+  <CtaBar items={[
+    { label: 'Servicios', href: '/servicios/', icon: 'servicios' },
+    { label: 'Cotizar', href: WHATSAPP_URL_MSG, icon: 'cotizar' },
+    { label: 'Blog', href: '/blog/' },
+    { label: 'Nosotros', href: '/nosotros/' },
+  ]} />
+
+  <!-- Información de contacto -->
   <section class="section">
     <div class="container">
-      <div class="grid-4">
-        {contactMethods.map(m => (
-          <div class="contact-card">
-            <div class="contact-icon"><i class={m.icon}></i></div>
-            <h3>{m.title}</h3>
-            <p class="contact-sub">{m.subtitle}</p>
-            <p class="contact-desc">{m.desc}</p>
-            <a href={m.action.href} class="btn btn-outline-primary" target={m.action.href.startsWith('http') ? '_blank' : undefined} rel={m.action.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{m.action.text}</a>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2 class="contact-info__title">Información de Contacto</h2>
+
+          <div class="contact-info__item">
+            <span class="contact-info__label">Teléfono</span>
+            <a href={PHONE_URL} class="contact-info__value">{PHONE_DISPLAY}</a>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
 
-  <!-- Formulario -->
-  <section class="section section-alt" id="formulario">
-    <div class="container">
-      <ContactForm />
-    </div>
-  </section>
-
-  <!-- Horarios -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Horarios de Atención</span>
-        <h2 class="section-title">Cuándo Puedes Contactarnos</h2>
-        <p class="section-subtitle">Estamos disponibles para atenderte y resolver todas tus dudas</p>
-      </div>
-      <div class="grid-3">
-        {hours.map(h => (
-          <div class="hours-card">
-            <h3>{h.title}</h3>
-            <p>{h.desc}</p>
-            <span class="hours-time">{h.time}</span>
+          <div class="contact-info__item">
+            <span class="contact-info__label">WhatsApp</span>
+            <a href={WHATSAPP_URL_MSG} class="contact-info__value" target="_blank" rel="noopener">{PHONE_DISPLAY}</a>
           </div>
-        ))}
+
+          <div class="contact-info__item">
+            <span class="contact-info__label">Correo Electrónico</span>
+            <a href={EMAIL_URL} class="contact-info__value">{EMAIL}</a>
+          </div>
+
+          <div class="contact-info__item">
+            <span class="contact-info__label">Dirección</span>
+            <span class="contact-info__value">{LOCATION.street}, {LOCATION.colony}, {LOCATION.municipality}, {LOCATION.region} {LOCATION.postalCode}</span>
+          </div>
+
+          <div class="contact-info__item">
+            <span class="contact-info__label">Horario de Atención</span>
+            <span class="contact-info__value">{BUSINESS_HOURS.weekdays}</span>
+            <span class="contact-info__value">{BUSINESS_HOURS.saturday}</span>
+          </div>
+        </div>
+
+        <div class="contact-info">
+          <h2 class="contact-info__title">Síguenos en Redes</h2>
+
+          <div class="contact-info__item">
+            <span class="contact-info__label">Facebook</span>
+            <a href={SOCIAL_MEDIA.facebook} class="contact-info__value" target="_blank" rel="noopener noreferrer">@deglob</a>
+          </div>
+
+          <div class="contact-info__item">
+            <span class="contact-info__label">Instagram</span>
+            <a href={SOCIAL_MEDIA.instagram} class="contact-info__value" target="_blank" rel="noopener noreferrer">@deglob</a>
+          </div>
+
+          <div class="contact-info__item">
+            <span class="contact-info__label">TikTok</span>
+            <a href={SOCIAL_MEDIA.tiktok} class="contact-info__value" target="_blank" rel="noopener noreferrer">@deglob</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section cta-section">
+  <!-- Mapa -->
+  <section class="section section--bg">
+    <div class="container">
+      <SectionHeader
+        badge="Ubicación"
+        title="Encuéntranos en CDMX"
+        subtitle="Estamos ubicados en Polanco, Miguel Hidalgo. Atendemos eventos en toda la Ciudad de México y zona metropolitana."
+      />
+      <div class="map-placeholder">
+        <p class="map-placeholder__text">{LOCATION.street}, {LOCATION.colony}, {LOCATION.municipality}, {LOCATION.region} C.P. {LOCATION.postalCode}</p>
+        <a href={`https://maps.google.com/?q=${encodeURIComponent(LOCATION.street + ', ' + LOCATION.colony + ', ' + LOCATION.region)}`} class="btn btn--accent" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Dark -->
+  <section class="cta-dark">
     <div class="container" style="text-align:center">
-      <h2 class="section-title" style="color:#fff">¿Listo para tu Evento?</h2>
-      <p style="color:#b2bec3;font-size:1.1rem;margin-bottom:32px">Cotiza sin compromiso y recibe una propuesta personalizada. Respondemos en menos de 2 horas.</p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-        <a href="https://wa.me/5215639565117?text=Hola%2C%20quiero%20cotizar%20decoraci%C3%B3n%20con%20globos" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
-        <a href="tel:+5215639565117" class="btn btn-outline">Llamar Ahora</a>
+      <h2 class="cta-dark__title">¿Listo para tu Evento?</h2>
+      <p class="cta-dark__text">Cotiza sin compromiso y recibe una propuesta personalizada para tu decoración con globos. Respondemos en menos de 2 horas.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem">
+        <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+        <a href={PHONE_URL} class="btn btn--outline">Llamar Ahora</a>
       </div>
     </div>
   </section>
 
-  <Footer />
-</Layout>
+</Base>
+
 <style>
-  .section-alt { background: #f8f9fa; }
-  .cta-section { background: linear-gradient(135deg, #1a1a2e, #16213e); }
-  .contact-card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 32px 24px;
+  .map-placeholder {
+    background: var(--color-white);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--border-radius-lg, 12px);
+    padding: var(--spacing-2xl);
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    border: 1px solid #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
-  .contact-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(139,48,238,0.1), rgba(201,0,212,0.1));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #8B30EE;
-    margin-bottom: 16px;
-  }
-  .contact-card h3 { font-size: 1.1rem; margin-bottom: 4px; color: #1a1a2e; }
-  .contact-sub { font-size: 0.85rem; color: #8B30EE; font-weight: 500; margin-bottom: 12px; }
-  .contact-desc { font-size: 0.9rem; color: #636E72; line-height: 1.7; margin-bottom: 20px; flex-grow: 1; }
-  .hours-card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 32px 24px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    border: 1px solid #f0f0f0;
-  }
-  .hours-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #1a1a2e; }
-  .hours-card p { font-size: 0.9rem; color: #636E72; margin-bottom: 16px; line-height: 1.7; }
-  .hours-time {
-    display: inline-block;
-    background: linear-gradient(135deg, rgba(139,48,238,0.1), rgba(201,0,212,0.1));
-    color: #8B30EE;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
+
+  .map-placeholder__text {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
   }
 </style>

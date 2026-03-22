@@ -1,0 +1,149 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CategoryCard from '../../../components/CategoryCard.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const serviciosRecomendados = SERVICIOS.filter(s => ['arcos-de-globos', 'columnas-decorativas', 'backdrops-paneles', 'centros-de-mesa', 'guirnaldas-de-globos', 'globos-helio'].includes(s.slug));
+
+const galeria = [
+  '/img/arcos-de-globos/arco-globos-boda-jardin-blanco-dorado-ceremonia.webp',
+      '/img/arcos-de-globos/arco-globos-boda-romantica-novios-jardin.webp',
+      '/img/columnas-decorativas/columnas-globos-blanco-dorado-entrada-boda-elegante.webp',
+      '/img/columnas-decorativas/columnas-globos-boda-hacienda-blanco-flores-entrada.webp',
+      '/img/guirnaldas-de-globos/arco-globos-boda-boho-terracota-pampas-macrame-atardecer.webp',
+      '/img/guirnaldas-de-globos/arco-globos-ceremonia-boda-exterior-rosa-naranja-follaje.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-boda-blanco-dorado-rosas-vela.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-blanco-dorado-recepcion-hacienda.webp'
+];
+
+const faqItems = [
+  { pregunta: '¿Con cuánta anticipación debo reservar la decoración para mi boda?', respuesta: 'Recomendamos reservar con 2 a 3 meses de anticipación para bodas. Esto nos permite planificar el diseño, hacer visita al venue, coordinar con otros proveedores y asegurar disponibilidad en la fecha que elijas.' },
+  { pregunta: '¿Pueden combinar globos con flores naturales para la boda?', respuesta: 'Sí, frecuentemente combinamos globos premium con flores naturales o artificiales de alta calidad. Podemos coordinar con tu florista para crear composiciones que integren ambos elementos de forma armónica.' },
+  { pregunta: '¿Qué colores de globos se recomiendan para bodas?', respuesta: 'Los colores más populares para bodas son blanco, dorado, rose gold, champagne, sage green y dusty rose. Sin embargo, nos adaptamos a la paleta de tu boda para crear una decoración coherente con toda la estética del evento.' },
+  { pregunta: '¿Ofrecen paquetes completos para bodas?', respuesta: 'Sí, creamos paquetes personalizados que pueden incluir arco para ceremonia, columnas de entrada, backdrop para mesa de novios, centros de mesa y guirnaldas decorativas. Cotiza tu paquete a medida por WhatsApp.' },
+  { pregunta: '¿Pueden decorar tanto la ceremonia como la recepción?', respuesta: 'Sí, cubrimos ambos momentos de tu boda. Podemos instalar un arco para la ceremonia y luego complementar con backdrops, columnas y centros de mesa para la recepción, todo con una paleta de colores coordinada.' },
+  { pregunta: '¿El desmontaje está incluido después de la boda?', respuesta: 'En nuestros paquetes de producción completa, el desmontaje está incluido. Para paquetes individuales, el retiro de la decoración puede coordinarse por un costo adicional mínimo según la cantidad de elementos.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Decoración con Globos para Bodas',
+    description: 'Arcos románticos, columnas elegantes, backdrops para mesa de novios y centros de mesa florales con globos premium para tu boda.',
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title="Decoración con Globos para Bodas en CDMX | DEGLOB"
+  description="Arcos románticos, columnas elegantes, backdrops para mesa de novios y centros de mesa florales con globos premium para tu boda. Cotiza hoy. Instalación incluida en CDMX."
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Eventos', href: '/eventos/' },
+    { name: 'Bodas', href: '/eventos/bodas/' },
+  ]} />
+
+  <Hero
+    badge="Bodas"
+    title="Decoración con Globos para Bodas en CDMX"
+    description="Arcos románticos, columnas elegantes, backdrops para mesa de novios y centros de mesa florales con globos premium para tu boda. Cotiza hoy y recibe tu presupuesto en minutos."
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Servicios', href: '#servicios' }}
+  >
+    <Fragment slot="hero-seo">
+      <p>En <strong>DEGLOB</strong> creamos decoraciones con globos espectaculares para <strong>bodas</strong> en la Ciudad de México y zona metropolitana. Nuestro equipo de decoradores profesionales se encarga de todo: diseño, producción, transporte e instalación.</p>
+      <p>Desde arcos orgánicos y columnas decorativas hasta backdrops fotogénicos y centros de mesa, cada elemento se personaliza según tu visión y la temática de tu evento. Trabajamos con globos premium y materiales de primera para garantizar resultados impecables.</p>
+    </Fragment>
+  </Hero>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <SectionHeader
+        badge="Servicios recomendados"
+        title="Servicios de Globos para Bodas"
+        subtitle="Estos son los servicios que más solicitan nuestros clientes para bodas. Cada uno incluye instalación profesional en CDMX."
+      />
+      <div class="grid-3">
+        {serviciosRecomendados.map((s) => (
+          <CategoryCard
+            title={s.nombre}
+            subtitle={s.descripcion}
+            href={`/servicios/${s.slug}/`}
+            image={s.imagen}
+            subcategories={s.paquetes.map((p) => ({
+              name: p.nombre,
+              href: `/servicios/${s.slug}/${p.slug}/`,
+            }))}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader
+        badge="Inspiración"
+        title="Galería de Bodas"
+        subtitle="Estos son algunos de nuestros trabajos de decoración con globos para bodas en CDMX."
+      />
+      <div class="gallery-grid">
+        {galeria.map((img, i) => (
+          <div class="gallery-item">
+            <img src={img} alt={`Decoración con globos para bodas en CDMX — ejemplo ${i + 1}`} loading="lazy" decoding="async" width="640" height="480" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        
+        <h2>Decoración con Globos para Bodas: Elegancia y Romance en cada Detalle</h2>
+        <p>Tu boda merece una decoración que refleje la magia del momento. En DEGLOB nos especializamos en crear ambientes románticos y elegantes con globos premium que transforman cualquier venue — desde jardines y haciendas hasta salones y terrazas — en el escenario perfecto para el día más importante de tu vida.</p>
+        <h3>El Arco de Globos: Protagonista de tu Ceremonia</h3>
+        <p>El arco de globos se ha convertido en la pieza decorativa estrella para ceremonias civiles y religiosas. Nuestros arcos orgánicos combinan globos en tonos blancos, dorados, champagne y la paleta de tu boda con flores naturales o artificiales, creando un marco fotogénico donde intercambiarás votos y sellarán su amor.</p>
+        <h3>Mesa de Novios con Backdrop de Globos</h3>
+        <p>La mesa de novios merece un fondo espectacular. Diseñamos backdrops personalizados de 3 a 4 metros que enmarcan a la pareja durante toda la recepción. Integramos elementos como letras con sus nombres, luces LED y composiciones orgánicas que complementan la decoración floral.</p>
+        <h3>Columnas y Guirnaldas para la Recepción</h3>
+        <p>Las columnas de globos enmarcan la entrada del salón, guiando a los invitados hacia la celebración. Las guirnaldas orgánicas decoran barandales, escaleras y marcos de puerta, creando un hilo conductor visual que unifica todos los espacios de tu boda con elegancia.</p>
+        <h3>Centros de Mesa con Globos Premium</h3>
+        <p>Nuestros centros de mesa combinan globos chrome, foil y latex con bases decorativas que complementan la vajilla y la mantelería. Son una alternativa moderna a los arreglos florales tradicionales que sorprende a los invitados y genera conversación en cada mesa.</p>
+        <p>En DEGLOB cubrimos bodas en toda la Ciudad de México y zona metropolitana: Polanco, Santa Fe, Coyoacán, Xochimilco, Tlalpan, Huixquilucan, Naucalpan y más. Desde bodas íntimas de 50 personas hasta celebraciones de más de 300 invitados, adaptamos nuestra decoración al tamaño y estilo de tu celebración.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tu decoración con globos para bodas y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid-3 { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+  .gallery-item { border-radius: var(--border-radius-lg); overflow: hidden; aspect-ratio: 4/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+</style>

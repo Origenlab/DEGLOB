@@ -1,0 +1,100 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = "Decoración con Globos para Bodas en CDMX: Ideas y Tendencias";
+const description = "Descubre las mejores ideas de decoración con globos para bodas en Ciudad de México. Desde arcos románticos hasta centros de mesa elegantes que transformarán tu celebración.";
+const category = "Bodas";
+const date = "2025-11-15";
+
+const structuredData = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  datePublished: date,
+  dateModified: date,
+  author: { '@type': 'Organization', name: 'DEGLOB' },
+  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+}];
+---
+
+<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
+  <Breadcrumb items={[
+    { name: 'Blog', href: '/blog/' },
+    { name: title, href: '/blog/decoracion-globos-bodas-cdmx/' },
+  ]} />
+
+  <article class="blog-article">
+    <header class="blog-article__header">
+      <span class="blog-article__category">{category}</span>
+      <h1 class="blog-article__title">{title}</h1>
+      <p class="blog-article__excerpt">{description}</p>
+      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+    </header>
+
+    <div class="blog-article__content">
+      <h2>Por qué elegir globos para decorar tu boda</h2>
+      <p>La decoración con globos para bodas ha evolucionado enormemente en los últimos años. Lo que antes se asociaba con fiestas infantiles, hoy se ha convertido en una tendencia sofisticada que las parejas en CDMX eligen para darle un toque único y personalizado a su gran día. Los globos ofrecen una versatilidad que pocos elementos decorativos pueden igualar: se adaptan a cualquier paleta de colores, estilo y tamaño de venue.</p>
+      <p>En Ciudad de México, donde los espacios para bodas van desde jardines al aire libre en Coyoacán hasta salones elegantes en Polanco, la decoración con globos permite crear ambientes que se ajustan perfectamente a cada entorno. Además, representan una alternativa más accesible que las flores naturales sin sacrificar impacto visual.</p>
+
+      <h2>Arcos de globos para la ceremonia</h2>
+      <p>El arco de globos es sin duda el elemento más solicitado para bodas. Un arco orgánico en tonos blancos, cremas y dorados enmarca perfectamente el altar y crea un fondo espectacular para las fotos de la ceremonia. Los arcos asimétricos, que combinan diferentes tamaños de globos con follaje verde y flores secas, son especialmente populares en bodas al aire libre.</p>
+      <p>Para bodas más formales, los arcos simétricos en tonos monocromáticos ofrecen una elegancia clásica. Puedes integrar globos chrome dorados o plateados para añadir un toque de lujo. La estructura del arco se adapta al espacio: desde arcos de medio punto hasta instalaciones que enmarcan completamente el pasillo nupcial.</p>
+
+      <h2>Centros de mesa con globos para la recepción</h2>
+      <p>Los centros de mesa con globos han ganado popularidad porque permiten crear arreglos altos y llamativos sin obstaculizar la vista entre los invitados. Un bouquet de tres globos transparentes rellenos de confeti dorado, sostenidos por un peso decorativo con flores, resulta sofisticado y moderno. También puedes optar por globos orbz en tonos metálicos combinados con velas y vegetación.</p>
+
+      <h2>Backdrops y photocalls nupciales</h2>
+      <p>El muro de globos como fondo para la zona de fotos se ha vuelto imprescindible. Un backdrop orgánico que combine los colores de la boda crea el escenario perfecto para que tus invitados se tomen fotos memorables. Puedes personalizarlo con las iniciales de los novios en letras de globos o integrar un letrero de neón para un look contemporáneo.</p>
+      <p>Las instalaciones de globos en el techo del salón, ya sea con helio o suspendidos con hilo transparente, transforman por completo la atmósfera del espacio. Imagina entrar a la recepción y ver cientos de globos blancos flotando sobre las mesas con cintas doradas cayendo suavemente. El efecto es simplemente mágico.</p>
+
+      <h2>Paletas de colores populares para bodas</h2>
+      <p>Las combinaciones más solicitadas en CDMX incluyen:</p>
+      <ul>
+        <li><strong>Blanco y dorado:</strong> Clásico y elegante, perfecto para bodas formales en salones.</li>
+        <li><strong>Tonos nude y rosa empolvado:</strong> Romántico y delicado, ideal para jardines y haciendas.</li>
+        <li><strong>Terracota y verde salvia:</strong> Tendencia boho que combina perfectamente con venues rústicos.</li>
+        <li><strong>Azul rey y plata:</strong> Sofisticado y moderno, excelente para bodas de noche.</li>
+        <li><strong>Blanco monocromático:</strong> Minimalista y chic, con diferentes texturas de globos (mate, chrome, transparente).</li>
+      </ul>
+
+      <h2>Tips para tu decoración de boda con globos</h2>
+      <p>Planifica tu decoración con al menos tres semanas de anticipación para asegurar disponibilidad de colores y materiales especiales. Considera el clima si tu boda es al aire libre: los globos de látex pueden verse afectados por el calor intenso, así que es mejor planificar la instalación pocas horas antes del evento. Un equipo profesional de decoración conoce estos detalles y te garantiza que todo luzca impecable en el momento indicado.</p>
+      <p>No olvides coordinar los colores de los globos con el resto de tu decoración: mantelería, centros de mesa florales y la iluminación del venue. Cuando todos los elementos trabajan en armonía, el resultado es una boda visualmente espectacular que tus invitados recordarán por mucho tiempo.</p>
+    </div>
+
+    <div class="blog-article__cta">
+      <h3>¿Necesitas decoración con globos para tu boda?</h3>
+      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+
+    <nav class="blog-article__back">
+      <a href="/blog/">&larr; Volver al blog</a>
+    </nav>
+  </article>
+
+</Base>
+
+<style>
+  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
+  .blog-article__header { margin-bottom: var(--spacing-2xl); }
+  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
+  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
+  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
+  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  .blog-article__content { margin-bottom: var(--spacing-2xl); }
+  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
+  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
+  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
+  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
+  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
+  .blog-article__content strong { color: var(--color-text); }
+  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
+  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
+  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
+  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
+</style>

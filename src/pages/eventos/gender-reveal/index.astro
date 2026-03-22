@@ -1,0 +1,149 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CategoryCard from '../../../components/CategoryCard.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const serviciosRecomendados = SERVICIOS.filter(s => ['globos-gigantes', 'arcos-de-globos', 'backdrops-paneles', 'globos-helio', 'centros-de-mesa', 'figuras-personalizadas'].includes(s.slug));
+
+const galeria = [
+  '/img/globos-gigantes/globo-gigante-confeti-rosa-fiesta-infantil-pastel.webp',
+      '/img/globos-gigantes/globo-gigante-confeti-colores-fiesta-tassel-pista-baile.webp',
+      '/img/globos-helio/globos-gigantes-confeti-rose-gold-baby-shower.webp',
+      '/img/globos-helio/fiesta-baby-shower-globos-mint-rosa-embarazada.webp',
+      '/img/arcos-de-globos/arco-globos-baby-shower-rosa-durazno-its-a-girl.webp',
+      '/img/columnas-decorativas/columnas-globos-baby-shower-rosa-durazno-mesa-postres.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-pastel-baby-shower-flores.webp',
+      '/img/globos-helio/bouquet-globos-welcome-baby-nina-hospital-rosa.webp'
+];
+
+const faqItems = [
+  { pregunta: '¿Cómo funciona el servicio de gender reveal con globos?', respuesta: 'Preparamos un globo gigante negro relleno de confeti rosa (niña) o azul (niño). La persona que conoce el resultado nos indica el color en total confidencialidad. Entregamos el globo sellado y listo para pinchar en el momento de la revelación.' },
+  { pregunta: '¿Pueden decorar todo el evento de gender reveal?', respuesta: 'Sí, ofrecemos decoración completa: arco de globos con un lado rosa y otro azul, backdrop para fotos, bouquets de helio, centros de mesa y por supuesto el globo gigante sorpresa como pieza central del evento.' },
+  { pregunta: '¿Cómo mantienen la confidencialidad del resultado?', respuesta: 'Solo una persona de nuestro equipo maneja la información del sexo del bebé. El globo se prepara y sella en nuestro taller sin que otros miembros del equipo conozcan el contenido. Garantizamos total discreción.' },
+  { pregunta: '¿Se puede combinar gender reveal con baby shower?', respuesta: 'Sí, es muy común combinar ambas celebraciones. Diseñamos la decoración general en tonos neutros y reservamos el globo de revelación como el momento sorpresa de la fiesta.' },
+  { pregunta: '¿Qué pasa si el globo no revienta correctamente?', respuesta: 'Nuestros globos se preparan específicamente para reventar de forma espectacular con el pin incluido. Además, siempre traemos un globo de respaldo por cualquier eventualidad.' },
+  { pregunta: '¿Cuánto cuesta un gender reveal completo?', respuesta: 'El globo gigante individual cuesta $2,500 MXN. Un paquete completo de decoración con arco bicolor, backdrop, bouquets y globo sorpresa va de $8,000 a $15,000 MXN.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Decoración con Globos para Gender Reveal',
+    description: 'La forma más emocionante de revelar el sexo de tu bebé: globos gigantes con confeti sorpresa, decoración en rosa y azul.',
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title="Decoración con Globos para Gender Reveal en CDMX | DEGLOB"
+  description="La forma más emocionante de revelar el sexo de tu bebé: globos gigantes con confeti sorpresa, decoración en rosa y azul. Cotiza hoy. Instalación incluida en CDMX."
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Eventos', href: '/eventos/' },
+    { name: 'Gender Reveal', href: '/eventos/gender-reveal/' },
+  ]} />
+
+  <Hero
+    badge="Gender Reveal"
+    title="Decoración con Globos para Gender Reveal en CDMX"
+    description="La forma más emocionante de revelar el sexo de tu bebé: globos gigantes con confeti sorpresa, decoración en rosa y azul. Cotiza hoy y recibe tu presupuesto en minutos."
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Servicios', href: '#servicios' }}
+  >
+    <Fragment slot="hero-seo">
+      <p>En <strong>DEGLOB</strong> creamos decoraciones con globos espectaculares para <strong>gender reveal</strong> en la Ciudad de México y zona metropolitana. Nuestro equipo de decoradores profesionales se encarga de todo: diseño, producción, transporte e instalación.</p>
+      <p>Desde arcos orgánicos y columnas decorativas hasta backdrops fotogénicos y centros de mesa, cada elemento se personaliza según tu visión y la temática de tu evento. Trabajamos con globos premium y materiales de primera para garantizar resultados impecables.</p>
+    </Fragment>
+  </Hero>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <SectionHeader
+        badge="Servicios recomendados"
+        title="Servicios de Globos para Gender Reveal"
+        subtitle="Estos son los servicios que más solicitan nuestros clientes para gender reveal. Cada uno incluye instalación profesional en CDMX."
+      />
+      <div class="grid-3">
+        {serviciosRecomendados.map((s) => (
+          <CategoryCard
+            title={s.nombre}
+            subtitle={s.descripcion}
+            href={`/servicios/${s.slug}/`}
+            image={s.imagen}
+            subcategories={s.paquetes.map((p) => ({
+              name: p.nombre,
+              href: `/servicios/${s.slug}/${p.slug}/`,
+            }))}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader
+        badge="Inspiración"
+        title="Galería de Gender Reveal"
+        subtitle="Estos son algunos de nuestros trabajos de decoración con globos para gender reveal en CDMX."
+      />
+      <div class="gallery-grid">
+        {galeria.map((img, i) => (
+          <div class="gallery-item">
+            <img src={img} alt={`Decoración con globos para gender reveal en CDMX — ejemplo ${i + 1}`} loading="lazy" decoding="async" width="640" height="480" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        
+        <h2>Decoración con Globos para Gender Reveal: El Momento más Viral de tu Embarazo</h2>
+        <p>El gender reveal se ha convertido en la celebración más emocionante y compartida del embarazo. En DEGLOB creamos la experiencia completa: desde la decoración ambiental hasta el globo gigante sorpresa que revela si tu bebé será niña o niño en el momento más esperado de la fiesta.</p>
+        <h3>El Globo Gigante: La Estrella del Show</h3>
+        <p>Nuestro globo gigante negro de 3 pies es la forma más espectacular de revelar el sexo del bebé. Al pincharlo, una cascada de confeti rosa o azul sale volando, creando el momento más fotografiado y compartido en redes sociales. Incluimos un pin decorativo y siempre llevamos un globo de respaldo.</p>
+        <h3>Decoración Bicolor: Rosa vs Azul</h3>
+        <p>La decoración clásica de gender reveal divide el espacio en dos: un lado rosa y otro azul. Diseñamos arcos orgánicos con degradado de rosa a azul, backdrops bicolores donde cada familia elige su predicción, y centros de mesa que generan la expectativa durante toda la fiesta.</p>
+        <h3>Decoración Gender Neutral como Alternativa</h3>
+        <p>Si prefieres un estilo más moderno, también ofrecemos decoraciones en tonos neutros (verde sage, amarillo, blanco y dorado) donde solo el globo sorpresa revela el color. Este estilo es ideal para quienes quieren mantener el misterio hasta el último segundo sin que la decoración del alguna pista.</p>
+        <h3>Confidencialidad Garantizada</h3>
+        <p>Entendemos lo importante que es mantener el secreto. Solo un miembro de nuestro equipo prepara el globo con el confeti del color correcto, sellándolo en nuestro taller. El globo llega completamente opaco y sellado a tu evento, garantizando que la sorpresa se mantenga intacta hasta el momento de la revelación.</p>
+        <p>Organizamos gender reveals en jardines, terrazas, parques, restaurantes y casas particulares de toda la CDMX. El exterior es ideal para que el confeti se disperse dramáticamente, pero también adaptamos la experiencia para espacios interiores con confeti especial de caída lenta.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tu decoración con globos para gender reveal y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid-3 { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+  .gallery-item { border-radius: var(--border-radius-lg); overflow: hidden; aspect-ratio: 4/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+</style>

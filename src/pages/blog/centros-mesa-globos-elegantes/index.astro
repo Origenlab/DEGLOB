@@ -1,0 +1,106 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { WHATSAPP_URL_MSG } from '../../../lib/config';
+
+const title = "Centros de Mesa con Globos Elegantes para Eventos";
+const description = "Crea centros de mesa sofisticados con globos para bodas, XV años y eventos corporativos. Ideas de diseño, combinaciones y tips para un resultado profesional.";
+const category = "Decoración";
+const date = "2025-07-14";
+
+const structuredData = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: description,
+  datePublished: date,
+  dateModified: date,
+  author: { '@type': 'Organization', name: 'DEGLOB' },
+  publisher: { '@type': 'Organization', name: 'DEGLOB', url: 'https://fantasyglobos.com.mx' },
+}];
+---
+
+<Base title={`${title} — Blog DEGLOB`} description={description} structuredData={structuredData} ogType="article">
+  <Breadcrumb items={[
+    { name: 'Blog', href: '/blog/' },
+    { name: title, href: '/blog/centros-mesa-globos-elegantes/' },
+  ]} />
+
+  <article class="blog-article">
+    <header class="blog-article__header">
+      <span class="blog-article__category">{category}</span>
+      <h1 class="blog-article__title">{title}</h1>
+      <p class="blog-article__excerpt">{description}</p>
+      <time class="blog-article__date" datetime={date}>{new Date(date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+    </header>
+
+    <div class="blog-article__content">
+      <h2>Centros de mesa con globos: elegancia en cada detalle</h2>
+      <p>Los centros de mesa son piezas fundamentales en la decoración de cualquier evento con mesas para invitados. Mientras que los arreglos florales han sido la opción tradicional durante décadas, los centros de mesa con globos ofrecen una alternativa moderna, versátil y visualmente impactante que cada vez gana más adeptos en CDMX. Lo mejor de todo es que pueden ser tan elegantes y sofisticados como cualquier arreglo floral, e incluso combinar ambos elementos.</p>
+      <p>La clave para lograr centros de mesa con globos que luzcan elegantes y no infantiles está en la selección cuidadosa de colores, texturas y proporciones. Un centro de mesa bien diseñado complementa la decoración general del evento y se convierte en un tema de conversación entre los invitados.</p>
+
+      <h2>Estilos de centros de mesa con globos</h2>
+      <h3>Bouquets de helio con peso decorativo</h3>
+      <p>Este es el estilo más clásico y funcional. Consiste en un conjunto de tres a siete globos de helio en diferentes tamaños y acabados, sujetos a un peso en la base de la mesa. Los globos flotan a diferentes alturas creando verticalidad sin ocupar espacio en la mesa. Las cintas pueden ser de satín, organza o incluso cadenas doradas para un look premium. El peso puede ser una base de acrílico, un jarrón pequeño con flores o un elemento temático.</p>
+
+      <h3>Topiary de globos</h3>
+      <p>Los topiaries son estructuras verticales donde los globos se agrupan formando una esfera o forma geométrica en la parte superior de un bastón o columna delgada. Son elegantes y permiten jugar con la altura sin obstruir la vista de los invitados. Funcionan especialmente bien en bodas y eventos formales cuando se realizan en colores neutros o metálicos.</p>
+
+      <h3>Mini guirnaldas orgánicas de mesa</h3>
+      <p>Una tendencia que ha ganado mucha popularidad es colocar una guirnalda orgánica pequeña directamente sobre la mesa, generalmente corriendo a lo largo del centro como un camino de mesa. Se construye con globos de 5 y 9 pulgadas intercalados con velas, flores y follaje. El resultado es una pieza central compartida que une visualmente a todos los comensales.</p>
+
+      <h3>Globos orbz y bubbles</h3>
+      <p>Los globos orbz (esféricos y metálicos) y los bubble balloons (transparentes y perfectamente redondos) son ideales para centros de mesa modernos y minimalistas. Un solo globo orbz dorado sobre una base con flores puede ser suficiente para crear un centro de mesa impactante. Los bubbles permiten rellenarlos con confeti, plumas o pétalos que se ven a través del material transparente.</p>
+
+      <h2>Cómo elegir el centro de mesa según el evento</h2>
+      <ul>
+        <li><strong>Bodas:</strong> Opta por bouquets de helio en colores neutros (blanco, crema, dorado, champagne) con cintas elegantes. Los topiaries en blanco con base floral son ideales para recepciones formales.</li>
+        <li><strong>XV años:</strong> Puedes ser más atrevida con los colores. Bouquets que combinen el color principal de la fiesta con acentos chrome y globos de confeti crean un look juvenil pero sofisticado.</li>
+        <li><strong>Baby shower:</strong> Mini guirnaldas orgánicas en tonos pastel con pequeños elementos temáticos como estrellas o lunas integradas entre los globos.</li>
+        <li><strong>Eventos corporativos:</strong> Centros minimalistas con globos en los colores corporativos. Un orbz con el logo de la empresa impreso es un detalle de branding sutil pero efectivo.</li>
+        <li><strong>Cumpleaños:</strong> La libertad creativa es total. Centros de mesa temáticos con figuras de foil y globos en los colores favoritos del festejado.</li>
+      </ul>
+
+      <h2>La importancia de la proporción</h2>
+      <p>Un error frecuente es crear centros de mesa demasiado grandes que dominan la mesa e incomodan a los invitados, o demasiado pequeños que pasan desapercibidos. La regla general es que el centro de mesa no debe superar un tercio del ancho de la mesa y debe permitir que los invitados se vean entre sí cómodamente. Los centros altos con globos de helio resuelven esto elegantemente: el volumen está arriba, dejando libre la línea de vista a nivel de la mesa.</p>
+
+      <h2>Combinando globos con otros elementos</h2>
+      <p>Los centros de mesa más elegantes suelen combinar globos con flores frescas o secas, velas, bases de acrílico o cristal, follaje natural y elementos decorativos como perlas o piedras. La fusión de texturas entre la suavidad del látex, el brillo del chrome y la delicadeza de las flores crea composiciones de alto nivel que sorprenden incluso a quienes podrían tener prejuicios sobre la decoración con globos.</p>
+
+      <h2>Presupuesto y cantidad</h2>
+      <p>Los centros de mesa con globos suelen ser más accesibles que los arreglos florales equivalentes, especialmente cuando se necesitan en cantidad. Para un evento con 20 o 30 mesas, la diferencia de precio puede ser considerable. Además, los globos permiten crear centros de mesa altos y voluminosos a una fracción del costo de un arreglo floral de la misma envergadura. Un decorador profesional te presentará opciones dentro de tu presupuesto que maximicen el impacto visual en cada mesa de tu evento.</p>
+    </div>
+
+    <div class="blog-article__cta">
+      <h3>¿Necesitas centros de mesa con globos?</h3>
+      <p>Cotiza gratis y sin compromiso. Te respondemos en minutos.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--wa" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+
+    <nav class="blog-article__back">
+      <a href="/blog/">&larr; Volver al blog</a>
+    </nav>
+  </article>
+
+</Base>
+
+<style>
+  .blog-article { max-width: 800px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-md); }
+  .blog-article__header { margin-bottom: var(--spacing-2xl); }
+  .blog-article__category { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; padding: 0.375rem 1rem; background: rgba(139, 48, 238, 0.08); border-radius: 4px; margin-bottom: 1rem; }
+  .blog-article__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); line-height: 1.2; margin: 0 0 1rem; }
+  .blog-article__excerpt { font-size: 1.125rem; color: var(--color-text-light); line-height: 1.6; margin: 0 0 1rem; }
+  .blog-article__date { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  .blog-article__content { margin-bottom: var(--spacing-2xl); }
+  .blog-article__content h2 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: var(--spacing-xl) 0 var(--spacing-sm); }
+  .blog-article__content h3 { font-size: var(--font-size-lg); font-weight: 600; color: var(--color-text); margin: var(--spacing-lg) 0 var(--spacing-xs); }
+  .blog-article__content p { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--spacing-sm); }
+  .blog-article__content ul { list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-sm); }
+  .blog-article__content li { font-size: var(--font-size-base); color: var(--color-text-light); line-height: 1.7; margin-bottom: var(--spacing-xs); }
+  .blog-article__content strong { color: var(--color-text); }
+  .blog-article__cta { background: var(--color-bg); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); text-align: center; margin-bottom: var(--spacing-xl); }
+  .blog-article__cta h3 { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .blog-article__cta p { font-size: var(--font-size-base); color: var(--color-text-light); margin: 0 0 1rem; }
+  .blog-article__back { padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
+  .blog-article__back a { font-size: var(--font-size-sm); font-weight: 600; color: var(--color-primary); }
+</style>

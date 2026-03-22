@@ -1,0 +1,140 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const servicio = SERVICIOS.find(s => s.slug === 'figuras-personalizadas')!;
+const paquetes = servicio.paquetes;
+
+const faqItems = [
+  { pregunta: '¿Qué tipo de figuras personalizadas pueden hacer?', respuesta: 'Creamos números gigantes para cumpleaños y aniversarios, letras para nombres y mensajes, personajes de caricaturas y películas, figuras de animales, corazones, estrellas y prácticamente cualquier forma que puedas imaginar. Cada figura se diseña a medida según la temática de tu evento.' },
+  { pregunta: '¿Qué tamaño tienen las figuras de globos?', respuesta: 'Los números gigantes miden aproximadamente 1.2 metros de altura, los personajes temáticos alcanzan 1.5 metros o más, y las letras individuales miden alrededor de 80 centímetros. Podemos ajustar los tamaños según tus necesidades y el espacio disponible en tu venue.' },
+  { pregunta: '¿Cuánto tiempo toma crear una figura personalizada?', respuesta: 'Dependiendo de la complejidad, una figura toma entre 4 y 12 horas de trabajo artesanal. Los números gigantes se completan en aproximadamente 4 horas, mientras que los personajes temáticos detallados pueden requerir hasta 12 horas. Necesitamos al menos 5 días de anticipación para figuras complejas.' },
+  { pregunta: '¿Las figuras se mantienen de pie solas?', respuesta: 'Sí, todas nuestras figuras incluyen estructura interna de varilla o PVC y base estable que les permite mantenerse de pie sin apoyo adicional. La estructura se oculta completamente dentro de los globos para un acabado limpio y profesional.' },
+  { pregunta: '¿Pueden replicar un personaje específico de una fiesta temática?', respuesta: 'Sí, podemos crear versiones en globos de personajes populares como Mickey Mouse, Elsa de Frozen, superhéroes, dinosaurios, unicornios y muchos más. Trabajamos a partir de imágenes de referencia que nos proporcionas para capturar los colores y la esencia del personaje.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: servicio.nombre,
+    description: servicio.descripcion,
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `Paquetes de ${servicio.nombre}`,
+      itemListElement: paquetes.map(p => ({
+        '@type': 'Offer',
+        name: p.nombre,
+        price: p.precio,
+        priceCurrency: 'MXN',
+        url: `${SITE_URL}/servicios/${servicio.slug}/${p.slug}/`,
+      })),
+    },
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title={`${servicio.nombre} — DEGLOB | Decoración con Globos CDMX`}
+  description={`${servicio.descripcion} Paquetes desde $${paquetes[0].precio.toLocaleString()} MXN. Instalación incluida en CDMX.`}
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Servicios', href: '/servicios/' },
+    { name: servicio.nombre, href: `/servicios/${servicio.slug}/` },
+  ]} />
+
+  <Hero
+    badge={servicio.nombre}
+    title={`${servicio.nombre} para Eventos en CDMX`}
+    description={servicio.descripcion + ' Cotiza hoy y recibe tu presupuesto en minutos.'}
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Paquetes', href: '#paquetes' }}
+    metrics={[
+      { valor: `${paquetes.length} paquetes`, texto: 'disponibles' },
+      { valor: `Desde $${paquetes[0].precio.toLocaleString()}`, texto: 'MXN + IVA' },
+      { valor: 'Instalación', texto: 'incluida' },
+    ]}
+  >
+    <Fragment slot="hero-seo">
+      <p>Las figuras personalizadas de globos son piezas artisticas que dan vida a la tematica de tu evento. Desde numeros gigantes que celebran la edad del festejado hasta personajes de peliculas y caricaturas que emocionan a los mas pequeños, cada figura es una creacion unica hecha a mano por nuestro equipo de artistas en globos con anos de experiencia en eventos en CDMX.</p>
+      <p>En DEGLOB utilizamos tecnicas avanzadas de escultura con globos, combinando globos de latex en multiples tamanos con elementos de foil, para construir figuras tridimensionales con estructura interna que se sostienen de forma autoportante. Cada pieza se diseña especificamente para tu evento, respetando colores, proporciones y detalles que hacen de cada figura una obra maestra decorativa.</p>
+    </Fragment>
+  </Hero>
+
+  <CtaBar items={paquetes.map(p => ({ label: p.nombre, href: `/servicios/${servicio.slug}/${p.slug}/` }))} headline="Elige tu paquete" />
+
+  <section class="section" id="paquetes">
+    <div class="container">
+      <SectionHeader
+        badge="Paquetes"
+        title={`Paquetes de ${servicio.nombre}`}
+        subtitle="Elige el paquete ideal para tu evento. Todos incluyen instalación profesional en CDMX."
+      />
+      <div class="pkg-grid">
+        {paquetes.map(p => (
+          <div class="pkg-card">
+            <div class="pkg-card__header">
+              <h3 class="pkg-card__name">{p.nombre}</h3>
+              <p class="pkg-card__price">${p.precio.toLocaleString()} <span>MXN</span></p>
+            </div>
+            <ul class="pkg-card__features">
+              {p.features.map(f => (
+                <li>&#10003; {f}</li>
+              ))}
+            </ul>
+            <a href={`/servicios/${servicio.slug}/${p.slug}/`} class="pkg-card__btn">Ver Paquete</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--bg">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        <h2>Figuras de Globos: Arte Tridimensional para tu Fiesta</h2>
+        <p>Las figuras personalizadas de globos elevan la decoración de cualquier evento a otro nivel. No se trata solo de globos inflados, sino de verdaderas esculturas tridimensionales que capturan la esencia del personaje, número o forma que representan. Cada pieza requiere horas de trabajo artesanal minucioso donde nuestros decoradores seleccionan, inflan y ensamblan cientos de globos individuales para dar forma a la figura final.</p>
+        <h3>Números Gigantes: Los Más Solicitados</h3>
+        <p>Los números gigantes de globos son el elemento estrella de los cumpleaños. Con una altura de 1.2 metros, estas piezas se convierten en el centro de atención de la decoración y en el fondo perfecto para las fotos del festejado. Los construimos con globos de colores coordinados con la temática de la fiesta, y pueden incluir acabados chrome, pastel o una mezcla de texturas para un efecto visual mas rico.</p>
+        <h3>Personajes y Letras: Creatividad Sin Límites</h3>
+        <p>Para fiestas infantiles, creamos versiones en globos de los personajes favoritos de los niños. Para bodas y aniversarios, diseñamos las iniciales de la pareja o mensajes como LOVE y MR&MRS en letras de globos que decoran el escenario principal. Para baby showers, creamos figuras de cigüeñas, osos, nubes y el nombre del bebe con globos en tonos suaves que complementan toda la decoración.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tus figuras personalizadas y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .pkg-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  .pkg-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--border-radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+  .pkg-card__header { background: var(--color-bg); padding: 1.5rem; text-align: center; }
+  .pkg-card__name { font-size: 1.125rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+  .pkg-card__price { font-size: 1.75rem; font-weight: 800; color: var(--color-primary); margin: 0; }
+  .pkg-card__price span { font-size: 0.875rem; font-weight: 500; color: var(--color-text-light); }
+  .pkg-card__features { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; list-style: none; }
+  .pkg-card__features li { font-size: 0.875rem; color: var(--color-text); line-height: 1.5; padding-left: 0.25rem; }
+  .pkg-card__btn { display: block; text-align: center; padding: 0.875rem; font-size: 0.875rem; font-weight: 600; background: var(--color-primary); color: var(--color-white); text-decoration: none; margin: 0 1.5rem 1.5rem; border-radius: var(--border-radius); transition: background-color 0.2s; }
+  .pkg-card__btn:hover { background: var(--color-primary-dark); }
+  @media (min-width: 640px) { .pkg-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .pkg-grid { grid-template-columns: repeat(4, 1fr); } }
+</style>

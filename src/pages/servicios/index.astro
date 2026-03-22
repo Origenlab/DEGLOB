@@ -1,0 +1,101 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import CategoryCard from '../../components/CategoryCard.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../lib/config';
+import { faqSchema } from '../../lib/seo';
+
+const faqItems = [
+  { pregunta: '¿Qué servicios de decoración con globos ofrecen?', respuesta: 'Ofrecemos 8 servicios principales: arcos de globos, columnas decorativas, backdrops y paneles, globos con helio, figuras personalizadas, centros de mesa, guirnaldas orgánicas y globos gigantes. Cada servicio incluye diseño personalizado, materiales premium e instalación profesional.' },
+  { pregunta: '¿Cuánto cuesta la decoración con globos para un evento?', respuesta: 'Nuestros paquetes van desde $1,500 MXN para globos gigantes individuales hasta $16,000 MXN para producciones completas. El precio depende del tipo de decoración, tamaño del evento y complejidad del diseño. Cotiza sin compromiso por WhatsApp.' },
+  { pregunta: '¿En qué zonas de CDMX ofrecen servicio?', respuesta: 'Cubrimos toda la Ciudad de México y zona metropolitana: Polanco, Santa Fe, Coyoacán, Condesa, Roma, Del Valle, Pedregal, Naucalpan, Tlalnepantla, Huixquilucan, Interlomas y Satélite. También atendemos eventos en Querétaro, Puebla y Cuernavaca.' },
+  { pregunta: '¿Con cuánta anticipación debo reservar?', respuesta: 'Recomendamos reservar con mínimo 7 días de anticipación para eventos pequeños y 15 a 30 días para eventos grandes o en temporadas altas como diciembre, mayo y graduaciones. Esto nos permite planificar cada detalle de tu decoración.' },
+  { pregunta: '¿El servicio incluye instalación y desmontaje?', respuesta: 'Sí, todos nuestros paquetes incluyen transporte, montaje profesional en tu evento y desmontaje al finalizar. Tú solo disfrutas, nosotros nos encargamos de todo el proceso.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Servicios de Decoración con Globos',
+    description: 'Servicios profesionales de decoración con globos para eventos en CDMX. Arcos, columnas, backdrops, helio, figuras, centros de mesa, guirnaldas y globos gigantes.',
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title="Servicios de Decoración con Globos en CDMX — DEGLOB"
+  description="Conoce nuestros 8 servicios de decoración con globos: arcos, columnas, backdrops, helio, figuras, centros de mesa, guirnaldas y globos gigantes. Paquetes desde $1,500 MXN con instalación incluida en CDMX."
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Servicios', href: '/servicios/' },
+  ]} />
+
+  <Hero
+    badge="Servicios de Decoración"
+    title="Servicios de Decoración con Globos en CDMX"
+    description="Descubre nuestros 8 servicios profesionales de decoración con globos. Diseño personalizado, materiales premium e instalación incluida para cualquier tipo de evento."
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Servicios', href: '#servicios' }}
+    metrics={[
+      { valor: '8 servicios', texto: 'especializados' },
+      { valor: 'Desde $1,500', texto: 'MXN + IVA' },
+      { valor: 'Instalación', texto: 'incluida' },
+    ]}
+  >
+    <Fragment slot="hero-seo">
+      <p>En DEGLOB nos especializamos en transformar eventos en experiencias visuales inolvidables a traves de la decoracion con globos profesional. Nuestro equipo de decoradores certificados trabaja con las mejores marcas del mercado como Qualatex, Sempertex y Anagram para garantizar acabados impecables y durabilidad superior.</p>
+      <p>Cubrimos toda la Ciudad de Mexico y zona metropolitana con servicio integral que incluye asesoria de diseno, materiales premium, transporte, montaje profesional y desmontaje. Ya sea una boda intima, unos XV anos espectaculares, un baby shower encantador o un evento corporativo de alto nivel, tenemos el servicio perfecto para ti.</p>
+    </Fragment>
+  </Hero>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <SectionHeader
+        badge="Nuestros Servicios"
+        title="Elige el Servicio Ideal para tu Evento"
+        subtitle="Cada servicio incluye diseño personalizado, materiales premium e instalación profesional en CDMX y zona metropolitana."
+      />
+      <div class="grid-4">
+        {SERVICIOS.map(s => (
+          <CategoryCard
+            title={s.nombre}
+            subtitle={s.descripcion}
+            href={`/servicios/${s.slug}/`}
+            image={s.imagen}
+            subcategories={s.paquetes.map(p => ({ name: p.nombre, href: `/servicios/${s.slug}/${p.slug}/` }))}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy y recibe tu presupuesto personalizado en minutos por WhatsApp.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+
+
+</Base>
+
+<style>
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid-4 { grid-template-columns: repeat(4, 1fr); } }
+</style>

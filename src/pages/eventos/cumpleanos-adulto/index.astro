@@ -1,0 +1,149 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CategoryCard from '../../../components/CategoryCard.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const serviciosRecomendados = SERVICIOS.filter(s => ['arcos-de-globos', 'backdrops-paneles', 'globos-helio', 'globos-gigantes', 'figuras-personalizadas', 'guirnaldas-de-globos'].includes(s.slug));
+
+const galeria = [
+  '/img/arcos-de-globos/arco-globos-rosa-dorado-terraza-evento-ciudad.webp',
+      '/img/arcos-de-globos/arco-globos-rosa-atardecer-terraza-fiesta.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-negro-dorado-gala-elegante.webp',
+      '/img/globos-gigantes/globo-gigante-confeti-dorado-sesion-fotos-terraza-ciudad.webp',
+      '/img/globos-gigantes/globo-gigante-confeti-multicolor-fiesta-tassel-celebracion.webp',
+      '/img/globos-helio/centro-mesa-globos-numero-cumpleaños-restaurante.webp',
+      '/img/guirnaldas-de-globos/arco-globos-elegante-azul-marino-dorado-blanco-evento-corporativo.webp',
+      '/img/globos-helio/arreglo-globos-helio-rose-gold-banquete-elegante.webp'
+];
+
+const faqItems = [
+  { pregunta: '¿Qué decoración se recomienda para cumpleaños de 30 años?', respuesta: 'Para los 30 recomendamos una paleta elegante como negro con dorado o rose gold con blanco. Un arco orgánico, número 30 gigante, globos gigantes con confeti dorado y bouquets de helio crean un ambiente chic perfecto para esta celebración.' },
+  { pregunta: '¿Pueden decorar un restaurante para un cumpleaños?', respuesta: 'Sí, decoramos restaurantes, terrazas, rooftops, bares y salones privados. Nos adaptamos a las restricciones del lugar y coordinamos con el personal para instalar sin interrumpir el servicio.' },
+  { pregunta: '¿Qué estilos manejan para cumpleaños de adultos?', respuesta: 'Manejamos estilos elegantes (negro y dorado), modernos (chrome y pastel), glamorosos (rose gold y blanco), tropicales (colores vibrantes), minimalistas (tonos neutros) y temáticos según la personalidad del festejado.' },
+  { pregunta: '¿Hacen números gigantes para edades como 40 o 50?', respuesta: 'Sí, creamos números gigantes para cualquier edad. Los números 30, 40, 50 y 60 en colores elegantes como dorado, plateado o negro son muy populares para cumpleaños de adultos.' },
+  { pregunta: '¿Cuánto cuesta la decoración para un cumpleaños de adulto?', respuesta: 'Desde $3,500 MXN con un arco o backdrop sencillo. Paquetes completos con arco, número gigante, globos de helio y globos gigantes van de $8,000 a $18,000 MXN según los elementos seleccionados.' },
+  { pregunta: '¿Pueden instalar en horarios nocturnos?', respuesta: 'Sí, nos adaptamos al horario que necesites. Para fiestas nocturnas podemos instalar durante la tarde del mismo día, coordinando con el venue para que todo esté listo al llegar los invitados.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Decoración con Globos para Cumpleaños Adulto',
+    description: 'Decoraciones sofisticadas con globos chrome, dorados y elegantes para cumpleaños de 18, 30, 40, 50 y más.',
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title="Decoración con Globos para Cumpleaños de Adultos en CDMX | DEGLOB"
+  description="Decoraciones sofisticadas con globos chrome, dorados y elegantes para cumpleaños de 18, 30, 40, 50 y más. Cotiza hoy. Instalación incluida en CDMX."
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Eventos', href: '/eventos/' },
+    { name: 'Cumpleaños Adulto', href: '/eventos/cumpleanos-adulto/' },
+  ]} />
+
+  <Hero
+    badge="Cumpleaños Adulto"
+    title="Decoración con Globos para Cumpleaños de Adultos en CDMX"
+    description="Decoraciones sofisticadas con globos chrome, dorados y elegantes para cumpleaños de 18, 30, 40, 50 y más. Cotiza hoy y recibe tu presupuesto en minutos."
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Servicios', href: '#servicios' }}
+  >
+    <Fragment slot="hero-seo">
+      <p>En <strong>DEGLOB</strong> creamos decoraciones con globos espectaculares para <strong>cumpleaños adulto</strong> en la Ciudad de México y zona metropolitana. Nuestro equipo de decoradores profesionales se encarga de todo: diseño, producción, transporte e instalación.</p>
+      <p>Desde arcos orgánicos y columnas decorativas hasta backdrops fotogénicos y centros de mesa, cada elemento se personaliza según tu visión y la temática de tu evento. Trabajamos con globos premium y materiales de primera para garantizar resultados impecables.</p>
+    </Fragment>
+  </Hero>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <SectionHeader
+        badge="Servicios recomendados"
+        title="Servicios de Globos para Cumpleaños Adulto"
+        subtitle="Estos son los servicios que más solicitan nuestros clientes para cumpleaños adulto. Cada uno incluye instalación profesional en CDMX."
+      />
+      <div class="grid-3">
+        {serviciosRecomendados.map((s) => (
+          <CategoryCard
+            title={s.nombre}
+            subtitle={s.descripcion}
+            href={`/servicios/${s.slug}/`}
+            image={s.imagen}
+            subcategories={s.paquetes.map((p) => ({
+              name: p.nombre,
+              href: `/servicios/${s.slug}/${p.slug}/`,
+            }))}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader
+        badge="Inspiración"
+        title="Galería de Cumpleaños Adulto"
+        subtitle="Estos son algunos de nuestros trabajos de decoración con globos para cumpleaños adulto en CDMX."
+      />
+      <div class="gallery-grid">
+        {galeria.map((img, i) => (
+          <div class="gallery-item">
+            <img src={img} alt={`Decoración con globos para cumpleaños adulto en CDMX — ejemplo ${i + 1}`} loading="lazy" decoding="async" width="640" height="480" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        
+        <h2>Decoración con Globos para Cumpleaños de Adultos: Estilo y Sofisticación</h2>
+        <p>Los cumpleaños de adultos merecen una decoración que combine diversión con elegancia. En DEGLOB creamos ambientes sofisticados con globos premium que elevan cualquier celebración — ya sea en un restaurante, una terraza con vista a la ciudad o un salón privado — al nivel de un evento profesionalmente producido.</p>
+        <h3>Edades Especiales: 18, 30, 40, 50 y Más</h3>
+        <p>Los cumpleaños milestone (18, 30, 40, 50, 60) merecen una celebración a la altura. Nuestros números gigantes de 1.2 metros en colores elegantes como dorado, negro o rose gold se convierten en la pieza más fotografiada de la noche. Combinados con un arco orgánico y globos gigantes con confeti, crean un escenario de impacto.</p>
+        <h3>Decoración para Restaurantes y Terrazas</h3>
+        <p>La tendencia de celebrar cumpleaños en restaurantes y terrazas ha crecido enormemente. Nos especializamos en adaptar nuestras decoraciones a espacios comerciales: arcos que enmarcan la mesa principal, guirnaldas que decoran barandales, bouquets de helio como centros de mesa y globos gigantes como pieza central.</p>
+        <h3>Paletas Elegantes para Adultos</h3>
+        <p>Las paletas más solicitadas son: negro con dorado para fiestas glamorosas, rose gold con blanco para celebraciones femeninas, azul marino con plateado para un look distinguido, y chrome con pastel para un estilo moderno. Cada paleta se adapta a la personalidad del festejado.</p>
+        <h3>Globos Gigantes y Helio</h3>
+        <p>Los globos gigantes de 3 pies con confeti dorado son el complemento perfecto para cumpleaños de adultos. Flotando con helio o sobre pedestales elegantes, agregan un toque de lujo que marca la diferencia. Los bouquets de helio en mesas y barras completan la decoración con elegancia.</p>
+        <p>Decoramos cumpleaños de adultos en restaurantes de Polanco, terrazas de la Condesa, rooftops de la Roma, bares de Coyoacán y salones privados en toda la CDMX y zona metropolitana.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tu decoración con globos para cumpleaños adulto y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid-3 { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+  .gallery-item { border-radius: var(--border-radius-lg); overflow: hidden; aspect-ratio: 4/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+</style>

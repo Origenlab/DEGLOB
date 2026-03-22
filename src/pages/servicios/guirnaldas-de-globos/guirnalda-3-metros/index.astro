@@ -1,0 +1,129 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import Hero from '../../../../components/Hero.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import CtaBar from '../../../../components/CtaBar.astro';
+import FaqSection from '../../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../../lib/config';
+import { faqSchema } from '../../../../lib/seo';
+
+const servicio = SERVICIOS.find(s => s.slug === 'guirnaldas-de-globos')!;
+const paquete = servicio.paquetes.find(p => p.slug === 'guirnalda-3-metros')!;
+const otrosPaquetes = servicio.paquetes.filter(p => p.slug !== 'guirnalda-3-metros');
+
+const faqItems = [
+  { pregunta: '¿Para qué se usa una guirnalda de 3 metros?', respuesta: 'Una guirnalda de 3 metros es perfecta para decorar mesas de dulces, marcos de puertas, cabeceras de mesa principal y como complemento de otras decoraciones. Su tamaño compacto la hace versátil para cualquier espacio.' },
+  { pregunta: '¿La guirnalda es orgánica o uniforme?', respuesta: 'Nuestras guirnaldas son de estilo orgánico, con globos de diferentes tamaños distribuidos de forma natural y asimétrica. Este estilo es tendencia actual y da un aspecto artístico y moderno a la decoración.' },
+  { pregunta: '¿Se puede colgar de cualquier superficie?', respuesta: 'Sí, nuestras guirnaldas se adaptan a paredes, barandales, mesas, marcos de puerta y estructuras. Usamos ganchos adhesivos removibles que no dañan las superficies del venue.' },
+  { pregunta: '¿Cuántos colores puedo elegir?', respuesta: 'En la guirnalda de 3 metros puedes elegir los colores que desees de nuestra gama de globos premium. Recomendamos 2-3 colores para un resultado armónico y elegante.' },
+  { pregunta: '¿La guirnalda incluye instalación?', respuesta: 'Sí, el precio de $2,500 MXN incluye la instalación profesional. Nuestro equipo se encarga de colgar y fijar la guirnalda en el punto exacto que elijas de tu venue en la CDMX.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${paquete.nombre} — ${servicio.nombre}`,
+    description: `Paquete ${paquete.nombre} de ${servicio.nombre.toLowerCase()}. ${servicio.descripcion}`,
+    brand: { '@type': 'Organization', name: 'DEGLOB' },
+    offers: {
+      '@type': 'Offer',
+      price: paquete.precio,
+      priceCurrency: 'MXN',
+      availability: 'https://schema.org/InStock',
+      url: `${SITE_URL}/servicios/${servicio.slug}/${paquete.slug}/`,
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '32',
+      bestRating: '5',
+    },
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title={`${paquete.nombre} — ${servicio.nombre} | DEGLOB`}
+  description={`${paquete.nombre} de ${servicio.nombre.toLowerCase()} desde $${paquete.precio.toLocaleString()} MXN. ${paquete.features.slice(0, 3).join(', ')}. Instalación incluida en CDMX.`}
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Servicios', href: '/servicios/' },
+    { name: servicio.nombre, href: `/servicios/${servicio.slug}/` },
+    { name: paquete.nombre, href: `/servicios/${servicio.slug}/${paquete.slug}/` },
+  ]} />
+
+  <Hero
+    badge={`${servicio.nombre} — ${paquete.nombre}`}
+    title={`${paquete.nombre}`}
+    description={`Paquete de ${servicio.nombre.toLowerCase()} que incluye ${paquete.features[0].toLowerCase()}. Instalación profesional incluida en toda la CDMX.`}
+    primaryCta={{ text: `Cotizar $${paquete.precio.toLocaleString()} + IVA`, href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver más paquetes', href: `/servicios/${servicio.slug}/` }}
+  >
+    <Fragment slot="hero-seo">
+      <p>La guirnalda de globos de 3 metros es el elemento decorativo más versátil para enmarcar mesas de dulces, puertas de entrada y cabeceras de mesa en eventos íntimos en la Ciudad de México. Con estilo orgánico y colores personalizados, agrega un toque profesional a cualquier rincón.</p>
+      <p>Cada guirnalda se construye con globos premium de diferentes tamaños distribuidos de forma orgánica sobre una tira flexible que se adapta a cualquier superficie. La instalación profesional garantiza que la guirnalda quede perfectamente ubicada y fijada de forma segura.</p>
+    </Fragment>
+  </Hero>
+
+  <CtaBar
+    items={otrosPaquetes.map(p => ({ label: p.nombre, href: `/servicios/${servicio.slug}/${p.slug}/` }))}
+    headline="Otros paquetes disponibles"
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="features-grid">
+        {paquete.features.map(f => (
+          <div class="feature-item feature-item--yes">
+            <span class="feature-item__icon">&#10003;</span>
+            <span>{f}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="price-highlight">
+        <span class="price-highlight__label">Precio desde</span>
+        <span class="price-highlight__amount">${paquete.precio.toLocaleString()} <small>MXN + IVA</small></span>
+        <span class="price-highlight__note">Instalación incluida en CDMX</span>
+        <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener" style="margin-top:1rem">Reservar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--bg">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        <h2>Guirnalda de Globos de 3 Metros: Versatilidad Decorativa</h2>
+        <p>La guirnalda de globos de 3 metros es una de las opciones decorativas más versátiles y solicitadas para eventos en la CDMX. Su tamaño compacto pero impactante la hace ideal para enmarcar mesas de dulces en baby showers, decorar la entrada de salones de cumpleaños y crear marcos fotogénicos en cualquier espacio.</p>
+        <p>El estilo orgánico que utilizamos es la tendencia más actual en decoración con globos: globos de 5, 11 y 16 pulgadas se distribuyen de forma asimétrica y natural sobre una tira flexible, creando una composición artística que fluye con gracia sobre cualquier superficie.</p>
+        <p>La guirnalda de 3 metros se instala en aproximadamente 30-45 minutos. Nuestro equipo utiliza ganchos adhesivos removibles que no dañan paredes ni superficies, adaptando la guirnalda a la arquitectura específica de tu venue en Polanco, Condesa, Roma, Del Valle o cualquier zona de la CDMX.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para reservar?</h2>
+      <p class="cta-dark__text">Cotiza tu {paquete.nombre.toLowerCase()} y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .features-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; max-width: 600px; margin: 0 auto var(--spacing-2xl); }
+  .feature-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; border-radius: var(--border-radius); font-size: var(--font-size-sm); }
+  .feature-item--yes { background: #f0fdf4; color: #166534; }
+  .feature-item__icon { font-weight: 700; flex-shrink: 0; }
+  .price-highlight { text-align: center; padding: var(--spacing-xl); background: var(--color-bg); border-radius: var(--border-radius-lg); max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .price-highlight__label { font-size: var(--font-size-sm); color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .price-highlight__amount { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); line-height: 1.2; }
+  .price-highlight__amount small { font-size: 1rem; font-weight: 500; color: var(--color-text-light); }
+  .price-highlight__note { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  @media (min-width: 640px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>

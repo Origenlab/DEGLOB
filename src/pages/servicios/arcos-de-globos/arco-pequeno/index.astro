@@ -1,0 +1,129 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import Hero from '../../../../components/Hero.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import CtaBar from '../../../../components/CtaBar.astro';
+import FaqSection from '../../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../../lib/config';
+import { faqSchema } from '../../../../lib/seo';
+
+const servicio = SERVICIOS.find(s => s.slug === 'arcos-de-globos')!;
+const paquete = servicio.paquetes.find(p => p.slug === 'arco-pequeno')!;
+const otrosPaquetes = servicio.paquetes.filter(p => p.slug !== 'arco-pequeno');
+
+const faqItems = [
+  { pregunta: '¿Para qué tipo de eventos es ideal el arco pequeño de 1.5 metros?', respuesta: 'El arco pequeño es perfecto para mesas de dulces, candy bars, baby showers íntimos, bautizos y cumpleaños infantiles. Su tamaño compacto lo hace ideal para enmarcar elementos decorativos sin saturar el espacio.' },
+  { pregunta: '¿Puedo personalizar los colores del arco pequeño?', respuesta: 'Sí, puedes elegir los colores que prefieras de nuestra amplia gama de globos latex premium. Te asesoramos para crear la combinación perfecta que armonice con la temática de tu evento.' },
+  { pregunta: '¿La instalación del arco pequeño está incluida en el precio?', respuesta: 'Sí, el precio de $2,500 MXN incluye la instalación profesional en cualquier punto de la CDMX. Nuestro equipo se encarga del armado, montaje y fijación segura del arco en tu venue.' },
+  { pregunta: '¿Cuánto tiempo antes del evento instalan el arco?', respuesta: 'Normalmente llegamos entre 1 y 2 horas antes del evento para instalar el arco pequeño. El armado toma aproximadamente 45 minutos a 1 hora.' },
+  { pregunta: '¿El arco pequeño incluye estructura o se sostiene solo?', respuesta: 'El arco incluye una estructura interna de PVC y base que lo mantiene firme y seguro durante todo tu evento. No necesitas preocuparte por que se caiga o se mueva.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${paquete.nombre} — ${servicio.nombre}`,
+    description: `Paquete ${paquete.nombre} de ${servicio.nombre.toLowerCase()}. ${servicio.descripcion}`,
+    brand: { '@type': 'Organization', name: 'DEGLOB' },
+    offers: {
+      '@type': 'Offer',
+      price: paquete.precio,
+      priceCurrency: 'MXN',
+      availability: 'https://schema.org/InStock',
+      url: `${SITE_URL}/servicios/${servicio.slug}/${paquete.slug}/`,
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '48',
+      bestRating: '5',
+    },
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title={`${paquete.nombre} — ${servicio.nombre} | DEGLOB`}
+  description={`${paquete.nombre} de ${servicio.nombre.toLowerCase()} desde $${paquete.precio.toLocaleString()} MXN. ${paquete.features.slice(0, 3).join(', ')}. Instalación incluida en CDMX.`}
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Servicios', href: '/servicios/' },
+    { name: servicio.nombre, href: `/servicios/${servicio.slug}/` },
+    { name: paquete.nombre, href: `/servicios/${servicio.slug}/${paquete.slug}/` },
+  ]} />
+
+  <Hero
+    badge={`${servicio.nombre} — ${paquete.nombre}`}
+    title={`${paquete.nombre}`}
+    description={`Paquete de ${servicio.nombre.toLowerCase()} que incluye ${paquete.features[0].toLowerCase()}. Instalación profesional incluida en toda la CDMX.`}
+    primaryCta={{ text: `Cotizar $${paquete.precio.toLocaleString()} + IVA`, href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver más paquetes', href: `/servicios/${servicio.slug}/` }}
+  >
+    <Fragment slot="hero-seo">
+      <p>El arco pequeño de 1.5 metros es la opción ideal para quienes buscan un toque decorativo elegante sin necesidad de un montaje de gran escala. Perfecto para enmarcar mesas de dulces, candy bars, rincones fotográficos y espacios íntimos en baby showers, bautizos y cumpleaños.</p>
+      <p>Nuestro equipo utiliza globos premium de latex en la paleta de colores que elijas, creando un arco orgánico o clásico que se adapta al estilo de tu celebración. La estructura incluida garantiza estabilidad durante todo el evento en cualquier salón o jardín de la Ciudad de México.</p>
+    </Fragment>
+  </Hero>
+
+  <CtaBar
+    items={otrosPaquetes.map(p => ({ label: p.nombre, href: `/servicios/${servicio.slug}/${p.slug}/` }))}
+    headline="Otros paquetes disponibles"
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="features-grid">
+        {paquete.features.map(f => (
+          <div class="feature-item feature-item--yes">
+            <span class="feature-item__icon">&#10003;</span>
+            <span>{f}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="price-highlight">
+        <span class="price-highlight__label">Precio desde</span>
+        <span class="price-highlight__amount">${paquete.precio.toLocaleString()} <small>MXN + IVA</small></span>
+        <span class="price-highlight__note">Instalación incluida en CDMX</span>
+        <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener" style="margin-top:1rem">Reservar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--bg">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        <h2>Arco Pequeño de Globos: Elegancia Compacta para tu Evento</h2>
+        <p>El arco de globos de 1.5 metros es la solución perfecta para quienes desean agregar un elemento decorativo impactante a espacios reducidos o para complementar decoraciones existentes. Este tamaño es el más solicitado para mesas de dulces en baby showers y candy bars en cumpleaños infantiles en la CDMX.</p>
+        <p>A pesar de su tamaño compacto, nuestro arco pequeño no escatima en calidad. Utilizamos globos premium de latex en una variedad de acabados que incluyen colores sólidos, tonos pastel y acabados mate. Cada globo se selecciona cuidadosamente para lograr la combinación ideal que refleje la temática de tu evento.</p>
+        <p>La instalación incluye una estructura interna de PVC resistente con base estabilizadora, lo que permite colocar el arco en cualquier superficie sin riesgo de que se desplace. Nuestro equipo de decoradores profesionales se encarga del montaje completo, asegurando que cada globo esté en su lugar para crear un acabado impecable.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para reservar?</h2>
+      <p class="cta-dark__text">Cotiza tu {paquete.nombre.toLowerCase()} y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .features-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; max-width: 600px; margin: 0 auto var(--spacing-2xl); }
+  .feature-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; border-radius: var(--border-radius); font-size: var(--font-size-sm); }
+  .feature-item--yes { background: #f0fdf4; color: #166534; }
+  .feature-item__icon { font-weight: 700; flex-shrink: 0; }
+  .price-highlight { text-align: center; padding: var(--spacing-xl); background: var(--color-bg); border-radius: var(--border-radius-lg); max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .price-highlight__label { font-size: var(--font-size-sm); color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .price-highlight__amount { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); line-height: 1.2; }
+  .price-highlight__amount small { font-size: 1rem; font-weight: 500; color: var(--color-text-light); }
+  .price-highlight__note { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  @media (min-width: 640px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>

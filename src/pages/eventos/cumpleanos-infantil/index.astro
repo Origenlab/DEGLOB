@@ -1,0 +1,149 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import CategoryCard from '../../../components/CategoryCard.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../lib/config';
+import { faqSchema } from '../../../lib/seo';
+
+const serviciosRecomendados = SERVICIOS.filter(s => ['figuras-personalizadas', 'arcos-de-globos', 'columnas-decorativas', 'globos-gigantes', 'centros-de-mesa', 'guirnaldas-de-globos'].includes(s.slug));
+
+const galeria = [
+  '/img/globos-para-cumpleanos/arco-globos-tema-superheroes-fiesta-ninos.webp',
+      '/img/globos-para-cumpleanos/decoracion-globos-dinosaurios-cumpleanos-infantil.webp',
+      '/img/figuras-de-globos/figura-dinosaurio-globos-verde-fiesta-infantil-ninos.webp',
+      '/img/figuras-de-globos/figura-spiderman-globos-superheroe-cumpleanos-nino.webp',
+      '/img/figuras-de-globos/figura-unicornio-arcoiris-globos-cumpleanos-exterior.webp',
+      '/img/figuras-de-globos/castillo-princesa-globos-rosa-blanco-fiesta-nina.webp',
+      '/img/globos-para-cumpleanos/arco-globos-videojuegos-mario-fiesta-gamer.webp',
+      '/img/globos-centro-de-mesas/centro-mesa-globos-dinosaurio-fiesta-nino-verde.webp'
+];
+
+const faqItems = [
+  { pregunta: '¿Qué personajes pueden hacer en globos para fiestas infantiles?', respuesta: 'Creamos prácticamente cualquier personaje: Mickey, Minnie, Spider-Man, princesas Disney, dinosaurios, unicornios, Cocomelon, Patrulla Canina, Mario Bros, Bluey, Peppa Pig y más. Trabajamos con la referencia que nos proporciones.' },
+  { pregunta: '¿Desde qué edad se recomienda decoración con globos?', respuesta: 'Desde el primer cumpleaños. Los globos son seguros cuando se usan como decoración (no como juguete) y los diseños para bebés de 1-2 años son los más tiernos y fotografiados.' },
+  { pregunta: '¿Cuánto cuesta decorar un cumpleaños infantil?', respuesta: 'Una decoración básica con arco y número gigante empieza desde $5,000 MXN. Un paquete temático completo con figuras, arco, columnas y centros de mesa va de $12,000 a $25,000 MXN.' },
+  { pregunta: '¿Pueden decorar salones de fiestas infantiles?', respuesta: 'Sí, tenemos experiencia decorando salones de fiestas infantiles, jardines, terrazas, casas particulares y parques. Nos adaptamos a cualquier espacio y coordinamos con el salón.' },
+  { pregunta: '¿El número de la edad se puede agregar?', respuesta: 'Sí, el número gigante de 1.2 metros en globos es uno de nuestros productos más solicitados para cumpleaños. Cada número se personaliza en los colores de la fiesta.' },
+  { pregunta: '¿Los globos son seguros para los niños?', respuesta: 'Nuestros globos son de materiales no tóxicos y libres de alérgenos. Se instalan como decoración a una altura segura. Recomendamos supervisión adulta si los niños interactúan directamente con los globos.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Decoración con Globos para Cumpleaños Infantil',
+    description: 'Figuras de personajes, arcos coloridos, números gigantes y temáticas mágicas con globos para la fiesta de tus hijos.',
+    provider: { '@type': 'Organization', name: 'DEGLOB', url: SITE_URL },
+    areaServed: 'Ciudad de México',
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title="Decoración con Globos para Cumpleaños Infantil en CDMX | DEGLOB"
+  description="Figuras de personajes, arcos coloridos, números gigantes y temáticas mágicas con globos para la fiesta de tus hijos. Cotiza hoy. Instalación incluida en CDMX."
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Eventos', href: '/eventos/' },
+    { name: 'Cumpleaños Infantil', href: '/eventos/cumpleanos-infantil/' },
+  ]} />
+
+  <Hero
+    badge="Cumpleaños Infantil"
+    title="Decoración con Globos para Cumpleaños Infantil en CDMX"
+    description="Figuras de personajes, arcos coloridos, números gigantes y temáticas mágicas con globos para la fiesta de tus hijos. Cotiza hoy y recibe tu presupuesto en minutos."
+    primaryCta={{ text: 'Cotizar Ahora', href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver Servicios', href: '#servicios' }}
+  >
+    <Fragment slot="hero-seo">
+      <p>En <strong>DEGLOB</strong> creamos decoraciones con globos espectaculares para <strong>cumpleaños infantil</strong> en la Ciudad de México y zona metropolitana. Nuestro equipo de decoradores profesionales se encarga de todo: diseño, producción, transporte e instalación.</p>
+      <p>Desde arcos orgánicos y columnas decorativas hasta backdrops fotogénicos y centros de mesa, cada elemento se personaliza según tu visión y la temática de tu evento. Trabajamos con globos premium y materiales de primera para garantizar resultados impecables.</p>
+    </Fragment>
+  </Hero>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <SectionHeader
+        badge="Servicios recomendados"
+        title="Servicios de Globos para Cumpleaños Infantil"
+        subtitle="Estos son los servicios que más solicitan nuestros clientes para cumpleaños infantil. Cada uno incluye instalación profesional en CDMX."
+      />
+      <div class="grid-3">
+        {serviciosRecomendados.map((s) => (
+          <CategoryCard
+            title={s.nombre}
+            subtitle={s.descripcion}
+            href={`/servicios/${s.slug}/`}
+            image={s.imagen}
+            subcategories={s.paquetes.map((p) => ({
+              name: p.nombre,
+              href: `/servicios/${s.slug}/${p.slug}/`,
+            }))}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader
+        badge="Inspiración"
+        title="Galería de Cumpleaños Infantil"
+        subtitle="Estos son algunos de nuestros trabajos de decoración con globos para cumpleaños infantil en CDMX."
+      />
+      <div class="gallery-grid">
+        {galeria.map((img, i) => (
+          <div class="gallery-item">
+            <img src={img} alt={`Decoración con globos para cumpleaños infantil en CDMX — ejemplo ${i + 1}`} loading="lazy" decoding="async" width="640" height="480" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        
+        <h2>Decoración con Globos para Cumpleaños Infantil: Magia en cada Rincón</h2>
+        <p>El cumpleaños de tu hijo o hija merece una decoración que lo transporte a su mundo favorito. En DEGLOB creamos ambientes temáticos espectaculares con globos que convierten cualquier espacio en un escenario de fantasía donde los niños son los protagonistas.</p>
+        <h3>Figuras de Personajes que Cobran Vida</h3>
+        <p>Nuestras figuras de personajes de más de 1.5 metros son el centro de atención de toda fiesta infantil. Desde el clásico Mickey Mouse hasta los modernos personajes de Bluey y Cocomelon, cada figura se construye artesanalmente con globos de colores precisos y detalles en foil que hacen que los personajes cobren vida.</p>
+        <h3>Arcos Temáticos y Números Gigantes</h3>
+        <p>Un arco de globos en los colores de la temática enmarca la mesa de dulces o la entrada del salón, mientras que el número gigante de la edad del festejado (el más fotografiado de toda la fiesta) se coloca junto al pastel o como pieza central del área de regalos.</p>
+        <h3>Temáticas más Populares</h3>
+        <p>Las fiestas temáticas más solicitadas incluyen: dinosaurios (verde y naranja), superhéroes (rojo y azul), princesas (rosa y dorado), unicornios (arcoíris pastel), espacio y astronautas (azul oscuro con estrellas), Mario Bros (rojo, azul y amarillo), y Cocomelon (colores primarios).</p>
+        <h3>Decoración Completa para Salones de Fiestas</h3>
+        <p>Para fiestas en salones, ofrecemos paquetes completos que cubren entrada con arco, columnas en la pista, backdrop temático, centros de mesa con figuras, número gigante y guirnaldas decorativas. Todo coordinado en la misma paleta de colores y temática para un resultado profesional e impactante.</p>
+        <p>Decoramos cumpleaños infantiles en todos los salones de fiestas, jardines y casas de CDMX. Desde fiestas íntimas en casa hasta grandes celebraciones en salones de Satélite, Naucalpan, Tlalnepantla, Coyoacán y toda la zona metropolitana.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para decorar tu evento?</h2>
+      <p class="cta-dark__text">Cotiza hoy tu decoración con globos para cumpleaños infantil y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid-3 { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+  .gallery-item { border-radius: var(--border-radius-lg); overflow: hidden; aspect-ratio: 4/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+</style>

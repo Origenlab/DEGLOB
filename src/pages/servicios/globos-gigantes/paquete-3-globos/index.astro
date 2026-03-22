@@ -1,0 +1,129 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import Hero from '../../../../components/Hero.astro';
+import Breadcrumb from '../../../../components/Breadcrumb.astro';
+import CtaBar from '../../../../components/CtaBar.astro';
+import FaqSection from '../../../../components/FaqSection.astro';
+import { SERVICIOS, WHATSAPP_URL_MSG, SITE_URL } from '../../../../lib/config';
+import { faqSchema } from '../../../../lib/seo';
+
+const servicio = SERVICIOS.find(s => s.slug === 'globos-gigantes')!;
+const paquete = servicio.paquetes.find(p => p.slug === 'paquete-3-globos')!;
+const otrosPaquetes = servicio.paquetes.filter(p => p.slug !== 'paquete-3-globos');
+
+const faqItems = [
+  { pregunta: '¿Los 3 globos gigantes son del mismo color?', respuesta: 'Puedes elegir los 3 del mismo color o colores coordinados diferentes. Te asesoramos para crear la combinación que mejor vaya con la decoración de tu evento.' },
+  { pregunta: '¿El confeti se puede personalizar?', respuesta: 'Sí, puedes elegir el color y forma del confeti: dorado, plateado, rose gold, multicolor, corazones, estrellas o una mezcla personalizada para cada globo.' },
+  { pregunta: '¿Los globos vienen flotando o con base?', respuesta: 'Puedes elegir entre globos flotantes (con helio) o globos sobre pedestales decorativos. Ambas opciones se ven espectaculares y se adaptan a diferentes estilos de evento.' },
+  { pregunta: '¿Cuánto duran los globos gigantes con helio?', respuesta: 'Los globos gigantes de 3 pies con helio tienen una duración de 24 a 48 horas, significativamente más que los globos estándar gracias a su mayor volumen de helio.' },
+  { pregunta: '¿Dónde se instalan normalmente los 3 globos?', respuesta: 'Los usos más populares son: uno en la entrada y dos enmarcando la mesa principal, los tres juntos como centro de escenario, o distribuidos en tres áreas diferentes del evento.' },
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${paquete.nombre} — ${servicio.nombre}`,
+    description: `Paquete ${paquete.nombre} de ${servicio.nombre.toLowerCase()}. ${servicio.descripcion}`,
+    brand: { '@type': 'Organization', name: 'DEGLOB' },
+    offers: {
+      '@type': 'Offer',
+      price: paquete.precio,
+      priceCurrency: 'MXN',
+      availability: 'https://schema.org/InStock',
+      url: `${SITE_URL}/servicios/${servicio.slug}/${paquete.slug}/`,
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '39',
+      bestRating: '5',
+    },
+  },
+  faqSchema(faqItems),
+];
+---
+
+<Base
+  title={`${paquete.nombre} — ${servicio.nombre} | DEGLOB`}
+  description={`${paquete.nombre} de ${servicio.nombre.toLowerCase()} desde $${paquete.precio.toLocaleString()} MXN. ${paquete.features.slice(0, 3).join(', ')}. Instalación incluida en CDMX.`}
+  structuredData={structuredData}
+>
+  <Breadcrumb items={[
+    { name: 'Servicios', href: '/servicios/' },
+    { name: servicio.nombre, href: `/servicios/${servicio.slug}/` },
+    { name: paquete.nombre, href: `/servicios/${servicio.slug}/${paquete.slug}/` },
+  ]} />
+
+  <Hero
+    badge={`${servicio.nombre} — ${paquete.nombre}`}
+    title={`${paquete.nombre}`}
+    description={`Paquete de ${servicio.nombre.toLowerCase()} que incluye ${paquete.features[0].toLowerCase()}. Instalación profesional incluida en toda la CDMX.`}
+    primaryCta={{ text: `Cotizar $${paquete.precio.toLocaleString()} + IVA`, href: WHATSAPP_URL_MSG }}
+    secondaryCta={{ text: 'Ver más paquetes', href: `/servicios/${servicio.slug}/` }}
+  >
+    <Fragment slot="hero-seo">
+      <p>El paquete de 3 globos gigantes de 3 pies crea un trío espectacular con confeti personalizado, borlas y cintas coordinadas. Perfectos para enmarcar mesas principales, decorar escenarios y crear puntos fotogénicos en eventos en CDMX.</p>
+      <p>Tres globos gigantes juntos multiplican el impacto visual y crean composiciones fotogénicas que tus invitados compartirán en redes sociales. Colores coordinados, confeti personalizado e instalación profesional incluida en toda la Ciudad de México.</p>
+    </Fragment>
+  </Hero>
+
+  <CtaBar
+    items={otrosPaquetes.map(p => ({ label: p.nombre, href: `/servicios/${servicio.slug}/${p.slug}/` }))}
+    headline="Otros paquetes disponibles"
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="features-grid">
+        {paquete.features.map(f => (
+          <div class="feature-item feature-item--yes">
+            <span class="feature-item__icon">&#10003;</span>
+            <span>{f}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="price-highlight">
+        <span class="price-highlight__label">Precio desde</span>
+        <span class="price-highlight__amount">${paquete.precio.toLocaleString()} <small>MXN + IVA</small></span>
+        <span class="price-highlight__note">Instalación incluida en CDMX</span>
+        <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener" style="margin-top:1rem">Reservar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--bg">
+    <div class="container">
+      <div class="prose" style="max-width:800px">
+        <h2>Trío de Globos Gigantes: Triple Impacto para tu Evento</h2>
+        <p>Tres globos gigantes de 3 pies crean una composición visual que domina cualquier espacio. Ya sea flotando sobre la mesa principal, enmarcando un escenario o distribuidos en puntos estratégicos del salón, estos globos de 90cm de diámetro son imposibles de ignorar.</p>
+        <p>Cada globo se personaliza con confeti metálico en el color de tu elección, borlas artesanales de papel de seda y cintas premium coordinadas. La combinación de colores entre los tres globos se planifica para complementar la paleta general de tu evento.</p>
+        <p>El paquete de 3 globos gigantes es el más solicitado para cumpleaños de adultos en restaurantes, baby showers en jardines y como complemento de decoraciones más elaboradas en salones de fiesta de CDMX. Incluye instalación profesional y transporte especial.</p>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqItems} />
+
+  <section class="cta-dark">
+    <div class="container">
+      <h2 class="cta-dark__title">¿Listo para reservar?</h2>
+      <p class="cta-dark__text">Cotiza tu {paquete.nombre.toLowerCase()} y haz tu evento inolvidable.</p>
+      <a href={WHATSAPP_URL_MSG} class="btn btn--accent" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .features-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; max-width: 600px; margin: 0 auto var(--spacing-2xl); }
+  .feature-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; border-radius: var(--border-radius); font-size: var(--font-size-sm); }
+  .feature-item--yes { background: #f0fdf4; color: #166534; }
+  .feature-item__icon { font-weight: 700; flex-shrink: 0; }
+  .price-highlight { text-align: center; padding: var(--spacing-xl); background: var(--color-bg); border-radius: var(--border-radius-lg); max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .price-highlight__label { font-size: var(--font-size-sm); color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .price-highlight__amount { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); line-height: 1.2; }
+  .price-highlight__amount small { font-size: 1rem; font-weight: 500; color: var(--color-text-light); }
+  .price-highlight__note { font-size: var(--font-size-sm); color: var(--color-text-light); }
+  @media (min-width: 640px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
