@@ -54,7 +54,7 @@ User-agent: WhatsApp
 Allow: /
 
 # Sitemap
-Sitemap: https://fantasyglobos.com.mx/sitemap.xml
+Sitemap: https://fantasyglobos.com.mx/sitemap-index.xml
 
 # Host preferido
 Host: https://fantasyglobos.com.mx
